@@ -10,6 +10,8 @@
   function results() { try { return JSON.parse(localStorage.getItem(RESULTS_KEY) || "{}"); } catch (e) { return {}; } }
 
   var nameEl = document.getElementById("pName"), emailEl = document.getElementById("pEmail");
+  var statusEl = document.getElementById("pStatus");
+  function status(msg) { if (statusEl) statusEl.textContent = msg; }
   nameEl.value = get(NAME_KEY); emailEl.value = get(EMAIL_KEY);
   nameEl.addEventListener("input", function () { set(NAME_KEY, nameEl.value.trim()); });
   emailEl.addEventListener("input", function () { set(EMAIL_KEY, emailEl.value.trim()); });
@@ -70,24 +72,26 @@
   }
 
   document.getElementById("pDownloadBtn").addEventListener("click", function () {
-    if (!ids.length) { alert("No completed activities to download yet."); return; }
-    if (typeof jspdf === "undefined") { alert("Couldn't load the PDF tool — check your internet connection and try again."); return; }
+    if (!ids.length) { status("No completed activities to download yet — check an activity first."); return; }
+    if (typeof jspdf === "undefined") { status("Couldn't load the PDF tool — check your internet connection and try again."); return; }
     buildPdf().save("iep099-progress-" + (nameEl.value.trim() || "student").replace(/\s+/g, "-").toLowerCase() + ".pdf");
+    status("PDF downloaded.");
   });
 
   document.getElementById("pEmailBtn").addEventListener("click", function () {
-    if (!ids.length) { alert("No completed activities to email yet."); return; }
+    if (!ids.length) { status("No completed activities to email yet — check an activity first."); return; }
     var email = emailEl.value.trim();
-    if (!email) { alert("Enter your instructor's email address first."); emailEl.focus(); return; }
+    if (!email) { status("Enter your instructor's email address above first."); emailEl.focus(); return; }
     var name = nameEl.value.trim();
-    if (!name) { alert("Enter your name first, so your instructor knows whose progress this is."); nameEl.focus(); return; }
+    if (!name) { status("Enter your name above first, so your instructor knows whose progress this is."); nameEl.focus(); return; }
     var subject = "IEP099 Grammar Practice — Progress — " + name;
     var body = buildReport();
     if (body.length > 1500) {
-      document.getElementById("pDownloadBtn").click();
-      alert("Your progress report is long, so it's been downloaded as a PDF instead — attach it to the email that's about to open.");
+      buildPdf().save("iep099-progress-" + name.replace(/\s+/g, "-").toLowerCase() + ".pdf");
+      status("Your report is long, so a PDF just downloaded — attach it in the email that's about to open.");
       location.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent("Hi, please see my attached IEP099 progress report (" + ids.length + " activities). Don't forget to attach the PDF you just downloaded.");
     } else {
+      status("Opening your email app now — if nothing happens, this device may not have one set up. Use Download instead and attach the PDF yourself.");
       location.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     }
   });

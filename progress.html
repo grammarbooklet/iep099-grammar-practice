@@ -17,16 +17,16 @@
     <p class="eyebrow">IEP099 &middot; Grammar Booklet, Second Edition</p>
     <h1>My progress</h1>
     <p class="sub">Every activity you've checked on this device.</p>
-    <p class="note" style="margin-top:2px">This is saved only in this browser, on this device &mdash; nothing is sent anywhere unless you choose to email or download it below.</p>
+    <p class="note" style="margin-top:2px">This is saved only in this browser, on this device &mdash; nothing is sent anywhere unless you download it below.</p>
     <div class="rule"></div>
   </div>
   <div class="progress-settings">
     <label>Your name<input type="text" id="pName" placeholder="e.g. Fatima Al-Balushi" autocomplete="name"></label>
-    <label>Instructor's email<input type="email" id="pEmail" placeholder="instructor@example.com" autocomplete="email"></label>
+    <label>Instructor's name<input type="text" id="pInstructor" placeholder="e.g. Dr. Smith"></label>
+    <label>Section number<input type="text" id="pSection" placeholder="e.g. 03"></label>
   </div>
   <div id="progressList" class="progress-list"></div>
   <div class="ex-actions" style="margin-top:10px">
-    <button class="btn teal" id="pEmailBtn" type="button">Email summary to instructor</button>
     <button class="btn ghost" id="pDownloadBtn" type="button">Download full report (PDF)</button>
     <button class="btn ghost" id="pOneDriveBtn" type="button" hidden>Save to OneDrive</button>
   </div>
@@ -34,8 +34,6 @@
   <p class="credit">IEP099 Grammar Booklet, Second Edition &middot; Dr. Chadi Chahdi</p>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="emailjs-config.js"></script>
 <script src="progress.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@2/lib/msal-browser.min.js"></script>
 <script src="msal-config.js"></script>

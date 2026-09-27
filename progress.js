@@ -1,20 +1,22 @@
 // IEP099 grammar practice — "My Progress" page. Reads results that practice.js already saved to this
-// browser's own localStorage (nothing is ever sent anywhere on its own) and lets a student download a
-// report or email a summary to their instructor via a mailto: link, since a static site can't send mail.
+// browser's own localStorage (nothing is ever sent anywhere) and lets a student download a PDF report
+// carrying their name, instructor's name, and section number.
 (function () {
   "use strict";
-  var NAME_KEY = "iep099-student-name", EMAIL_KEY = "iep099-instructor-email", RESULTS_KEY = "iep099-results";
+  var NAME_KEY = "iep099-student-name", INSTRUCTOR_KEY = "iep099-instructor-name", SECTION_KEY = "iep099-section", RESULTS_KEY = "iep099-results";
   function get(k) { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } }
   function set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
   function results() { try { return JSON.parse(localStorage.getItem(RESULTS_KEY) || "{}"); } catch (e) { return {}; } }
 
-  var nameEl = document.getElementById("pName"), emailEl = document.getElementById("pEmail");
+  var nameEl = document.getElementById("pName"), instructorEl = document.getElementById("pInstructor"), sectionEl = document.getElementById("pSection");
   var statusEl = document.getElementById("pStatus");
   function status(msg) { if (statusEl) statusEl.textContent = msg; }
-  nameEl.value = get(NAME_KEY); emailEl.value = get(EMAIL_KEY);
+
+  nameEl.value = get(NAME_KEY); instructorEl.value = get(INSTRUCTOR_KEY); sectionEl.value = get(SECTION_KEY);
   nameEl.addEventListener("input", function () { set(NAME_KEY, nameEl.value.trim()); });
-  emailEl.addEventListener("input", function () { set(EMAIL_KEY, emailEl.value.trim()); });
+  instructorEl.addEventListener("input", function () { set(INSTRUCTOR_KEY, instructorEl.value.trim()); });
+  sectionEl.addEventListener("input", function () { set(SECTION_KEY, sectionEl.value.trim()); });
 
   var all = results();
   var ids = Object.keys(all).sort(function (a, b) { return new Date(all[b].date) - new Date(all[a].date); });
@@ -33,21 +35,11 @@
     list.innerHTML = '<div class="progress-row progress-total"><span class="pr-title"><b>Total</b><span>' + ids.length + " activit" + (ids.length === 1 ? "y" : "ies") + ' checked</span></span><span class="pr-score">' + totalCorrect + " / " + totalItems + "</span></div>" + rows.join("");
   }
 
-  // Plain-text version — used for the email body, which can't carry a PDF attachment on its own.
-  function buildReport() {
-    var name = nameEl.value.trim() || "(name not entered)";
-    var lines = ["IEP099 Grammar Practice — Progress report", "Student: " + name, "Date: " + new Date().toLocaleString(), ""];
-    ids.forEach(function (id) {
-      var r = all[id];
-      lines.push("Unit " + (r.unit != null ? r.unit : "?") + (r.topicTitle ? " · " + r.topicTitle : "") + " — " + (r.activityTitle || id) + ": " + r.correct + "/" + r.total);
-    });
-    lines.push("", "Total: " + totalCorrect + " / " + totalItems);
-    return lines.join("\n");
-  }
-
-  // PDF version — what "Download full report" actually saves, built with jsPDF (loaded above this script).
+  // Builds the PDF report with jsPDF (loaded above this script).
   function buildPdf() {
     var name = nameEl.value.trim() || "(name not entered)";
+    var instructor = instructorEl.value.trim();
+    var section = sectionEl.value.trim();
     var doc = new jspdf.jsPDF();
     var pageW = doc.internal.pageSize.getWidth();
     var marginL = 16, marginR = 16, maxW = pageW - marginL - marginR, y = 20;
@@ -56,6 +48,8 @@
     doc.setFontSize(12.5); doc.text("Progress Report", marginL, y); y += 10;
     doc.setFont("helvetica", "normal"); doc.setFontSize(11);
     doc.text("Student: " + name, marginL, y); y += 6;
+    if (instructor) { doc.text("Instructor: " + instructor, marginL, y); y += 6; }
+    if (section) { doc.text("Section: " + section, marginL, y); y += 6; }
     doc.text("Date: " + new Date().toLocaleString(), marginL, y); y += 6;
     doc.text("Total: " + totalCorrect + " / " + totalItems + " correct", marginL, y); y += 8;
     doc.setDrawColor(190); doc.line(marginL, y, pageW - marginR, y); y += 8;
@@ -76,46 +70,5 @@
     if (typeof jspdf === "undefined") { status("Couldn't load the PDF tool — check your internet connection and try again."); return; }
     buildPdf().save("iep099-progress-" + (nameEl.value.trim() || "student").replace(/\s+/g, "-").toLowerCase() + ".pdf");
     status("PDF downloaded.");
-  });
-
-  // True only once emailjs-config.js has real values — see that file for the one-time setup.
-  function emailjsReady() {
-    return typeof emailjs !== "undefined" && window.EMAILJS_PUBLIC_KEY && window.EMAILJS_SERVICE_ID && window.EMAILJS_TEMPLATE_ID
-      && window.EMAILJS_PUBLIC_KEY.indexOf("REPLACE_") !== 0 && window.EMAILJS_SERVICE_ID.indexOf("REPLACE_") !== 0 && window.EMAILJS_TEMPLATE_ID.indexOf("REPLACE_") !== 0;
-  }
-
-  document.getElementById("pEmailBtn").addEventListener("click", function () {
-    if (!ids.length) { status("No completed activities to email yet — check an activity first."); return; }
-    var email = emailEl.value.trim();
-    if (!email) { status("Enter your instructor's email address above first."); emailEl.focus(); return; }
-    var name = nameEl.value.trim();
-    if (!name) { status("Enter your name above first, so your instructor knows whose progress this is."); nameEl.focus(); return; }
-    var subject = "IEP099 Grammar Practice — Progress — " + name;
-    var body = buildReport();
-    var btn = document.getElementById("pEmailBtn");
-
-    if (emailjsReady()) {
-      var idleLabel = btn.textContent;
-      btn.disabled = true; btn.textContent = "Sending…"; status("Sending…");
-      emailjs.init(window.EMAILJS_PUBLIC_KEY);
-      emailjs.send(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, { to_email: email, subject: subject, message: body, student_name: name })
-        .then(function () { status("Email sent to " + email + "."); btn.textContent = idleLabel; btn.disabled = false; })
-        .catch(function (err) {
-          console.error(err);
-          status("Couldn't send the email (" + (err && (err.text || err.message) || "unknown error") + "). Try Download instead.");
-          btn.textContent = idleLabel; btn.disabled = false;
-        });
-      return;
-    }
-
-    // Not configured yet — fall back to opening the student's own mail app instead.
-    if (body.length > 1500) {
-      buildPdf().save("iep099-progress-" + name.replace(/\s+/g, "-").toLowerCase() + ".pdf");
-      status("Your report is long, so a PDF just downloaded — attach it in the email that's about to open.");
-      location.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent("Hi, please see my attached IEP099 progress report (" + ids.length + " activities). Don't forget to attach the PDF you just downloaded.");
-    } else {
-      status("Opening your email app now — if nothing happens, this device may not have one set up. Use Download instead and attach the PDF yourself.");
-      location.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    }
   });
 })();

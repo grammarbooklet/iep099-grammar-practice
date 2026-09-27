@@ -39,6 +39,20 @@
   var uid = 0;
   function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
 
+  // ---------- shared, per-device settings (student name / instructor email) and saved results ----------
+  // Nothing here ever leaves the browser on its own — it's read only when the student clicks
+  // "Email my answers" (which opens their own mail app) or visits the My Progress page.
+  var NAME_KEY = "iep099-student-name", EMAIL_KEY = "iep099-instructor-email", RESULTS_KEY = "iep099-results";
+  function getSetting(k) { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } }
+  function setSetting(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function saveResult(id, entry) {
+    try {
+      var all = JSON.parse(localStorage.getItem(RESULTS_KEY) || "{}");
+      all[id] = entry;
+      localStorage.setItem(RESULTS_KEY, JSON.stringify(all));
+    } catch (e) {}
+  }
+
   // ---------- renderers per item kind (each returns {node, check(), reset()}) ----------
   function renderInline(text) {
     var body = el("span");
@@ -134,7 +148,7 @@
   }
 
   // ---------- build one exercise block from a captured {title, spec} ----------
-  function buildExercise(container, ex, rules, onScore) {
+  function buildExercise(container, ex, rules, meta, onScore) {
     var spec = ex.spec;
     container.innerHTML = "";
     container.appendChild(el("span", "ex-tag", esc(spec.tag || ex.title)));
@@ -174,8 +188,9 @@
     var actions = el("div", "ex-actions");
     var checkBtn = el("button", "btn", "Check answers"); checkBtn.type = "button";
     var againBtn = el("button", "btn ghost", "Try again"); againBtn.type = "button";
+    var emailBtn = el("button", "btn ghost", "Email my answers"); emailBtn.type = "button";
     var score = el("span", "ex-score", "");
-    actions.appendChild(checkBtn); actions.appendChild(againBtn); actions.appendChild(score);
+    actions.appendChild(checkBtn); actions.appendChild(againBtn); actions.appendChild(emailBtn); actions.appendChild(score);
     container.appendChild(actions);
 
     var result = { total: checks.length, correct: 0, checked: false };
@@ -190,6 +205,7 @@
       score.textContent = right + " / " + checks.length + " correct";
       score.classList.add("done");
       hint.hidden = right === checks.length || !rules || !rules.length;
+      if (meta) saveResult(meta.id, { unit: meta.unit, unitTitle: meta.unitTitle, topicTitle: meta.topicTitle, activityTitle: meta.activityTitle, correct: right, total: checks.length, date: new Date().toISOString() });
       onScore && onScore();
     });
     againBtn.addEventListener("click", function () {
@@ -197,6 +213,27 @@
       score.textContent = ""; score.classList.remove("done"); result.checked = false; result.correct = 0;
       hint.hidden = true;
       onScore && onScore();
+    });
+    emailBtn.addEventListener("click", function () {
+      if (!result.checked) { alert("Check your answers first — then you can email them to your instructor."); return; }
+      var name = getSetting(NAME_KEY);
+      if (!name) { name = (prompt("Your name, so your instructor knows whose answers these are:") || "").trim(); if (name) setSetting(NAME_KEY, name); }
+      if (!name) return;
+      var email = getSetting(EMAIL_KEY);
+      if (!email) { email = (prompt("Your instructor's email address:") || "").trim(); if (email) setSetting(EMAIL_KEY, email); }
+      if (!email) return;
+      var lines = ["Student: " + name];
+      if (meta) lines.push("Unit " + meta.unit + (meta.unitTitle ? " · " + meta.unitTitle : "") + (meta.topicTitle ? " · " + meta.topicTitle : ""));
+      lines.push("Activity: " + (meta && meta.activityTitle || ex.title));
+      lines.push("Score: " + result.correct + " / " + result.total, "");
+      checks.forEach(function (c, i) {
+        var fields = Array.prototype.slice.call(c.el.querySelectorAll("input,select"));
+        var ans = fields.map(function (f) { return f.value; }).filter(Boolean).join(" / ");
+        var mark = c.el.classList.contains("correct") ? "correct" : "incorrect";
+        lines.push((i + 1) + ". " + (ans || "(no answer)") + " — " + mark);
+      });
+      var subject = "IEP099 – " + (meta ? "Unit " + meta.unit + " – " : "") + (meta && meta.activityTitle || ex.title) + " – " + name;
+      location.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
     });
     return result;
   }
@@ -214,7 +251,8 @@
     if (!data || !data.exercise) return;
     var box = document.getElementById("exercise");
     if (!box) return;
-    var result = buildExercise(box, data.exercise, data.rules, updateBar);
+    var meta = data.meta ? Object.assign({ id: data.id }, data.meta) : null;
+    var result = buildExercise(box, data.exercise, data.rules, meta, updateBar);
 
     function updateBar() {
       var bar = document.getElementById("barScore");

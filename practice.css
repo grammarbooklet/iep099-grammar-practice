@@ -48,6 +48,8 @@ a{color:var(--teal-d)}
 .bar-spacer{flex:1;min-width:0}
 .bar-score{font:700 13px/1 var(--sans);color:#fff;background:rgba(255,255,255,.14);padding:6px 10px;border-radius:20px;white-space:nowrap;flex:none}
 .bar-score.zero{opacity:.55}
+.bar-link{color:#C9CEE6;text-decoration:none;font:600 13px/1 var(--sans);white-space:nowrap;flex:none}
+.bar-link:hover{color:#fff}
 
 /* ---------- hero ---------- */
 .hero{padding:36px 0 22px}
@@ -137,7 +139,24 @@ button.btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 .topnav a:hover b{color:var(--teal-d)}
 
 footer.note{margin-top:30px;padding-top:18px;border-top:1px solid var(--hair);font:400 13px/1.6 var(--sans);color:var(--mute)}
+p.note{font:400 13.5px/1.5 var(--sans);color:var(--mute)}
 p.credit{margin:18px 0 0;font:600 12px/1.5 var(--sans);color:var(--mute);text-align:center}
+
+/* ---------- my progress page ---------- */
+.progress-settings{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0 6px}
+.progress-settings label{flex:1;min-width:200px;font:700 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.progress-settings input{display:block;width:100%;margin-top:7px;font:400 15px/1.4 var(--sans);color:var(--ink);background:var(--tint);border:1.5px solid var(--rule);border-radius:8px;padding:10px 12px}
+.progress-settings input:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
+.progress-list{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:6px 18px;margin-top:20px}
+.progress-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--hair)}
+.progress-row:first-child{border-top:none}
+.progress-row.progress-total{font-weight:700}
+.progress-row.progress-total .pr-title b{color:var(--ink)}
+.pr-title{display:flex;flex-direction:column;min-width:0}
+.pr-title b{font:600 15px/1.3 var(--sans);color:var(--ink)}
+.pr-title span{font:400 12.5px/1.3 var(--sans);color:var(--mute);margin-top:2px}
+.pr-score{flex:none;font:700 13.5px/1 var(--sans);color:var(--mute);background:var(--tint);padding:6px 10px;border-radius:20px}
+.pr-score.full{color:var(--teal-d);background:var(--teal-t)}
 
 /* ---------- table of contents ---------- */
 .toc-strand{margin:44px 0 10px}
@@ -180,4 +199,7 @@ p.credit{margin:18px 0 0;font:600 12px/1.5 var(--sans);color:var(--mute);text-al
   .cards{gap:10px}
   .hero-stats{gap:16px}
   .toc-topic{padding:12px 8px}
+  .progress-settings{gap:10px}
+  .progress-settings input{padding:11px 12px;font-size:16px}
+  .progress-list{padding:4px 14px}
 }

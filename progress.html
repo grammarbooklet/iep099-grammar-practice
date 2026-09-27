@@ -1,0 +1,34 @@
+<meta charset="utf-8">
+<title>My Progress — IEP099 Grammar Practice</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="practice.css">
+<div class="bar">
+  <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>All units</a>
+  <span class="bar-sub">My Progress</span>
+  <span class="bar-spacer"></span>
+  <a class="bar-link" href="progress.html">My progress</a>
+  <span class="bar-score zero" id="barScore">Not checked yet</span>
+</div>
+<div class="wrap">
+  <div class="hero">
+    <p class="eyebrow">IEP099 &middot; Grammar Booklet, Second Edition</p>
+    <h1>My progress</h1>
+    <p class="sub">Every activity you've checked on this device.</p>
+    <p class="note" style="margin-top:2px">This is saved only in this browser, on this device &mdash; nothing is sent anywhere unless you choose to email or download it below.</p>
+    <div class="rule"></div>
+  </div>
+  <div class="progress-settings">
+    <label>Your name<input type="text" id="pName" placeholder="e.g. Fatima Al-Balushi" autocomplete="name"></label>
+    <label>Instructor's email<input type="email" id="pEmail" placeholder="instructor@example.com" autocomplete="email"></label>
+  </div>
+  <div id="progressList" class="progress-list"></div>
+  <div class="ex-actions" style="margin-top:10px">
+    <button class="btn" id="pEmailBtn" type="button">Email summary to instructor</button>
+    <button class="btn ghost" id="pDownloadBtn" type="button">Download full report (.txt)</button>
+  </div>
+  <p class="credit">IEP099 Grammar Booklet, Second Edition &middot; Dr. Chadi Chahdi</p>
+</div>
+<script src="progress.js"></script>

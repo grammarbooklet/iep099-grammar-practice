@@ -127,6 +127,8 @@ button.btn{font:700 13.5px/1 var(--sans);color:#fff;background:var(--navy);borde
 button.btn:hover{background:var(--navy-2)}
 button.btn.ghost{background:transparent;color:var(--ink-2);border:1.5px solid var(--rule)}
 button.btn.ghost:hover{background:var(--tint)}
+button.btn.teal{background:var(--teal-d)}
+button.btn.teal:hover{background:var(--teal)}
 button.btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 .ex-score{font:700 13.5px/1 var(--sans);color:var(--mute)}
 .ex-score.done{color:var(--teal-d)}

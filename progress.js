@@ -78,6 +78,12 @@
     status("PDF downloaded.");
   });
 
+  // True only once emailjs-config.js has real values — see that file for the one-time setup.
+  function emailjsReady() {
+    return typeof emailjs !== "undefined" && window.EMAILJS_PUBLIC_KEY && window.EMAILJS_SERVICE_ID && window.EMAILJS_TEMPLATE_ID
+      && window.EMAILJS_PUBLIC_KEY.indexOf("REPLACE_") !== 0 && window.EMAILJS_SERVICE_ID.indexOf("REPLACE_") !== 0 && window.EMAILJS_TEMPLATE_ID.indexOf("REPLACE_") !== 0;
+  }
+
   document.getElementById("pEmailBtn").addEventListener("click", function () {
     if (!ids.length) { status("No completed activities to email yet — check an activity first."); return; }
     var email = emailEl.value.trim();
@@ -86,6 +92,23 @@
     if (!name) { status("Enter your name above first, so your instructor knows whose progress this is."); nameEl.focus(); return; }
     var subject = "IEP099 Grammar Practice — Progress — " + name;
     var body = buildReport();
+    var btn = document.getElementById("pEmailBtn");
+
+    if (emailjsReady()) {
+      var idleLabel = btn.textContent;
+      btn.disabled = true; btn.textContent = "Sending…"; status("Sending…");
+      emailjs.init(window.EMAILJS_PUBLIC_KEY);
+      emailjs.send(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, { to_email: email, subject: subject, message: body, student_name: name })
+        .then(function () { status("Email sent to " + email + "."); btn.textContent = idleLabel; btn.disabled = false; })
+        .catch(function (err) {
+          console.error(err);
+          status("Couldn't send the email (" + (err && (err.text || err.message) || "unknown error") + "). Try Download instead.");
+          btn.textContent = idleLabel; btn.disabled = false;
+        });
+      return;
+    }
+
+    // Not configured yet — fall back to opening the student's own mail app instead.
     if (body.length > 1500) {
       buildPdf().save("iep099-progress-" + name.replace(/\s+/g, "-").toLowerCase() + ".pdf");
       status("Your report is long, so a PDF just downloaded — attach it in the email that's about to open.");

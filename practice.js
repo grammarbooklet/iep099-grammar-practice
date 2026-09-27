@@ -1,0 +1,242 @@
+// IEP099 grammar practice — shared rendering + checking engine for every topic page.
+// Consumes window.PAGE_DATA (set by an inline <script> on each generated page) and builds interactive
+// exercises from it: fill-in blanks and click-to-choose forms parsed from the booklet's own markup
+// ({=right|wrong} and [[answer]]), plus short-answer, rewrite, multiple-choice and matching exercises.
+(function () {
+  "use strict";
+
+  // ---------- tiny parser for the booklet's own inline markup ----------
+  // {=right|wrong}  -> a choice between options, "=" marks the correct one
+  // [[answer]]      -> a fill-in blank; "|" separates acceptable answers, "~" adds alternate spellings
+  function parseSegments(raw) {
+    var tokens = [];
+    var s = raw.replace(/\{([^{}]+)\}/g, function (_, body) {
+      var opts = body.split("|").map(function (o) { return o.trim(); });
+      var correct = -1;
+      var clean = opts.map(function (o, i) { if (o.charAt(0) === "=") { correct = i; return o.slice(1); } return o; });
+      tokens.push({ type: "choice", options: clean, correct: correct });
+      return "\u0000" + (tokens.length - 1) + "\u0000";
+    });
+    s = s.replace(/\[\[([^\]]+)\]\]/g, function (_, a) {
+      var groups = a.split("|");
+      var accepted = [];
+      groups.forEach(function (g) { g.split("~").forEach(function (x) { accepted.push(x.trim().toLowerCase()); }); });
+      tokens.push({ type: "blank", accepted: accepted, display: groups[0].split("~")[0].trim() });
+      return "\u0000" + (tokens.length - 1) + "\u0000";
+    });
+    var parts = s.split(/\u0000(\d+)\u0000/);
+    var out = [];
+    parts.forEach(function (p, i) {
+      if (i % 2 === 0) { if (p) out.push({ type: "text", value: mdLite(p) }); }
+      else out.push(tokens[+p]);
+    });
+    return out;
+  }
+  function mdLite(s) { return String(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>"); }
+  function norm(s) { return String(s || "").trim().toLowerCase().replace(/[.!?,;:'"’]/g, "").replace(/\s+/g, " "); }
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+  var uid = 0;
+  function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  // ---------- renderers per item kind (each returns {node, check(), reset()}) ----------
+  function renderInline(text) {
+    var body = el("span");
+    var segs = parseSegments(text);
+    var parts = [];
+    segs.forEach(function (seg) {
+      if (seg.type === "text") { body.insertAdjacentHTML("beforeend", seg.value); return; }
+      if (seg.type === "blank") {
+        var inp = el("input", "blank"); inp.type = "text"; inp.autocomplete = "off"; inp.spellcheck = false;
+        inp.id = "f" + (++uid); inp.setAttribute("aria-label", "Answer");
+        inp.style.width = Math.max(3.4, seg.display.length * 0.95) + "em";
+        body.appendChild(inp); parts.push({ seg: seg, input: inp });
+      } else if (seg.type === "choice") {
+        var wrap = el("span", "choice");
+        var btns = seg.options.map(function (opt, i) {
+          var b = el("button", "", esc(opt)); b.type = "button"; b.dataset.i = i;
+          b.addEventListener("click", function () { btns.forEach(function (x) { x.classList.remove("sel"); }); b.classList.add("sel"); wrap.dataset.sel = i; });
+          wrap.appendChild(b); return b;
+        });
+        body.appendChild(wrap); parts.push({ seg: seg, choiceWrap: wrap, btns: btns });
+      }
+    });
+    return { node: body, check: function () {
+      var ok = true;
+      parts.forEach(function (p) {
+        if (p.input) { if (p.seg.accepted.indexOf(norm(p.input.value)) === -1) ok = false; }
+        else {
+          var sel = p.choiceWrap.dataset.sel;
+          p.btns.forEach(function (b, i) { b.classList.remove("right", "wrong"); if (i === p.seg.correct) b.classList.add("right"); });
+          if (sel === undefined || +sel !== p.seg.correct) { ok = false; if (sel !== undefined) p.btns[+sel].classList.add("wrong"); }
+        }
+      });
+      return ok;
+    }, reset: function () {
+      parts.forEach(function (p) {
+        if (p.input) p.input.value = "";
+        else { p.btns.forEach(function (b) { b.classList.remove("sel", "right", "wrong"); }); delete p.choiceWrap.dataset.sel; }
+      });
+    } };
+  }
+
+  function renderCode(item) {
+    var body = el("span", "q", mdLite(esc(item[0])));
+    var inp = el("input", "code"); inp.type = "text"; inp.maxLength = 3; inp.autocomplete = "off"; inp.spellcheck = false;
+    inp.setAttribute("aria-label", "Answer");
+    var frag = document.createDocumentFragment(); frag.appendChild(body); frag.appendChild(inp);
+    return { node: frag, check: function () { return norm(inp.value) === norm(item[1]); }, reset: function () { inp.value = ""; } };
+  }
+
+  function renderRewrite(item) {
+    var body = el("div");
+    body.appendChild(el("span", "q", mdLite(esc(item[0]))));
+    var inp = el("input", "rewrite"); inp.type = "text"; inp.placeholder = "Type your answer…"; inp.autocomplete = "off";
+    var model = el("div", "model", "Model answer: <b>" + esc(item[1]) + "</b>");
+    body.appendChild(inp); body.appendChild(model);
+    return { node: body, check: function () { return norm(inp.value) === norm(item[1]); }, reset: function () { inp.value = ""; } };
+  }
+
+  function renderMc(item) {
+    var body = el("div");
+    body.appendChild(el("div", "q", mdLite(esc(item[0]))));
+    var wrap = el("div", "choice mc");
+    var btns = item[1].map(function (opt, i) {
+      var b = el("button", "", esc(opt)); b.type = "button"; b.dataset.i = i;
+      b.addEventListener("click", function () { btns.forEach(function (x) { x.classList.remove("sel"); }); b.classList.add("sel"); wrap.dataset.sel = i; });
+      wrap.appendChild(b); return b;
+    });
+    body.appendChild(wrap);
+    return { node: body, check: function () {
+      var sel = wrap.dataset.sel;
+      btns.forEach(function (b, i) { b.classList.remove("right", "wrong"); if (i === item[2]) b.classList.add("right"); });
+      var ok = sel !== undefined && +sel === item[2];
+      if (!ok && sel !== undefined) btns[+sel].classList.add("wrong");
+      return ok;
+    }, reset: function () { btns.forEach(function (b) { b.classList.remove("sel", "right", "wrong"); }); delete wrap.dataset.sel; } };
+  }
+
+  function renderMatch(leftText, rightOptions, correctIndex) {
+    var body = el("span", "q", mdLite(esc(leftText)));
+    var sel = el("select", "match");
+    sel.appendChild(el("option", "", "Choose…")).value = "";
+    rightOptions.forEach(function (opt, i) { var o = el("option", "", esc(opt)); o.value = i; sel.appendChild(o); });
+    var frag = document.createDocumentFragment(); frag.appendChild(body); frag.appendChild(sel);
+    return { node: frag, check: function () { return sel.value !== "" && +sel.value === correctIndex; }, reset: function () { sel.value = ""; } };
+  }
+
+  // ---------- rule hint (only ever shown after a mistake, never up front) ----------
+  function ruleHintHtml(rules) {
+    if (!rules || !rules.length) return "";
+    return rules.map(function (r) {
+      return "<div class=\"hint-row\"><b>" + esc(r.label) + ":</b> " + esc(r.formula) + (r.eg ? " <span class=\"hint-eg\">" + mdLite(esc(r.eg)) + "</span>" : "") + "</div>";
+    }).join("");
+  }
+
+  // ---------- build one exercise block from a captured {title, spec} ----------
+  function buildExercise(container, ex, rules, onScore) {
+    var spec = ex.spec;
+    container.innerHTML = "";
+    container.appendChild(el("span", "ex-tag", esc(spec.tag || ex.title)));
+    if (spec.tag) container.appendChild(el("h4", "ex-title", esc(ex.title)));
+    if (spec.instr) container.appendChild(el("p", "ex-instr", mdLite(esc(spec.instr))));
+    if (spec.eg) container.appendChild(el("p", "ex-eg", "<b>Example</b>" + parseSegments(spec.eg).map(plainOfSeg).join("")));
+    if (spec.bank) { var bank = el("div", "ex-bank"); spec.bank.forEach(function (w) { bank.appendChild(el("span", "", esc(w))); }); container.appendChild(bank); }
+
+    var list = el("div");
+    var checks = [];
+    if (spec.type === "match") {
+      spec.left.forEach(function (leftText, i) {
+        var itemEl = el("div", "item"); itemEl.appendChild(el("span", "n", String(i + 1)));
+        var bw = el("div", "body"); var built = renderMatch(leftText, spec.right, i);
+        bw.appendChild(built.node); itemEl.appendChild(bw); list.appendChild(itemEl);
+        checks.push({ el: itemEl, run: built.check, reset: built.reset });
+      });
+    } else {
+      var items = spec.tag === "Notice" ? (spec.items || []).slice(0, 3) : (spec.items || []);
+      items.forEach(function (raw, i) {
+        var itemEl = el("div", "item"); itemEl.appendChild(el("span", "n", String(i + 1)));
+        var bw = el("div", "body");
+        var built = spec.type === "short" ? renderCode(raw)
+          : spec.type === "write" ? renderRewrite(raw)
+          : spec.type === "mc" ? renderMc(raw)
+          : renderInline(typeof raw === "string" ? raw : raw[0]);
+        bw.appendChild(built.node); itemEl.appendChild(bw); list.appendChild(itemEl);
+        checks.push({ el: itemEl, run: built.check, reset: built.reset });
+      });
+    }
+    container.appendChild(list);
+
+    var hint = el("div", "hint", "<div class=\"hint-h\">Remember the rule</div>" + ruleHintHtml(rules));
+    hint.hidden = true;
+    container.appendChild(hint);
+
+    var actions = el("div", "ex-actions");
+    var checkBtn = el("button", "btn", "Check answers"); checkBtn.type = "button";
+    var againBtn = el("button", "btn ghost", "Try again"); againBtn.type = "button";
+    var score = el("span", "ex-score", "");
+    actions.appendChild(checkBtn); actions.appendChild(againBtn); actions.appendChild(score);
+    container.appendChild(actions);
+
+    var result = { total: checks.length, correct: 0, checked: false };
+    checkBtn.addEventListener("click", function () {
+      var right = 0;
+      checks.forEach(function (c) {
+        var ok = c.run();
+        c.el.classList.add("checked"); c.el.classList.toggle("correct", ok); c.el.classList.toggle("incorrect", !ok);
+        if (ok) right++;
+      });
+      result.correct = right; result.checked = true;
+      score.textContent = right + " / " + checks.length + " correct";
+      score.classList.add("done");
+      hint.hidden = right === checks.length || !rules || !rules.length;
+      onScore && onScore();
+    });
+    againBtn.addEventListener("click", function () {
+      checks.forEach(function (c) { c.reset(); c.el.classList.remove("checked", "correct", "incorrect"); });
+      score.textContent = ""; score.classList.remove("done"); result.checked = false; result.correct = 0;
+      hint.hidden = true;
+      onScore && onScore();
+    });
+    return result;
+  }
+
+  function plainOfSeg(seg) {
+    if (seg.type === "text") return seg.value;
+    if (seg.type === "blank") return "<b>" + esc(seg.display) + "</b>";
+    if (seg.type === "choice") return "<b>" + esc(seg.options[seg.correct] || seg.options[0]) + "</b>";
+    return "";
+  }
+
+  // ---------- page bootstrap: each page renders exactly one activity, matching the book one-for-one ----------
+  function initPracticePage() {
+    var data = window.PAGE_DATA;
+    if (!data || !data.exercise) return;
+    var box = document.getElementById("exercise");
+    if (!box) return;
+    var result = buildExercise(box, data.exercise, data.rules, updateBar);
+
+    function updateBar() {
+      var bar = document.getElementById("barScore");
+      if (!bar) return;
+      if (!result.checked) { bar.textContent = "Not checked yet"; bar.classList.add("zero"); return; }
+      bar.textContent = result.correct + " / " + result.total + " correct";
+      bar.classList.remove("zero");
+    }
+
+    // per-viewer convenience only: remember typed answers in this browser so a refresh doesn't lose work
+    try {
+      var KEY = "iep099-practice-" + (data.id || location.pathname);
+      var inputs = Array.prototype.slice.call(document.querySelectorAll("input,select"));
+      inputs.forEach(function (inp, i) { if (!inp.id) inp.id = "auto" + i; });
+      var saved = JSON.parse(localStorage.getItem(KEY) || "{}");
+      inputs.forEach(function (inp) { if (saved[inp.id] != null) inp.value = saved[inp.id]; });
+      var save = function () { var d = {}; inputs.forEach(function (inp) { if (inp.value) d[inp.id] = inp.value; }); try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {} };
+      document.addEventListener("input", function (e) { if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "SELECT")) save(); });
+      document.addEventListener("change", function (e) { if (e.target && e.target.tagName === "SELECT") save(); });
+    } catch (e) {}
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initPracticePage);
+  else initPracticePage();
+})();

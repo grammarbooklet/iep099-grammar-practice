@@ -31,6 +31,7 @@
     list.innerHTML = '<div class="progress-row progress-total"><span class="pr-title"><b>Total</b><span>' + ids.length + " activit" + (ids.length === 1 ? "y" : "ies") + ' checked</span></span><span class="pr-score">' + totalCorrect + " / " + totalItems + "</span></div>" + rows.join("");
   }
 
+  // Plain-text version — used for the email body, which can't carry a PDF attachment on its own.
   function buildReport() {
     var name = nameEl.value.trim() || "(name not entered)";
     var lines = ["IEP099 Grammar Practice — Progress report", "Student: " + name, "Date: " + new Date().toLocaleString(), ""];
@@ -42,13 +43,36 @@
     return lines.join("\n");
   }
 
+  // PDF version — what "Download full report" actually saves, built with jsPDF (loaded above this script).
+  function buildPdf() {
+    var name = nameEl.value.trim() || "(name not entered)";
+    var doc = new jspdf.jsPDF();
+    var pageW = doc.internal.pageSize.getWidth();
+    var marginL = 16, marginR = 16, maxW = pageW - marginL - marginR, y = 20;
+    doc.setFont("helvetica", "bold"); doc.setFontSize(17);
+    doc.text("IEP099 Grammar Practice", marginL, y); y += 8;
+    doc.setFontSize(12.5); doc.text("Progress Report", marginL, y); y += 10;
+    doc.setFont("helvetica", "normal"); doc.setFontSize(11);
+    doc.text("Student: " + name, marginL, y); y += 6;
+    doc.text("Date: " + new Date().toLocaleString(), marginL, y); y += 6;
+    doc.text("Total: " + totalCorrect + " / " + totalItems + " correct", marginL, y); y += 8;
+    doc.setDrawColor(190); doc.line(marginL, y, pageW - marginR, y); y += 8;
+    doc.setFontSize(10.5);
+    ids.forEach(function (id) {
+      var r = all[id];
+      var line = "Unit " + (r.unit != null ? r.unit : "?") + (r.topicTitle ? " · " + r.topicTitle : "") + " — " + (r.activityTitle || id) + ":  " + r.correct + "/" + r.total;
+      doc.splitTextToSize(line, maxW).forEach(function (wl) {
+        if (y > 280) { doc.addPage(); y = 20; }
+        doc.text(wl, marginL, y); y += 6;
+      });
+    });
+    return doc;
+  }
+
   document.getElementById("pDownloadBtn").addEventListener("click", function () {
     if (!ids.length) { alert("No completed activities to download yet."); return; }
-    var blob = new Blob([buildReport()], { type: "text/plain" });
-    var a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "iep099-progress-" + (nameEl.value.trim() || "student").replace(/\s+/g, "-").toLowerCase() + ".txt";
-    document.body.appendChild(a); a.click(); a.remove();
+    if (typeof jspdf === "undefined") { alert("Couldn't load the PDF tool — check your internet connection and try again."); return; }
+    buildPdf().save("iep099-progress-" + (nameEl.value.trim() || "student").replace(/\s+/g, "-").toLowerCase() + ".pdf");
   });
 
   document.getElementById("pEmailBtn").addEventListener("click", function () {
@@ -61,8 +85,8 @@
     var body = buildReport();
     if (body.length > 1500) {
       document.getElementById("pDownloadBtn").click();
-      alert("Your progress report is long, so it's been downloaded as a file instead — attach it to the email that's about to open.");
-      location.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent("Hi, please see my attached IEP099 progress report (" + ids.length + " activities). Don't forget to attach the file you just downloaded.");
+      alert("Your progress report is long, so it's been downloaded as a PDF instead — attach it to the email that's about to open.");
+      location.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent("Hi, please see my attached IEP099 progress report (" + ids.length + " activities). Don't forget to attach the PDF you just downloaded.");
     } else {
       location.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     }

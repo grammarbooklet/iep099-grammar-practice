@@ -126,14 +126,13 @@ input.blank:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
 .choice{display:inline-flex;gap:0;border:1.5px solid var(--rule);border-radius:8px;overflow:hidden;vertical-align:middle;margin:0 3px}
 .choice button{font:600 14.5px/1 var(--sans);color:var(--ink-2);background:var(--surface);border:0;padding:8px 12px;cursor:pointer}
 .choice button + button{border-left:1.5px solid var(--rule)}
-.choice button.sel{background:var(--navy);color:#fff}
+.choice button.sel{background:var(--teal);color:var(--navy);border-color:var(--teal)}
 .choice button:hover:not(.sel){background:var(--tint)}
 .item.checked .choice button.right{background:var(--ok-bg);color:var(--ok-ink);font-weight:700}
 .item.checked .choice button.sel.wrong{background:var(--bad-bg);color:var(--bad-ink);text-decoration:line-through}
 
-.choice.mc{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+.choice.mc{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;border:0;border-radius:0;overflow:visible}
 .choice.mc button{border-radius:8px;border:1.5px solid var(--rule);padding:8px 12px}
-.choice.mc button + button{border-left:1.5px solid var(--rule)}
 
 input.rewrite{display:block;width:100%;font:400 15px/1.5 var(--sans);color:var(--ink);background:var(--tint);border:1.5px solid var(--rule);border-radius:8px;padding:9px 12px;margin-top:8px}
 input.rewrite[hidden]{display:none}

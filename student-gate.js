@@ -2,14 +2,27 @@
 // catalog, or a unit/topic/activity page reached straight from a QR code) and remembers it in this
 // browser's own localStorage so they aren't asked again on later visits. Uses the same keys progress.js
 // already reads/writes, so a name entered here also pre-fills "My Progress", and nothing is ever sent
-// anywhere.
+// anywhere. Also fills in the little name badge next to "My progress" in the top bar, on every page that
+// has one.
 (function () {
   "use strict";
   var NAME_KEY = "iep099-student-name", SECTION_KEY = "iep099-section";
   function get(k) { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } }
   function set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 
-  if (get(NAME_KEY) && get(SECTION_KEY)) return;
+  function showNameBadge() {
+    var name = get(NAME_KEY);
+    var badge = document.getElementById("studentNameBadge"), text = document.getElementById("studentNameText");
+    if (!name || !badge || !text) return;
+    text.textContent = name;
+    badge.hidden = false;
+  }
+
+  if (get(NAME_KEY) && get(SECTION_KEY)) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", showNameBadge);
+    else showNameBadge();
+    return;
+  }
 
   function init() {
     var overlay = document.createElement("div");
@@ -35,6 +48,7 @@
       if (!name || !section) { msgEl.textContent = "Please enter both your name and section number."; return; }
       set(NAME_KEY, name); set(SECTION_KEY, section);
       overlay.remove();
+      showNameBadge();
     }
     overlay.querySelector("#gateContinueBtn").addEventListener("click", submit);
     [nameEl, sectionEl].forEach(function (el) {

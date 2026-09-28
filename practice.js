@@ -295,4 +295,8 @@
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initPracticePage);
   else initPracticePage();
+
+  // Public API: the instructor-built "set" player page (set.html/set.js) reuses this exact same rendering
+  // and grading engine to show several activities on one page, rather than duplicating any of this logic.
+  window.IEPPractice = { buildExercise: buildExercise };
 })();

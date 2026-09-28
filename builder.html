@@ -1,0 +1,54 @@
+<meta charset="utf-8">
+<title>Build a Practice Set</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="practice.css">
+<script src="a11y.js"></script>
+<div class="bar">
+  <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>All units</a>
+  <span class="bar-sub">Instructor Tool</span>
+  <span class="bar-spacer"></span>
+</div>
+<div class="wrap">
+  <div class="hero" style="padding-top:26px">
+    <p class="eyebrow">IEP099 &middot; Instructor Tool</p>
+    <h1 style="font-size:32px">Build a practice set</h1>
+    <p class="sub" style="font-size:16px">Pick any combination of activities from across the booklet and get one link to share with your students. This page isn&rsquo;t listed anywhere on the site &mdash; please don&rsquo;t share this link with students.</p>
+    <div class="rule"></div>
+  </div>
+
+  <div id="gate">
+    <div class="progress-settings" style="margin-top:6px">
+      <label>Passphrase<input type="password" id="pass" placeholder="Enter the instructor passphrase" autocomplete="off"></label>
+    </div>
+    <div class="ex-actions" style="margin-top:10px">
+      <button class="btn" id="unlockBtn" type="button">Unlock</button>
+    </div>
+    <p class="note" id="gateMsg" style="margin-top:8px;min-height:1.2em"></p>
+  </div>
+
+  <div id="tool" hidden>
+    <div class="progress-settings">
+      <label>Set title<input type="text" id="setTitleInput" placeholder="e.g. Midterm Review"></label>
+      <label>Note for students (optional)<input type="text" id="setNoteInput" placeholder="e.g. Complete before Thursday"></label>
+    </div>
+    <p class="note" id="countNote" style="margin-top:12px">0 activities selected</p>
+    <div id="catalog"></div>
+    <div class="ex-actions" style="margin-top:16px">
+      <button class="btn" id="genBtn" type="button">Generate link</button>
+    </div>
+    <div id="linkOut" hidden style="margin-top:14px">
+      <label style="display:block;font:700 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:7px">Share this link with your students</label>
+      <input type="text" id="linkField" readonly style="width:100%;font:400 14px/1.5 var(--sans);color:var(--ink);background:var(--tint);border:1.5px solid var(--rule);border-radius:8px;padding:9px 12px">
+      <div class="ex-actions" style="margin-top:8px">
+        <button class="btn ghost" id="copyBtn" type="button">Copy link</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="credit">IEP099 Grammar Booklet, Second Edition &middot; Dr. Chadi Chahdi</p>
+</div>
+<script src="builder.js"></script>

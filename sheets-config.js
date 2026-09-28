@@ -5,13 +5,13 @@
 //
 // Setup (about 10 minutes, free, needs only your own Google account):
 //   1. Go to sheets.google.com and create a new blank sheet. Add a header row:
-//        Date | Student | Section | Set | Correct | Total | Percent
+//        Date | Student | Section | Set | Correct | Total | Percent | Extra Minutes
 //   2. Extensions -> Apps Script. Delete the placeholder code and paste:
 //
 //        function doPost(e) {
 //          var data = JSON.parse(e.postData.contents);
 //          SpreadsheetApp.getActiveSpreadsheet().getActiveSheet().appendRow([
-//            new Date(), data.name, data.section, data.set, data.correct, data.total, data.percent
+//            new Date(), data.name, data.section, data.set, data.correct, data.total, data.percent, data.extraMinutes || 0
 //          ]);
 //          return ContentService.createTextOutput("ok");
 //        }

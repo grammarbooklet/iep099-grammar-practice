@@ -26,6 +26,8 @@
   var timerId = null;
   var deadline = null; // null = untimed
   var timerBadge = document.getElementById("timerBadge");
+  var timePanel = document.getElementById("timePanel"), timeRemainingBig = document.getElementById("timeRemainingBig");
+  var extraMinutesAdded = 0; // total minutes the student has added themselves, via +5/+10/+15 — reported below
 
   // ---------- name/section gate: shown immediately, before any activity is visible ----------
   document.getElementById("setStartBtn").addEventListener("click", function () {
@@ -45,20 +47,42 @@
   // control, so this only ever affects the device it's actually touched on).
   function setTimeLimit(mins) {
     if (timerId) clearInterval(timerId);
-    if (!(mins > 0)) { deadline = null; timerBadge.hidden = true; timerBadge.classList.remove("timer-urgent"); return; }
+    if (!(mins > 0)) {
+      deadline = null;
+      timerBadge.hidden = true; timerBadge.classList.remove("timer-urgent");
+      timePanel.hidden = true;
+      return;
+    }
     deadline = Date.now() + mins * 60000;
     timerBadge.hidden = false;
     timerBadge.classList.remove("timer-urgent");
+    timePanel.hidden = finished;
     var tick = function () {
       var left = Math.max(0, Math.round((deadline - Date.now()) / 1000));
       var m = Math.floor(left / 60), s = left % 60;
-      timerBadge.textContent = "⏱ " + m + ":" + (s < 10 ? "0" : "") + s;
-      if (left <= 60) timerBadge.classList.add("timer-urgent");
+      var text = "⏱ " + m + ":" + (s < 10 ? "0" : "") + s;
+      timerBadge.textContent = text;
+      timeRemainingBig.textContent = m + ":" + (s < 10 ? "0" : "") + s;
+      if (left <= 60) timerBadge.classList.add("timer-urgent"); else timerBadge.classList.remove("timer-urgent");
       if (left <= 0 && !finished) { clearInterval(timerId); finishSet("Time's up — your answers have been checked and locked in."); }
     };
     timerId = setInterval(tick, 1000);
     tick();
   }
+
+  // ---------- student self-service extra time — one request only, up to 15 min, reported alongside the
+  // score so the instructor can see who used it and how much ----------
+  var extraTimeButtons = ["addTime5", "addTime10", "addTime15"].map(function (id) { return document.getElementById(id); });
+  [["addTime5", 5], ["addTime10", 10], ["addTime15", 15]].forEach(function (pair) {
+    document.getElementById(pair[0]).addEventListener("click", function () {
+      if (finished || !deadline || extraMinutesAdded > 0) return;
+      deadline += pair[1] * 60000;
+      extraMinutesAdded += pair[1];
+      timerBadge.classList.remove("timer-urgent");
+      extraTimeButtons.forEach(function (b) { b.disabled = true; });
+      document.getElementById("addTimeMsg").textContent = "+" + pair[1] + " min added. You can only request extra time once per set.";
+    });
+  });
 
   // ---------- instructor-only, on-device time adjustment (same passphrase as the builder tool) ----------
   (function () {
@@ -106,6 +130,7 @@
     finished = true;
     if (timerId) clearInterval(timerId);
     document.getElementById("setMain").classList.add("submitted");
+    timePanel.hidden = true;
     // Click each "Check answers" button first, while it's still enabled — a disabled button ignores even a
     // scripted .click(), so disabling everything before checking would leave every exercise unscored.
     document.querySelectorAll("#setList button.btn:not(.ghost)").forEach(function (btn) { btn.click(); });
@@ -131,7 +156,7 @@
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({ name: name, section: section, set: title, correct: t.correct, total: t.total, percent: t.pct })
+        body: JSON.stringify({ name: name, section: section, set: title, correct: t.correct, total: t.total, percent: t.pct, extraMinutes: extraMinutesAdded })
       }).catch(function () {});
     } catch (e) {}
   }
@@ -223,6 +248,7 @@
 
     var infoLines = [["STUDENT", name]];
     if (section) infoLines.push(["SECTION", section]);
+    if (extraMinutesAdded > 0) infoLines.push(["EXTRA TIME", "+" + extraMinutesAdded + " min (self-requested)"]);
     infoLines.push(["DATE", new Date().toLocaleString()]);
     var cardH = 8 + infoLines.length * 7;
     doc.setFillColor.apply(doc, TINT); doc.setDrawColor.apply(doc, RULE); doc.setLineWidth(0.4);

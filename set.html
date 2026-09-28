@@ -51,6 +51,21 @@
   </div>
 
   <div id="setMain" hidden>
+    <div id="timePanel" class="hint time-panel" hidden>
+      <div>
+        <div class="hint-h">Time remaining</div>
+        <div id="timeRemainingBig" style="font:700 34px/1 var(--serif);color:var(--ink)">--:--</div>
+      </div>
+      <div>
+        <div class="hint-h">Need more time?</div>
+        <div class="ex-actions" style="margin:0">
+          <button class="btn ghost" id="addTime5" type="button">+5 min</button>
+          <button class="btn ghost" id="addTime10" type="button">+10 min</button>
+          <button class="btn ghost" id="addTime15" type="button">+15 min</button>
+        </div>
+        <p class="note" id="addTimeMsg" style="margin-top:6px;min-height:1.1em;font-size:12px"></p>
+      </div>
+    </div>
     <div id="setList"></div>
     <div class="ex-actions" style="margin-top:16px">
       <button class="btn" id="setSubmitBtn" type="button">Submit</button>

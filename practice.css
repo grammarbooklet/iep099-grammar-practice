@@ -170,6 +170,8 @@ select.match:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
 .hint-row:last-child{margin-bottom:0}
 .hint-row b{color:var(--ink)}
 .hint-eg{font:italic 500 13.5px/1.4 var(--serif);color:var(--ink-2)}
+.time-panel{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:18px;margin-top:0}
+.time-panel[hidden]{display:none}
 
 .ex-actions{display:flex;align-items:center;gap:10px;margin-top:16px;flex-wrap:wrap}
 /* Instructor-built sets check everything at once on Submit, not per activity — each exercise's own

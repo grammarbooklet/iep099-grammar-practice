@@ -105,7 +105,7 @@
   }
 
   // ---------- ready-made sets ----------
-  var STRAND_LABEL = { ls: "Listening, Speaking & Critical Thinking", rw: "Reading, Writing & Critical Thinking" };
+  var STRAND_LABEL = { ls: "Listening & Speaking", rw: "Reading & Writing" };
   function loadReadymade() {
     fetch("readymade.json").then(function (r) { return r.json(); }).then(function (sets) {
       var root = document.getElementById("readymadeList");

@@ -70,17 +70,27 @@
     tick();
   }
 
-  // ---------- student self-service extra time — one request only, up to 15 min, reported alongside the
-  // score so the instructor can see who used it and how much ----------
-  var extraTimeButtons = ["addTime5", "addTime10", "addTime15"].map(function (id) { return document.getElementById(id); });
-  [["addTime5", 5], ["addTime10", 10], ["addTime15", 15]].forEach(function (pair) {
-    document.getElementById(pair[0]).addEventListener("click", function () {
-      if (finished || !deadline || extraMinutesAdded > 0) return;
-      deadline += pair[1] * 60000;
-      extraMinutesAdded += pair[1];
+  // ---------- student self-service extra time — mix and match +5/+10/+15, up to 15 min total. Each button
+  // can only be used once (no clicking the same one twice), and any combination that would push the total
+  // past 15 min disables itself, so 15 min is the most anyone can add. Reported alongside the score so the
+  // instructor can see who used it and how much ----------
+  var EXTRA_TIME_MAX = 15;
+  var extraTimeOptions = [["addTime5", 5], ["addTime10", 10], ["addTime15", 15]].map(function (pair) {
+    return { el: document.getElementById(pair[0]), mins: pair[1] };
+  });
+  function refreshExtraTimeButtons() {
+    var remaining = EXTRA_TIME_MAX - extraMinutesAdded;
+    extraTimeOptions.forEach(function (opt) { if (opt.mins > remaining) opt.el.disabled = true; });
+  }
+  extraTimeOptions.forEach(function (opt) {
+    opt.el.addEventListener("click", function () {
+      if (finished || !deadline || opt.el.disabled || opt.mins + extraMinutesAdded > EXTRA_TIME_MAX) return;
+      deadline += opt.mins * 60000;
+      extraMinutesAdded += opt.mins;
       timerBadge.classList.remove("timer-urgent");
-      extraTimeButtons.forEach(function (b) { b.disabled = true; });
-      document.getElementById("addTimeMsg").textContent = "+" + pair[1] + " min added. You can only request extra time once per set.";
+      opt.el.disabled = true;
+      refreshExtraTimeButtons();
+      document.getElementById("addTimeMsg").textContent = "+" + opt.mins + " min added (" + extraMinutesAdded + " of " + EXTRA_TIME_MAX + " min max extra used).";
     });
   });
 

@@ -8,11 +8,43 @@
   var params = new URLSearchParams(location.search);
   var title = params.get("title") || "Practice Set";
   var note = params.get("note") || "";
+  var minutes = parseInt(params.get("minutes"), 10);
   var ids = (params.get("ids") || "").split(",").map(function (s) { return s.trim(); }).filter(Boolean);
 
   document.getElementById("setTitle").textContent = title;
   document.title = title + " — IEP099 Grammar Practice";
   if (note) { var n = document.getElementById("setNote"); n.textContent = note; n.hidden = false; }
+
+  // A time limit is a countdown and, once it runs out, checks and locks every activity so the score is
+  // final — a reasonable honor-system limit, not real enforcement, since nothing client-side truly can be
+  // on a static site (a student could always just ignore the page and keep typing).
+  var timesUp = false;
+  if (minutes > 0) {
+    var timerBadge = document.getElementById("timerBadge");
+    timerBadge.hidden = false;
+    var deadline = Date.now() + minutes * 60000;
+    var tick = function () {
+      var left = Math.max(0, Math.round((deadline - Date.now()) / 1000));
+      var m = Math.floor(left / 60), s = left % 60;
+      timerBadge.textContent = "⏱ " + m + ":" + (s < 10 ? "0" : "") + s;
+      if (left <= 60) timerBadge.classList.add("timer-urgent");
+      if (left <= 0 && !timesUp) { timesUp = true; clearInterval(timerId); onTimeUp(); }
+    };
+    var timerId = setInterval(tick, 1000);
+    tick();
+  }
+  function onTimeUp() {
+    document.getElementById("timerBadge").textContent = "⏱ Time's up";
+    // Click each "Check answers" button first, while it's still enabled — a disabled button ignores even a
+    // scripted .click(), so disabling everything before checking would leave every exercise unscored.
+    document.querySelectorAll("#setList button.btn:not(.ghost)").forEach(function (btn) { btn.click(); });
+    document.querySelectorAll("#setList input, #setList select, #setList button").forEach(function (el) { el.disabled = true; });
+    var banner = document.createElement("p");
+    banner.className = "note";
+    banner.style.cssText = "color:var(--bad-ink);font-weight:700;margin-top:4px";
+    banner.textContent = "Time's up — your answers have been checked and locked in.";
+    document.getElementById("setTitle").insertAdjacentElement("afterend", banner);
+  }
 
   var list = document.getElementById("setList");
   if (!ids.length) { list.innerHTML = '<p class="note">This link doesn’t include any activities.</p>'; return; }

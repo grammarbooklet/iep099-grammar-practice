@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="practice.css">
 <script src="a11y.js"></script>
 <div class="bar">
-  <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>All units</a>
+  <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>Home</a>
   <span class="bar-sub">Instructor Tool</span>
   <span class="bar-spacer"></span>
 </div>
@@ -31,16 +31,43 @@
   </div>
 
   <div id="tool" hidden>
-    <div class="progress-settings">
-      <label>Set title<input type="text" id="setTitleInput" placeholder="e.g. Midterm Review"></label>
-      <label>Note for students (optional)<input type="text" id="setNoteInput" placeholder="e.g. Complete before Thursday"></label>
+
+    <div id="modeChoice" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px">
+      <a class="home-card" href="#" id="pickReadymade">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/></svg>
+        <b>Ready-made sets</b>
+        <span>Quiz, midterm and final practice already built from the syllabus</span>
+      </a>
+      <a class="home-card" href="#" id="pickCustom">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg>
+        <b>Build your own</b>
+        <span>Pick any combination of activities yourself</span>
+      </a>
     </div>
-    <p class="note" id="countNote" style="margin-top:12px">0 activities selected</p>
-    <div id="catalog"></div>
-    <div class="ex-actions" style="margin-top:16px">
-      <button class="btn" id="genBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>Generate link</button>
-      <button class="btn" id="genQrBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/><path d="M20 14v3h-2"/><path d="M14 20h3"/></svg>Generate QR code</button>
+
+    <div id="readymadeView" hidden>
+      <button class="btn ghost" id="backFromReadymade" type="button" style="margin-top:10px">&larr; Back</button>
+      <p class="note" style="margin-top:10px">Fixed sets built from the Fall 2026 syllabi. Each has a time limit already set to match the real assessment.</p>
+      <div id="readymadeList" style="margin-top:6px"></div>
     </div>
+
+    <div id="customView" hidden>
+      <button class="btn ghost" id="backFromCustom" type="button" style="margin-top:10px">&larr; Back</button>
+      <div class="progress-settings" style="margin-top:14px">
+        <label>Set title<input type="text" id="setTitleInput" placeholder="e.g. Midterm Review"></label>
+        <label>Note for students (optional)<input type="text" id="setNoteInput" placeholder="e.g. Complete before Thursday"></label>
+      </div>
+      <div class="progress-settings" style="margin-top:10px">
+        <label>Time limit in minutes (optional)<input type="number" id="setMinutesInput" min="1" step="1" placeholder="e.g. 30"></label>
+      </div>
+      <p class="note" id="countNote" style="margin-top:12px">0 activities selected</p>
+      <div id="catalog"></div>
+      <div class="ex-actions" style="margin-top:16px">
+        <button class="btn" id="genBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>Generate link</button>
+        <button class="btn" id="genQrBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/><path d="M20 14v3h-2"/><path d="M14 20h3"/></svg>Generate QR code</button>
+      </div>
+    </div>
+
     <div id="linkOut" hidden style="margin-top:14px">
       <label style="display:block;font:700 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:7px">Share this link with your students</label>
       <input type="text" id="linkField" readonly style="width:100%;font:400 14px/1.5 var(--sans);color:var(--ink);background:var(--tint);border:1.5px solid var(--rule);border-radius:8px;padding:9px 12px">

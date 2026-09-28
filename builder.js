@@ -1,11 +1,22 @@
-// IEP099 grammar practice — instructor tool: build a custom link combining any activities from across the
-// booklet. Not real security — a static site can't keep a secret from anyone who reads its source — this
-// passphrase is only friction so a student who stumbles on this unlisted page can't immediately use it.
-// Change PASSPHRASE below (and tell your instructors the new one) whenever you want.
+// IEP099 grammar practice — instructor tool: grab a syllabus-aligned ready-made set, or build a custom link
+// combining any activities from across the booklet. Not real security — a static site can't keep a secret
+// from anyone who reads its source — the passphrase (checked as a SHA-256 hash, not stored in plain text)
+// is only friction so a student who stumbles on this unlisted page can't immediately use it.
+//
+// To change the passphrase: open a browser console anywhere and run
+//   crypto.subtle.digest("SHA-256", new TextEncoder().encode("your new phrase")).then(b => console.log([...new Uint8Array(b)].map(x => x.toString(16).padStart(2,"0")).join("")))
+// then paste the printed hash in place of PASSPHRASE_HASH below.
 (function () {
   "use strict";
-  var PASSPHRASE = "iep099grammar";
+  var PASSPHRASE_HASH = "0db7bbf4badf215a1ec84b3adf234a84017596d8e52ea8d855616fd10aa761ab"; // "iep099grammar"
   var UNLOCK_KEY = "iep099-builder-unlocked";
+
+  function sha256Hex(text) {
+    var data = new TextEncoder().encode(text);
+    return crypto.subtle.digest("SHA-256", data).then(function (buf) {
+      return Array.prototype.map.call(new Uint8Array(buf), function (b) { return b.toString(16).padStart(2, "0"); }).join("");
+    });
+  }
 
   var gate = document.getElementById("gate"), tool = document.getElementById("tool");
   function isUnlocked() { try { return localStorage.getItem(UNLOCK_KEY) === "1"; } catch (e) { return false; } }
@@ -13,6 +24,7 @@
     try { localStorage.setItem(UNLOCK_KEY, "1"); } catch (e) {}
     gate.hidden = true; tool.hidden = false;
     loadCatalog();
+    loadReadymade();
   }
 
   if (isUnlocked()) {
@@ -20,16 +32,120 @@
   } else {
     document.getElementById("unlockBtn").addEventListener("click", function () {
       var v = document.getElementById("pass").value.trim();
-      if (v.toLowerCase() === PASSPHRASE.toLowerCase()) unlock();
-      else document.getElementById("gateMsg").textContent = "That's not the right passphrase.";
+      if (!v) return;
+      sha256Hex(v).then(function (hash) {
+        if (hash === PASSPHRASE_HASH) unlock();
+        else document.getElementById("gateMsg").textContent = "That's not the right passphrase.";
+      });
     });
     document.getElementById("pass").addEventListener("keydown", function (e) { if (e.key === "Enter") document.getElementById("unlockBtn").click(); });
   }
 
-  var ALL = null;
-  var checked = {}; // activity id -> true, in the order the instructor picked them
+  // ---------- mode switching ----------
+  var modeChoice = document.getElementById("modeChoice"), readymadeView = document.getElementById("readymadeView"), customView = document.getElementById("customView");
+  function showMode(which) {
+    modeChoice.hidden = which !== "choice";
+    readymadeView.hidden = which !== "readymade";
+    customView.hidden = which !== "custom";
+    document.getElementById("linkOut").hidden = true;
+    document.getElementById("qrOut").hidden = true;
+  }
+  document.getElementById("pickReadymade").addEventListener("click", function (e) { e.preventDefault(); showMode("readymade"); });
+  document.getElementById("pickCustom").addEventListener("click", function (e) { e.preventDefault(); showMode("custom"); });
+  document.getElementById("backFromReadymade").addEventListener("click", function () { showMode("choice"); });
+  document.getElementById("backFromCustom").addEventListener("click", function () { showMode("choice"); });
 
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+  // ---------- shared link/QR output, used by both the ready-made list and the custom builder ----------
+  function outputSet(ids, title, note, minutes) {
+    if (!ids.length) return;
+    var url = new URL("set.html", location.href);
+    url.searchParams.set("ids", ids.join(","));
+    url.searchParams.set("title", title);
+    if (note) url.searchParams.set("note", note);
+    if (minutes) url.searchParams.set("minutes", minutes);
+    document.getElementById("linkField").value = url.toString();
+    document.getElementById("linkOut").hidden = false;
+    document.getElementById("qrOut").hidden = true;
+    document.getElementById("linkOut").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    return url;
+  }
+
+  document.getElementById("copyBtn").addEventListener("click", function () {
+    var field = document.getElementById("linkField");
+    field.select();
+    var btn = document.getElementById("copyBtn");
+    var restore = function () { setTimeout(function () { btn.textContent = "Copy link"; }, 1500); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(field.value).then(function () { btn.textContent = "Copied!"; restore(); });
+    } else {
+      try { document.execCommand("copy"); btn.textContent = "Copied!"; } catch (e) { btn.textContent = "Select and copy manually"; }
+      restore();
+    }
+  });
+
+  document.getElementById("qrDownloadBtn").addEventListener("click", function () {
+    var img = document.getElementById("qrImg");
+    if (!img.src) return;
+    var a = document.createElement("a");
+    a.href = img.src;
+    a.download = (document.getElementById("linkField").value.match(/title=([^&]+)/) ? decodeURIComponent(document.getElementById("linkField").value.match(/title=([^&]+)/)[1].replace(/\+/g, " ")) : "practice-set").replace(/\s+/g, "-").toLowerCase() + "-qr.png";
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+
+  function generateQr(url) {
+    if (typeof QRCode === "undefined") { alert("Couldn't load the QR code tool — check your internet connection and try again."); return; }
+    QRCode.toDataURL(url.toString(), { margin: 1, width: 320 }, function (err, dataUrl) {
+      if (err) { alert("Couldn't generate the QR code."); return; }
+      document.getElementById("qrImg").src = dataUrl;
+      document.getElementById("qrOut").hidden = false;
+      document.getElementById("qrOut").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  }
+
+  // ---------- ready-made sets ----------
+  var STRAND_LABEL = { ls: "Listening, Speaking & Critical Thinking", rw: "Reading, Writing & Critical Thinking" };
+  function loadReadymade() {
+    fetch("readymade.json").then(function (r) { return r.json(); }).then(function (sets) {
+      var root = document.getElementById("readymadeList");
+      root.innerHTML = "";
+      var byStrand = {};
+      sets.forEach(function (s) { (byStrand[s.strand] = byStrand[s.strand] || []).push(s); });
+      ["ls", "rw"].forEach(function (strandKey) {
+        var list = byStrand[strandKey];
+        if (!list || !list.length) return;
+        var h2 = document.createElement("h2");
+        h2.style.cssText = "font:600 18px/1.2 var(--serif);color:var(--ink);margin:18px 0 4px";
+        h2.textContent = STRAND_LABEL[strandKey];
+        root.appendChild(h2);
+        list.forEach(function (s) {
+          var row = document.createElement("div");
+          row.className = "toc-unit";
+          row.style.cssText = "display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px;padding:14px 18px";
+          var left = document.createElement("div");
+          left.innerHTML = "<b style=\"font:600 15px var(--serif);color:var(--ink)\">" + esc(s.title.replace(STRAND_LABEL[strandKey] + " — ", "")) + "</b>" +
+            "<div style=\"font:400 12.5px var(--sans);color:var(--mute);margin-top:3px\">" + s.ids.length + " activities · " + s.minutes + " min time limit</div>";
+          row.appendChild(left);
+          var btn = document.createElement("button");
+          btn.type = "button"; btn.className = "btn ghost";
+          btn.textContent = "Get link & QR";
+          btn.addEventListener("click", function () {
+            var url = outputSet(s.ids, s.title, "", s.minutes);
+            if (url) generateQr(url);
+          });
+          row.appendChild(btn);
+          root.appendChild(row);
+        });
+      });
+    }).catch(function () {
+      document.getElementById("readymadeList").innerHTML = '<p class="note">Couldn’t load the ready-made sets. Check your connection and reload.</p>';
+    });
+  }
+
+  // ---------- custom builder ----------
+  var ALL = null;
+  var checked = {}; // activity id -> true, in the order the instructor picked them
 
   function loadCatalog() {
     fetch("activities.json").then(function (r) { return r.json(); }).then(function (data) {
@@ -40,8 +156,7 @@
     });
   }
 
-  var STRAND_LABEL = { ls: "Listening, Speaking & Critical Thinking", rw: "Reading, Writing & Critical Thinking" };
-  var STRAND_ORDER = ["ls", "rw"];
+  var CATALOG_STRAND_ORDER = ["ls", "rw"];
 
   // Grouped strand -> unit -> topic. Unit numbers are NOT unique across strands (there's an LS Unit 1 and
   // an RW Unit 1, for example), so the strand has to be part of the grouping key, not just the number.
@@ -91,7 +206,7 @@
     var root = document.getElementById("catalog");
     root.innerHTML = "";
     groupBadges = [];
-    STRAND_ORDER.forEach(function (strandKey) {
+    CATALOG_STRAND_ORDER.forEach(function (strandKey) {
       var strand = strands[strandKey];
       if (!strand) return;
       var heading = document.createElement("h2");
@@ -136,55 +251,18 @@
     updateCount();
   }
 
-  document.getElementById("genBtn").addEventListener("click", function () {
-    var url = buildUrl();
-    if (!url) return;
-    document.getElementById("linkField").value = url.toString();
-    document.getElementById("linkOut").hidden = false;
-  });
-
-  document.getElementById("copyBtn").addEventListener("click", function () {
-    var field = document.getElementById("linkField");
-    field.select();
-    var btn = document.getElementById("copyBtn");
-    var restore = function () { setTimeout(function () { btn.textContent = "Copy link"; }, 1500); };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(field.value).then(function () { btn.textContent = "Copied!"; restore(); });
-    } else {
-      try { document.execCommand("copy"); btn.textContent = "Copied!"; } catch (e) { btn.textContent = "Select and copy manually"; }
-      restore();
-    }
-  });
-
-  document.getElementById("genQrBtn").addEventListener("click", function () {
-    var url = buildUrl();
-    if (!url) return;
-    if (typeof QRCode === "undefined") { alert("Couldn't load the QR code tool — check your internet connection and try again."); return; }
-    QRCode.toDataURL(url.toString(), { margin: 1, width: 320 }, function (err, dataUrl) {
-      if (err) { alert("Couldn't generate the QR code."); return; }
-      document.getElementById("qrImg").src = dataUrl;
-      document.getElementById("qrOut").hidden = false;
-    });
-  });
-
-  document.getElementById("qrDownloadBtn").addEventListener("click", function () {
-    var img = document.getElementById("qrImg");
-    if (!img.src) return;
-    var a = document.createElement("a");
-    a.href = img.src;
-    a.download = (document.getElementById("setTitleInput").value.trim() || "practice-set").replace(/\s+/g, "-").toLowerCase() + "-qr.png";
-    document.body.appendChild(a); a.click(); a.remove();
-  });
-
-  function buildUrl() {
+  function buildCustomUrl() {
     var ids = Object.keys(checked).filter(function (id) { return checked[id]; });
     if (!ids.length) { alert("Pick at least one activity first."); return null; }
     var title = document.getElementById("setTitleInput").value.trim() || "Practice Set";
     var note = document.getElementById("setNoteInput").value.trim();
-    var url = new URL("set.html", location.href);
-    url.searchParams.set("ids", ids.join(","));
-    url.searchParams.set("title", title);
-    if (note) url.searchParams.set("note", note);
-    return url;
+    var minutes = parseInt(document.getElementById("setMinutesInput").value, 10);
+    return outputSet(ids, title, note, minutes > 0 ? minutes : 0);
   }
+
+  document.getElementById("genBtn").addEventListener("click", function () { buildCustomUrl(); });
+  document.getElementById("genQrBtn").addEventListener("click", function () {
+    var url = buildCustomUrl();
+    if (url) generateQr(url);
+  });
 })();

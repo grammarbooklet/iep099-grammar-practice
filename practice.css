@@ -62,6 +62,7 @@ a{color:var(--teal-d)}
 .bar-spacer{flex:1;min-width:0}
 .bar-score{font:700 13px/1 var(--sans);color:#fff;background:rgba(255,255,255,.14);padding:6px 10px;border-radius:20px;white-space:nowrap;flex:none}
 .bar-score.zero{opacity:.55}
+.bar-score.timer-urgent{background:var(--red);color:#fff;opacity:1}
 
 /* ---------- display settings (text size / contrast / theme) ---------- */
 .a11y-btn{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;flex:none;padding:0}
@@ -236,6 +237,15 @@ p.credit{margin:18px 0 0;font:600 12px/1.5 var(--sans);color:var(--mute);text-al
 .toc-topic .tt span{font:400 13px/1.3 var(--sans);color:var(--mute)}
 .toc-topic .count{flex:none;font:700 11.5px/1 var(--sans);color:var(--teal-d);background:var(--teal-t);padding:5px 8px;border-radius:20px}
 .toc-topic .arrow{flex:none;color:var(--mute);width:16px;height:16px}
+
+.home-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:28px 16px;background:var(--surface);border:1px solid var(--hair);border-radius:14px;text-decoration:none;color:var(--ink)}
+.home-card:hover{border-color:var(--teal);background:var(--tint)}
+.home-card svg{width:34px;height:34px;color:var(--teal-d)}
+.home-card b{font:600 18px/1.2 var(--serif);color:var(--ink)}
+.home-card span{font:400 13px/1.4 var(--sans);color:var(--mute)}
+@media (max-width:480px){
+  .home-card{padding:22px 12px}
+}
 
 .hero-stats{display:flex;gap:22px;margin-top:18px;flex-wrap:wrap}
 .hero-stats div{display:flex;flex-direction:column}

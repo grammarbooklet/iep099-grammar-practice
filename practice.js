@@ -102,6 +102,18 @@
   function renderRewrite(item) {
     var body = el("div");
     body.appendChild(el("span", "q", mdLite(esc(item[0]))));
+    // The booklet sometimes asks students to write "✓" instead of a rewrite, for a sentence that's already
+    // correct — a real keyboard has no tick key, so on the site this becomes a tap-to-mark button instead
+    // of a text field, rather than asking students to type a character they can't easily reach.
+    var already = /^\s*✓/.test(String(item[1]));
+    if (already) {
+      var marked = false;
+      var btn = el("button", "tick-btn", "✓ Already correct — no change needed"); btn.type = "button";
+      btn.addEventListener("click", function () { marked = !marked; btn.classList.toggle("on", marked); });
+      var model2 = el("div", "model", "This sentence needs no change — it's already correct.");
+      body.appendChild(btn); body.appendChild(model2);
+      return { node: body, check: function () { return marked; }, reset: function () { marked = false; btn.classList.remove("on"); } };
+    }
     var inp = el("input", "rewrite"); inp.type = "text"; inp.placeholder = "Type your answer…"; inp.autocomplete = "off";
     var model = el("div", "model", "Model answer: <b>" + esc(item[1]) + "</b>");
     body.appendChild(inp); body.appendChild(model);

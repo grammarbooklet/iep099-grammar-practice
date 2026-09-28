@@ -103,6 +103,13 @@ input.rewrite:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
 .item.checked.incorrect input.rewrite{border-color:var(--bad-bd);background:var(--surface)}
 .model{font:400 14px/1.5 var(--sans);color:var(--ok-ink);margin-top:6px;display:none}
 .item.checked.incorrect .model{display:block}
+
+button.tick-btn{display:block;margin-top:8px;font:600 14.5px/1 var(--sans);color:var(--ink-2);background:var(--tint);border:1.5px solid var(--rule);border-radius:8px;padding:10px 14px;cursor:pointer;text-align:left}
+button.tick-btn:hover{background:var(--surface);border-color:var(--teal)}
+button.tick-btn.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.item.checked.correct button.tick-btn{background:var(--ok-bg);color:var(--ok-ink);border-color:var(--ok-bd)}
+.item.checked.incorrect button.tick-btn{border-color:var(--bad-bd)}
+.item.checked.incorrect button.tick-btn.on{background:var(--bad-bg);color:var(--bad-ink);border-color:var(--bad-bd)}
 .model b{font-weight:700}
 
 input.code{font:700 15px/1 var(--sans);color:var(--ink);background:var(--tint);border:1.5px solid var(--rule);border-radius:7px;width:44px;height:36px;text-align:center;text-transform:uppercase;margin-left:8px}

@@ -225,8 +225,9 @@
     container.appendChild(hint);
 
     var actions = el("div", "ex-actions");
-    var checkBtn = el("button", "btn", "Check answers"); checkBtn.type = "button";
-    var againBtn = el("button", "btn ghost", "Try again"); againBtn.type = "button";
+    var S = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+    var checkBtn = el("button", "btn", '<svg ' + S + '><path d="M5 13l4 4L19 7"/></svg>Check answers'); checkBtn.type = "button";
+    var againBtn = el("button", "btn ghost", '<svg ' + S + '><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>Try again'); againBtn.type = "button";
     var score = el("span", "ex-score", "");
     actions.appendChild(checkBtn); actions.appendChild(againBtn); actions.appendChild(score);
     container.appendChild(actions);

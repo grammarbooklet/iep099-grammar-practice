@@ -48,7 +48,8 @@ a{color:var(--teal-d)}
 .bar-spacer{flex:1;min-width:0}
 .bar-score{font:700 13px/1 var(--sans);color:#fff;background:rgba(255,255,255,.14);padding:6px 10px;border-radius:20px;white-space:nowrap;flex:none}
 .bar-score.zero{opacity:.55}
-.bar-link{color:#C9CEE6;text-decoration:none;font:600 13px/1 var(--sans);white-space:nowrap;flex:none}
+.bar-link{display:inline-flex;align-items:center;gap:5px;color:#C9CEE6;text-decoration:none;font:600 13px/1 var(--sans);white-space:nowrap;flex:none}
+.bar-link svg{width:13px;height:13px;flex:none}
 .bar-link:hover{color:#fff}
 
 /* ---------- hero ---------- */
@@ -134,7 +135,9 @@ select.match:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
 .hint-eg{font:italic 500 13.5px/1.4 var(--serif);color:var(--ink-2)}
 
 .ex-actions{display:flex;align-items:center;gap:10px;margin-top:16px;flex-wrap:wrap}
-button.btn{font:700 13.5px/1 var(--sans);color:#fff;background:var(--navy);border:0;border-radius:9px;padding:11px 16px;cursor:pointer}
+button.btn{display:inline-flex;align-items:center;gap:7px;font:700 13.5px/1 var(--sans);color:#fff;background:var(--navy);border:0;border-radius:9px;padding:11px 16px;cursor:pointer}
+button.btn[hidden]{display:none}
+button.btn svg{width:15px;height:15px;flex:none}
 button.btn:hover{background:var(--navy-2)}
 button.btn.ghost{background:transparent;color:var(--ink-2);border:1.5px solid var(--rule)}
 button.btn.ghost:hover{background:var(--tint)}

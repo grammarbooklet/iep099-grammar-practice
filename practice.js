@@ -99,25 +99,46 @@
     return { node: frag, check: function () { return norm(inp.value) === norm(item[1]); }, reset: function () { inp.value = ""; } };
   }
 
-  function renderRewrite(item) {
+  // withChooser is true for a whole "Correct the Mistake"-style exercise (see caller): the student picks
+  // ✗ (has a mistake) or ✓ (already correct) first, and the text box to write the correction only appears
+  // after ✗ — nothing to type for a sentence that's already right, and no keyboard has a tick key to press.
+  function renderRewrite(item, withChooser) {
     var body = el("div");
-    body.appendChild(el("span", "q", mdLite(esc(item[0]))));
-    // The booklet sometimes asks students to write "✓" instead of a rewrite, for a sentence that's already
-    // correct — a real keyboard has no tick key, so on the site this becomes a tap-to-mark button instead
-    // of a text field, rather than asking students to type a character they can't easily reach.
     var already = /^\s*✓/.test(String(item[1]));
-    if (already) {
-      var marked = false;
-      var btn = el("button", "tick-btn", "✓ Already correct — no change needed"); btn.type = "button";
-      btn.addEventListener("click", function () { marked = !marked; btn.classList.toggle("on", marked); });
-      var model2 = el("div", "model", "This sentence needs no change — it's already correct.");
-      body.appendChild(btn); body.appendChild(model2);
-      return { node: body, check: function () { return marked; }, reset: function () { marked = false; btn.classList.remove("on"); } };
+    var model = el("div", "model", already ? "This sentence needs no change — it's already correct." : "Model answer: <b>" + esc(item[1]) + "</b>");
+
+    if (!withChooser) {
+      body.appendChild(el("span", "q", mdLite(esc(item[0]))));
+      var plainInp = el("input", "rewrite"); plainInp.type = "text"; plainInp.placeholder = "Type your answer…"; plainInp.autocomplete = "off";
+      body.appendChild(plainInp); body.appendChild(model);
+      return { node: body, check: function () { return norm(plainInp.value) === norm(item[1]); }, reset: function () { plainInp.value = ""; } };
     }
-    var inp = el("input", "rewrite"); inp.type = "text"; inp.placeholder = "Type your answer…"; inp.autocomplete = "off";
-    var model = el("div", "model", "Model answer: <b>" + esc(item[1]) + "</b>");
-    body.appendChild(inp); body.appendChild(model);
-    return { node: body, check: function () { return norm(inp.value) === norm(item[1]); }, reset: function () { inp.value = ""; } };
+
+    var choice = null; // "x" (has a mistake) | "t" (already correct)
+    var row = el("div", "rw-row");
+    row.appendChild(el("span", "q", mdLite(esc(item[0]))));
+    var picker = el("div", "xt-picker");
+    var xBtn = el("button", "xt-btn x", "✗"); xBtn.type = "button"; xBtn.title = "This sentence has a mistake";
+    var tBtn = el("button", "xt-btn t", "✓"); tBtn.type = "button"; tBtn.title = "This sentence is already correct";
+    picker.appendChild(xBtn); picker.appendChild(tBtn);
+    row.appendChild(picker);
+    var inp = el("input", "rewrite"); inp.type = "text"; inp.placeholder = "Type the correct sentence…"; inp.autocomplete = "off";
+    inp.hidden = true;
+    function select(which) {
+      choice = which;
+      xBtn.classList.toggle("sel", which === "x");
+      tBtn.classList.toggle("sel", which === "t");
+      inp.hidden = which !== "x";
+      if (which === "x") inp.focus();
+    }
+    xBtn.addEventListener("click", function () { select("x"); });
+    tBtn.addEventListener("click", function () { select("t"); });
+    body.appendChild(row); body.appendChild(inp); body.appendChild(model);
+    return {
+      node: body,
+      check: function () { return already ? choice === "t" : (choice === "x" && norm(inp.value) === norm(item[1])); },
+      reset: function () { choice = null; xBtn.classList.remove("sel"); tBtn.classList.remove("sel"); inp.hidden = true; inp.value = ""; }
+    };
   }
 
   function renderMc(item) {
@@ -159,10 +180,19 @@
   // ---------- build one exercise block from a captured {title, spec} ----------
   function buildExercise(container, ex, rules, meta, onScore) {
     var spec = ex.spec;
+    // "Correct the Mistake"-style exercises mix sentences that need fixing with the odd one that's already
+    // right. If even one item uses that already-correct marker, every item gets the X / tick chooser so the
+    // interaction is consistent — pick one first, then the text box (only for "has a mistake") appears.
+    // Plain rewrite/transform/combine exercises never have that marker and keep the ordinary text field.
+    var hasTick = spec.type === "write" && (spec.items || []).some(function (it) { return /^\s*✓/.test(String(it[1])); });
     container.innerHTML = "";
     container.appendChild(el("span", "ex-tag", esc(spec.tag || ex.title)));
     if (spec.tag) container.appendChild(el("h4", "ex-title", esc(ex.title)));
-    if (spec.instr) container.appendChild(el("p", "ex-instr", mdLite(esc(spec.instr))));
+    // The booklet's own instruction says to write a tick — correct for pen and paper, but the site uses
+    // buttons instead, so the displayed instruction is swapped here without touching the shared source
+    // text the print booklet still relies on.
+    var instrText = hasTick ? "Each sentence has a tag question. Tap ✗ if it has a mistake and type the correction, or tap ✓ if it's already correct." : spec.instr;
+    if (instrText) container.appendChild(el("p", "ex-instr", mdLite(esc(instrText))));
     if (spec.eg) container.appendChild(el("p", "ex-eg", "<b>Example</b>" + parseSegments(spec.eg).map(plainOfSeg).join("")));
     if (spec.bank) { var bank = el("div", "ex-bank"); spec.bank.forEach(function (w) { bank.appendChild(el("span", "", esc(w))); }); container.appendChild(bank); }
 
@@ -181,7 +211,7 @@
         var itemEl = el("div", "item"); itemEl.appendChild(el("span", "n", String(i + 1)));
         var bw = el("div", "body");
         var built = spec.type === "short" ? renderCode(raw)
-          : spec.type === "write" ? renderRewrite(raw)
+          : spec.type === "write" ? renderRewrite(raw, hasTick)
           : spec.type === "mc" ? renderMc(raw)
           : renderInline(typeof raw === "string" ? raw : raw[0]);
         bw.appendChild(built.node); itemEl.appendChild(bw); list.appendChild(itemEl);

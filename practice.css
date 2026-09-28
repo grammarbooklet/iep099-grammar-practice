@@ -209,6 +209,22 @@ p.credit{margin:18px 0 0;font:600 12px/1.5 var(--sans);color:var(--mute);text-al
 .toc-strand h2{font:600 24px/1.2 var(--serif);color:var(--ink);margin:0 0 3px}
 .toc-strand p{font:400 14px/1.4 var(--sans);color:var(--mute);margin:0}
 .toc-unit{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:16px 18px;margin-top:14px}
+
+/* ---------- instructor builder: collapsible unit list ---------- */
+.builder-unit{background:var(--surface);border:1px solid var(--hair);border-radius:14px;margin-top:10px;overflow:hidden}
+.builder-unit summary{display:flex;align-items:center;gap:9px;padding:14px 18px;cursor:pointer;list-style:none;font:600 15.5px/1.2 var(--serif);color:var(--ink)}
+.builder-unit summary::-webkit-details-marker{display:none}
+.builder-chevron{display:flex;flex:none;color:var(--mute);transition:transform .15s}
+.builder-chevron svg{width:16px;height:16px}
+.builder-unit[open] .builder-chevron{transform:rotate(90deg)}
+.builder-badge{margin-left:auto;font:700 11.5px/1 var(--sans);color:var(--teal-d);background:var(--teal-t);padding:5px 9px;border-radius:20px;flex:none}
+.builder-badge:empty{display:none}
+.builder-body{padding:0 18px 14px}
+.builder-topic{background:var(--tint);border:1px solid var(--hair);border-radius:10px;margin:8px 0 0}
+.builder-topic summary{padding:10px 14px;font:700 12.5px/1.2 var(--sans);letter-spacing:.02em;color:var(--ink-2)}
+.builder-topic .builder-body{padding:2px 14px 10px}
+.qr-box{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.qr-box img{width:160px;height:160px;border-radius:8px;border:1px solid var(--hair);background:#fff;padding:8px}
 .toc-unit-h{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
 .toc-unit-h .u{font:700 11px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--teal-d);padding:5px 9px;border-radius:20px;flex:none}
 .toc-unit-h h3{font:600 19px/1.25 var(--serif);color:var(--ink);margin:0}

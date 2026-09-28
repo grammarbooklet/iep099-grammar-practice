@@ -38,7 +38,8 @@
     <p class="note" id="countNote" style="margin-top:12px">0 activities selected</p>
     <div id="catalog"></div>
     <div class="ex-actions" style="margin-top:16px">
-      <button class="btn" id="genBtn" type="button">Generate link</button>
+      <button class="btn" id="genBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>Generate link</button>
+      <button class="btn" id="genQrBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/><path d="M20 14v3h-2"/><path d="M14 20h3"/></svg>Generate QR code</button>
     </div>
     <div id="linkOut" hidden style="margin-top:14px">
       <label style="display:block;font:700 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:7px">Share this link with your students</label>
@@ -47,8 +48,16 @@
         <button class="btn ghost" id="copyBtn" type="button">Copy link</button>
       </div>
     </div>
+    <div id="qrOut" hidden style="margin-top:14px">
+      <label style="display:block;font:700 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:7px">Scan or print this QR code for your students</label>
+      <div class="qr-box">
+        <img id="qrImg" alt="QR code linking to this practice set">
+        <button class="btn ghost" id="qrDownloadBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Download QR (PNG)</button>
+      </div>
+    </div>
   </div>
 
   <p class="credit">IEP099 Grammar Booklet, Second Edition &middot; Dr. Chadi Chahdi</p>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1/build/qrcode.min.js"></script>
 <script src="builder.js"></script>

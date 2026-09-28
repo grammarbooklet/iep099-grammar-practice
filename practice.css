@@ -176,10 +176,10 @@ select.match:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
 /* Instructor-built sets check everything at once on Submit, not per activity — each exercise's own
    Check/Try again/score row stays hidden until #setMain gets the .submitted class. */
 #setMain:not(.submitted) #setList .ex-actions{display:none}
-button.btn{display:inline-flex;align-items:center;gap:7px;font:700 13.5px/1 var(--sans);color:#fff;background:var(--navy);border:0;border-radius:9px;padding:11px 16px;cursor:pointer}
+button.btn{display:inline-flex;align-items:center;gap:7px;font:700 13.5px/1 var(--sans);color:#fff;background:var(--navy-2);border:0;border-radius:9px;padding:11px 16px;cursor:pointer}
 button.btn[hidden]{display:none}
 button.btn svg{width:15px;height:15px;flex:none}
-button.btn:hover{background:var(--navy-2)}
+button.btn:hover{filter:brightness(1.2)}
 button.btn.ghost{background:transparent;color:var(--ink-2);border:1.5px solid var(--rule)}
 button.btn.ghost:hover{background:var(--tint)}
 button.btn.accent{background:var(--teal);color:var(--navy)}

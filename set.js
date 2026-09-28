@@ -24,6 +24,8 @@
   var rows = []; // this set's own results, for its own PDF report only — see buildSetPdf below
   var finished = false;
   var timerId = null;
+  var deadline = null; // null = untimed
+  var timerBadge = document.getElementById("timerBadge");
 
   // ---------- name/section gate: shown immediately, before any activity is visible ----------
   document.getElementById("setStartBtn").addEventListener("click", function () {
@@ -33,15 +35,20 @@
     }
     document.getElementById("setGate").hidden = true;
     document.getElementById("setMain").hidden = false;
-    startTimer();
+    if (minutes > 0) setTimeLimit(minutes);
     loadSet();
   });
 
-  function startTimer() {
-    if (!(minutes > 0)) return;
-    var timerBadge = document.getElementById("timerBadge");
+  // Sets, extends, shortens or removes the time limit — used both for the link's own ?minutes= value at
+  // start, and by the on-page instructor control below, so a teacher physically present can adjust it for
+  // a device without needing any server (a static site has no way to push a change to a tab it doesn't
+  // control, so this only ever affects the device it's actually touched on).
+  function setTimeLimit(mins) {
+    if (timerId) clearInterval(timerId);
+    if (!(mins > 0)) { deadline = null; timerBadge.hidden = true; timerBadge.classList.remove("timer-urgent"); return; }
+    deadline = Date.now() + mins * 60000;
     timerBadge.hidden = false;
-    var deadline = Date.now() + minutes * 60000;
+    timerBadge.classList.remove("timer-urgent");
     var tick = function () {
       var left = Math.max(0, Math.round((deadline - Date.now()) / 1000));
       var m = Math.floor(left / 60), s = left % 60;
@@ -52,6 +59,46 @@
     timerId = setInterval(tick, 1000);
     tick();
   }
+
+  // ---------- instructor-only, on-device time adjustment (same passphrase as the builder tool) ----------
+  (function () {
+    var PASSPHRASE_HASH = "0db7bbf4badf215a1ec84b3adf234a84017596d8e52ea8d855616fd10aa761ab"; // "iep099grammar"
+    function sha256Hex(text) {
+      return crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)).then(function (buf) {
+        return Array.prototype.map.call(new Uint8Array(buf), function (b) { return b.toString(16).padStart(2, "0"); }).join("");
+      });
+    }
+    var btn = document.getElementById("timeAdjustBtn"), panel = document.getElementById("timeAdjustPanel");
+    var unlocked = false;
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      panel.hidden = !panel.hidden;
+      if (!panel.hidden) {
+        var r = btn.getBoundingClientRect();
+        panel.style.top = (r.bottom + window.scrollY + 8) + "px";
+        panel.style.right = Math.max(16, window.innerWidth - r.right) + "px";
+        if (unlocked) document.getElementById("timeAdjustMinutes").value = deadline ? Math.ceil((deadline - Date.now()) / 60000) : 0;
+      }
+    });
+    document.addEventListener("click", function (e) { if (!panel.hidden && e.target !== btn && !panel.contains(e.target)) panel.hidden = true; });
+    document.getElementById("timeAdjustUnlockBtn").addEventListener("click", function () {
+      var v = document.getElementById("timeAdjustPass").value.trim();
+      if (!v) return;
+      sha256Hex(v).then(function (hash) {
+        if (hash !== PASSPHRASE_HASH) { document.getElementById("timeAdjustMsg").textContent = "That's not the right passphrase."; return; }
+        unlocked = true;
+        document.getElementById("timeAdjustGateRow").hidden = true;
+        document.getElementById("timeAdjustControls").hidden = false;
+        document.getElementById("timeAdjustMsg").textContent = "";
+        document.getElementById("timeAdjustMinutes").value = deadline ? Math.ceil((deadline - Date.now()) / 60000) : 0;
+      });
+    });
+    document.getElementById("timeAdjustApplyBtn").addEventListener("click", function () {
+      var mins = parseInt(document.getElementById("timeAdjustMinutes").value, 10) || 0;
+      setTimeLimit(mins);
+      document.getElementById("timeAdjustMsg").textContent = mins > 0 ? "Time limit set to " + mins + " min." : "Time limit removed.";
+    });
+  })();
 
   // ---------- one Submit locks and reveals everything; a time-out calls the same sequence ----------
   function finishSet(message) {
@@ -68,6 +115,31 @@
     document.getElementById("setSubmitStatus").textContent = message || "Submitted — here are your results.";
     document.getElementById("setDownloadSection").hidden = false;
     document.getElementById("setDownloadSection").scrollIntoView({ behavior: "smooth", block: "start" });
+    reportToInstructor();
+  }
+
+  // Optional, dormant until sheets-config.js has a real URL: lets an instructor see who has completed which
+  // set and their score, since a static site has no other way to "track" a QR/link. Fire-and-forget — the
+  // student never sees this happen, and it never blocks or delays showing their own results.
+  function reportToInstructor() {
+    if (!window.SHEETS_WEBHOOK_URL) return;
+    var t = computeTotals();
+    var name = document.getElementById("setStudentName").value.trim();
+    var section = document.getElementById("setSection").value.trim();
+    try {
+      fetch(window.SHEETS_WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({ name: name, section: section, set: title, correct: t.correct, total: t.total, percent: t.pct })
+      }).catch(function () {});
+    } catch (e) {}
+  }
+
+  function computeTotals() {
+    var correct = 0, total = 0;
+    rows.forEach(function (r) { correct += r.result.correct; total += r.result.total; });
+    return { correct: correct, total: total, pct: total ? Math.round((correct / total) * 100) : 0 };
   }
   document.getElementById("setSubmitBtn").addEventListener("click", function () { finishSet("Submitted — here are your results."); });
 
@@ -165,9 +237,7 @@
     });
     y += cardH + 8;
 
-    var totalCorrect = 0, totalItems = 0;
-    rows.forEach(function (r) { totalCorrect += r.result.correct; totalItems += r.result.total; });
-    var pctAll = totalItems ? Math.round((totalCorrect / totalItems) * 100) : 0;
+    var t = computeTotals(); var totalCorrect = t.correct, totalItems = t.total, pctAll = t.pct;
     var bannerH = 24;
     doc.setFillColor.apply(doc, TEAL_T); doc.setDrawColor(159, 220, 210);
     doc.roundedRect(marginL, y, maxW, bannerH, 2.5, 2.5, "FD");

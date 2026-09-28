@@ -122,19 +122,27 @@
         list.forEach(function (s) {
           var row = document.createElement("div");
           row.className = "toc-unit";
-          row.style.cssText = "display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px;padding:14px 18px";
+          row.style.cssText = "display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px;padding:14px 18px;flex-wrap:wrap";
           var left = document.createElement("div");
           left.innerHTML = "<b style=\"font:600 15px var(--serif);color:var(--ink)\">" + esc(s.title.replace(STRAND_LABEL[strandKey] + " — ", "")) + "</b>" +
             "<div style=\"font:400 12.5px var(--sans);color:var(--mute);margin-top:3px\">" + s.ids.length + " activities · " + s.minutes + " min time limit</div>";
           row.appendChild(left);
+          var right = document.createElement("div");
+          right.style.cssText = "display:flex;align-items:center;gap:12px";
+          var untimedLabel = document.createElement("label");
+          untimedLabel.style.cssText = "display:flex;align-items:center;gap:5px;font:400 12.5px var(--sans);color:var(--ink-2);cursor:pointer";
+          var untimedCb = document.createElement("input"); untimedCb.type = "checkbox";
+          untimedLabel.appendChild(untimedCb); untimedLabel.appendChild(document.createTextNode("No time limit"));
+          right.appendChild(untimedLabel);
           var btn = document.createElement("button");
           btn.type = "button"; btn.className = "btn ghost";
           btn.textContent = "Get link & QR";
           btn.addEventListener("click", function () {
-            var url = outputSet(s.ids, s.title, "", s.minutes);
+            var url = outputSet(s.ids, s.title, "", untimedCb.checked ? 0 : s.minutes);
             if (url) generateQr(url);
           });
-          row.appendChild(btn);
+          right.appendChild(btn);
+          row.appendChild(right);
           root.appendChild(row);
         });
       });

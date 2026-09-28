@@ -10,6 +10,10 @@
   "use strict";
   var PASSPHRASE_HASH = "0db7bbf4badf215a1ec84b3adf234a84017596d8e52ea8d855616fd10aa761ab"; // "iep099grammar"
   var UNLOCK_KEY = "iep099-builder-unlocked";
+  // Always build student-facing links against the real, live site — never against wherever this copy of
+  // builder.html happens to be open (a local test server, a preview, a stray tab left open from testing).
+  // Otherwise a link/QR generated from a non-live copy would only work on that one machine.
+  var SITE_BASE = "https://grammarbooklet.github.io/iep099-grammar-practice/";
 
   function sha256Hex(text) {
     var data = new TextEncoder().encode(text);
@@ -60,7 +64,7 @@
   // ---------- shared link/QR output, used by both the ready-made list and the custom builder ----------
   function outputSet(ids, title, note, minutes) {
     if (!ids.length) return;
-    var url = new URL("set.html", location.href);
+    var url = new URL("set.html", SITE_BASE);
     url.searchParams.set("ids", ids.join(","));
     url.searchParams.set("title", title);
     if (note) url.searchParams.set("note", note);

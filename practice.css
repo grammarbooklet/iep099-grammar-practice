@@ -181,6 +181,8 @@ button.btn svg{width:15px;height:15px;flex:none}
 button.btn:hover{background:var(--navy-2)}
 button.btn.ghost{background:transparent;color:var(--ink-2);border:1.5px solid var(--rule)}
 button.btn.ghost:hover{background:var(--tint)}
+button.btn.accent{background:var(--teal);color:var(--navy)}
+button.btn.accent:hover{background:var(--teal-d);color:#fff}
 button.btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 .ex-score{font:700 13.5px/1 var(--sans);color:var(--mute)}
 .ex-score.done{color:var(--teal-d)}

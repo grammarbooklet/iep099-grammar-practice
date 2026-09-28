@@ -244,7 +244,11 @@
       score.textContent = right + " / " + checks.length + " correct";
       score.classList.add("done");
       hint.hidden = right === checks.length || !rules || !rules.length;
-      if (meta) saveResult(meta.id, { unit: meta.unit, unitTitle: meta.unitTitle, topicTitle: meta.topicTitle, activityTitle: meta.activityTitle, correct: right, total: checks.length, date: new Date().toISOString() });
+      // meta.id only exists for a real, individually-numbered activity page (set by initPracticePage below).
+      // An instructor-built set (set.html) passes activity meta straight from activities.json with no id,
+      // and must never write into the student's whole-site My Progress store — those two are kept separate
+      // on purpose, so a one-off quiz-practice link doesn't pollute a student's overall practice history.
+      if (meta && meta.id != null) saveResult(meta.id, { unit: meta.unit, unitTitle: meta.unitTitle, topicTitle: meta.topicTitle, activityTitle: meta.activityTitle, correct: right, total: checks.length, date: new Date().toISOString() });
       onScore && onScore();
     });
     againBtn.addEventListener("click", function () {

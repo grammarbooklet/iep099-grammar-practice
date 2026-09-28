@@ -168,6 +168,9 @@ select.match:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
 .hint-eg{font:italic 500 13.5px/1.4 var(--serif);color:var(--ink-2)}
 
 .ex-actions{display:flex;align-items:center;gap:10px;margin-top:16px;flex-wrap:wrap}
+/* Instructor-built sets check everything at once on Submit, not per activity — each exercise's own
+   Check/Try again/score row stays hidden until #setMain gets the .submitted class. */
+#setMain:not(.submitted) #setList .ex-actions{display:none}
 button.btn{display:inline-flex;align-items:center;gap:7px;font:700 13.5px/1 var(--sans);color:#fff;background:var(--navy);border:0;border-radius:9px;padding:11px 16px;cursor:pointer}
 button.btn[hidden]{display:none}
 button.btn svg{width:15px;height:15px;flex:none}

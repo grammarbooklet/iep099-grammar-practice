@@ -20,8 +20,36 @@
     <p class="note" id="setNote" hidden style="margin-top:2px"></p>
     <div class="rule"></div>
   </div>
-  <div id="setList"></div>
+
+  <div id="setGate">
+    <p class="sub" style="font-size:16px">Enter your name and section before you start.</p>
+    <div class="progress-settings" style="margin-top:6px">
+      <label>Your name<input type="text" id="setStudentName" placeholder="Full name" autocomplete="name"></label>
+      <label>Section number<input type="text" id="setSection" placeholder="Section number"></label>
+    </div>
+    <div class="ex-actions" style="margin-top:14px">
+      <button class="btn" id="setStartBtn" type="button">Start</button>
+    </div>
+    <p class="note" id="setGateMsg" style="margin-top:8px;min-height:1.2em"></p>
+  </div>
+
+  <div id="setMain" hidden>
+    <div id="setList"></div>
+    <div class="ex-actions" style="margin-top:16px">
+      <button class="btn" id="setSubmitBtn" type="button">Submit</button>
+    </div>
+    <p class="note" id="setSubmitStatus" style="margin-top:8px;min-height:1.2em"></p>
+
+    <div id="setDownloadSection" hidden style="margin-top:8px">
+      <div class="ex-actions">
+        <button class="btn ghost" id="setDownloadBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Download report (PDF)</button>
+      </div>
+      <p class="note" id="setDownloadStatus" style="margin-top:8px;min-height:1.2em"></p>
+    </div>
+  </div>
+
   <p class="credit">IEP099 Grammar Booklet, Second Edition &middot; Dr. Chadi Chahdi</p>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 <script src="practice.js"></script>
 <script src="set.js"></script>

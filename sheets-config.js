@@ -21,4 +21,4 @@
 //      it without signing in — it can only ever run the one function above, nothing else in your account).
 //   4. Click Deploy, then Authorize access with your OWN Google account (never a student's).
 //   5. Copy the "Web app URL" it gives you and paste it below, replacing the empty string.
-window.SHEETS_WEBHOOK_URL = "";
+window.SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzINyhvlhe4omoynPWP3vYiS1j7RvuYZoHRU3mZexBeFwNmT4tx0U-418t7iWVhWlDySw/exec";

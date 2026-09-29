@@ -299,34 +299,20 @@
   // set and throws its width/spacing calculations off (a garbled, stretched-looking line), so swap any
   // character outside that range for a plain-ASCII stand-in before it ever reaches doc.text().
   function pdfSafe(s) { return String(s).replace(/→/g, "->").replace(/←/g, "<-").replace(/↔/g, "<->"); }
-  var logoDataUrl = null;
-  function loadLogo() {
-    if (logoDataUrl) return Promise.resolve(logoDataUrl);
-    return fetch("logo-asu.png").then(function (r) { return r.blob(); }).then(function (blob) {
-      return new Promise(function (resolve) {
-        var reader = new FileReader();
-        reader.onload = function () { logoDataUrl = reader.result; resolve(logoDataUrl); };
-        reader.onerror = function () { resolve(null); };
-        reader.readAsDataURL(blob);
-      });
-    }).catch(function () { return null; });
-  }
 
   function printWorksheet(ids, title, statusEl) {
     var status = statusEl || document.getElementById("printStatus");
     if (!ids.length) { status.textContent = "Pick at least one activity first."; return; }
     if (typeof jspdf === "undefined" || !window.IEPPractice) { status.textContent = "Couldn't load the PDF tool — check your internet connection and try again."; return; }
     status.textContent = "Building the PDF…";
-    Promise.all([loadLogo(), fetch("activities.json").then(function (r) { return r.json(); })]).then(function (results) {
-      var logoData = results[0], all = results[1];
+    fetch("activities.json").then(function (r) { return r.json(); }).then(function (all) {
       var doc = new jspdf.jsPDF();
       var pageW = doc.internal.pageSize.getWidth(), pageH = doc.internal.pageSize.getHeight();
       var marginL = 16, marginR = 16, maxW = pageW - marginL - marginR;
 
       function header(withFields) {
-        // White plate, not the navy banner the on-screen report uses — the logo's own artwork is navy on
-        // transparent, so it only reads cleanly on a light background.
-        if (logoData) { try { doc.addImage(logoData, "PNG", marginL, 8, 33, 15); } catch (e) {} }
+        doc.setFont("helvetica", "bold"); doc.setFontSize(10); doc.setTextColor.apply(doc, MUTE);
+        doc.text("IEP099 · GRAMMAR BOOKLET", marginL, 13);
         doc.setTextColor.apply(doc, NAVY);
         doc.setFont("helvetica", "bold"); doc.setFontSize(14);
         doc.text(pdfSafe(title), pageW - marginR, 14, { align: "right", maxWidth: pageW - marginR - 55 });

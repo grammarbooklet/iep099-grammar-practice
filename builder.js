@@ -148,7 +148,7 @@
           right.appendChild(btn);
           var printBtn = document.createElement("button");
           printBtn.type = "button"; printBtn.className = "btn ghost";
-          printBtn.textContent = "Download printable sheet";
+          printBtn.textContent = "Download PDF";
           printBtn.title = "Download a printable PDF worksheet";
           printBtn.addEventListener("click", function () { printWorksheet(s.ids, s.title, document.getElementById("printStatusReadymade")); });
           right.appendChild(printBtn);
@@ -396,11 +396,15 @@
           var legendLines = doc.splitTextToSize(pdfSafe(spec.right.map(function (r, i) { return String.fromCharCode(65 + i) + ". " + r; }).join("     ")), maxW);
           ensureSpace(legendLines.length * 5 + 6);
           doc.text(legendLines, marginL, y); y += legendLines.length * 5 + 6;
+          var matchBoxSize = 5, matchNumW = 12, matchTextIndent = marginL + matchNumW + matchBoxSize + 4;
           spec.left.forEach(function (leftText, i) {
             doc.setFont("helvetica", "normal"); doc.setFontSize(10.5);
-            var lLines = doc.splitTextToSize(pdfSafe((i + 1) + ".   [ ___ ]   " + leftText), maxW);
+            var lLines = doc.splitTextToSize(pdfSafe(leftText), maxW - (matchTextIndent - marginL));
             ensureSpace(lLines.length * 6 + 4);
-            doc.text(lLines, marginL, y); y += lLines.length * 6 + 4;
+            doc.text((i + 1) + ".", marginL, y);
+            doc.setDrawColor.apply(doc, RULE); doc.setLineWidth(0.4);
+            doc.rect(marginL + matchNumW, y - matchBoxSize + 1.2, matchBoxSize, matchBoxSize, "D");
+            doc.text(lLines, matchTextIndent, y); y += lLines.length * 6 + 4;
           });
         } else if (spec.type === "mc") {
           // Each option gets its own indented line with a drawn checkbox — a real box to tick, not a
@@ -422,12 +426,28 @@
             });
             y += 4;
           });
+        } else if (spec.type === "short") {
+          // A small boxed answer slot at the end of the line — drawn, not typed brackets — sized for a
+          // short code like a verb-tense label rather than a full sentence.
+          // All boxes line up in one column on the right, regardless of how long each sentence is —
+          // trailing the box right after the text (like a ragged edge) looked messy.
+          var shortItems = spec.tag === "Notice" ? (spec.items || []).slice(0, 3) : (spec.items || []);
+          var shortBoxW = 14, shortBoxH = 7, shortColX = pageW - marginR - shortBoxW;
+          shortItems.forEach(function (raw, i) {
+            doc.setFont("helvetica", "normal"); doc.setFontSize(10.5);
+            var qText = pdfSafe((i + 1) + ".  " + window.IEPPractice.printBlankText(raw[0]));
+            var qLines = doc.splitTextToSize(qText, maxW - shortBoxW - 8);
+            ensureSpace(qLines.length * 6 + 5);
+            doc.text(qLines, marginL, y);
+            doc.setDrawColor.apply(doc, RULE); doc.setLineWidth(0.4);
+            doc.rect(shortColX, y - shortBoxH + 2, shortBoxW, shortBoxH, "D");
+            y += qLines.length * 6 + 5;
+          });
         } else {
           var items = spec.tag === "Notice" ? (spec.items || []).slice(0, 3) : (spec.items || []);
           items.forEach(function (raw, i) {
             var text;
-            if (spec.type === "short") text = (i + 1) + ".  " + window.IEPPractice.printBlankText(raw[0]) + "   [ ___ ]";
-            else if (spec.type === "write") text = (i + 1) + ".  " + raw[0];
+            if (spec.type === "write") text = (i + 1) + ".  " + raw[0];
             else text = (i + 1) + ".  " + window.IEPPractice.printBlankText(typeof raw === "string" ? raw : raw[0]);
             doc.setFont("helvetica", "normal"); doc.setFontSize(10.5);
             var tLines = doc.splitTextToSize(pdfSafe(text), maxW);

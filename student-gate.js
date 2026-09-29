@@ -35,7 +35,7 @@
         '<p style="font:400 14px/1.5 var(--sans);color:var(--ink-2);margin:0 0 16px">Enter your name and section number.</p>' +
         '<div class="progress-settings">' +
           '<label>Your name<input type="text" id="gateName" placeholder="Full name" autocomplete="off" data-lpignore="true" data-1p-ignore data-bwignore="true" data-form-type="other"></label>' +
-          '<label>Section number<input type="text" id="gateSection" placeholder="e.g. 09A" autocomplete="off" maxlength="3" data-lpignore="true" data-1p-ignore data-bwignore="true" data-form-type="other"></label>' +
+          '<label class="narrow">Section number<input type="text" id="gateSection" placeholder="e.g. 09A" autocomplete="off" maxlength="3" data-lpignore="true" data-1p-ignore data-bwignore="true" data-form-type="other"></label>' +
         '</div>' +
         '<p class="note" style="margin-top:8px">This isn&rsquo;t a login &mdash; never type a password here, even if your browser offers to fill one in. Just your name and section number.</p>' +
         '<div class="ex-actions" style="margin-top:14px"><button class="btn" id="gateContinueBtn" type="button">Continue</button></div>' +

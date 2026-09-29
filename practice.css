@@ -202,6 +202,7 @@ p.credit{margin:18px 0 0;font:600 12px/1.5 var(--sans);color:var(--mute);text-al
 /* ---------- my progress page ---------- */
 .progress-settings{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0 6px}
 .progress-settings label{flex:1;min-width:200px;font:700 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.progress-settings label.narrow{flex:0 0 90px;min-width:90px}
 .progress-settings input{display:block;width:100%;margin-top:7px;font:400 15px/1.4 var(--sans);color:var(--ink);background:var(--tint);border:1.5px solid var(--rule);border-radius:8px;padding:10px 12px}
 .progress-settings input:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
 .progress-list{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:6px 18px;margin-top:20px}

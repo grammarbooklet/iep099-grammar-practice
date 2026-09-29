@@ -1,45 +1,17 @@
 // IEP099 grammar practice — instructor tool: grab a syllabus-aligned ready-made set, or build a custom link
-// combining any activities from across the booklet.
+// combining any activities from across the booklet. Not real security — a static site can't keep a secret
+// from anyone who reads its source — the passphrase (checked as a SHA-256 hash, not stored in plain text)
+// is only friction so a student who stumbles on this unlisted page can't immediately use it. Deliberately
+// does NOT remember a previous unlock across page loads (no localStorage/sessionStorage flag) — that would
+// just be a single value any student could set from the browser console to bypass the check entirely
+// without ever knowing the passphrase, which defeats the point more thoroughly than a guessable phrase does.
 //
-// Access is gated by real Microsoft sign-in (MSAL.js — see msal-config.js for the one-time Azure setup),
-// not a shared passphrase: a student can't get in just by guessing or reading a hash out of this file, the
-// way the old passphrase gate could be. The allowed-account list below stores only SHA-256 hashes of each
-// instructor's email, never the email addresses themselves — this file (and the public repo it lives in)
-// never contains the actual staff directory, only unreadable digests of it.
-//
-// To add or remove an instructor: open a browser console anywhere and run
-//   crypto.subtle.digest("SHA-256", new TextEncoder().encode("their.email@aasu.edu.kw")).then(b => console.log([...new Uint8Array(b)].map(x => x.toString(16).padStart(2,"0")).join("")))
-// (lowercase the email first) and add/remove the printed hash in ALLOWED_EMAIL_HASHES below.
+// To change the passphrase: open a browser console anywhere and run
+//   crypto.subtle.digest("SHA-256", new TextEncoder().encode("your new phrase")).then(b => console.log([...new Uint8Array(b)].map(x => x.toString(16).padStart(2,"0")).join("")))
+// then paste the printed hash in place of PASSPHRASE_HASH below.
 (function () {
   "use strict";
-  var ALLOWED_EMAIL_HASHES = [
-    "017cf7f86c1619db954ca7adbb03cea7b96ba72d37b69e251c70d544fa405d38",
-    "9d62113d37f62644e6f0e7bd659e9ac41ef2f019fcd74e2ac72d29f61b20a3fa",
-    "a51f16f814f5dc622c8474e68267d0eb125ea97dd9efa254e8d6ce9577e2ef06",
-    "eeef90e74dcd05601a89eb50fe0459e462c9727bb468a5f9d67660818855eaea",
-    "2c148dd77e0f9300547e6f281252573280626754182833e618d7af0c98b98f36",
-    "68f662d1ccb851d72cb48f92a58adec8cea41fae30a27fc9235224aa1a7ccd38",
-    "777222d852b416b90f485a9e8d6c76d2e6a191c3d421fc3bc7bbc341b481ff49",
-    "163bd4e4504434d28b2556e9832d4ffc70a3fe51276f438357aaae65fe71af87",
-    "2fc11492f15e4619b9b98189dec3ad65a0d70cbd6b80efa71f982f96870cd179",
-    "c6a4bf70957080f52ef751d86a9d1f76eab9568b5da36de9b1a34df5755d10f5",
-    "71a091b81fcc6a8a96bf714fd7d972a1b75f6b42006db7d6ef0796146990c4df",
-    "5681975cf09262e35a40943a72bc506ea3f7206d7a04216f6689b14c91c4517f",
-    "6eb10faaaf9bd9fc7ef4100e76bebffc38969a0a4b80cc7a568b04e9cac84bb9",
-    "60522f827aa966dcb08db20484e4d300dcfcc658c5bc8f07b0cbda377fa3c085",
-    "bf3c5c1cedd87a78cc9eeafd4dbed3fa8b1907589eb0467b4aab0ce923c44af4",
-    "9316d67aeab8b94653dfd218fe49fafcec844492e4cc056e20a3efdb954f1214",
-    "43d90d3b95dea686752b3d7896935eb2f21a2e52719cf3bd7c8a18f8a554d5fb",
-    "04e684df15c89bc8847a03c2020f60a1901f15ad98f9e6db25b5faf559fcb9ff",
-    "79937f92da9e81860eb2a900f233f58790f75388a2c8237f60ebae72c3cef34b",
-    "038d8e229b9eca7d6d89a8e1954820e86c453220d79b858ac9e78f405f6d9a89",
-    "266b1faf5a4a968eb17f57978f2dbff0b25cd03b03a4ecd0238ec25a86685cd1",
-    "b087bb6fb27a3724ec03b1b3890316fb879b7c978b54fdf1f1c3d63c3cabf9a0",
-    "5337355ce07673725963eac8809a174b68476ed923aa3741b41929146ab3415e",
-    "3d91f3a2ff5cd18efab182b108320ca4183532780fe959d4b96d862dfac18105",
-    "d99d299c1858e86e0fe6120a96a9cc17952870ecc40056b4c4b299f64ec462d7",
-    "154a5441e02946e6ca9e5232ede3c4891b6b6bf5dedeaff2d8b6790af970a16d"
-  ];
+  var PASSPHRASE_HASH = "0db7bbf4badf215a1ec84b3adf234a84017596d8e52ea8d855616fd10aa761ab"; // "iep099grammar"
   // Always build student-facing links against the real, live site — never against wherever this copy of
   // builder.html happens to be open (a local test server, a preview, a stray tab left open from testing).
   // Otherwise a link/QR generated from a non-live copy would only work on that one machine.
@@ -53,52 +25,21 @@
   }
 
   var gate = document.getElementById("gate"), tool = document.getElementById("tool");
-  var gateMsg = document.getElementById("gateMsg"), signInBtn = document.getElementById("signInBtn");
-
-  function unlockFor(account) {
-    document.getElementById("signedInAs").textContent = account.username;
-    gateMsg.textContent = "";
+  function unlock() {
     gate.hidden = true; tool.hidden = false;
     loadCatalog();
     loadReadymade();
   }
 
-  function tryAccount(app, account) {
-    sha256Hex(String(account.username).trim().toLowerCase()).then(function (hash) {
-      if (ALLOWED_EMAIL_HASHES.indexOf(hash) !== -1) { unlockFor(account); return; }
-      gateMsg.textContent = "The Microsoft account " + account.username + " isn't on the instructor list for this tool. Contact Dr. Chahdi if this is a mistake.";
-      try { app.setActiveAccount(null); } catch (e) {}
+  document.getElementById("unlockBtn").addEventListener("click", function () {
+    var v = document.getElementById("pass").value.trim();
+    if (!v) return;
+    sha256Hex(v).then(function (hash) {
+      if (hash === PASSPHRASE_HASH) unlock();
+      else document.getElementById("gateMsg").textContent = "That's not the right passphrase.";
     });
-  }
-
-  (function initGate() {
-    if (typeof msal === "undefined" || !window.MSAL_CLIENT_ID || window.MSAL_CLIENT_ID.indexOf("REPLACE_WITH") === 0) {
-      gateMsg.textContent = "Sign-in isn't set up yet on this copy of the site.";
-      signInBtn.disabled = true;
-      return;
-    }
-    var app = new msal.PublicClientApplication({
-      auth: { clientId: window.MSAL_CLIENT_ID, authority: "https://login.microsoftonline.com/common", redirectUri: SITE_BASE + "builder.html" }
-    });
-    var accounts = app.getAllAccounts();
-    if (accounts.length) tryAccount(app, accounts[0]);
-
-    signInBtn.addEventListener("click", function () {
-      gateMsg.textContent = "Opening Microsoft sign-in…";
-      app.loginPopup({ scopes: ["User.Read"] }).then(function (result) {
-        tryAccount(app, result.account);
-      }).catch(function () {
-        gateMsg.textContent = "Sign-in was cancelled or failed.";
-      });
-    });
-
-    document.getElementById("signOutLink").addEventListener("click", function (e) {
-      e.preventDefault();
-      var accs = app.getAllAccounts();
-      if (accs.length) app.logoutPopup({ account: accs[0] }).catch(function () {});
-      tool.hidden = true; gate.hidden = false; gateMsg.textContent = "";
-    });
-  })();
+  });
+  document.getElementById("pass").addEventListener("keydown", function (e) { if (e.key === "Enter") document.getElementById("unlockBtn").click(); });
 
   // ---------- mode switching ----------
   var modeChoice = document.getElementById("modeChoice"), readymadeView = document.getElementById("readymadeView"), customView = document.getElementById("customView");

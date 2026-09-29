@@ -21,15 +21,16 @@
   </div>
 
   <div id="gate">
+    <div class="progress-settings" style="margin-top:6px">
+      <label>Passphrase<input type="password" id="pass" placeholder="Enter the instructor passphrase" autocomplete="off"></label>
+    </div>
     <div class="ex-actions" style="margin-top:10px">
-      <button class="btn" id="signInBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Sign in with Microsoft</button>
+      <button class="btn" id="unlockBtn" type="button">Unlock</button>
     </div>
     <p class="note" id="gateMsg" style="margin-top:8px;min-height:1.2em"></p>
   </div>
 
   <div id="tool" hidden>
-
-    <p class="note" style="margin-top:4px">Signed in as <b id="signedInAs"></b> &middot; <a href="#" id="signOutLink">Sign out</a></p>
 
     <div id="modeChoice" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px">
       <a class="home-card" href="#" id="pickReadymade">
@@ -90,7 +91,5 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/qrcode@1/build/qrcode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-<script src="https://alcdn.msauth.net/browser/3.24.0/js/msal-browser.min.js"></script>
-<script src="msal-config.js"></script>
 <script src="practice.js"></script>
 <script src="builder.js"></script>

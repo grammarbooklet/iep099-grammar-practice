@@ -49,6 +49,7 @@
       <button class="btn ghost" id="backFromReadymade" type="button" style="margin-top:10px">&larr; Back</button>
       <p class="note" style="margin-top:10px">Fixed sets built from the Fall 2026 syllabi. Each has a time limit already set to match the real assessment.</p>
       <div id="readymadeList" style="margin-top:6px"></div>
+      <p class="note" id="printStatusReadymade" style="margin-top:8px;min-height:1.2em"></p>
     </div>
 
     <div id="customView" hidden>
@@ -65,7 +66,9 @@
       <div class="ex-actions" style="margin-top:16px">
         <button class="btn accent" id="genBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>Generate link</button>
         <button class="btn accent" id="genQrBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/><path d="M20 14v3h-2"/><path d="M14 20h3"/></svg>Generate QR code</button>
+        <button class="btn ghost" id="printBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Download printable sheet</button>
       </div>
+      <p class="note" id="printStatus" style="margin-top:8px;min-height:1.2em"></p>
     </div>
 
     <div id="linkOut" hidden style="margin-top:14px">
@@ -87,4 +90,6 @@
   <p class="credit">IEP099 Grammar Booklet, Second Edition &middot; Dr. Chadi Chahdi</p>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/qrcode@1/build/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="practice.js"></script>
 <script src="builder.js"></script>

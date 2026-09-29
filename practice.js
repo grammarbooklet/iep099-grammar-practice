@@ -267,6 +267,19 @@
     return "";
   }
 
+  // ---------- plain-text (no HTML) renderings, for the instructor's printable PDF worksheet ----------
+  function stripTags(s) { return String(s).replace(/<[^>]+>/g, ""); }
+  function blankOfSeg(seg) {
+    if (seg.type === "text") return stripTags(seg.value);
+    if (seg.type === "blank") return "_".repeat(Math.max(8, seg.display.length + 3));
+    if (seg.type === "choice") return " (" + seg.options.join(" / ") + ") ";
+    return "";
+  }
+  // The sentence as a blank for a student to fill in on paper (blanks -> underscores, choices -> options list).
+  function printBlankText(raw) { return parseSegments(String(raw)).map(blankOfSeg).join(""); }
+  // The same sentence with the answer already filled in (plain text), for printing a worked example.
+  function printAnswerText(raw) { return stripTags(parseSegments(String(raw)).map(plainOfSeg).join("")); }
+
   // ---------- page bootstrap: each page renders exactly one activity, matching the book one-for-one ----------
   function initPracticePage() {
     var data = window.PAGE_DATA;
@@ -302,5 +315,5 @@
 
   // Public API: the instructor-built "set" player page (set.html/set.js) reuses this exact same rendering
   // and grading engine to show several activities on one page, rather than duplicating any of this logic.
-  window.IEPPractice = { buildExercise: buildExercise };
+  window.IEPPractice = { buildExercise: buildExercise, printBlankText: printBlankText, printAnswerText: printAnswerText };
 })();

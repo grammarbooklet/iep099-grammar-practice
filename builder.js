@@ -146,6 +146,12 @@
             if (url) generateQr(url);
           });
           right.appendChild(btn);
+          var printBtn = document.createElement("button");
+          printBtn.type = "button"; printBtn.className = "btn ghost";
+          printBtn.textContent = "Download printable sheet";
+          printBtn.title = "Download a printable PDF worksheet";
+          printBtn.addEventListener("click", function () { printWorksheet(s.ids, s.title, document.getElementById("printStatusReadymade")); });
+          right.appendChild(printBtn);
           row.appendChild(right);
           root.appendChild(row);
         });
@@ -277,4 +283,176 @@
     var url = buildCustomUrl();
     if (url) generateQr(url);
   });
+  document.getElementById("printBtn").addEventListener("click", function () {
+    var ids = Object.keys(checked).filter(function (id) { return checked[id]; });
+    var title = document.getElementById("setTitleInput").value.trim() || "Practice Set";
+    printWorksheet(ids, title);
+  });
+
+  // ---------- printable PDF worksheet — a paper copy of the chosen activities, with blank Name/Section/ID
+  // fields, for instructors who want to hand out or post a physical worksheet instead of (or alongside) the
+  // link/QR. Reuses the exact same booklet-markup parser as the interactive pages (window.IEPPractice), so
+  // blanks and multiple-choice options print exactly as they'd appear on screen, just as blanks to fill in.
+  var NAVY = [18, 28, 64], INK = [22, 30, 56], MUTE = [110, 119, 145], RULE = [213, 218, 230];
+  var AMBER = [252, 173, 27], TEAL_D = [0, 122, 110];
+  // jsPDF's built-in "helvetica" only supports WinAnsi (Windows-1252) — an arrow like "→" isn't in that
+  // set and throws its width/spacing calculations off (a garbled, stretched-looking line), so swap any
+  // character outside that range for a plain-ASCII stand-in before it ever reaches doc.text().
+  function pdfSafe(s) { return String(s).replace(/→/g, "->").replace(/←/g, "<-").replace(/↔/g, "<->"); }
+  var logoDataUrl = null;
+  function loadLogo() {
+    if (logoDataUrl) return Promise.resolve(logoDataUrl);
+    return fetch("logo-asu.png").then(function (r) { return r.blob(); }).then(function (blob) {
+      return new Promise(function (resolve) {
+        var reader = new FileReader();
+        reader.onload = function () { logoDataUrl = reader.result; resolve(logoDataUrl); };
+        reader.onerror = function () { resolve(null); };
+        reader.readAsDataURL(blob);
+      });
+    }).catch(function () { return null; });
+  }
+
+  function printWorksheet(ids, title, statusEl) {
+    var status = statusEl || document.getElementById("printStatus");
+    if (!ids.length) { status.textContent = "Pick at least one activity first."; return; }
+    if (typeof jspdf === "undefined" || !window.IEPPractice) { status.textContent = "Couldn't load the PDF tool — check your internet connection and try again."; return; }
+    status.textContent = "Building the PDF…";
+    Promise.all([loadLogo(), fetch("activities.json").then(function (r) { return r.json(); })]).then(function (results) {
+      var logoData = results[0], all = results[1];
+      var doc = new jspdf.jsPDF();
+      var pageW = doc.internal.pageSize.getWidth(), pageH = doc.internal.pageSize.getHeight();
+      var marginL = 16, marginR = 16, maxW = pageW - marginL - marginR;
+
+      function header(withFields) {
+        // White plate, not the navy banner the on-screen report uses — the logo's own artwork is navy on
+        // transparent, so it only reads cleanly on a light background.
+        if (logoData) { try { doc.addImage(logoData, "PNG", marginL, 8, 33, 15); } catch (e) {} }
+        doc.setTextColor.apply(doc, NAVY);
+        doc.setFont("helvetica", "bold"); doc.setFontSize(14);
+        doc.text(pdfSafe(title), pageW - marginR, 14, { align: "right", maxWidth: pageW - marginR - 55 });
+        doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor.apply(doc, MUTE);
+        doc.text("IEP099 Grammar Practice — Printable Worksheet", pageW - marginR, 22, { align: "right" });
+        doc.setFillColor.apply(doc, AMBER); doc.rect(0, 30, pageW, 1.4, "F");
+        doc.setTextColor.apply(doc, INK);
+        var y = 42;
+        if (withFields) {
+          doc.setFont("helvetica", "bold"); doc.setFontSize(8); doc.setTextColor.apply(doc, MUTE);
+          doc.text("NAME", marginL, y);
+          doc.text("SECTION", marginL + 108, y);
+          doc.text("STUDENT ID", marginL + 148, y);
+          doc.setDrawColor.apply(doc, RULE); doc.setLineWidth(0.5);
+          doc.line(marginL, y + 7, marginL + 100, y + 7);
+          doc.line(marginL + 108, y + 7, marginL + 138, y + 7);
+          doc.line(marginL + 148, y + 7, pageW - marginR, y + 7);
+          doc.setTextColor.apply(doc, INK);
+          y += 18;
+        }
+        return y;
+      }
+      function footer(n, totalPages) {
+        doc.setFont("helvetica", "normal"); doc.setFontSize(8.5); doc.setTextColor.apply(doc, MUTE);
+        doc.text("IEP099 Grammar Booklet, Second Edition", marginL, pageH - 9);
+        doc.text("Page " + n + " of " + totalPages, pageW - marginR, pageH - 9, { align: "right" });
+        doc.setTextColor.apply(doc, INK);
+      }
+
+      var y = header(true);
+      var missing = 0;
+      function ensureSpace(h) { if (y + h > pageH - 16) { doc.addPage(); y = header(false); } }
+
+      ids.forEach(function (id) {
+        var item = all[id];
+        if (!item) { missing++; return; }
+        var ex = item.exercise, spec = ex.spec, meta = item.meta;
+
+        ensureSpace(18);
+        doc.setFont("helvetica", "bold"); doc.setFontSize(8.5); doc.setTextColor.apply(doc, TEAL_D);
+        doc.text(("UNIT " + meta.unit + (meta.topicTitle ? " · " + meta.topicTitle : "")).toUpperCase(), marginL, y);
+        y += 6; doc.setTextColor.apply(doc, INK);
+        if (spec.tag) { doc.setFont("helvetica", "bold"); doc.setFontSize(12); doc.text(pdfSafe(ex.title), marginL, y); y += 7; }
+
+        if (spec.instr) {
+          doc.setFont("helvetica", "italic"); doc.setFontSize(9.5); doc.setTextColor.apply(doc, MUTE);
+          var iLines = doc.splitTextToSize(pdfSafe(spec.instr.replace(/\*\*(.+?)\*\*/g, "$1")), maxW);
+          ensureSpace(iLines.length * 5 + 4);
+          doc.text(iLines, marginL, y); y += iLines.length * 5 + 3;
+          doc.setTextColor.apply(doc, INK);
+        }
+        if (spec.eg) {
+          doc.setFont("helvetica", "normal"); doc.setFontSize(9.5);
+          var egLines = doc.splitTextToSize(pdfSafe("Example: " + window.IEPPractice.printAnswerText(spec.eg)), maxW);
+          ensureSpace(egLines.length * 5 + 4);
+          doc.text(egLines, marginL, y); y += egLines.length * 5 + 4;
+        }
+        if (spec.bank && spec.bank.length) {
+          doc.setFont("helvetica", "italic"); doc.setFontSize(9);
+          var bankLines = doc.splitTextToSize(pdfSafe("Word bank: " + spec.bank.join(", ")), maxW);
+          ensureSpace(bankLines.length * 5 + 4);
+          doc.text(bankLines, marginL, y); y += bankLines.length * 5 + 4;
+        }
+
+        if (spec.type === "match") {
+          doc.setFont("helvetica", "bold"); doc.setFontSize(9);
+          var legendLines = doc.splitTextToSize(pdfSafe(spec.right.map(function (r, i) { return String.fromCharCode(65 + i) + ". " + r; }).join("     ")), maxW);
+          ensureSpace(legendLines.length * 5 + 6);
+          doc.text(legendLines, marginL, y); y += legendLines.length * 5 + 6;
+          spec.left.forEach(function (leftText, i) {
+            doc.setFont("helvetica", "normal"); doc.setFontSize(10.5);
+            var lLines = doc.splitTextToSize(pdfSafe((i + 1) + ".   [ ___ ]   " + leftText), maxW);
+            ensureSpace(lLines.length * 6 + 4);
+            doc.text(lLines, marginL, y); y += lLines.length * 6 + 4;
+          });
+        } else if (spec.type === "mc") {
+          // Each option gets its own indented line with a drawn checkbox — a real box to tick, not a
+          // wrapped paragraph of run-together options.
+          var mcItems = spec.tag === "Notice" ? (spec.items || []).slice(0, 3) : (spec.items || []);
+          var boxSize = 3.4, boxIndent = marginL + 12, textIndent = boxIndent + boxSize + 3.5;
+          mcItems.forEach(function (raw, i) {
+            doc.setFont("helvetica", "normal"); doc.setFontSize(10.5);
+            var qLines = doc.splitTextToSize(pdfSafe((i + 1) + ".  " + raw[0]), maxW);
+            ensureSpace(qLines.length * 6 + raw[1].length * 6 + 6);
+            doc.text(qLines, marginL, y); y += qLines.length * 6 + 3;
+            doc.setFontSize(10);
+            raw[1].forEach(function (opt) {
+              var oLines = doc.splitTextToSize(pdfSafe(opt), maxW - (textIndent - marginL));
+              ensureSpace(oLines.length * 5.5 + 2);
+              doc.setDrawColor.apply(doc, RULE); doc.setLineWidth(0.4);
+              doc.rect(boxIndent, y - boxSize + 0.8, boxSize, boxSize, "D");
+              doc.text(oLines, textIndent, y); y += oLines.length * 5.5 + 2;
+            });
+            y += 4;
+          });
+        } else {
+          var items = spec.tag === "Notice" ? (spec.items || []).slice(0, 3) : (spec.items || []);
+          items.forEach(function (raw, i) {
+            var text;
+            if (spec.type === "short") text = (i + 1) + ".  " + window.IEPPractice.printBlankText(raw[0]) + "   [ ___ ]";
+            else if (spec.type === "write") text = (i + 1) + ".  " + raw[0];
+            else text = (i + 1) + ".  " + window.IEPPractice.printBlankText(typeof raw === "string" ? raw : raw[0]);
+            doc.setFont("helvetica", "normal"); doc.setFontSize(10.5);
+            var tLines = doc.splitTextToSize(pdfSafe(text), maxW);
+            ensureSpace(tLines.length * 6 + (spec.type === "write" ? 11 : 5));
+            doc.text(tLines, marginL, y); y += tLines.length * 6;
+            if (spec.type === "write") {
+              doc.setDrawColor.apply(doc, RULE); doc.setLineWidth(0.4);
+              doc.line(marginL + 6, y + 4, pageW - marginR - 6, y + 4);
+              y += 11;
+            } else { y += 5; }
+          });
+        }
+        y += 3;
+        doc.setDrawColor.apply(doc, RULE); doc.setLineWidth(0.3);
+        doc.line(marginL, y, pageW - marginR, y);
+        y += 8;
+      });
+
+      var pageCount = doc.internal.getNumberOfPages();
+      for (var p = 1; p <= pageCount; p++) { doc.setPage(p); footer(p, pageCount); }
+
+      doc.save("iep099-worksheet-" + title.replace(/\s+/g, "-").toLowerCase() + ".pdf");
+      status.textContent = missing ? ("PDF downloaded (" + missing + " activit" + (missing === 1 ? "y" : "ies") + " couldn't be found).") : "PDF downloaded.";
+    }).catch(function () {
+      status.textContent = "Couldn't build the PDF — check your connection and try again.";
+    });
+  }
 })();

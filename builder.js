@@ -414,7 +414,10 @@
           // All boxes line up in one column on the right, regardless of how long each sentence is —
           // trailing the box right after the text (like a ragged edge) looked messy.
           var shortItems = spec.tag === "Notice" ? (spec.items || []).slice(0, 3) : (spec.items || []);
-          var shortBoxW = 14, shortBoxH = 7, shortColX = pageW - marginR - shortBoxW;
+          // Box width follows the expected answer: a narrow box for a 1-3 letter code, a wide one when the
+          // answer is a whole word or phrase the student has to handwrite.
+          var shortHasWords = shortItems.some(function (it) { return String(it[1]).length > 3; });
+          var shortBoxW = shortHasWords ? 48 : 14, shortBoxH = 7, shortColX = pageW - marginR - shortBoxW;
           shortItems.forEach(function (raw, i) {
             doc.setFont("helvetica", "normal"); doc.setFontSize(10.5);
             var qText = pdfSafe((i + 1) + ".  " + window.IEPPractice.printBlankText(raw[0]));

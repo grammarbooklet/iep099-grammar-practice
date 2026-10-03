@@ -154,6 +154,7 @@ button.xt-btn:hover{filter:brightness(0.96)}
 .model b{font-weight:700}
 
 input.code{font:700 15px/1 var(--sans);color:var(--ink);background:var(--tint);border:1.5px solid var(--rule);border-radius:7px;width:44px;height:36px;text-align:center;text-transform:uppercase;margin-left:8px}
+input.code.long{width:min(100%,18em);text-align:left;text-transform:none;font-weight:600;padding:0 12px}
 input.code:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
 .item.checked.correct input.code{border-color:var(--ok-bd);background:var(--surface)}
 .item.checked.incorrect input.code{border-color:var(--bad-bd);background:var(--surface)}

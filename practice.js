@@ -93,7 +93,11 @@
 
   function renderCode(item) {
     var body = el("span", "q", mdLite(esc(item[0])));
-    var inp = el("input", "code"); inp.type = "text"; inp.maxLength = 3; inp.autocomplete = "off"; inp.spellcheck = false;
+    // Most "short" items expect a 1-3 letter code (Z/F/S, a tense label), but some expect a whole word or
+    // phrase — those must not be capped at 3 characters or the student can't type the answer at all.
+    var longAnswer = String(item[1]).length > 3;
+    var inp = el("input", longAnswer ? "code long" : "code"); inp.type = "text"; inp.autocomplete = "off"; inp.spellcheck = false;
+    if (!longAnswer) inp.maxLength = 3;
     inp.setAttribute("aria-label", "Answer");
     var frag = document.createDocumentFragment(); frag.appendChild(body); frag.appendChild(inp);
     return { node: frag, check: function () { return norm(inp.value) === norm(item[1]); }, reset: function () { inp.value = ""; } };

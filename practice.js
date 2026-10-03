@@ -32,7 +32,9 @@
     });
     return out;
   }
-  function mdLite(s) { return String(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>"); }
+  // **bold** and ++underline++ — the booklet's own inline emphasis markup (++ was previously left showing
+  // as literal plus signs around the word on the site).
+  function mdLite(s) { return String(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\+\+(.+?)\+\+/g, "<u>$1</u>"); }
   function norm(s) { return String(s || "").trim().toLowerCase().replace(/[.!?,;:'"’]/g, "").replace(/\s+/g, " "); }
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
 
@@ -91,11 +93,11 @@
     } };
   }
 
-  function renderCode(item) {
+  // Most "short" exercises expect a 1-3 letter code (Z/F/S, a tense label), but some expect a whole word or
+  // phrase — those must not be capped at 3 characters or the student can't type the answer at all.
+  // longAnswer is decided once for the whole exercise (see caller) so every box in a list matches.
+  function renderCode(item, longAnswer) {
     var body = el("span", "q", mdLite(esc(item[0])));
-    // Most "short" items expect a 1-3 letter code (Z/F/S, a tense label), but some expect a whole word or
-    // phrase — those must not be capped at 3 characters or the student can't type the answer at all.
-    var longAnswer = String(item[1]).length > 3;
     var inp = el("input", longAnswer ? "code long" : "code"); inp.type = "text"; inp.autocomplete = "off"; inp.spellcheck = false;
     if (!longAnswer) inp.maxLength = 3;
     inp.setAttribute("aria-label", "Answer");
@@ -211,10 +213,11 @@
       });
     } else {
       var items = spec.tag === "Notice" ? (spec.items || []).slice(0, 3) : (spec.items || []);
+      var shortHasWords = spec.type === "short" && items.some(function (it) { return String(it[1]).length > 3; });
       items.forEach(function (raw, i) {
         var itemEl = el("div", "item"); itemEl.appendChild(el("span", "n", String(i + 1)));
         var bw = el("div", "body");
-        var built = spec.type === "short" ? renderCode(raw)
+        var built = spec.type === "short" ? renderCode(raw, shortHasWords)
           : spec.type === "write" ? renderRewrite(raw, hasTick)
           : spec.type === "mc" ? renderMc(raw)
           : renderInline(typeof raw === "string" ? raw : raw[0]);
@@ -236,13 +239,16 @@
     actions.appendChild(checkBtn); actions.appendChild(againBtn); actions.appendChild(score);
     container.appendChild(actions);
 
-    var result = { total: checks.length, correct: 0, checked: false };
+    // itemOk[i] is whether item i was right on the most recent check — the review page needs per-item
+    // results (not just a total) to know which individual questions to bring back.
+    var result = { total: checks.length, correct: 0, checked: false, itemOk: [] };
     checkBtn.addEventListener("click", function () {
-      var right = 0;
-      checks.forEach(function (c) {
+      var right = 0, wrong = [];
+      checks.forEach(function (c, i) {
         var ok = c.run();
         c.el.classList.add("checked"); c.el.classList.toggle("correct", ok); c.el.classList.toggle("incorrect", !ok);
-        if (ok) right++;
+        result.itemOk[i] = ok;
+        if (ok) right++; else wrong.push(i);
       });
       result.correct = right; result.checked = true;
       score.textContent = right + " / " + checks.length + " correct";
@@ -252,13 +258,19 @@
       // An instructor-built set (set.html) passes activity meta straight from activities.json with no id,
       // and must never write into the student's whole-site My Progress store — those two are kept separate
       // on purpose, so a one-off quiz-practice link doesn't pollute a student's overall practice history.
-      if (meta && meta.id != null) saveResult(meta.id, { unit: meta.unit, unitTitle: meta.unitTitle, topicTitle: meta.topicTitle, activityTitle: meta.activityTitle, correct: right, total: checks.length, date: new Date().toISOString() });
+      if (meta && meta.id != null) {
+        saveResult(meta.id, { unit: meta.unit, unitTitle: meta.unitTitle, topicTitle: meta.topicTitle, activityTitle: meta.activityTitle, correct: right, total: checks.length, wrong: wrong, date: new Date().toISOString() });
+        // Streak, unit progress, confetti and the "next activity" button (engage.js) — only ever on a real
+        // activity page, for the same reason as the save above.
+        if (window.IEPEngage) window.IEPEngage.afterCheck(container, meta.id, right, checks.length);
+      }
       onScore && onScore();
     });
     againBtn.addEventListener("click", function () {
       checks.forEach(function (c) { c.reset(); c.el.classList.remove("checked", "correct", "incorrect"); });
-      score.textContent = ""; score.classList.remove("done"); result.checked = false; result.correct = 0;
+      score.textContent = ""; score.classList.remove("done"); result.checked = false; result.correct = 0; result.itemOk = [];
       hint.hidden = true;
+      var afterBlock = container.querySelector(".after-check"); if (afterBlock) afterBlock.remove();
       onScore && onScore();
     });
     return result;

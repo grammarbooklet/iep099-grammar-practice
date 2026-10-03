@@ -24,16 +24,70 @@
   var totalCorrect = 0, totalItems = 0;
   ids.forEach(function (id) { totalCorrect += all[id].correct; totalItems += all[id].total; });
 
+  // Unit numbers repeat across the two courses (both have a Unit 1), so say which course each row is from.
+  var STRAND_SHORT = { ls: "L&S", rw: "R&W" };
+  function courseOf(id) {
+    var D = window.IEP_DATA, a = D && D.act[id], u = null;
+    if (a) D.units.forEach(function (x) { if (x.key === a.u) u = x; });
+    return u ? STRAND_SHORT[u.strand] + " · " : "";
+  }
+
   if (!ids.length) {
     list.innerHTML = '<p class="note">You haven’t checked any activities on this device yet. Once you check one, it will show up here.</p>';
   } else {
     var rows = ids.map(function (id) {
       var r = all[id];
       var pct = r.total ? Math.round((r.correct / r.total) * 100) : 0;
-      return '<div class="progress-row"><span class="pr-title"><b>' + esc(r.activityTitle || id) + '</b><span>Unit ' + esc(r.unit != null ? r.unit : "?") + (r.topicTitle ? " · " + esc(r.topicTitle) : "") + '</span></span><span class="pr-score' + (pct === 100 ? " full" : "") + '">' + r.correct + " / " + r.total + "</span></div>";
+      return '<div class="progress-row"><span class="pr-title"><b>' + esc(r.activityTitle || id) + '</b><span>' + esc(courseOf(id)) + 'Unit ' + esc(r.unit != null ? r.unit : "?") + (r.topicTitle ? " · " + esc(r.topicTitle) : "") + '</span></span><span class="pr-score' + (pct === 100 ? " full" : "") + '">' + r.correct + " / " + r.total + "</span></div>";
     });
     list.innerHTML = '<div class="progress-row progress-total"><span class="pr-title"><b>Total</b><span>' + ids.length + " activit" + (ids.length === 1 ? "y" : "ies") + ' checked</span></span><span class="pr-score">' + totalCorrect + " / " + totalItems + "</span></div>" + rows.join("");
   }
+
+  // ---------- streak, weakest topic, and progress by unit (grouped to match the exams) ----------
+  (function renderEngagement() {
+    var E = window.IEPEngage, D = window.IEP_DATA;
+    if (!E || !D) return;
+
+    var n = E.streak();
+    var streakEl = document.getElementById("puStreak");
+    streakEl.innerHTML = '<div class="plan-label">Practice streak</div><div class="plan-text">' + (n > 0
+      ? "<b>" + n + "-day streak.</b> " + (E.practicedToday() ? "You've practiced today — come back tomorrow to keep it going." : "Practice today to keep it going.")
+      : "Check any activity today to start a streak.") + "</div>";
+    streakEl.hidden = false;
+
+    var weak = E.weakestTopic(all), nudge = document.getElementById("puNudge");
+    if (weak) {
+      nudge.innerHTML = '<div class="plan-label">Needs work</div><div class="plan-text">Your weakest topic is <b>' + esc(weak.title) + "</b> (" + Math.round(weak.pct * 100) + '%). <a class="plan-link" href="' + weak.href + '">Practice it now →</a></div>';
+      nudge.hidden = false;
+    }
+
+    document.getElementById("puDailyLabel").textContent = E.dailyDoneToday() ? "Daily 5 — done today, go again" : "Daily 5";
+    var mc = E.mistakeCount(all);
+    document.getElementById("puMistakesLabel").textContent = mc > 0 ? "Fix my mistakes (" + mc + ")" : "Fix my mistakes";
+
+    // One block per course, its units split the way the syllabus assesses them: Units 1-4 (midterm) and
+    // Units 5-8 (final). "Readiness" is the share of every question in that range answered correctly.
+    var GROUPS = [{ label: "Units 1–4", exam: "Midterm", from: 1, to: 4 }, { label: "Units 5–8", exam: "Final", from: 5, to: 8 }];
+    var html = '<h2>Progress by unit</h2><p class="note" style="margin-top:2px">Counts every question in a unit, so you reach 100% only by finishing every activity and getting it right.</p>';
+    ["ls", "rw"].forEach(function (strand) {
+      var units = D.units.filter(function (u) { return u.strand === strand; });
+      html += '<h3 style="font:600 17px/1.3 var(--serif);color:var(--ink);margin:20px 0 0">' + esc(D.strands[strand]) + "</h3>";
+      GROUPS.forEach(function (g) {
+        var inRange = units.filter(function (u) { return u.num >= g.from && u.num <= g.to; });
+        if (!inRange.length) return;
+        var c = 0, t = 0, rowsHtml = "";
+        inRange.forEach(function (u) {
+          var st = E.unitStats(u.key, all); c += st.correct; t += st.total;
+          rowsHtml += '<a class="pu-row" data-unit="' + u.key + '" href="' + u.href + '"><span class="pu-title"><b>Unit ' + u.num + " · " + esc(u.title) + "</b><span>" +
+            st.done + " of " + st.acts + " activities done" + (st.done ? " · " + Math.round(st.pct * 100) + "% correct" : "") + "</span></span></a>";
+        });
+        var ready = t ? Math.round(c / t * 100) : 0;
+        html += '<div class="pu-group"><h3>' + g.label + " · " + g.exam + '</h3><p class="pu-ready">' + g.exam + " readiness: <b>" + ready + "%</b></p>" + rowsHtml + "</div>";
+      });
+    });
+    document.getElementById("puUnits").innerHTML = html;
+    E.decorate();
+  })();
 
   // Builds the PDF report with jsPDF (loaded above this script).
   // Colors lifted straight from the site's own light-mode palette (practice.css :root), so the report

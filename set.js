@@ -14,6 +14,7 @@
   var title = params.get("title") || "Practice Set";
   var note = params.get("note") || "";
   var minutes = parseInt(params.get("minutes"), 10);
+  var selfPractice = params.get("self") === "1"; // opened from "This week" on the catalog, not handed out by an instructor
   var ids = (params.get("ids") || "").split(",").map(function (s) { return s.trim(); }).filter(Boolean);
 
   document.getElementById("setTitle").textContent = title;
@@ -166,7 +167,7 @@
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({ name: name, section: section, set: title, correct: t.correct, total: t.total, percent: t.pct, extraMinutes: extraMinutesAdded })
+        body: JSON.stringify({ name: name, section: section, set: (selfPractice ? "Self-practice: " : "") + title, correct: t.correct, total: t.total, percent: t.pct, extraMinutes: extraMinutesAdded })
       }).catch(function () {});
     } catch (e) {}
   }

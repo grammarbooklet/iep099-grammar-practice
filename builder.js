@@ -148,6 +148,12 @@
           printBtn.title = "Download a printable PDF worksheet";
           printBtn.addEventListener("click", function () { printWorksheet(s.ids, s.title, document.getElementById("printStatusReadymade")); });
           right.appendChild(printBtn);
+          var keyBtn = document.createElement("button");
+          keyBtn.type = "button"; keyBtn.className = "btn ghost";
+          keyBtn.textContent = "Answer key";
+          keyBtn.title = "Download the instructor answer key for this worksheet";
+          keyBtn.addEventListener("click", function () { printWorksheet(s.ids, s.title, document.getElementById("printStatusReadymade"), true); });
+          right.appendChild(keyBtn);
           row.appendChild(right);
           root.appendChild(row);
         });
@@ -284,6 +290,10 @@
     var title = document.getElementById("setTitleInput").value.trim() || "Practice Set";
     printWorksheet(ids, title);
   });
+  document.getElementById("keyBtn").addEventListener("click", function () {
+    var ids = Object.keys(checked).filter(function (id) { return checked[id]; });
+    printWorksheet(ids, document.getElementById("setTitleInput").value.trim() || "Practice Set", null, true);
+  });
 
   // ---------- printable PDF worksheet — a paper copy of the chosen activities, with blank Name/Section/ID
   // fields, for instructors who want to hand out or post a physical worksheet instead of (or alongside) the
@@ -294,9 +304,25 @@
   // jsPDF's built-in "helvetica" only supports WinAnsi (Windows-1252) — an arrow like "→" isn't in that
   // set and throws its width/spacing calculations off (a garbled, stretched-looking line), so swap any
   // character outside that range for a plain-ASCII stand-in before it ever reaches doc.text().
-  function pdfSafe(s) { return String(s).replace(/→/g, "->").replace(/←/g, "<-").replace(/↔/g, "<->"); }
+  function pdfSafe(s) {
+    return String(s).replace(/\*\*(.+?)\*\*/g, "$1").replace(/\+\+(.+?)\+\+/g, "$1")
+      .replace(/→/g, "->").replace(/←/g, "<-").replace(/↔/g, "<->").replace(/✓/g, "(correct as is)").replace(/✗/g, "x");
+  }
+  // The answers for one activity as plain lines, in the order the questions print — used by the answer key.
+  function answerLines(spec) {
+    var P = window.IEPPractice, items = spec.tag === "Notice" ? (spec.items || []).slice(0, 3) : (spec.items || []);
+    if (spec.type === "match") return spec.left.map(function (l, i) { return (i + 1) + ".  " + String.fromCharCode(65 + i) + ". " + spec.right[i]; });
+    return items.map(function (raw, i) {
+      var a;
+      if (spec.type === "mc") a = raw[1][raw[2]];
+      else if (spec.type === "short") a = String(raw[1]);
+      else if (spec.type === "write") a = /^\s*✓/.test(String(raw[1])) ? "already correct" : String(raw[1]);
+      else a = P.printAnswerText(typeof raw === "string" ? raw : raw[0]);
+      return (i + 1) + ".  " + a;
+    });
+  }
 
-  function printWorksheet(ids, title, statusEl) {
+  function printWorksheet(ids, title, statusEl, key) {
     var status = statusEl || document.getElementById("printStatus");
     if (!ids.length) { status.textContent = "Pick at least one activity first."; return; }
     if (typeof jspdf === "undefined" || !window.IEPPractice) { status.textContent = "Couldn't load the PDF tool — check your internet connection and try again."; return; }
@@ -313,7 +339,7 @@
         doc.setFont("helvetica", "bold"); doc.setFontSize(14);
         doc.text(pdfSafe(title), pageW - marginR, 14, { align: "right", maxWidth: pageW - marginR - 55 });
         doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor.apply(doc, MUTE);
-        doc.text("IEP099 Grammar Practice — Printable Worksheet", pageW - marginR, 22, { align: "right" });
+        doc.text(key ? "IEP099 Grammar Practice — Instructor Answer Key" : "IEP099 Grammar Practice — Printable Worksheet", pageW - marginR, 22, { align: "right" });
         doc.setFillColor.apply(doc, AMBER); doc.rect(0, 30, pageW, 1.4, "F");
         doc.setTextColor.apply(doc, INK);
         var y = 42;
@@ -338,7 +364,7 @@
         doc.setTextColor.apply(doc, INK);
       }
 
-      var y = header(true);
+      var y = header(!key);
       var missing = 0;
       function ensureSpace(h) { if (y + h > pageH - 16) { doc.addPage(); y = header(false); } }
 
@@ -353,6 +379,18 @@
         y += 6; doc.setTextColor.apply(doc, INK);
         if (spec.tag) { doc.setFont("helvetica", "bold"); doc.setFontSize(12); doc.text(pdfSafe(ex.title), marginL, y); y += 7; }
 
+        if (key) {
+          doc.setFont("helvetica", "normal"); doc.setFontSize(10.5);
+          answerLines(spec).forEach(function (line) {
+            var aLines = doc.splitTextToSize(pdfSafe(line), maxW - 6);
+            ensureSpace(aLines.length * 5.6 + 2);
+            doc.text(aLines, marginL + 4, y); y += aLines.length * 5.6 + 1.5;
+          });
+          y += 4;
+          doc.setDrawColor.apply(doc, RULE); doc.setLineWidth(0.3);
+          doc.line(marginL, y, pageW - marginR, y); y += 8;
+          return;
+        }
         if (spec.instr) {
           doc.setFont("helvetica", "italic"); doc.setFontSize(9.5); doc.setTextColor.apply(doc, MUTE);
           var iLines = doc.splitTextToSize(pdfSafe(spec.instr.replace(/\*\*(.+?)\*\*/g, "$1")), maxW);
@@ -454,7 +492,7 @@
       var pageCount = doc.internal.getNumberOfPages();
       for (var p = 1; p <= pageCount; p++) { doc.setPage(p); footer(p, pageCount); }
 
-      doc.save("iep099-worksheet-" + title.replace(/\s+/g, "-").toLowerCase() + ".pdf");
+      doc.save((key ? "iep099-answer-key-" : "iep099-worksheet-") + title.replace(/\s+/g, "-").toLowerCase() + ".pdf");
       status.textContent = missing ? ("PDF downloaded (" + missing + " activit" + (missing === 1 ? "y" : "ies") + " couldn't be found).") : "PDF downloaded.";
     }).catch(function () {
       status.textContent = "Couldn't build the PDF — check your connection and try again.";

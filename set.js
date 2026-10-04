@@ -98,7 +98,7 @@
 
   // ---------- instructor-only, on-device time adjustment (same passphrase as the builder tool) ----------
   (function () {
-    var PASSPHRASE_HASH = "0db7bbf4badf215a1ec84b3adf234a84017596d8e52ea8d855616fd10aa761ab"; // "iep099grammar"
+    var PASSPHRASE_HASH = "0db7bbf4badf215a1ec84b3adf234a84017596d8e52ea8d855616fd10aa761ab";
     function sha256Hex(text) {
       return crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)).then(function (buf) {
         return Array.prototype.map.call(new Uint8Array(buf), function (b) { return b.toString(16).padStart(2, "0"); }).join("");

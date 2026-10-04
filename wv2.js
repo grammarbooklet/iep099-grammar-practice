@@ -66,7 +66,8 @@
       n.appendChild(li);
     });
     var fg = n.querySelector(".cur .fg");
-    n.set = function (f) { if (fg) fg.setAttribute("stroke-dashoffset", (RING_C * (1 - Math.max(0, Math.min(1, f)))).toFixed(1)); };
+    n.style.setProperty("--p", (active + (frac || 0)) / CUR.length);
+    n.set = function (f) { n.style.setProperty("--p", (active + Math.max(0, Math.min(1, f))) / CUR.length); if (fg) fg.setAttribute("stroke-dashoffset", (RING_C * (1 - Math.max(0, Math.min(1, f)))).toFixed(1)); };
     return n;
   }
   function wait(host, label, cls) {
@@ -88,8 +89,10 @@
     var n = h("div", "wc-margin-note"); n.innerHTML = '<span class="wc-pen" aria-hidden="true">✎</span><span class="wc-note-t">' + Q.md(text) + "</span>";
     host.help.appendChild(n);
   }
-  function stamp(host, text) {
-    var s = h("div", "wc-stamp", Q.esc(text)); s.setAttribute("aria-hidden", "true");
+  // A small tilted stamp with a quiet burst of sparks. Three colour tones keep it from feeling repetitive.
+  function stamp(host, text, tone) {
+    var s = h("div", "wc-stamp t" + (tone || 0), '<i aria-hidden="true">✓</i>' + Q.esc(text)); s.setAttribute("aria-hidden", "true");
+    for (var k = 0; k < 6; k++) { var sp = h("span", "wc-spark"); sp.style.setProperty("--a", (k * 60 + 15) + "deg"); s.appendChild(sp); }
     host.card.appendChild(s); setTimeout(function () { s.classList.add("gone"); }, 1500);
   }
 
@@ -151,7 +154,7 @@
   function simple(it, host) {
     return attempt(it, host).then(function (r) {
       WC.skillResult(it.skill, r.ok ? "first" : "miss");
-      if (r.ok) { stamp(host, "Nice!"); feedback(host, "ok", "Nice! ", it.why); } else feedback(host, "bad", "Not quite. ", it.why, r.res.answer);
+      if (r.ok) { var p = Q.praise("first"); stamp(host, p.stamp, p.tone); feedback(host, "ok", p.lead, it.why); } else { Q.praiseMiss(); feedback(host, "bad", "Not quite. ", it.why, r.res.answer); }
       return wait(host, "Next →");
     });
   }
@@ -221,7 +224,7 @@
     c.appendChild(h("p", "wc-lead", Q.md(sp.intro)));
     var para = h("div", "wc-paragraph"), notes = h("div", "wc-notes"), seen = 0, total = sp.sentences.length;
     var counter = h("p", "wc-counter");
-    var take = h("div", "wc-takeaway"); take.hidden = true; take.innerHTML = Q.md(sp.takeaway);
+    var take = h("div", "wc-takeaway"); take.hidden = true; take.innerHTML = Q.rules(sp.takeaway);
     var act = h("div", "wc-actions"), go = h("button", "wc-btn", "Practise"); go.type = "button"; go.disabled = true; go.addEventListener("click", practice);
     act.appendChild(go);
     function upd() { counter.textContent = seen + " of " + total + " sentences explained"; if (S.stp) S.stp.set(seen / total); if (seen === total) { take.hidden = false; go.disabled = false; go.focus(); } }
@@ -264,10 +267,11 @@
     return Q.shuffle(out);
   }
   function correct(host, it, kind) {
-    stamp(host, kind === "first" ? "Nice!" : "Got it!");
-    feedback(host, "ok", kind === "first" ? "Nice! " : "Got it, well done. ", it.why);
+    var p = Q.praise(kind === "first" ? "first" : "retry");
+    stamp(host, p.stamp, p.tone);
+    feedback(host, "ok", p.lead, it.why);
   }
-  function wrong(host, it, r) { feedback(host, "bad", "Not quite. ", it.why, r.res.answer); }
+  function wrong(host, it, r) { Q.praiseMiss(); feedback(host, "bad", "Not quite. ", it.why, r.res.answer); }
   function adaptive(it, host, last) {
     var hp = it.help || {}, kind = "miss";
     return attempt(it, host).then(function (r) {
@@ -286,7 +290,7 @@
     // step 2: rule card + worked example, then a NEW similar question
     function stepTwo(r) {
       host.fb.hidden = true;
-      if (hp.rule) { var rc = h("div", "wc-rule"); rc.innerHTML = "<b>The rule</b><p>" + Q.md(hp.rule) + "</p>" + (hp.worked ? "<b>Worked example</b><p>" + Q.md(hp.worked) + "</p>" : ""); host.help.appendChild(rc); }
+      if (hp.rule) { var rc = h("div", "wc-rule"); rc.innerHTML = "<b>The rule</b>" + Q.rules(hp.rule) + (hp.worked ? "<b>Worked example</b><p>" + Q.md(hp.worked) + "</p>" : ""); host.help.appendChild(rc); }
       var v = hp.variants && hp.variants[0];
       if (!v) { wrong(host, it, r); return null; }
       return wait(host, "Try a new one").then(function () { host.help.innerHTML = ""; return attempt(v, host); }).then(function (r3) {
@@ -322,7 +326,9 @@
     function refresh() {
       var n = Q.wordCount(ta.value), need = W.minWords || 1;
       meta.textContent = n + (n === 1 ? " word" : " words") + (n < need ? " · write at least " + need : "");
-      save.disabled = n < need;
+      var qd = Q.quality(ta.value, need);
+      if (n >= need && !qd.ok && qd.msg) meta.textContent += " · " + qd.msg;
+      save.disabled = n < need || !qd.ok;
       W.checks.forEach(function (ck, i) {
         if (!ck.auto || !Q.AUTO[ck.auto]) { hints[i].textContent = ""; return; }
         var r = Q.AUTO[ck.auto](ta.value); hints[i].textContent = r ? r.msg : ""; hints[i].className = "wc-hint " + (r ? (r.ok ? "found" : "no") : "");
@@ -348,7 +354,7 @@
     Q.clear(); Q.root.appendChild(stepFor("Write", 0.5));
     var W = S.lesson.write, c = h("div", "wc-card wc-studio");
     c.appendChild(h("p", "wc-step", "Writing studio · revise"));
-    c.appendChild(h("p", "wc-lead", "Draft saved to your portfolio. Now make it **better**. Pick one thing to improve, then rewrite. Keep your own ideas and voice."));
+    c.appendChild(h("p", "wc-lead", "Draft saved to your portfolio. Now make it <b>better</b>. Pick one thing to improve, then rewrite. Keep your own ideas and voice."));
     var q = h("blockquote", "wc-draft"); q.textContent = S.draft; c.appendChild(q);
     var focus = h("div", "wc-focus"); focus.setAttribute("role", "group"); focus.setAttribute("aria-label", "What will you improve?");
     (W.focus || []).forEach(function (f) {
@@ -367,7 +373,8 @@
     var act = h("div", "wc-actions"), done = h("button", "wc-btn", "Save my revision"); done.type = "button"; done.disabled = true;
     var skip = h("button", "wc-link", "Skip revising"); skip.type = "button"; act.appendChild(done); act.appendChild(skip); c.appendChild(act);
     Q.root.appendChild(c);
-    function refresh() { done.disabled = ta.value.trim() === S.draft || !ta.value.trim() || !boxes.some(function (x) { return x.checked; }); }
+    var note = h("p", "wc-sub"); c.insertBefore(note, out);
+    function refresh() { var qd = Q.quality(ta.value, 3); note.textContent = !qd.ok && qd.msg ? qd.msg : ""; done.disabled = ta.value.trim() === S.draft || !ta.value.trim() || !qd.ok || !boxes.some(function (x) { return x.checked; }); }
     ta.addEventListener("input", refresh); boxes.forEach(function (x) { x.addEventListener("change", refresh); }); refresh();
     done.addEventListener("click", function () {
       S.revision = ta.value.trim(); S.revised = true;

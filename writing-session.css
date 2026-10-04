@@ -216,3 +216,44 @@
 .wc-trail{border-left:0}
 .wc-node:not(:last-child)::after{content:"";position:absolute;left:-26.5px;top:50%;height:calc(100% + 16px);width:3px;background:var(--rule);z-index:0}
 .wc-node .wc-dot{z-index:1}
+
+/* Praise: stamp tones, a small icon and a quiet spark burst; a check badge on correct-answer feedback */
+.wc-stamp{display:inline-flex;align-items:center;gap:7px}
+.wc-stamp i{font:800 15px/1 var(--sans);font-style:normal;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:currentColor}
+.wc-stamp i{color:inherit;position:relative}
+.wc-stamp i::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:var(--surface);font-size:13px}
+.wc-stamp i{font-size:0}
+.wc-stamp.t1{--wc-stamp:#E8A100;transform:rotate(6deg);animation-name:wcstamp1}
+:root[data-theme="dark"] .wc-stamp.t1{--wc-stamp:#FCC24A}
+.wc-stamp.t2{--wc-stamp:#6D4FD6}
+:root[data-theme="dark"] .wc-stamp.t2{--wc-stamp:#B9A6FF}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .wc-stamp.t1{--wc-stamp:#FCC24A}:root:not([data-theme="light"]) .wc-stamp.t2{--wc-stamp:#B9A6FF}}
+@keyframes wcstamp1{0%{transform:scale(2.2) rotate(18deg);opacity:0}100%{transform:scale(1) rotate(6deg);opacity:1}}
+.wc-spark{position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px;border-radius:50%;background:var(--wc-stamp);opacity:0;animation:wcspark .7s ease-out .15s both}
+@keyframes wcspark{0%{opacity:.9;transform:rotate(var(--a)) translateX(10px) scale(1)}100%{opacity:0;transform:rotate(var(--a)) translateX(54px) scale(.3)}}
+.wc-fb.ok{position:relative;padding-left:56px}
+.wc-fb.ok::before{content:"✓";position:absolute;left:15px;top:13px;width:27px;height:27px;border-radius:50%;background:var(--ok-ink);color:var(--ok-bg);display:grid;place-items:center;font:800 15px/1 var(--sans)}
+.wc-fb.ok>b:first-child{font-size:1.06em}
+@media (prefers-reduced-motion:reduce){.wc-spark{display:none}}
+
+/* Rules as short steps, key words as chips, formulas as chip rows */
+.wc-rules{list-style:none;margin:6px 0 4px;padding:0;counter-reset:r;display:grid;gap:10px}
+.wc-rules li{counter-increment:r;position:relative;padding:2px 0 2px 42px;font:400 18px/1.55 var(--sans);color:var(--ink)}
+.wc-rules li::before{content:counter(r);position:absolute;left:0;top:2px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--tint);border:1.5px solid var(--rule);color:var(--ink-2);font:700 13.5px/1 var(--sans)}
+.wc-rules b,.wc-rule-one b{font-weight:700;color:var(--amber-d)}
+:root[data-theme="dark"] .wc-rules b,:root[data-theme="dark"] .wc-rule-one b{color:var(--amber)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .wc-rules b,:root:not([data-theme="light"]) .wc-rule-one b{color:var(--amber)}}
+.wc-rule-one{font:400 18px/1.6 var(--sans);margin:4px 0}
+.wc-rulebox{margin-bottom:6px}
+.wc-ex-h{margin:20px 0 6px;font:700 12.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.wc-formula{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.wc-formula i{font-style:normal;font-weight:600;font-size:14.5px;padding:4px 10px;border-radius:8px;background:var(--tint);border:1.5px solid var(--rule);color:var(--ink)}
+.wc-formula s{text-decoration:none;color:var(--ink-2);font-weight:700}
+.wc-rule .wc-rules li{font-size:16px}
+.wc-takeaway .wc-rules li{font-size:17px}
+
+/* The steps are a journey: one slim track runs under all four circles and fills as you move through the session */
+.wc-stepper{position:relative;padding-bottom:14px}
+.wc-stepper::before,.wc-stepper::after{content:"";position:absolute;left:4px;bottom:0;height:4px;border-radius:2px}
+.wc-stepper::before{right:4px;background:var(--rule)}
+.wc-stepper::after{width:calc((100% - 8px) * var(--p, 0));background:var(--wc-pencil);transition:width .5s ease}

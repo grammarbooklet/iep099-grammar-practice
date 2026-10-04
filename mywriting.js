@@ -56,14 +56,33 @@
   }
 
   // ---------- portfolio ----------
+  // ---------- sending a piece to the instructor ----------
+  var F = window.IEPFeedback;
+  function studentName() { try { return localStorage.getItem("iep099-student-name") || ""; } catch (e) { return ""; } }
+  function sendBox(p) {
+    var v = p.versions[p.versions.length - 1], wrap = document.createElement("div"); wrap.className = "fb-box";
+    var b = document.createElement("button"); b.type = "button"; b.className = "fb-btn"; b.textContent = "Send to my instructor";
+    var out = document.createElement("div");
+    b.addEventListener("click", function () {
+      var msg = (studentName() ? studentName() + "\n" : "") + p.title + (v.kind === "revision" ? " (revision)" : " (draft)") + "\n" + (p.prompt ? "Task: " + p.prompt + "\n" : "") + "\n" + v.text;
+      var who = (studentName() || "my").replace(/[^A-Za-z0-9]+/g, "-");
+      F.actions(out, { text: msg, body: v.text, title: "My writing: " + p.title, file: "writing-" + who + "-" + p.id + ".txt",
+        pdf: function () { F.pdf({ title: p.title, sub: studentName(), prompt: p.prompt, text: v.text, file: "writing-" + who + "-" + p.id }); } });
+    });
+    wrap.appendChild(b); wrap.appendChild(out); return wrap;
+  }
   function renderFolio() {
     var r = WC.read(), el = $("wcFolio");
     if (!r.portfolio.length) { el.innerHTML = '<p class="wc-note">Everything you write is saved here, with each version.</p>'; return; }
     el.innerHTML = r.portfolio.slice().reverse().map(function (p) {
       return '<details class="wc-piece"><summary>' + (p.fav ? "★ " : "") + esc(p.title) + "<small>" + p.versions.length + (p.versions.length > 1 ? " versions" : " version") + "</small></summary>" +
         p.versions.map(function (v) { return '<div class="v">' + (v.kind === "revision" ? "Revision" : "Draft") + " · " + new Date(v.at).toLocaleDateString() + "</div><blockquote>" + esc(v.text) + "</blockquote>"; }).join("") +
-        '<button type="button" data-copy="' + esc(p.id) + '">Copy latest</button><button type="button" data-fav="' + esc(p.id) + '">' + (p.fav ? "Remove star" : "Star this piece") + "</button></details>";
+        '<button type="button" data-copy="' + esc(p.id) + '">Copy latest</button><button type="button" data-fav="' + esc(p.id) + '">' + (p.fav ? "Remove star" : "Star this piece") + '</button><div data-fb="' + esc(p.id) + '"></div></details>';
     }).join("");
+    r.portfolio.forEach(function (p) {
+      var slot = el.querySelector('[data-fb="' + p.id.replace(/"/g, "") + '"]'); if (!slot) return;
+      slot.appendChild(sendBox(p));
+    });
     Array.prototype.forEach.call(el.querySelectorAll("[data-copy]"), function (b) { b.addEventListener("click", function () {
       var p = r.portfolio.filter(function (x) { return x.id === b.getAttribute("data-copy"); })[0], t = p.versions[p.versions.length - 1].text;
       if (navigator.clipboard) navigator.clipboard.writeText(t); b.textContent = "Copied"; }); });

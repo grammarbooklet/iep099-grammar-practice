@@ -18,6 +18,19 @@
   function md(s) {
     return esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\+\+(.+?)\+\+/g, "<u>$1</u>").replace(/==(.+?)==/g, "<mark>$1</mark>");
   }
+
+  // A rule is easier to read as short steps than as one block of text: one sentence per row, key words as chips.
+  function rules(text) {
+    var parts = String(text || "").split(/(?<=[.!?])\s+(?=[A-Z*])/).filter(function (x) { return x.trim(); });
+    if (parts.length < 2) return '<p class="wc-rule-one">' + md(text) + "</p>";
+    return '<ol class="wc-rules">' + parts.map(function (p) { return "<li>" + md(p) + "</li>"; }).join("") + "</ol>";
+  }
+  // "Question word + do + subject + verb." becomes a row of chips.
+  function formula(note) {
+    var t = String(note || "").replace(/[.]\s*$/, ""), bits = t.split(/\s\+\s/);
+    if (bits.length < 2 || bits.some(function (b) { return b.length > 28; })) return null;
+    return '<span class="wc-formula">' + bits.map(function (b) { return "<i>" + md(b) + "</i>"; }).join('<s aria-hidden="true">+</s>') + "</span>";
+  }
   function h(tag, cls, html) { var n = document.createElement(tag); if (cls) n.className = cls; if (html != null) n.innerHTML = html; return n; }
   function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
   function norm(s) { return String(s).replace(/[’‘]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, " ").trim(); }
@@ -73,6 +86,7 @@
       if (i < active) li.setAttribute("aria-label", name + " (done)"); else if (i === active) li.setAttribute("aria-current", "step");
       n.appendChild(li);
     });
+    n.style.setProperty("--p", (active + (frac || 0)) / STEPS.length);
     return n;
   }
 
@@ -91,12 +105,13 @@
     c.appendChild(h("p", "wc-eyebrow", "Stage " + stage.n + " · " + esc(stage.title) + " · Lesson " + esc(meta.id)));
     c.appendChild(h("h1", "wc-h1", esc(meta.title)));
     c.appendChild(h("p", "wc-step", "Learn"));
-    c.appendChild(h("p", "wc-lead", md(lesson.spot.intro)));
+    c.appendChild(h("div", "wc-lead wc-rulebox", rules(lesson.spot.intro)));
     if (lesson.spot.legend) c.appendChild(h("p", "wc-legend", md(lesson.spot.legend)));
+    if ((lesson.spot.examples || []).length) c.appendChild(h("p", "wc-ex-h", "Examples"));
     (lesson.spot.examples || []).forEach(function (ex) {
       var b = h("div", "wc-ex");
       b.appendChild(h("p", "wc-ex-t", md(ex.t)));
-      if (ex.note) b.appendChild(h("p", "wc-ex-n", md(ex.note)));
+      if (ex.note) { var f = formula(ex.note); b.appendChild(f ? h("p", "wc-ex-n", f) : h("p", "wc-ex-n", md(ex.note))); }
       c.appendChild(b);
     });
     var go = h("button", "wc-btn", lesson.review ? "Start the review" : "Practise"); go.type = "button";
@@ -150,7 +165,8 @@
       var ok = res.earned === res.possible;
       if (!practiceOnly && it.skill) WC.skillResult(it.skill, ok ? "first" : "miss");
       fb.className = "wc-fb " + (ok ? "ok" : res.earned > 0 ? "part" : "bad");
-      fb.innerHTML = "<b>" + (ok ? "Nice! " : res.earned > 0 ? "Almost. " : "Not quite. ") + "</b>" + (it.why ? md(it.why) : "") + (!ok && res.answer ? '<span class="wc-ans">' + res.answer + "</span>" : "");
+      if (!ok) praiseMiss();
+      fb.innerHTML = "<b>" + (ok ? praise("first").lead : res.earned > 0 ? "Almost. " : "Not quite. ") + "</b>" + (it.why ? md(it.why) : "") + (!ok && res.answer ? '<span class="wc-ans">' + res.answer + "</span>" : "");
       fb.hidden = false;
       var last = pos === items.length - 1;
       chk.textContent = last ? "See results →" : "Next →"; chk.disabled = false;
@@ -362,6 +378,57 @@
       return hintOf(qs.length >= 2, "found two questions that start like questions.", "I can’t find two questions yet.");
     }
   };
+
+  // Is this real writing? Learners can type anything into the box, so a draft only counts when it looks like English
+  // sentences: not one word repeated, not keyboard mashing, and with the ordinary small words every sentence needs.
+  var COMMON = {};
+  ("a about after again all also always am an and any are as at back be because been before being but by can could day did do does done down each even every few first for from get go good had has have he her here him his how i if in into is it its just know like little long made make many may me more most much my never new no not now of off on one only or other our out over own people said she should so some such than that the their them then there these they thing think this those time to too two up us use very want was way we well were what when where which who why will with work would year you your " +
+    "again always often usually sometimes today tomorrow yesterday home school class friend family city country house food water book read write speak study learn live like love need help look see come take give tell ask try find keep put let begin start finish stop sit stand walk run eat drink sleep buy sell open close play watch listen talk call visit travel move change plan hope feel seem become bring show leave meet turn wait " +
+    "morning evening night week month weekend student teacher classmates room street shop market park job money phone car bus train trip weather happy sad tired busy hungry big small old young hard easy important different same next last late early many another while during since until though although however also then so yet nor both either neither").split(/\s+/).forEach(function (w) { if (w) COMMON[w] = 1; });
+  function quality(text, minWords) {
+    var t = String(text || "").trim(), words = t.toLowerCase().match(/[a-z\u00C0-\u024F']+/g) || [], n = words.length;
+    var bad = "This doesn’t look like a real answer yet. Write full sentences in your own words.";
+    if (n < Math.max(minWords || 1, 3)) return { ok: false, msg: "" };
+    var uniq = {}, k = 0, run = 1, longRun = 1, shortJunk = 0, known = 0;
+    words.forEach(function (w, i) {
+      if (!uniq[w]) { uniq[w] = 0; k++; } uniq[w]++;
+      if (i && words[i - 1] === w) { run++; if (run > longRun) longRun = run; } else run = 1;
+      if (w.length === 1 && w !== "a" && w !== "i") shortJunk++;
+      if (COMMON[w]) known++;
+    });
+    if (longRun >= 3) return { ok: false, msg: "The same word is repeated several times in a row. " + bad };
+    if (n >= 5 && k / n < 0.5) return { ok: false, msg: "Too many words are repeated. " + bad };
+    if (shortJunk / n > 0.2) return { ok: false, msg: "Some of the “words” are single letters. " + bad };
+    var mash = words.filter(function (w) { return w.length >= 4 && (!/[aeiouy]/.test(w) || /[^aeiouy\s]{5,}/.test(w) || /(.)\1\1/.test(w)); }).length;
+    if (mash / n > 0.15) return { ok: false, msg: "Some words don’t look like English words. " + bad };
+    if (n >= 5 && known / n < 0.25) return { ok: false, msg: bad };
+    if (!/[a-z]/i.test(t) || !/[.!?]\s*$|[.!?]\s/.test(t)) return { ok: false, msg: "Finish your sentence with a full stop, question mark or exclamation mark." };
+    return { ok: true, msg: "" };
+  }
+
+  // Praise for a correct answer: many different words, never the same one twice running, a little extra for a streak,
+  // and a different (gentler) set when the student needed a second try. [stamp text, sentence start]
+  var PRAISE_FIRST = [["Nice!", "Nice. "], ["Exactly!", "Exactly right. "], ["Spot on!", "Spot on. "], ["Well spotted!", "Well spotted. "], ["Nailed it!", "Nailed it. "], ["Great eye!", "Great eye. "],
+    ["That’s it!", "That’s it. "], ["Correct!", "Correct. "], ["Sharp!", "Sharp thinking. "], ["Right on!", "Right on. "], ["Clean work!", "Clean work. "], ["Good call!", "Good call. "],
+    ["You’ve got it!", "You’ve got it. "], ["Precisely!", "Precisely. "], ["Brilliant!", "Brilliant. "], ["Well done!", "Well done. "], ["Smart move!", "Smart move. "], ["Yes!", "Yes. "],
+    ["Perfect!", "Perfect. "], ["Bang on!", "Bang on. "], ["Great job!", "Great job. "], ["Just right!", "Just right. "]];
+  var PRAISE_RETRY = [["Got it!", "Got it, well done. "], ["Now it works!", "Now it works. "], ["Good fix!", "Good fix. "], ["That’s the one!", "That’s the one. "], ["Better!", "Much better. "], ["Back on track!", "Back on track. "], ["You solved it!", "You worked it out. "]];
+  var PRAISE_RUN = { 3: ["On a roll!", "Three in a row. "], 5: ["Five straight!", "Five in a row. "], 8: ["Unstoppable!", "Eight in a row. "] };
+  var praiseRun = 0, praiseLast = -1;
+  function praise(kind) {
+    var pair, i;
+    if (kind === "first") {
+      praiseRun++;
+      if (PRAISE_RUN[praiseRun]) pair = PRAISE_RUN[praiseRun];
+    } else praiseRun = 0;
+    if (!pair) {
+      var list = kind === "first" ? PRAISE_FIRST : PRAISE_RETRY;
+      do { i = Math.floor(Math.random() * list.length); } while (list.length > 1 && i === praiseLast);
+      praiseLast = i; pair = list[i];
+    }
+    return { stamp: pair[0], lead: pair[1], tone: Math.floor(Math.random() * 3) };
+  }
+  function praiseMiss() { praiseRun = 0; }
   function wordCount(t) { var m = t.trim().match(/\S+/g); return m ? m.length : 0; }
 
   // Word-level comparison: marks the words in the revision that weren't in the draft.
@@ -406,7 +473,9 @@
     function refresh() {
       var n = wordCount(ta.value), need = b.minWords || 1;
       wc.textContent = n + (n === 1 ? " word" : " words") + (n < need ? " · write at least " + need : "");
-      fin.disabled = n < need;
+      var qd = quality(ta.value, need);
+      if (n >= need && !qd.ok && qd.msg) wc.textContent += " · " + qd.msg;
+      fin.disabled = n < need || !qd.ok;
       b.checks.forEach(function (ck, i) {
         if (!ck.auto || !AUTO[ck.auto]) { hints[i].textContent = ""; return; }
         var r = AUTO[ck.auto](ta.value);
@@ -441,7 +510,7 @@
     root.appendChild(stepper(2, 0.5));
     var c = h("div", "wc-card wc-build");
     c.appendChild(h("p", "wc-step", "Write · revise"));
-    c.appendChild(h("p", "wc-lead", "Read your draft again. Pick **one or two things** to improve, then rewrite it below. Keep your own ideas and voice."));
+    c.appendChild(h("p", "wc-lead", "Read your draft again. Pick <b>one or two things</b> to improve, then rewrite it below. Keep your own ideas and voice."));
     var q = h("blockquote", "wc-draft"); q.textContent = buildText; c.appendChild(q);
     if (unticked && unticked.length) c.appendChild(h("p", "wc-sub", "<b>Look at:</b> " + unticked.map(function (u) { return md(u); }).join(" · ")));
     var ta = h("textarea", "wc-ta"); ta.rows = 5; ta.value = buildText; ta.setAttribute("aria-label", "Your revision"); c.appendChild(ta);
@@ -455,7 +524,8 @@
     var skip = h("button", "wc-link", "Skip revising"); skip.type = "button";
     act.appendChild(done); act.appendChild(skip); c.appendChild(act);
     root.appendChild(c);
-    function refresh() { done.disabled = ta.value.trim() === buildText.trim() || !ta.value.trim() || !boxes.some(function (x) { return x.checked; }); }
+    var note = h("p", "wc-sub"); c.insertBefore(note, out);
+    function refresh() { var qd = quality(ta.value, 3); note.textContent = !qd.ok && qd.msg ? qd.msg : ""; done.disabled = ta.value.trim() === buildText.trim() || !ta.value.trim() || !qd.ok || !boxes.some(function (x) { return x.checked; }); }
     ta.addEventListener("input", refresh); boxes.forEach(function (x) { x.addEventListener("change", refresh); }); refresh();
     done.addEventListener("click", function () {
       revisionText = ta.value; revised = true;
@@ -558,5 +628,5 @@
   }
 
   // Shared with wv2.js (the session player) so both players build questions and hints the same way.
-  window.WCQ = { BUILDERS: BUILDERS, AUTO: AUTO, md: md, h: h, esc: esc, shuffle: shuffle, norm: norm, clear: clear, root: root, wordCount: wordCount, diffHtml: diffHtml };
+  window.WCQ = { BUILDERS: BUILDERS, AUTO: AUTO, md: md, h: h, esc: esc, shuffle: shuffle, norm: norm, clear: clear, root: root, wordCount: wordCount, rules: rules, praise: praise, praiseMiss: praiseMiss, quality: quality, diffHtml: diffHtml };
 })();

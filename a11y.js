@@ -60,7 +60,7 @@
 
     function position() {
       var r = btn.getBoundingClientRect();
-      panel.style.top = (r.bottom + window.scrollY + 8) + "px";
+      panel.style.top = (r.bottom + 8) + "px";
       panel.style.right = Math.max(16, window.innerWidth - r.right) + "px";
     }
     btn.addEventListener("click", function (e) {

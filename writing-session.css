@@ -197,3 +197,22 @@
 .bd-card.got .bd-when{color:var(--ok-ink)}
 .bd-prog{width:100%;height:6px;border-radius:4px;background:var(--hair);overflow:hidden;margin-top:2px}
 .bd-prog i{display:block;height:100%;background:var(--wc-pencil)}
+
+/* the empty part of every Writing Center circle uses the visible rule colour */
+.wc-ring .bg,.wc-dot .bg,.wc-sdot .bg{stroke:var(--rule)}
+.wc-ring{width:56px;height:56px}
+
+/* phone: all four step circles on one line; only the step you are on keeps its label */
+@media (max-width:480px){
+  .wc-stepper{flex-wrap:nowrap;gap:6px}
+  .wc-stepper li:not(.cur){padding-right:4px}
+  .wc-stepper li:not(.cur) > span:last-child{display:none}
+  .wc-stepper li.cur{flex:1 1 auto;min-width:0}
+  .wc-sdot{width:30px;height:30px}
+  .wc-sdot b{font-size:12.5px}
+}
+
+/* the path line only runs BETWEEN the circles: it no longer sticks out above the first or below the last one */
+.wc-trail{border-left:0}
+.wc-node:not(:last-child)::after{content:"";position:absolute;left:-26.5px;top:50%;height:calc(100% + 16px);width:3px;background:var(--rule);z-index:0}
+.wc-node .wc-dot{z-index:1}

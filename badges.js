@@ -125,7 +125,7 @@
     var c = 2 * Math.PI * 11, off = c * (1 - (total ? n / total : 0));
     return '<svg viewBox="0 0 28 28" class="bb-ring" aria-hidden="true"><circle cx="14" cy="14" r="11" fill="none" stroke="currentColor" stroke-opacity=".25" stroke-width="2.4"/>' +
       '<circle cx="14" cy="14" r="11" fill="none" stroke="#FCAD1B" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '" transform="rotate(-90 14 14)"/>' +
-      '<path d="M14 8.6l1.7 3.4 3.7.5-2.7 2.6.6 3.7-3.3-1.8-3.3 1.8.6-3.7-2.7-2.6 3.7-.5z" fill="currentColor"/></svg><span class="bb-n">' + n + "/" + total + " badges</span>";
+      '<path d="M14 8.6l1.7 3.4 3.7.5-2.7 2.6.6 3.7-3.3-1.8-3.3 1.8.6-3.7-2.7-2.6 3.7-.5z" fill="currentColor"/></svg><span class="bb-n">' + n + "/" + total + '<span class="bb-w"> badges</span></span>';
   }
   function refreshIcon() {
     var el = document.getElementById("barBadges"); if (!el) return;
@@ -135,6 +135,7 @@
     el.setAttribute("aria-label", "My badges and progress: " + n + " of " + st.length + " earned");
   }
   function addIcon() {
+    if (/set.html/.test(location.pathname)) return; // practice sets are assessments: no badge button there
     var bar = document.querySelector(".bar"); if (!bar || document.getElementById("barBadges")) return;
     var a = document.createElement("a"); a.id = "barBadges"; a.className = "bar-link bar-badges"; a.href = "my-writing.html#badges";
     if (/my-writing\.html/.test(location.pathname)) a.setAttribute("aria-current", "page");

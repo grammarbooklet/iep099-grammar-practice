@@ -42,9 +42,8 @@
   try {
     var r = JSON.parse(localStorage.getItem("iep099-wc") || "null"), total = 61, done = 0;
     if (r && r.lessons) Object.keys(r.lessons).forEach(function (k) { if (r.lessons[k] && r.lessons[k].done && !r.lessons[k].skipped) done++; });
-    if (!done) return;
     var c = 2 * Math.PI * 15, full = done >= total, el = document.getElementById("wcRing");
-    el.innerHTML = '<svg viewBox="0 0 36 36" aria-hidden="true"><circle class="bg" cx="18" cy="18" r="15"/><circle class="fg" cx="18" cy="18" r="15" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + (c * (1 - done / total)).toFixed(1) + '" transform="rotate(-90 18 18)"/>' + (full ? '<path class="tick" d="M11.5 18.5l4.5 4.5 8.5-9.5"/>' : "") + "</svg>" + (full ? "" : "<b>" + done + "</b>");
+    el.innerHTML = '<svg viewBox="0 0 36 36" aria-hidden="true"><circle class="bg" cx="18" cy="18" r="15"/><circle class="fg" cx="18" cy="18" r="15" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + (c * (1 - (done > 0 ? Math.max(done / total, 0.1) : 0))).toFixed(1) + '" transform="rotate(-90 18 18)"/>' + (full ? '<path class="tick" d="M11.5 18.5l4.5 4.5 8.5-9.5"/>' : "") + "</svg>" + (full ? "" : "<b>" + done + "</b>");
     el.title = done + " of " + total + " lessons done"; el.className = "home-ring" + (full ? " full" : ""); el.hidden = false;
   } catch (e) {}
 })();
@@ -52,10 +51,9 @@
 (function () {
   try {
     var r = JSON.parse(localStorage.getItem("iep099-results") || "null"), total = 198, done = r ? Object.keys(r).length : 0;
-    if (!done) return;
     if (done > total) done = total;
     var c = 2 * Math.PI * 15, full = done >= total, el = document.getElementById("gbRing");
-    el.innerHTML = '<svg viewBox="0 0 36 36" aria-hidden="true"><circle class="bg" cx="18" cy="18" r="15"/><circle class="fg" cx="18" cy="18" r="15" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + (c * (1 - done / total)).toFixed(1) + '" transform="rotate(-90 18 18)"/>' + (full ? '<path class="tick" d="M11.5 18.5l4.5 4.5 8.5-9.5"/>' : "") + "</svg>" + (full ? "" : "<b>" + done + "</b>");
+    el.innerHTML = '<svg viewBox="0 0 36 36" aria-hidden="true"><circle class="bg" cx="18" cy="18" r="15"/><circle class="fg" cx="18" cy="18" r="15" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + (c * (1 - (done > 0 ? Math.max(done / total, 0.1) : 0))).toFixed(1) + '" transform="rotate(-90 18 18)"/>' + (full ? '<path class="tick" d="M11.5 18.5l4.5 4.5 8.5-9.5"/>' : "") + "</svg>" + (full ? "" : "<b>" + done + "</b>");
     el.title = done + " of " + total + " activities done"; el.className = "home-ring" + (full ? " full" : ""); el.hidden = false;
   } catch (e) {}
 })();

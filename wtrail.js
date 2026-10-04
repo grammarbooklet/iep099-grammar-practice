@@ -11,7 +11,9 @@
   // A circle that fills as lessons are finished, and becomes a tick only when the whole stage is done.
   function ring(done, total, skipped) {
     skipped = skipped || 0;
-    var pct = total ? done / total : 0, sp = total ? (done + skipped) / total : 0, c = 2 * Math.PI * 15, full = total > 0 && done >= total;
+    var pct = total ? done / total : 0, sp = total ? (done + skipped) / total : 0;
+    if (done > 0 && !(total > 0 && done >= total)) pct = Math.max(pct, 0.1);
+    var c = 2 * Math.PI * 15, full = total > 0 && done >= total;
     return '<span class="wc-ring' + (full ? " full" : "") + '" role="img" aria-label="' + done + " of " + total + " lessons done" + (skipped ? ", " + skipped + " skipped" : "") + '">' +
       '<svg viewBox="0 0 36 36" aria-hidden="true"><circle class="bg" cx="18" cy="18" r="15"/>' +
       (skipped ? '<circle class="sk" cx="18" cy="18" r="15" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + (c * (1 - sp)).toFixed(1) + '" transform="rotate(-90 18 18)"/>' : "") +

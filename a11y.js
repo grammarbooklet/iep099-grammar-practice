@@ -7,7 +7,12 @@
   var KEY = "iep099-a11y";
   function load() { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { return {}; } }
   function save(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} }
-  var state = Object.assign({ size: "md", contrast: "normal", theme: "auto" }, load());
+  // The dark theme is the site's main look for everyone, whatever their device is set to. Settings saved before this
+  // rule (version 1) never meant "I chose auto", so they are moved to dark once; after that the student's own
+  // choice (Auto, Light or Dark in Display settings) is respected.
+  var stored = load();
+  if (stored.v !== 2) { stored.theme = "dark"; stored.v = 2; }
+  var state = Object.assign({ size: "md", contrast: "normal", theme: "dark", v: 2 }, stored);
 
   function apply() {
     var html = document.documentElement;

@@ -445,3 +445,56 @@ a.plan-btn svg{width:15px;height:15px;flex:none}
 .home-card.gb .home-ring.full .bg{fill:var(--teal-d);stroke:var(--teal-d)}
 .home-card.gb .home-ring .tick{stroke:var(--teal-t)}
 .home-card.gb .home-ring b{color:var(--teal-d)}
+
+/* ---- one menu for the top bar ---- */
+.bar-menu{position:relative;flex:none;display:inline-flex}
+.bar-menu-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;border:0;background:rgba(255,255,255,.14);color:#fff;cursor:pointer}
+.bar-menu-btn:hover{background:rgba(255,255,255,.24)}
+.bar-menu-btn svg{width:17px;height:17px}
+.bar-menu-panel{position:absolute;right:0;top:calc(100% + 12px);z-index:60;min-width:220px;max-width:calc(100vw - 24px);display:flex;flex-direction:column;gap:2px;padding:6px;background:var(--surface);color:var(--ink);border:1px solid var(--hair);border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.25)}
+.bar-menu-panel[hidden]{display:none}
+.bar-menu-panel [hidden]{display:none!important}
+.bar-menu-panel>*{display:flex!important;align-items:center;gap:10px;width:100%;max-width:none!important;padding:11px 12px;border:0;border-radius:8px;background:none;color:var(--ink)!important;font:600 14.5px/1.2 var(--sans)!important;text-align:left;text-decoration:none;cursor:pointer;white-space:normal}
+.bar-menu-panel>a:hover,.bar-menu-panel>button:hover{background:var(--tint)}
+.bar-menu-panel svg{width:17px!important;height:17px!important;flex:none;color:var(--ink-2)}
+.bar-menu-panel .bar-streak,.bar-menu-panel .bar-user{cursor:default}
+.bar-menu-panel .bar-streak svg{color:var(--amber-d)}
+.bar-menu-panel .bar-user span{overflow:visible;text-overflow:clip}
+.a11y-ghost{position:absolute;right:12px;top:50%;width:28px;height:28px;margin-top:-14px;opacity:0;pointer-events:none}
+
+/* ---- phone polish ---- */
+@media (max-width:480px){
+  /* the top bar stays on one line (practice sets keep wrapping, they carry a timer and instructor controls) */
+  .bar:not(:has(#timerBadge)){flex-wrap:nowrap}
+  .bar{gap:8px;padding:9px 14px}
+  .bar a.home{flex:none}
+  .bar .bar-score{font-size:12px;padding:6px 10px;max-width:46vw;overflow:hidden;text-overflow:ellipsis}
+  .bar-badges .bb-w{display:none}
+  .bar-menu-btn{width:34px;height:34px}
+  /* small headings that wrap get room to breathe */
+  .eyebrow{line-height:1.45}
+  /* unit rows: the title gets the full width, the item count sits underneath, no chevron */
+  .toc-unit{padding:14px 10px}
+  .toc-topic{display:grid;grid-template-columns:auto 1fr;column-gap:12px;row-gap:6px;align-items:center;padding:12px 6px}
+  .toc-topic .ring{grid-row:1 / span 3}
+  .toc-topic .tt,.toc-topic .count,.toc-topic .mastered-tag{grid-column:2}
+  .toc-topic .count,.toc-topic .mastered-tag{justify-self:start}
+  .toc-topic .arrow{display:none}
+  /* comfortable thumb targets, and room above the phone's home bar */
+  .btn,button.btn,a.btn{min-height:46px}
+  .wrap{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+}
+@media (max-width:480px){
+  /* practice sets carry a timer and the instructor's time button: the back link shrinks to its arrow so the bar fits on one line */
+  .bar:has(#timerBadge){flex-wrap:nowrap}
+  .bar:has(#timerBadge) a.home{font-size:0;gap:0}
+  .bar:has(#timerBadge) a.home svg{width:18px;height:18px}
+  .bar:has(#timerBadge) .bar-score{max-width:38vw}
+}
+
+/* progress circles: the empty track must be visible on the dark theme too, and a bit larger on phones */
+.home-ring .bg{stroke:var(--rule);stroke-opacity:1}
+.home-ring .fg{stroke-width:4.5}
+.home-ring{width:38px;height:38px}
+.home-ring b{font-size:13px}
+@media (max-width:480px){ .home-ring{top:12px;right:12px} }

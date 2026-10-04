@@ -409,3 +409,31 @@ a.plan-btn svg{width:15px;height:15px;flex:none}
   .bar-link svg{width:18px;height:18px}
   .bar{gap:10px}
 }
+
+/* ---- welcome page: Student · Writing Center · Instructor ---- */
+.home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.home-card.wc{border-color:var(--amber);border-width:2px;background:var(--amber-t)}
+.home-card.wc:hover{background:var(--amber-t);filter:brightness(1.04);border-color:var(--amber)}
+.home-card.wc svg{color:var(--amber-d)}
+@media (max-width:640px){
+  .home-grid{grid-template-columns:1fr 1fr}
+  .home-card.wc{grid-column:1/-1;order:-1}
+}
+
+/* welcome page: Writing Center progress mark */
+.home-card.wc{position:relative}
+.home-ring{position:absolute;top:10px;right:10px;width:34px;height:34px;display:grid;place-items:center}
+.home-ring[hidden]{display:none}
+.home-ring svg{position:absolute;inset:0;width:100%;height:100%}
+.home-ring svg.no-icon{width:100%;height:100%;color:inherit}
+.home-ring .bg{fill:none;stroke:rgba(0,0,0,.12);stroke-width:4}
+.home-ring .fg{fill:none;stroke:var(--amber-d);stroke-width:4;stroke-linecap:round}
+.home-ring.full .bg{fill:var(--amber-d);stroke:var(--amber-d)}
+.home-ring .tick{fill:none;stroke:var(--amber-t);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.home-ring b{position:relative;font:700 12px var(--sans);color:var(--amber-d)}
+
+/* Beta tag on the welcome-page Writing Center card */
+.beta-tag{position:absolute;top:10px;left:10px;padding:3px 9px;border-radius:999px;background:var(--amber-d);color:var(--amber-t);font:800 10.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.home-card.wc .beta-tag{color:#fff;background:#7A4D00;font:800 10.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .home-card.wc .beta-tag{background:#FFC24D;color:#2B1E00}}
+:root[data-theme="dark"] .home-card.wc .beta-tag{background:#FFC24D;color:#2B1E00}

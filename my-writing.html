@@ -1,0 +1,65 @@
+<meta charset="utf-8">
+<title>My progress — Writing Center</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="practice.css">
+<link rel="stylesheet" href="writing.css">
+<link rel="stylesheet" href="writing-session.css">
+<script src="a11y.js"></script>
+<script src="student-gate.js"></script>
+<script src="engage.js"></script>
+<script src="badges.js"></script>
+<script src="writing.js"></script>
+<div class="bar">
+  <a class="home" href="writing.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>Path</a>
+  <span class="bar-sub">My progress</span>
+  <span class="bar-spacer"></span>
+  <span class="bar-user" id="studentNameBadge" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg><span id="studentNameText"></span></span>
+  <a class="bar-link" href="progress.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V10"/><path d="M11 19V5"/><path d="M18 19v-7"/></svg>Grammar progress</a>
+</div>
+<div class="wrap wc">
+  <div class="wc-hero">
+    <p class="wc-eyebrow">IEP099 &middot; Writing Center</p>
+    <h1 class="wc-title">My progress</h1>
+    <p class="wc-sub">Your badges, skills, writing and backup, all in one place.</p>
+  </div>
+  <div class="mw-tabs" role="tablist" aria-label="My progress sections">
+    <button type="button" role="tab" class="mw-tab" data-tab="badges" id="t-badges">Badges</button>
+    <button type="button" role="tab" class="mw-tab" data-tab="skills" id="t-skills">Skills</button>
+    <button type="button" role="tab" class="mw-tab" data-tab="portfolio" id="t-portfolio">Portfolio</button>
+    <button type="button" role="tab" class="mw-tab" data-tab="backup" id="t-backup">Save my progress</button>
+  </div>
+
+  <section class="mw-panel" id="p-badges" role="tabpanel" aria-labelledby="t-badges" hidden>
+    <div class="bd-summary" id="bdSummary"></div>
+    <h2 class="wc-h2s">Writing &amp; learning</h2>
+    <div class="bd-grid" id="bdW"></div>
+    <h2 class="wc-h2s">Practice &amp; speaking</h2>
+    <div class="bd-grid" id="bdP"></div>
+  </section>
+
+  <section class="mw-panel" id="p-skills" role="tabpanel" aria-labelledby="t-skills" hidden>
+    <p class="wc-note">Everything is open: start anywhere. Your skills grow as you practise, and they come back for review at the right time.</p>
+    <div id="wcSkills"></div>
+  </section>
+
+  <section class="mw-panel" id="p-portfolio" role="tabpanel" aria-labelledby="t-portfolio" hidden>
+    <div class="wc-folio" id="wcFolio"></div>
+  </section>
+
+  <section class="mw-panel" id="p-backup" role="tabpanel" aria-labelledby="t-backup" hidden>
+    <div class="wc-backup-box">
+      <p>Your progress is saved <b>on this device only</b> (there are no accounts). Save a backup, and you can restore it on a new phone or after clearing your browser.</p>
+      <div class="row"><button class="wc-btn" id="bkDownload" type="button">Download my backup</button><button class="wc-btn ghost" id="bkCopy" type="button">Copy backup code</button></div>
+      <p>To restore: paste a backup code (or choose a backup file). It is <b>merged</b> with what is here, so nothing newer is lost.</p>
+      <textarea id="bkText" aria-label="Backup code" placeholder="Paste your backup code here"></textarea>
+      <div class="row"><button class="wc-btn ghost" id="bkRestore" type="button">Restore from code</button><label class="wc-btn ghost" for="bkFile">Choose a backup file</label><input type="file" id="bkFile" accept=".json,.txt" hidden></div>
+      <p class="wc-msg" id="bkMsg" role="status"></p>
+    </div>
+  </section>
+
+  <p class="credit">IEP099 Writing Center &middot; Dr. Chadi Chahdi</p>
+</div>
+<script src="mywriting.js"></script>

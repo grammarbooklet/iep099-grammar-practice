@@ -1,0 +1,198 @@
+/* Writing Center — styles for the session player (wv2.js), the portfolio and the backup box. */
+/* Explicit display rules on buttons/notes would otherwise override the hidden attribute. */
+.wc [hidden],.wc-card [hidden]{display:none!important}
+.wc-session,.wc-open,.wc-learn,.wc-studio{position:relative}
+.wc-goal{margin:12px 0 16px;padding:14px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--hair);font:600 19px/1.4 var(--serif);color:var(--ink)}
+.wc-goal span{display:block;margin-bottom:4px;font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--wc-ink)}
+.wc-plan{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:s}
+.wc-plan li{counter-increment:s;position:relative;padding:8px 12px 8px 46px;border-radius:12px;background:var(--surface);border:1px solid var(--hair)}
+.wc-plan li::before{content:counter(s);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--wc-pencil);color:var(--wc-pencil-ink);font:700 13px var(--sans)}
+.wc-plan b{display:block;font:700 15px var(--sans);color:var(--ink)}
+.wc-plan small{font:400 13px var(--sans);color:var(--ink-2)}
+.wc-due{margin:6px 0 0;font:600 13.5px var(--sans);color:var(--amber-d)}
+.wc-extra{margin:0 0 10px;padding:9px 12px;border-radius:10px;background:var(--amber-t);color:var(--amber-d);font:400 15px/1.45 var(--sans)}
+
+/* teacher-style margin notes: the pen "writes" the hint in */
+.wc-helpzone{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+.wc-margin-note{display:flex;gap:9px;align-items:flex-start;padding:9px 13px;border-left:4px solid var(--wc-margin);border-radius:0 10px 10px 0;background:var(--surface);color:var(--ink);font:italic 400 16px/1.45 var(--serif)}
+.wc-margin-note .wc-pen{color:var(--wc-margin);font-style:normal;transform-origin:bottom left;animation:wcpen .9s ease-out}
+.wc-margin-note .wc-note-t{display:inline-block;animation:wcwrite .9s steps(24,end) both}
+.wc-margin-note b{font-style:normal}
+@keyframes wcwrite{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes wcpen{0%{transform:translate(-6px,6px) rotate(-18deg);opacity:0}60%{transform:rotate(8deg);opacity:1}100%{transform:none}}
+.wc-rule{padding:12px 14px;border-radius:12px;border:2px dashed var(--wc-ink);background:var(--surface);color:var(--ink);font:400 15.5px/1.5 var(--sans);animation:wcrise .35s ease-out}
+.wc-rule>b{display:block;font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--wc-ink);margin-top:4px}
+.wc-rule p{margin:2px 0 8px}
+@keyframes wcrise{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+
+/* paper stamp on a right answer */
+:root{--wc-stamp:#0f9d8a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--wc-stamp:#5CEBDB}}
+:root[data-theme="dark"]{--wc-stamp:#5CEBDB}
+.wc-stamp{position:absolute;right:18px;top:14px;padding:4px 14px;border:3px solid var(--wc-stamp);border-radius:8px;color:var(--wc-stamp);font:800 20px var(--sans);letter-spacing:.06em;text-transform:uppercase;transform:rotate(-9deg);animation:wcstamp .45s cubic-bezier(.2,1.6,.4,1) both;pointer-events:none}
+.wc-stamp.gone{opacity:0;transition:opacity .6s}
+@keyframes wcstamp{0%{transform:scale(2.4) rotate(-20deg);opacity:0}100%{transform:scale(1) rotate(-9deg);opacity:1}}
+
+/* learn it: tap each sentence */
+.wc-paragraph{margin:6px 0 10px;font:400 19px/2 var(--serif);color:var(--ink)}
+.wc-sent{display:inline;padding:2px 3px;margin:0;border:0;border-bottom:2px dashed var(--rule);background:none;font:inherit;color:inherit;cursor:pointer;border-radius:4px}
+.wc-sent:hover{background:var(--tint)}
+.wc-sent.on{border-bottom-style:solid;cursor:default;background-repeat:no-repeat;background-position:0 100%;background-size:100% 100%;animation:wcswipe .7s ease-out both}
+.wc-sent.role-topic{background-image:linear-gradient(var(--wc-pencil),var(--wc-pencil));border-color:var(--wc-pencil);color:var(--wc-pencil-ink)}
+.wc-sent.role-support{background-image:linear-gradient(var(--teal-t),var(--teal-t));border-color:var(--teal)}
+.wc-sent.role-concluding{background-image:linear-gradient(var(--amber-t),var(--amber-t));border-color:var(--wc-margin)}
+@keyframes wcswipe{from{background-size:0 100%}to{background-size:100% 100%}}
+.wc-counter{margin:0 0 8px;font:600 13px var(--sans);color:var(--mute)}
+.wc-notes{display:flex;flex-direction:column;gap:8px}
+.wc-margin-note.role-topic{border-left-color:var(--wc-pencil)}
+.wc-margin-note.role-support{border-left-color:var(--teal)}
+.wc-takeaway{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--wc-pencil);color:var(--wc-pencil-ink);font:400 16px/1.5 var(--sans);animation:wcrise .4s ease-out}
+
+/* paragraph ordering */
+.wc-porder{display:flex;flex-direction:column;gap:12px}
+.wc-pline{margin:0;padding:10px 10px 10px 36px;min-height:64px;border:2px dashed var(--rule);border-radius:12px;background:var(--surface);display:flex;flex-direction:column;gap:8px;counter-reset:p}
+.wc-pline li{list-style:none;counter-increment:p;position:relative}
+.wc-pline li::before{content:counter(p);position:absolute;left:-26px;top:10px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--wc-pencil);color:var(--wc-pencil-ink);font:700 12px var(--sans)}
+.wc-pline li.wc-line-ph{counter-increment:none}
+.wc-pline li.wc-line-ph::before{display:none}
+.wc-pline.right{border-color:var(--ok-bd);background:var(--ok-bg)}
+.wc-pline.wrong{border-color:var(--bad-bd);background:var(--bad-bg)}
+.wc-pbank{display:flex;flex-direction:column;gap:8px}
+.wc-pcard{width:100%;text-align:left;padding:11px 14px;border:2px solid var(--wc-ink);border-radius:11px;background:var(--surface);color:var(--ink);font:400 16px/1.45 var(--sans);cursor:pointer;min-height:46px}
+.wc-pcard.in{background:var(--tint)}
+.wc-pcard.snap{animation:wcsnap .28s cubic-bezier(.2,1.8,.4,1)}
+.wc-pcard:disabled{cursor:default}
+@keyframes wcsnap{0%{transform:scale(.94)}100%{transform:scale(1)}}
+.wc-tile,.wc-tok,.wc-opt{transition:transform .08s}
+.wc-tile:active,.wc-tok:active,.wc-opt:active{transform:scale(.97)}
+.wc-line .wc-tile.in{animation:wcsnap .25s cubic-bezier(.2,1.8,.4,1)}
+
+/* studio */
+.wc-saved{font:600 12.5px var(--sans);color:var(--mute)}
+.wc-focus{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.wc-chip{font:600 14px var(--sans);padding:9px 14px;border:2px solid var(--rule);border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer;min-height:42px}
+.wc-chip.on{border-color:var(--wc-ink);box-shadow:0 0 0 2px var(--wc-ink) inset;background:var(--tint)}
+.wc-compare{width:100%;margin-top:10px;border-collapse:collapse;font:400 14.5px var(--sans);color:var(--ink)}
+.wc-compare caption{text-align:left;font:700 12px var(--sans);color:var(--mute);margin-bottom:4px}
+.wc-compare th,.wc-compare td{padding:6px 8px;border-bottom:1px solid var(--hair);text-align:left}
+.wc-compare th{font-weight:700;color:var(--ink-2)}
+
+/* reward: skill meter (ink drops), portfolio card, coming back */
+.wc-meter{margin:14px auto 0;max-width:420px;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--hair);text-align:left}
+.wc-meter b{display:block;font:700 15px var(--sans);color:var(--ink)}
+.wc-ink{display:flex;gap:8px;margin:8px 0 4px}
+.wc-ink i{width:26px;height:26px;border-radius:50% 50% 50% 8%;transform:rotate(-45deg);border:2px solid var(--rule);background:transparent}
+.wc-ink i.was{background:var(--wc-ink);border-color:var(--wc-ink)}
+.wc-ink i.gain{background:var(--wc-pencil);border-color:var(--wc-pencil);animation:wcdrop .6s cubic-bezier(.2,1.6,.4,1) .6s both}
+@keyframes wcdrop{0%{transform:rotate(-45deg) scale(0)}100%{transform:rotate(-45deg) scale(1)}}
+.wc-meter small{font:400 13px var(--sans);color:var(--ink-2)}
+.wc-pcard-saved{display:flex;align-items:center;gap:12px;margin:12px auto 0;max-width:420px;padding:10px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--wc-pencil);text-align:left;animation:wcrise .5s ease-out .3s both}
+.wc-pcard-saved span{font-size:26px}
+.wc-pcard-saved b{display:block;font:700 14.5px var(--sans);color:var(--ink)}
+.wc-pcard-saved small{font:400 13px var(--sans);color:var(--ink-2)}
+.wc-back{margin:14px auto 0;max-width:520px;font:400 14.5px/1.5 var(--sans);color:var(--ink-2)}
+.wc-backup{margin:14px auto 0;font:400 13px/1.5 var(--sans);color:var(--mute)}
+
+/* trail page: portfolio + backup */
+.wc-folio{display:grid;gap:10px}
+.wc-piece{padding:12px 14px;border:1px solid var(--hair);border-radius:12px;background:var(--surface)}
+.wc-piece summary{cursor:pointer;display:flex;align-items:center;gap:10px;font:700 15px var(--sans);color:var(--ink)}
+.wc-piece summary small{font:400 12.5px var(--sans);color:var(--mute);margin-left:auto}
+.wc-piece blockquote{margin:8px 0 0;padding:8px 12px;border-left:4px solid var(--wc-pencil);font:400 15.5px/1.55 var(--serif);color:var(--ink);white-space:pre-wrap}
+.wc-piece .v{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--wc-ink);margin-top:8px}
+.wc-piece button{font:600 13px var(--sans);margin-top:8px;margin-right:6px;padding:6px 12px;border:1px solid var(--rule);border-radius:8px;background:none;color:var(--ink-2);cursor:pointer}
+.wc-backup-box{padding:16px 18px;border:2px dashed var(--rule);border-radius:14px;background:var(--surface)}
+.wc-backup-box p{margin:0 0 10px;font:400 14.5px/1.5 var(--sans);color:var(--ink-2)}
+.wc-backup-box textarea{width:100%;min-height:70px;font:400 13px/1.4 monospace;padding:8px;border:2px solid var(--rule);border-radius:10px;background:var(--surface);color:var(--ink)}
+.wc-backup-box .row{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}
+.wc-msg{font:600 13.5px var(--sans);color:var(--ok-ink);min-height:1.3em}
+.wc-msg.err{color:var(--bad-ink)}
+.wc-note{margin:0 0 10px;font:400 14.5px/1.5 var(--sans);color:var(--ink-2)}
+.wc-skillgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.wc-skill{padding:11px 14px;border:1px solid var(--hair);border-radius:12px;background:var(--surface)}
+.wc-skill b{display:block;font:700 14.5px var(--sans);color:var(--ink)}
+.wc-skill small{font:400 12.5px var(--sans);color:var(--mute)}
+.wc-skill .wc-ink i{width:20px;height:20px}
+@media (prefers-reduced-motion:reduce){.wc-margin-note .wc-note-t,.wc-margin-note .wc-pen,.wc-stamp,.wc-sent.on,.wc-ink i.gain,.wc-pcard.snap,.wc-rule,.wc-takeaway,.wc-pcard-saved{animation:none!important}}
+
+/* completion marks: session stepper, stage rings */
+.wc-stepper{list-style:none;margin:16px 0 0;padding:0;display:flex;gap:6px;flex-wrap:wrap}
+.wc-stepper li{display:inline-flex;align-items:center;gap:6px;padding:5px 11px 5px 5px;border-radius:999px;background:var(--surface);border:1px solid var(--hair);font:600 12.5px var(--sans);color:var(--mute)}
+.wc-sdot{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--rule);font:700 11px var(--sans);color:var(--mute)}
+.wc-stepper li.cur{color:var(--ink);border-color:var(--wc-ink)}
+.wc-stepper li.cur .wc-sdot{border-color:var(--wc-ink);color:var(--wc-ink)}
+.wc-stepper li.done{color:var(--ink-2)}
+.wc-stepper li.done .wc-sdot{background:var(--wc-pencil);border-color:var(--wc-pencil);color:var(--wc-pencil-ink)}
+.wc-stagehead{display:flex;align-items:center;gap:14px}
+.wc-ring{position:relative;flex:none;width:52px;height:52px;display:grid;place-items:center}
+.wc-ring svg{position:absolute;inset:0;width:100%;height:100%}
+.wc-ring .bg{fill:none;stroke:var(--hair);stroke-width:4}
+.wc-ring .fg{fill:none;stroke:var(--wc-pencil);stroke-width:4;stroke-linecap:round;transition:stroke-dashoffset .6s}
+.wc-ring.full .bg{fill:var(--wc-pencil);stroke:var(--wc-pencil)}
+.wc-ring .tick{fill:none;stroke:var(--wc-pencil-ink);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.wc-ring b{position:relative;font:700 15px var(--sans);color:var(--ink)}
+
+/* reached-so-far marks: partly filled circle on an unfinished lesson, no tick */
+.wc-dot svg{position:absolute;inset:-3px;width:calc(100% + 6px);height:calc(100% + 6px)}
+.wc-dot .bg{fill:none;stroke:var(--hair);stroke-width:4}
+.wc-dot .fg{fill:none;stroke:var(--wc-pencil);stroke-width:4;stroke-linecap:round}
+.wc-dot b{position:relative;font:700 13px var(--sans);color:var(--ink)}
+.wc-node.started .wc-dot{border-color:transparent}
+.wc-node.skipped .wc-dot{border-style:dashed;color:var(--mute)}
+.wc-node.skipped{opacity:.85}
+.wc-ring .sk{fill:none;stroke:var(--wc-ink);stroke-opacity:.3;stroke-width:4;stroke-linecap:round}
+
+/* nothing is locked: stages still being written look open, just quieter */
+.wc-stage.soon{opacity:1}
+.wc-node.soon{opacity:1}
+.wc-node.soon .wc-node-t{color:var(--ink-2)}
+.wc-node.soon .wc-node-s{color:var(--mute)}
+
+/* step circles that fill with progress */
+.wc-sdot{position:relative;width:26px;height:26px}
+.wc-sdot svg{position:absolute;inset:0;width:100%;height:100%}
+.wc-sdot .bg{fill:none;stroke:var(--rule);stroke-width:3}
+.wc-sdot .fg{fill:none;stroke:var(--wc-pencil);stroke-width:3;stroke-linecap:round;transition:stroke-dashoffset .5s ease}
+.wc-sdot b{position:relative;font:700 11px var(--sans)}
+.wc-stepper li.cur .wc-sdot{border-color:transparent}
+.wc-stepper li{padding:4px 12px 4px 4px}
+
+/* calmer reward screen: one focus, one button, quiet links, details folded away */
+.wc-quiet{margin:6px 0 0;font:400 13.5px/1.4 var(--sans);color:var(--ink-2)}
+.wc-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+.wc-reward .wc-actions{margin-top:16px}
+.wc-reward .wc-lead{margin-bottom:6px;font-size:18px;color:var(--ink-2)}
+.wc-more{margin:14px auto 0;max-width:520px;text-align:left}
+.wc-more>summary{cursor:pointer;text-align:center;font:700 13px var(--sans);color:var(--wc-ink);padding:8px;list-style:none}
+.wc-more>summary::-webkit-details-marker{display:none}
+.wc-more>summary::after{content:" ▾"}
+.wc-more[open]>summary::after{content:" ▴"}
+.wc-more>*:not(summary){margin-top:12px}
+
+/* sentences that contain a highlighted clause: only the clause gets the emphasis, not the whole sentence */
+.wc-sent mark{background:var(--amber-t);box-shadow:inset 0 -2px 0 var(--wc-pencil);color:var(--ink);padding:1px 3px;border-radius:4px}
+.wc-sent.on:has(mark){background-image:none;color:var(--ink);border-bottom-color:var(--rule);animation:none}
+.wc-sent.on mark{background:var(--wc-pencil);color:var(--wc-pencil-ink);box-shadow:none;animation:wcswipe .7s ease-out both;background-repeat:no-repeat}
+
+.wc-badge-img{width:36px;height:36px;vertical-align:middle;margin-right:8px;object-fit:contain}
+
+/* ---- My progress page: tabs and badges ---- */
+.mw-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0 6px;border-bottom:1px solid var(--hair);padding-bottom:10px}
+.mw-tab{font:700 14px var(--sans);padding:9px 16px;border-radius:999px;border:2px solid var(--rule);background:var(--surface);color:var(--ink-2);cursor:pointer;min-height:42px}
+.mw-tab.on{border-color:var(--wc-ink);color:var(--ink);box-shadow:0 0 0 2px var(--wc-ink) inset}
+.mw-panel[hidden]{display:none}
+.bd-summary{margin:16px 0 4px;max-width:420px;font:400 16px var(--sans);color:var(--ink)}
+.bd-summary small{color:var(--mute);font:400 13px var(--sans)}
+.bd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.bd-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:14px 10px 12px;border:1px solid var(--hair);border-radius:14px;background:var(--surface)}
+.bd-card b{font:700 14.5px/1.25 var(--sans);color:var(--ink)}
+.bd-card p{margin:0;font:400 12.5px/1.4 var(--sans);color:var(--ink-2);min-height:3.6em}
+.bd-card small{font:600 12px var(--sans);color:var(--mute)}
+.bd-img{position:relative;width:96px;height:96px;display:grid;place-items:center}
+.bd-img img{display:block;max-width:96px;max-height:96px;width:auto;height:auto;object-fit:contain}
+.bd-card.locked .bd-img img{filter:grayscale(1) contrast(.8) brightness(1.1);opacity:.4}
+.bd-lock{position:absolute;right:-2px;bottom:-2px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:2px solid var(--rule);font-size:15px}
+.bd-card.got{border-color:var(--wc-pencil);box-shadow:0 0 0 1px var(--wc-pencil) inset}
+.bd-card.got .bd-when{color:var(--ok-ink)}
+.bd-prog{width:100%;height:6px;border-radius:4px;background:var(--hair);overflow:hidden;margin-top:2px}
+.bd-prog i{display:block;height:100%;background:var(--wc-pencil)}

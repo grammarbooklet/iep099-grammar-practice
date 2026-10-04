@@ -1,0 +1,1860 @@
+{
+  "stage": 3,
+  "lessons": {
+    "3.1": {
+      "format": "v2",
+      "skill": "add",
+      "goal": "Add information with also, in addition, moreover and besides.",
+      "warmup": {
+        "skills": [
+          "fanboys",
+          "comma"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see how adding words work.",
+        "sentences": [
+          {
+            "t": "I study English every day. I also watch films in English.",
+            "role": "topic",
+            "label": "also",
+            "note": "Also adds another point. It usually goes before the main verb."
+          },
+          {
+            "t": "The course is cheap. In addition, it is close to my house.",
+            "role": "support",
+            "label": "in addition",
+            "note": "A transition: it starts a new sentence and has a comma after it."
+          },
+          {
+            "t": "The hotel is comfortable. Moreover, the staff are friendly.",
+            "role": "support",
+            "label": "moreover",
+            "note": "Moreover adds a stronger extra point. Comma after it."
+          },
+          {
+            "t": "Besides studying, he works part-time.",
+            "role": "concluding",
+            "label": "besides",
+            "note": "Besides + an -ing word means “as well as”."
+          }
+        ],
+        "takeaway": "Words that **add**: **also, in addition, moreover, furthermore, besides**. A transition at the start of a sentence is followed by a **comma**. *Also* usually sits **before the main verb**."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "add",
+          "q": "Choose the best linking word: “The flat is cheap. ___, it is near the station.”",
+          "options": [
+            "However",
+            "In addition",
+            "Therefore"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "We are adding another good point.",
+          "help": {
+            "nudge": "Is the second sentence adding a point, contrasting, or giving a result?",
+            "rule": "**Addition** words: also, in addition, moreover, furthermore.",
+            "worked": "Cheap and near the station are two good points, so we add the second one.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "add",
+                "q": "Choose the best linking word: “The café is quiet. ___, the coffee is excellent.”",
+                "options": [
+                  "Moreover",
+                  "But",
+                  "Because"
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "A second good point is added."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "add",
+          "q": "Join the two ideas by adding also in the right place.",
+          "show": "I like swimming. I like cycling.",
+          "accept": [
+            "I like swimming. I also like cycling.",
+            "I like swimming, and I also like cycling.",
+            "I like swimming and I also like cycling."
+          ],
+          "patterns": [],
+          "example": "I like swimming. I also like cycling.",
+          "why": "Also goes before the main verb (like).",
+          "help": {
+            "nudge": "Put also just before the verb in the second idea.",
+            "rule": "*Also* goes before the main verb, but after am / is / are.",
+            "worked": "I like swimming. I **also** like cycling.",
+            "variants": [
+              {
+                "type": "fix",
+                "skill": "add",
+                "q": "Join the two ideas by adding also in the right place.",
+                "show": "She speaks Arabic. She speaks French.",
+                "accept": [
+                  "She speaks Arabic. She also speaks French.",
+                  "She speaks Arabic, and she also speaks French.",
+                  "She speaks Arabic and she also speaks French."
+                ],
+                "patterns": [],
+                "example": "She speaks Arabic. She also speaks French.",
+                "why": "Also goes before the main verb."
+              }
+            ]
+          }
+        },
+        {
+          "type": "order",
+          "skill": "add",
+          "q": "Put the words in order.",
+          "pieces": [
+            "The",
+            "hotel",
+            "is",
+            "clean.",
+            "In",
+            "addition,",
+            "it",
+            "is",
+            "cheap."
+          ],
+          "answers": [
+            "The hotel is clean. In addition, it is cheap."
+          ],
+          "why": "A full stop, then the transition with its comma.",
+          "help": {
+            "nudge": "Which word group is the first complete sentence?",
+            "rule": "Sentence. Transition, comma, next sentence.",
+            "worked": "The hotel is clean. In addition, it is cheap."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "add",
+          "q": "Add the missing comma.",
+          "show": "The course is useful. Moreover it is free.",
+          "accept": [
+            "The course is useful. Moreover, it is free."
+          ],
+          "patterns": [],
+          "example": "The course is useful. Moreover, it is free.",
+          "why": "A transition at the start of a sentence needs a comma after it.",
+          "help": {
+            "nudge": "Find the transition. The comma goes straight after it.",
+            "rule": "Moreover, / In addition, / Furthermore, + comma.",
+            "worked": "Moreover, it is free."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "add",
+          "q": "Which sentence uses besides correctly?",
+          "options": [
+            "Besides study, he works part-time.",
+            "Besides studying, he works part-time.",
+            "Besides he studies, he works part-time."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "Besides is followed by an -ing form (or a noun).",
+          "help": {
+            "nudge": "Which form of the verb follows besides?",
+            "rule": "Besides + -ing / noun = “as well as”.",
+            "worked": "Besides studying (an -ing form), he works part-time."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **three sentences** about your city. Add information with at least two different linking words (also, in addition, moreover, besides).",
+        "minWords": 16,
+        "placeholder": "My city is …",
+        "checks": [
+          {
+            "t": "I used at least two different adding words.",
+            "auto": "linkers"
+          },
+          {
+            "t": "Each linking word has the right punctuation: a comma after a transition, or also before the verb.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Add a linking word",
+          "Check the commas",
+          "Make it clearer"
+        ],
+        "sample": "My city is very clean. In addition, it has many parks. Moreover, the public transport is cheap."
+      }
+    },
+    "3.2": {
+      "format": "v2",
+      "skill": "contrast",
+      "goal": "Show contrast with but, however, although, whereas and on the other hand.",
+      "warmup": {
+        "skills": [
+          "add",
+          "fanboys"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Four ways to say “these two things are different”. Tap each sentence.",
+        "sentences": [
+          {
+            "t": "The film was long, but I enjoyed it.",
+            "role": "topic",
+            "label": "but",
+            "note": "But joins two parts with a comma before it."
+          },
+          {
+            "t": "The film was long. However, I enjoyed it.",
+            "role": "support",
+            "label": "however",
+            "note": "A transition: it starts a new sentence, with a comma after it."
+          },
+          {
+            "t": "Although the film was long, I enjoyed it.",
+            "role": "support",
+            "label": "although",
+            "note": "Although starts a subordinate clause. Comma when it comes first."
+          },
+          {
+            "t": "I prefer tea, whereas my brother prefers coffee.",
+            "role": "concluding",
+            "label": "whereas",
+            "note": "Whereas compares two different things."
+          }
+        ],
+        "takeaway": "Contrast: **but, yet, however, although, whereas, on the other hand, in contrast**. They share a meaning but are **punctuated differently**."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "contrast",
+          "q": "Choose the best linking word: “Cars are fast. ___, they are expensive to run.”",
+          "options": [
+            "Moreover",
+            "However",
+            "So"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "The second idea is a downside, so it contrasts with “fast”.",
+          "help": {
+            "nudge": "Is the second sentence another good point, or a problem?",
+            "rule": "**Contrast** words show a difference or surprise: but, however, although, whereas.",
+            "worked": "Fast is good; expensive to run is a drawback, so we contrast.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "contrast",
+                "q": "Choose the best linking word: “The hotel is beautiful. ___, it is very noisy.”",
+                "options": [
+                  "However",
+                  "In addition",
+                  "Therefore"
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "Noisy is a drawback, so it contrasts."
+              }
+            ]
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "contrast",
+          "q": "Does each linking word show addition or contrast?",
+          "cats": [
+            "Addition",
+            "Contrast"
+          ],
+          "items": [
+            {
+              "t": "however",
+              "c": 1
+            },
+            {
+              "t": "in addition",
+              "c": 0
+            },
+            {
+              "t": "whereas",
+              "c": 1
+            },
+            {
+              "t": "moreover",
+              "c": 0
+            },
+            {
+              "t": "on the other hand",
+              "c": 1
+            }
+          ],
+          "why": "However, whereas and on the other hand show a difference. In addition and moreover add more.",
+          "help": {
+            "nudge": "Ask: does it add another point, or show a difference?",
+            "rule": "Addition: also, in addition, moreover. Contrast: but, however, whereas, on the other hand.",
+            "worked": "“On the other hand” introduces a different side, so it contrasts."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "contrast",
+          "q": "Rewrite with although. Start with Although.",
+          "show": "The exam was hard. I passed.",
+          "accept": [
+            "Although the exam was hard, I passed."
+          ],
+          "patterns": [],
+          "example": "Although the exam was hard, I passed.",
+          "why": "Although starts the sentence, so a comma follows the opening clause.",
+          "help": {
+            "nudge": "Start with “Although the exam was hard”, then a comma.",
+            "rule": "Although + clause, + main clause.",
+            "worked": "Although the exam was hard, I passed.",
+            "variants": [
+              {
+                "type": "fix",
+                "skill": "contrast",
+                "q": "Rewrite with although. Start with Although.",
+                "show": "The room was small. It was comfortable.",
+                "accept": [
+                  "Although the room was small, it was comfortable."
+                ],
+                "patterns": [],
+                "example": "Although the room was small, it was comfortable.",
+                "why": "Opening although-clause, comma, main clause."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "contrast",
+          "q": "Join the sentences with however. Remember the punctuation.",
+          "show": "I like winter. My brother likes summer.",
+          "accept": [],
+          "patterns": [
+            "^I like winter\\. However, my brother likes summer\\.$",
+            "^I like winter; however, my brother likes summer\\.$"
+          ],
+          "example": "I like winter. However, my brother likes summer.",
+          "why": "However needs a full stop or semicolon before it, and a comma after it.",
+          "help": {
+            "nudge": "Put a full stop (or semicolon) before however and a comma after it.",
+            "rule": "Sentence. However, sentence.  Or: sentence; however, sentence.",
+            "worked": "I like winter. However, my brother likes summer."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "contrast",
+          "q": "Which sentence is correct?",
+          "options": [
+            "The bus is cheap, however it is slow.",
+            "The bus is cheap. However, it is slow.",
+            "The bus is cheap however, it is slow."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "However starts a new sentence here, with a comma after it. A comma alone can’t join two sentences.",
+          "help": {
+            "nudge": "Is “however” a joining word like but, or a transition?",
+            "rule": "However is a **transition**. It needs a full stop or semicolon before it.",
+            "worked": "“The bus is cheap, however it is slow.” is a comma splice."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **two sentences** comparing two places you know. Use a contrast word in each (but, however, although, whereas, on the other hand).",
+        "minWords": 14,
+        "placeholder": "My village is …, but …",
+        "checks": [
+          {
+            "t": "I used a contrast word in each sentence.",
+            "auto": "linkers"
+          },
+          {
+            "t": "My punctuation matches the linking word (comma + but, full stop + However,).",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Check the commas",
+          "Try a different contrast word",
+          "Make it clearer"
+        ],
+        "sample": "My village is quiet, but my city is exciting. However, the city is more crowded."
+      }
+    },
+    "3.3": {
+      "format": "v2",
+      "skill": "cause",
+      "goal": "Show cause and effect with because, so, therefore and as a result.",
+      "warmup": {
+        "skills": [
+          "contrast",
+          "fanboys"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Which part is the reason, and which is the result? Tap each sentence.",
+        "sentences": [
+          {
+            "t": "I was late because the bus broke down.",
+            "role": "topic",
+            "label": "because = cause",
+            "note": "Because introduces the cause (the reason)."
+          },
+          {
+            "t": "The bus broke down, so I was late.",
+            "role": "support",
+            "label": "so = effect",
+            "note": "So introduces the effect (the result), with a comma before it."
+          },
+          {
+            "t": "The bus broke down. As a result, I was late.",
+            "role": "support",
+            "label": "as a result",
+            "note": "A transition for the effect, with a comma after it."
+          },
+          {
+            "t": "I was late because of the traffic.",
+            "role": "concluding",
+            "label": "because of + noun",
+            "note": "Because of is followed by a noun (traffic), not a clause."
+          }
+        ],
+        "takeaway": "**Cause** (reason): because, since, due to. **Effect** (result): so, therefore, as a result, consequently. **Because of / due to** are followed by a noun."
+      },
+      "practice": [
+        {
+          "type": "sort",
+          "skill": "cause",
+          "q": "Which part does each word introduce?",
+          "cats": [
+            "The cause (reason)",
+            "The effect (result)"
+          ],
+          "items": [
+            {
+              "t": "because",
+              "c": 0
+            },
+            {
+              "t": "so",
+              "c": 1
+            },
+            {
+              "t": "therefore",
+              "c": 1
+            },
+            {
+              "t": "due to",
+              "c": 0
+            },
+            {
+              "t": "as a result",
+              "c": 1
+            }
+          ],
+          "why": "Because and due to give the reason. So, therefore and as a result give the result.",
+          "help": {
+            "nudge": "Does the word come before the reason or before the result?",
+            "rule": "Cause: because, since, due to. Effect: so, therefore, as a result, consequently.",
+            "worked": "“As a result” leads into what happened afterwards, so it introduces the effect."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "cause",
+          "q": "Choose the correct word: “The roads were icy. ___, many flights were cancelled.”",
+          "options": [
+            "Because",
+            "As a result",
+            "Although"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "The second sentence is the result of the icy roads.",
+          "help": {
+            "nudge": "Is the second sentence the reason or the result?",
+            "rule": "A new sentence showing the result begins with As a result, / Therefore, / Consequently,.",
+            "worked": "Icy roads (cause) → cancelled flights (effect), so “As a result,” fits.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "cause",
+                "q": "Choose the correct word: “It rained all night. ___, the match was cancelled.”",
+                "options": [
+                  "As a result",
+                  "However",
+                  "For example"
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "The cancelled match is the result of the rain."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "cause",
+          "q": "Which sentence is correct?",
+          "options": [
+            "We stayed home because of it was raining.",
+            "We stayed home because of the rain.",
+            "We stayed home because the rain."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "Because of + noun (the rain). Because + a full clause (because it was raining).",
+          "help": {
+            "nudge": "What follows “because of”: a noun or a clause?",
+            "rule": "**Because of** + noun · **Because** + clause.",
+            "worked": "Because of the rain  =  Because it was raining."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "cause",
+          "q": "Combine the sentences with because.",
+          "show": "She was tired. She went to bed early.",
+          "accept": [
+            "She went to bed early because she was tired.",
+            "Because she was tired, she went to bed early."
+          ],
+          "patterns": [],
+          "example": "She went to bed early because she was tired.",
+          "why": "Because introduces the reason (she was tired). Use a comma only if because starts the sentence.",
+          "help": {
+            "nudge": "What is the reason? Put “because” in front of it.",
+            "rule": "Result + because + cause, or Because + cause, + result.",
+            "worked": "She went to bed early because she was tired.",
+            "variants": [
+              {
+                "type": "fix",
+                "skill": "cause",
+                "q": "Combine the sentences with because.",
+                "show": "He missed the train. He woke up late.",
+                "accept": [
+                  "He missed the train because he woke up late.",
+                  "Because he woke up late, he missed the train."
+                ],
+                "patterns": [],
+                "example": "He missed the train because he woke up late.",
+                "why": "Because introduces the reason."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "cause",
+          "q": "Combine the sentences with so.",
+          "show": "It was raining. We took an umbrella.",
+          "accept": [
+            "It was raining, so we took an umbrella."
+          ],
+          "patterns": [],
+          "example": "It was raining, so we took an umbrella.",
+          "why": "So introduces the result, with a comma before it.",
+          "help": {
+            "nudge": "Put a comma after “raining”, then so.",
+            "rule": "Cause + comma + so + effect.",
+            "worked": "It was raining, so we took an umbrella."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **three sentences** about a problem and its result. Use because, so, therefore or as a result.",
+        "minWords": 20,
+        "placeholder": "This morning, …",
+        "checks": [
+          {
+            "t": "I showed a clear cause and a clear effect.",
+            "auto": null
+          },
+          {
+            "t": "I used at least two different cause or effect words.",
+            "auto": "linkers"
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make the cause clearer",
+          "Check the commas",
+          "Try a different linking word"
+        ],
+        "sample": "Our bus was late this morning. As a result, we missed the first class. The teacher was not angry because he knew about the traffic."
+      }
+    },
+    "3.4": {
+      "format": "v2",
+      "skill": "example",
+      "goal": "Give examples with for example, for instance, such as and including.",
+      "warmup": {
+        "skills": [
+          "cause",
+          "add"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see how examples are introduced.",
+        "sentences": [
+          {
+            "t": "Many fruits are rich in vitamins. For example, oranges and strawberries are good sources.",
+            "role": "topic",
+            "label": "for example",
+            "note": "It starts a new sentence, with a comma after it."
+          },
+          {
+            "t": "Some sports need no equipment. For instance, running only needs a good pair of shoes.",
+            "role": "support",
+            "label": "for instance",
+            "note": "Same job as for example."
+          },
+          {
+            "t": "I enjoy sports such as football and volleyball.",
+            "role": "support",
+            "label": "such as",
+            "note": "Such as introduces examples inside the sentence."
+          },
+          {
+            "t": "Public libraries offer many services, including free books and computers.",
+            "role": "concluding",
+            "label": "including",
+            "note": "Including introduces some items from a larger group."
+          }
+        ],
+        "takeaway": "**For example, / For instance,** start a sentence (with a comma after). **Such as / including** introduce examples **inside** a sentence."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "example",
+          "q": "Which sentence is punctuated correctly?",
+          "options": [
+            "Many fruits are healthy. For example oranges are rich in vitamin C.",
+            "Many fruits are healthy. For example, oranges are rich in vitamin C.",
+            "Many fruits are healthy, for example. oranges are rich in vitamin C."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "For example starts the new sentence and is followed by a comma.",
+          "help": {
+            "nudge": "Where does the comma go when For example starts a sentence?",
+            "rule": "For example, + sentence. The comma follows the phrase.",
+            "worked": "For example, oranges are rich in vitamin C.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "example",
+                "q": "Which sentence is punctuated correctly?",
+                "options": [
+                  "Some hobbies are cheap. For instance, reading costs very little.",
+                  "Some hobbies are cheap. For instance reading costs very little.",
+                  "Some hobbies are cheap, for instance. reading costs very little."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "For instance, + comma."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "example",
+          "q": "Choose the best linking word: “I enjoy water sports ___ swimming and sailing.”",
+          "options": [
+            "for example",
+            "such as",
+            "however"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "Such as joins the examples inside the sentence.",
+          "help": {
+            "nudge": "The examples come inside the same sentence. Which phrase fits there?",
+            "rule": "**Such as / including** work inside a sentence. **For example** starts its own sentence.",
+            "worked": "I enjoy water sports **such as** swimming and sailing."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "example",
+          "q": "Write a sentence that gives an example. Start with For example,",
+          "show": "Many cities have beautiful parks.",
+          "accept": [],
+          "patterns": [
+            "^For example, [^.!?]{8,}\\.$"
+          ],
+          "example": "For example, the new park has a long walking path.",
+          "why": "Many examples work. Start with “For example,” and give one specific example.",
+          "help": {
+            "nudge": "Name one specific city or park. Start with For example, then a comma.",
+            "rule": "For example, + a specific example.",
+            "worked": "For example, the new park has a long walking path."
+          }
+        },
+        {
+          "type": "tap",
+          "skill": "example",
+          "q": "Tap the word that introduces the examples inside the sentence.",
+          "text": "Public libraries offer many services, including free books and computers.",
+          "answers": [
+            [
+              5
+            ]
+          ],
+          "why": "“including” introduces examples inside the sentence.",
+          "help": {
+            "nudge": "Look for the word that comes just before the list of examples.",
+            "rule": "Including / such as introduce examples inside a sentence.",
+            "worked": "“…many services, **including** free books and computers.”"
+          }
+        },
+        {
+          "type": "order",
+          "skill": "example",
+          "q": "Put the words in order.",
+          "pieces": [
+            "Some",
+            "hobbies",
+            "are",
+            "cheap.",
+            "For",
+            "instance,",
+            "reading",
+            "costs",
+            "very",
+            "little."
+          ],
+          "answers": [
+            "Some hobbies are cheap. For instance, reading costs very little."
+          ],
+          "why": "A full stop, then the example sentence with For instance, and a comma.",
+          "help": {
+            "nudge": "Which words make the first complete sentence?",
+            "rule": "Statement. For instance, + example.",
+            "worked": "Some hobbies are cheap. For instance, reading costs very little."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **three sentences** about a hobby or habit. Give examples with for example, for instance, such as or including.",
+        "minWords": 16,
+        "placeholder": "I enjoy …",
+        "checks": [
+          {
+            "t": "I gave at least one specific example.",
+            "auto": null
+          },
+          {
+            "t": "I used at least two different linking words.",
+            "auto": "linkers"
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make the example more specific",
+          "Check the commas",
+          "Make it clearer"
+        ],
+        "sample": "I enjoy outdoor activities. For example, I go cycling on weekends. I also like sports such as volleyball."
+      }
+    },
+    "3.5": {
+      "format": "v2",
+      "skill": "sequence",
+      "goal": "Show the order of events or steps with first, next, then, after that and finally.",
+      "warmup": {
+        "skills": [
+          "example",
+          "cause"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see how sequence words guide the reader.",
+        "sentences": [
+          {
+            "t": "First, I check my email. Next, I plan my day.",
+            "role": "topic",
+            "label": "first, next",
+            "note": "Sequence words show the order. A comma follows them at the start of a sentence."
+          },
+          {
+            "t": "After that, I start my homework.",
+            "role": "support",
+            "label": "after that",
+            "note": "A middle step."
+          },
+          {
+            "t": "Finally, I relax and read a book.",
+            "role": "support",
+            "label": "finally",
+            "note": "Finally marks the last step."
+          },
+          {
+            "t": "Before I sleep, I read for ten minutes.",
+            "role": "concluding",
+            "label": "before + clause",
+            "note": "Before and after can start a clause. Use a comma when it comes first."
+          }
+        ],
+        "takeaway": "Order words: **first, second, next, then, after that, finally**. Use a **comma** after them at the start of a sentence."
+      },
+      "practice": [
+        {
+          "type": "porder",
+          "skill": "sequence",
+          "q": "Put the sentences in order to explain how to cook rice.",
+          "sentences": [
+            "First, wash the rice.",
+            "Next, boil the water.",
+            "Then, add the rice.",
+            "Finally, let it cook for twenty minutes."
+          ],
+          "shuffled": [
+            2,
+            3,
+            0,
+            1
+          ],
+          "answers": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "why": "First, Next, Then, Finally: the sequence words show the order.",
+          "help": {
+            "nudge": "Which sentence starts with First? Which one ends the process?",
+            "rule": "Sequence words: first → next / then → finally.",
+            "worked": "First (wash), Next (boil), Then (add), Finally (cook): that is the order."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "sequence",
+          "q": "Choose the best linking word: “I finished my homework. ___, I watched a film.”",
+          "options": [
+            "After that",
+            "However",
+            "For example"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "The film comes after the homework, so we show the order.",
+          "help": {
+            "nudge": "Does the second sentence happen later, contrast, or give an example?",
+            "rule": "Use sequence words (after that, next, then) for events in order.",
+            "worked": "Homework first, film second: “After that,” shows the order.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "sequence",
+                "q": "Choose the best linking word: “We checked in at the hotel. ___, we went to find dinner.”",
+                "options": [
+                  "Next",
+                  "However",
+                  "In addition"
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "Dinner comes after checking in."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "sequence",
+          "q": "Add the missing comma.",
+          "show": "First I wake up at six.",
+          "accept": [
+            "First, I wake up at six."
+          ],
+          "patterns": [],
+          "example": "First, I wake up at six.",
+          "why": "A sequence word at the start of a sentence is followed by a comma.",
+          "help": {
+            "nudge": "The comma goes straight after the sequence word.",
+            "rule": "First, / Next, / Finally, + comma.",
+            "worked": "First, I wake up at six."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "sequence",
+          "q": "Which word is best for the LAST step?",
+          "options": [
+            "First",
+            "Next",
+            "Finally"
+          ],
+          "answers": [
+            2
+          ],
+          "why": "Finally marks the last step.",
+          "help": {
+            "nudge": "Which word means “the end of the list”?",
+            "rule": "Beginning: first. Middle: next, then, after that. End: finally.",
+            "worked": "“Finally” closes a sequence."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "sequence",
+          "q": "Where does each word belong in a sequence?",
+          "cats": [
+            "Beginning",
+            "Middle",
+            "End"
+          ],
+          "items": [
+            {
+              "t": "first",
+              "c": 0
+            },
+            {
+              "t": "next",
+              "c": 1
+            },
+            {
+              "t": "finally",
+              "c": 2
+            },
+            {
+              "t": "after that",
+              "c": 1
+            },
+            {
+              "t": "to begin with",
+              "c": 0
+            }
+          ],
+          "why": "First and to begin with start a sequence; next and after that sit in the middle; finally ends it.",
+          "help": {
+            "nudge": "Think about when in the story each word is used.",
+            "rule": "Start: first, to begin with. Middle: next, then, after that. End: finally.",
+            "worked": "“To begin with” opens the list, like “first”."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **four sentences** describing your morning routine in order. Use sequence words.",
+        "minWords": 25,
+        "placeholder": "First, I …",
+        "checks": [
+          {
+            "t": "My steps are in the right order.",
+            "auto": null
+          },
+          {
+            "t": "I used at least two different sequence words.",
+            "auto": "linkers"
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Check the order",
+          "Check the commas",
+          "Add a detail"
+        ],
+        "sample": "First, I wake up at six and wash my face. Next, I eat breakfast with my family. After that, I walk to the bus stop. Finally, I arrive at school at eight."
+      }
+    },
+    "3.6": {
+      "format": "v2",
+      "skill": "concl",
+      "goal": "Close your writing with in conclusion, to sum up, overall or in short.",
+      "warmup": {
+        "skills": [
+          "sequence",
+          "contrast"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "These words close a paragraph or an essay. Tap each sentence.",
+        "sentences": [
+          {
+            "t": "In conclusion, regular exercise makes people healthier and happier.",
+            "role": "topic",
+            "label": "in conclusion",
+            "note": "A formal way to close your writing."
+          },
+          {
+            "t": "To sum up, the course was useful and enjoyable.",
+            "role": "support",
+            "label": "to sum up",
+            "note": "It gathers the main points."
+          },
+          {
+            "t": "Overall, the trip was a great success.",
+            "role": "support",
+            "label": "overall",
+            "note": "Overall gives a general judgement."
+          },
+          {
+            "t": "In short, we need more parks.",
+            "role": "concluding",
+            "label": "in short",
+            "note": "In short is the briefest ending."
+          }
+        ],
+        "takeaway": "Use conclusion words **only at the end**: **in conclusion, to sum up, overall, in short**. Always follow them with a comma."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "concl",
+          "q": "Where does “In conclusion” belong?",
+          "options": [
+            "At the beginning of a paragraph",
+            "At the end, to close the writing",
+            "Between two examples"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "A conclusion word closes the writing.",
+          "help": {
+            "nudge": "What does “conclusion” mean?",
+            "rule": "Conclusion words belong at the **end**.",
+            "worked": "In conclusion = “to finish”, so it closes your paragraph or essay."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "concl",
+          "q": "Choose the best word to end a paragraph about a trip: “___, the trip was a great success.”",
+          "options": [
+            "First",
+            "For example",
+            "Overall"
+          ],
+          "answers": [
+            2
+          ],
+          "why": "Overall gives a general closing judgement.",
+          "help": {
+            "nudge": "Which word gives a final, general judgement?",
+            "rule": "Overall / In conclusion / To sum up close a paragraph.",
+            "worked": "“Overall, the trip was a great success.” sums up the whole trip.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "concl",
+                "q": "Choose the best word to end a paragraph about a course: “___, the course was useful and enjoyable.”",
+                "options": [
+                  "Next",
+                  "To sum up",
+                  "For instance"
+                ],
+                "answers": [
+                  1
+                ],
+                "why": "To sum up gathers the main points."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "concl",
+          "q": "Add the missing comma.",
+          "show": "In conclusion exercise is good for everyone.",
+          "accept": [
+            "In conclusion, exercise is good for everyone."
+          ],
+          "patterns": [],
+          "example": "In conclusion, exercise is good for everyone.",
+          "why": "A conclusion word at the start of a sentence needs a comma.",
+          "help": {
+            "nudge": "Put the comma straight after the conclusion words.",
+            "rule": "In conclusion, / To sum up, / Overall, + comma.",
+            "worked": "In conclusion, exercise is good for everyone."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "concl",
+          "q": "Is it a conclusion word?",
+          "cats": [
+            "Conclusion word",
+            "Not a conclusion word"
+          ],
+          "items": [
+            {
+              "t": "to sum up",
+              "c": 0
+            },
+            {
+              "t": "moreover",
+              "c": 1
+            },
+            {
+              "t": "overall",
+              "c": 0
+            },
+            {
+              "t": "for instance",
+              "c": 1
+            }
+          ],
+          "why": "To sum up and overall close writing. Moreover adds; for instance gives an example.",
+          "help": {
+            "nudge": "Which ones would you use at the very end?",
+            "rule": "Conclusion: in conclusion, to sum up, overall, in short.",
+            "worked": "“Moreover” adds another point, so it can’t close the writing."
+          }
+        },
+        {
+          "type": "order",
+          "skill": "concl",
+          "q": "Put the words in order.",
+          "pieces": [
+            "To",
+            "sum",
+            "up,",
+            "learning",
+            "English",
+            "takes",
+            "time",
+            "and",
+            "practice."
+          ],
+          "answers": [
+            "To sum up, learning English takes time and practice."
+          ],
+          "why": "The conclusion phrase, a comma, then the closing idea.",
+          "help": {
+            "nudge": "Start with the conclusion phrase and its comma.",
+            "rule": "Conclusion phrase, + closing sentence.",
+            "worked": "To sum up, learning English takes time and practice."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **a short ending (2–3 sentences)** for a paragraph about why exercise is important. Start with a conclusion word.",
+        "minWords": 15,
+        "placeholder": "In conclusion, …",
+        "checks": [
+          {
+            "t": "My ending starts with a conclusion word and a comma.",
+            "auto": "linkers"
+          },
+          {
+            "t": "It repeats the main idea in new words.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Repeat the main idea in new words",
+          "Check the comma",
+          "Make it shorter"
+        ],
+        "sample": "In conclusion, exercise is important for everyone. It keeps our bodies strong and our minds calm. Everyone should find a sport they enjoy."
+      }
+    },
+    "3.7": {
+      "format": "v2",
+      "skill": "lpunct",
+      "goal": "Punctuate each type of linking word correctly.",
+      "warmup": {
+        "skills": [
+          "fanboys",
+          "semi"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Same linking idea, different punctuation. Tap each sentence.",
+        "sentences": [
+          {
+            "t": "The film was long. However, I enjoyed it.",
+            "role": "topic",
+            "label": "Transition at the start",
+            "note": "Full stop, then However, with a comma after it."
+          },
+          {
+            "t": "The film was long; however, I enjoyed it.",
+            "role": "support",
+            "label": "After a semicolon",
+            "note": "Semicolon before, comma after."
+          },
+          {
+            "t": "The film, however, was long.",
+            "role": "support",
+            "label": "In the middle",
+            "note": "Commas on both sides of however."
+          },
+          {
+            "t": "The film was long, but I enjoyed it.",
+            "role": "concluding",
+            "label": "A joining word",
+            "note": "Comma before but (a FANBOYS word)."
+          }
+        ],
+        "takeaway": "**Transition:** . However, · ; however, · , however, (middle). **FANBOYS:** , but. **Subordinator:** comma only when it comes first."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "lpunct",
+          "q": "Which sentence is punctuated correctly?",
+          "options": [
+            "I was tired, however, I finished the work.",
+            "I was tired; however, I finished the work.",
+            "I was tired however I finished the work."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "A comma alone can’t join two sentences. Use a semicolon or a full stop before however.",
+          "help": {
+            "nudge": "However is a transition. What can come before it: a comma, or a semicolon?",
+            "rule": "Sentence; however, sentence.  Or: Sentence. However, sentence.",
+            "worked": "“I was tired” and “I finished the work” are two sentences, so they need a semicolon or full stop.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "lpunct",
+                "q": "Which sentence is punctuated correctly?",
+                "options": [
+                  "It was cold; therefore, we stayed home.",
+                  "It was cold, therefore, we stayed home.",
+                  "It was cold therefore we stayed home."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "Semicolon before the transition, comma after."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "lpunct",
+          "q": "Fix the punctuation.",
+          "show": "It was raining, therefore we stayed home.",
+          "accept": [
+            "It was raining; therefore, we stayed home.",
+            "It was raining. Therefore, we stayed home."
+          ],
+          "patterns": [],
+          "example": "It was raining. Therefore, we stayed home.",
+          "why": "Therefore is a transition. Use a full stop or semicolon before it, and a comma after it.",
+          "help": {
+            "nudge": "Replace the comma before therefore, and add a comma after it.",
+            "rule": "Sentence. Therefore, sentence.  Or: Sentence; therefore, sentence.",
+            "worked": "It was raining. Therefore, we stayed home."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "lpunct",
+          "q": "Is the punctuation correct?",
+          "cats": [
+            "Correct",
+            "Not correct"
+          ],
+          "items": [
+            {
+              "t": "I like tea. However, my sister likes coffee.",
+              "c": 0
+            },
+            {
+              "t": "I like tea, however my sister likes coffee.",
+              "c": 1
+            },
+            {
+              "t": "I like tea; however, my sister likes coffee.",
+              "c": 0
+            },
+            {
+              "t": "I like tea however, my sister likes coffee.",
+              "c": 1
+            }
+          ],
+          "why": "However needs a full stop or semicolon before it and a comma after it.",
+          "help": {
+            "nudge": "Check what comes before and after however.",
+            "rule": "Before: full stop or semicolon. After: comma.",
+            "worked": "“I like tea, however my sister…” has only a comma before however, which is a comma splice."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "lpunct",
+          "q": "Where do the commas go when however is in the middle of a sentence?",
+          "options": [
+            "The park, however is closed on Mondays.",
+            "The park, however, is closed on Mondays.",
+            "The park however, is closed on Mondays."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "A middle transition has a comma on both sides.",
+          "help": {
+            "nudge": "Look for commas both before and after however.",
+            "rule": "Middle position: , however, (commas on both sides).",
+            "worked": "The park, however, is closed on Mondays."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "lpunct",
+          "q": "Add the missing comma.",
+          "show": "We were late. As a result we missed the start.",
+          "accept": [
+            "We were late. As a result, we missed the start."
+          ],
+          "patterns": [],
+          "example": "We were late. As a result, we missed the start.",
+          "why": "A transition at the start of a sentence needs a comma after it.",
+          "help": {
+            "nudge": "Where does the transition end?",
+            "rule": "As a result, / Therefore, / However, + comma.",
+            "worked": "As a result, we missed the start."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **three sentences** that use three different punctuation patterns: a full stop and a transition, a semicolon and a transition, and a comma and but.",
+        "minWords": 20,
+        "placeholder": "I wanted to go out. However, …",
+        "checks": [
+          {
+            "t": "I put a comma after every transition at the start of a sentence.",
+            "auto": null
+          },
+          {
+            "t": "I used a semicolon before a transition with no and / but / so after it.",
+            "auto": "semicolon"
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Check the semicolon",
+          "Check the commas",
+          "Make it clearer"
+        ],
+        "sample": "I wanted to go out. However, it was raining. It was cold; therefore, we stayed home, but we had a good time."
+      }
+    },
+    "3.8": {
+      "format": "v2",
+      "skill": "ctrans",
+      "goal": "Tell conjunctions from transitions, and punctuate each one correctly.",
+      "warmup": {
+        "skills": [
+          "lpunct",
+          "cause"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Three kinds of linking words behave differently. Tap each sentence.",
+        "sentences": [
+          {
+            "t": "The bus was late, so we walked.",
+            "role": "topic",
+            "label": "FANBOYS conjunction",
+            "note": "It joins two clauses inside one sentence, with a comma before it."
+          },
+          {
+            "t": "Because the bus was late, we walked.",
+            "role": "support",
+            "label": "Subordinating conjunction",
+            "note": "It starts a subordinate clause. Comma when it comes first."
+          },
+          {
+            "t": "The bus was late. Therefore, we walked.",
+            "role": "concluding",
+            "label": "Transition",
+            "note": "It starts a new sentence (or follows a semicolon), with a comma after it."
+          }
+        ],
+        "takeaway": "**FANBOYS** (, but) · **subordinators** (because, although, when) · **transitions** (however, therefore, in addition). They look alike in meaning but **punctuate differently**."
+      },
+      "practice": [
+        {
+          "type": "sort",
+          "skill": "ctrans",
+          "q": "Which kind of linking word is it?",
+          "cats": [
+            "FANBOYS",
+            "Subordinator",
+            "Transition"
+          ],
+          "items": [
+            {
+              "t": "but",
+              "c": 0
+            },
+            {
+              "t": "because",
+              "c": 1
+            },
+            {
+              "t": "however",
+              "c": 2
+            },
+            {
+              "t": "although",
+              "c": 1
+            },
+            {
+              "t": "therefore",
+              "c": 2
+            },
+            {
+              "t": "so",
+              "c": 0
+            }
+          ],
+          "why": "FANBOYS: for, and, nor, but, or, yet, so. Subordinators start a subordinate clause. Transitions start a new sentence.",
+          "help": {
+            "nudge": "Is it one of the seven FANBOYS words? If not, can it start a clause like “because…”?",
+            "rule": "FANBOYS · subordinators (because, although, when, if) · transitions (however, therefore, moreover).",
+            "worked": "“However” is not in FANBOYS, and it can’t start a subordinate clause, so it is a transition."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "ctrans",
+          "q": "Which sentence is a comma splice?",
+          "options": [
+            "The bus was late, so we walked.",
+            "The bus was late, therefore we walked.",
+            "The bus was late. Therefore, we walked."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "Therefore is a transition, not a FANBOYS word, so a comma alone can’t join the sentences.",
+          "help": {
+            "nudge": "Which linking word is NOT in FANBOYS?",
+            "rule": "A comma alone can join sentences only with a FANBOYS word.",
+            "worked": "“so” is in FANBOYS (fine). “therefore” is a transition (a comma splice here).",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "ctrans",
+                "q": "Which sentence is a comma splice?",
+                "options": [
+                  "I was tired, but I finished.",
+                  "I was tired, however I finished.",
+                  "I was tired. However, I finished."
+                ],
+                "answers": [
+                  1
+                ],
+                "why": "However is a transition, so a comma alone can’t join the sentences."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "ctrans",
+          "q": "Rewrite with although (a conjunction) instead of however.",
+          "show": "The exam was hard. However, I passed.",
+          "accept": [
+            "Although the exam was hard, I passed.",
+            "I passed although the exam was hard."
+          ],
+          "patterns": [],
+          "example": "Although the exam was hard, I passed.",
+          "why": "Although joins the ideas in one sentence: a comma when it comes first, none when it comes second.",
+          "help": {
+            "nudge": "Make one sentence with “Although …,” at the start.",
+            "rule": "Although + clause, + main clause.",
+            "worked": "Although the exam was hard, I passed."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "ctrans",
+          "q": "Rewrite with a transition: “We were tired, so we went home.”",
+          "show": "We were tired, so we went home.",
+          "accept": [],
+          "patterns": [
+            "^We were tired\\. (Therefore|As a result|Consequently), we went home\\.$",
+            "^We were tired; (therefore|as a result|consequently), we went home\\.$"
+          ],
+          "example": "We were tired. Therefore, we went home.",
+          "why": "A transition needs a full stop (or semicolon) before it and a comma after it.",
+          "help": {
+            "nudge": "Make two sentences. Use Therefore, / As a result, / Consequently, for the second.",
+            "rule": "Sentence. Transition, sentence.",
+            "worked": "We were tired. Therefore, we went home."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "ctrans",
+          "q": "Which pair has the same meaning?",
+          "options": [
+            "but = however",
+            "because = therefore",
+            "so = although"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "But and however both show contrast, but they are punctuated differently.",
+          "help": {
+            "nudge": "Which two words both show a difference?",
+            "rule": "Because = cause; therefore = effect; so = effect; although = contrast.",
+            "worked": "But and however both show contrast."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Say the same idea **three ways**: “The shop was closed. We went home.” Use a joining word, a subordinator and a transition.",
+        "minWords": 20,
+        "placeholder": "The shop was closed, so …",
+        "checks": [
+          {
+            "t": "I used a FANBOYS word with a comma.",
+            "auto": "commaJoin"
+          },
+          {
+            "t": "I used a subordinator (because, although, when…).",
+            "auto": null
+          },
+          {
+            "t": "I used a transition with the right punctuation.",
+            "auto": null
+          }
+        ],
+        "focus": [
+          "Check each punctuation pattern",
+          "Make it clearer",
+          "Try a different linking word"
+        ],
+        "sample": "The shop was closed, so we went home. We went home because the shop was closed. The shop was closed. Therefore, we went home."
+      }
+    },
+    "3.9": {
+      "format": "v2",
+      "skill": "overuse",
+      "goal": "Use linking words where they help, and avoid putting one in every sentence.",
+      "warmup": {
+        "skills": [
+          "ctrans",
+          "add"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each version to see when linking words help, and when they get in the way.",
+        "sentences": [
+          {
+            "t": "First, I woke up. Then, I ate. Next, I left. After that, I walked. Finally, I arrived.",
+            "role": "topic",
+            "label": "Too many",
+            "note": "A linking word in every sentence feels mechanical."
+          },
+          {
+            "t": "I woke up and ate quickly. After that, I left home and walked to school, where I arrived at eight.",
+            "role": "support",
+            "label": "Better",
+            "note": "Fewer linking words, with ideas joined inside sentences."
+          },
+          {
+            "t": "It was raining. We stayed inside.",
+            "role": "concluding",
+            "label": "No linking word needed",
+            "note": "The cause-and-effect link is already clear."
+          }
+        ],
+        "takeaway": "Use linking words **where they help**, not in every sentence. **Vary** them, and let ideas link themselves when the connection is obvious."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "overuse",
+          "q": "Which version is better?",
+          "options": [
+            "First, I woke up. Then, I ate. Next, I left. After that, I walked. Finally, I arrived.",
+            "I woke up, ate breakfast and left. After that, I walked to school and arrived at eight.",
+            "I woke up. I ate. I left. I walked. I arrived."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "It uses a linking word once and joins ideas inside sentences.",
+          "help": {
+            "nudge": "Which version sounds natural, not mechanical?",
+            "rule": "Mix joined sentences with a few linking words.",
+            "worked": "Option 1 has a linking word in every sentence. Option 3 has none and is choppy. Option 2 is balanced.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "overuse",
+                "q": "Which version is better?",
+                "options": [
+                  "First, I cooked. Then, I ate. Next, I cleaned. After that, I rested. Finally, I slept.",
+                  "I cooked and ate dinner. After that, I cleaned the kitchen and rested before I slept.",
+                  "I cooked. I ate. I cleaned. I rested. I slept."
+                ],
+                "answers": [
+                  1
+                ],
+                "why": "Balanced: a linking word once, ideas joined inside sentences."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "overuse",
+          "q": "Rewrite to avoid repeating also.",
+          "show": "I also like tea. I also like coffee. I also like juice.",
+          "accept": [],
+          "patterns": [
+            "^(?!(?:.*\\balso\\b){2})(?=.*tea)(?=.*coffee)(?=.*juice)[A-Z].{15,}\\.$"
+          ],
+          "example": "I like tea, coffee and juice.",
+          "why": "Combine the items in one sentence. Many answers work.",
+          "help": {
+            "nudge": "Put the three drinks in one list, with no repeated also.",
+            "rule": "Join a list of items in one sentence.",
+            "worked": "I like tea, coffee and juice."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "overuse",
+          "q": "Which sentence shows the connection WITHOUT a linking word?",
+          "options": [
+            "It was raining. We stayed inside.",
+            "It was raining. Moreover, we stayed inside.",
+            "It was raining. In contrast, we stayed inside."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "The cause and result are clear already. Moreover and in contrast would change the meaning.",
+          "help": {
+            "nudge": "Which version doesn’t need an extra word to make sense?",
+            "rule": "If the link is obvious, you can leave the linking word out.",
+            "worked": "Rain → staying inside: the cause and effect are obvious."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "overuse",
+          "q": "How often should you use linking words?",
+          "options": [
+            "In every sentence",
+            "Where they help the reader follow your ideas",
+            "Never"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "They are tools. Use them when they make the connection clearer.",
+          "help": {
+            "nudge": "Think about the reader.",
+            "rule": "Use linking words where they help, not everywhere.",
+            "worked": "Too many tire the reader; none can leave ideas disconnected."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "overuse",
+          "q": "Rewrite as one smoother sentence without extra linking words.",
+          "show": "First, I made tea. Then, I made toast. Next, I ate breakfast.",
+          "accept": [],
+          "patterns": [
+            "^(?!.*\\b(First|Then|Next)\\b)(?=.*tea)(?=.*toast)(?=.*breakfast)[A-Z][^.!?]{15,}\\.$"
+          ],
+          "example": "I made tea and toast and ate breakfast.",
+          "why": "Many answers work. Join the actions in one sentence without First / Then / Next.",
+          "help": {
+            "nudge": "Join the three actions with and, and drop First / Then / Next.",
+            "rule": "A compound verb can join several actions.",
+            "worked": "I made tea and toast and ate breakfast."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **a short paragraph (4–5 sentences)** about your weekend. Use linking words only where they help: at least two, but not in every sentence.",
+        "minWords": 25,
+        "placeholder": "On Saturday, …",
+        "checks": [
+          {
+            "t": "I used at least two different linking words.",
+            "auto": "linkers"
+          },
+          {
+            "t": "I did not put a linking word in every sentence.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Remove a linking word",
+          "Join two short sentences",
+          "Make it clearer"
+        ],
+        "sample": "On Saturday, I visited my grandparents. We cooked lunch together, and we talked for hours. After that, I helped my grandfather in the garden. It was a quiet day, but I enjoyed it."
+      }
+    },
+    "3.10": {
+      "format": "v2",
+      "review": true,
+      "from": [
+        "3.1",
+        "3.2",
+        "3.3",
+        "3.4",
+        "3.5",
+        "3.6",
+        "3.7",
+        "3.8",
+        "3.9"
+      ],
+      "count": 8,
+      "skill": "overuse",
+      "goal": "Show that you can choose and punctuate linking words in a short paragraph.",
+      "write": {
+        "prompt": "Write a paragraph (5–6 sentences) about a change in your life. Use at least **four different linking words** from this stage (addition, contrast, cause and effect, example, sequence).",
+        "minWords": 40,
+        "placeholder": "A big change in my life was …",
+        "checks": [
+          {
+            "t": "I used at least four different linking words.",
+            "auto": "linkers"
+          },
+          {
+            "t": "The punctuation around each linking word is correct.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Check the punctuation",
+          "Remove a linking word",
+          "Make it clearer"
+        ],
+        "sample": "A big change in my life was moving to a new city. At first, I felt lonely because I did not know anyone. However, I joined a sports club. As a result, I made many friends, and I felt at home. In addition, I discovered new hobbies such as cycling. Overall, the move was a good decision."
+      }
+    }
+  },
+  "skills": {
+    "add": {
+      "label": "Adding words",
+      "good": "You choose adding words well.",
+      "improve": "Use also, in addition, moreover to add a point, with a comma after a starting transition."
+    },
+    "contrast": {
+      "label": "Contrast words",
+      "good": "You use contrast words correctly.",
+      "improve": "Contrast words (but, however, although, whereas) show a difference."
+    },
+    "cause": {
+      "label": "Cause and effect",
+      "good": "You show cause and effect clearly.",
+      "improve": "Cause: because, since. Effect: so, therefore, as a result. Because of + noun."
+    },
+    "example": {
+      "label": "Giving examples",
+      "good": "You introduce examples correctly.",
+      "improve": "For example, + comma starts a sentence. Such as / including work inside a sentence."
+    },
+    "sequence": {
+      "label": "Sequence words",
+      "good": "You show the order of events well.",
+      "improve": "Use first, next, then, after that, finally with a comma."
+    },
+    "concl": {
+      "label": "Conclusion words",
+      "good": "You close your writing well.",
+      "improve": "Use in conclusion, to sum up, overall only at the end, with a comma."
+    },
+    "lpunct": {
+      "label": "Punctuating linking words",
+      "good": "You punctuate linking words correctly.",
+      "improve": "Transitions need a full stop or semicolon before and a comma after."
+    },
+    "ctrans": {
+      "label": "Conjunctions and transitions",
+      "good": "You tell them apart.",
+      "improve": "FANBOYS and subordinators join clauses; transitions start a new sentence."
+    },
+    "overuse": {
+      "label": "Not overusing linking words",
+      "good": "You use linking words with care.",
+      "improve": "Use linking words where they help, not in every sentence."
+    }
+  }
+}

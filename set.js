@@ -149,9 +149,15 @@
     var submitBtn = document.getElementById("setSubmitBtn");
     submitBtn.hidden = true;
     document.getElementById("setSubmitStatus").textContent = message || "Submitted — here are your results.";
+    // Badges: remember each submitted set that had at least one correct answer, and where it came from.
+    try {
+      var tt = computeTotals();
+      if (tt.correct > 0) { var so = JSON.parse(localStorage.getItem("iep099-sets") || "{}"); if (selfPractice) so.self = (so.self || 0) + 1; else so.assigned = (so.assigned || 0) + 1; localStorage.setItem("iep099-sets", JSON.stringify(so)); }
+    } catch (e) {}
     document.getElementById("setDownloadSection").hidden = false;
     document.getElementById("setDownloadSection").scrollIntoView({ behavior: "smooth", block: "start" });
     reportToInstructor();
+    if (window.IEPBadges) window.IEPBadges.announce();
   }
 
   // Optional, dormant until sheets-config.js has a real URL: lets an instructor see who has completed which

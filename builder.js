@@ -11,7 +11,7 @@
 // then paste the printed hash in place of PASSPHRASE_HASH below.
 (function () {
   "use strict";
-  var PASSPHRASE_HASH = "0db7bbf4badf215a1ec84b3adf234a84017596d8e52ea8d855616fd10aa761ab"; // "iep099grammar"
+  var PASSPHRASE_HASH = "0db7bbf4badf215a1ec84b3adf234a84017596d8e52ea8d855616fd10aa761ab";
   // Always build student-facing links against the real, live site — never against wherever this copy of
   // builder.html happens to be open (a local test server, a preview, a stray tab left open from testing).
   // Otherwise a link/QR generated from a non-live copy would only work on that one machine.

@@ -126,6 +126,7 @@
 
   // Called by practice.js right after a real activity page is checked and its result saved.
   function afterCheck(container, id, right, total) {
+    if (window.IEPBadges) window.IEPBadges.announce();
     recordDay();
     renderStreak();
     var old = container.querySelector(".after-check"); if (old) old.remove();

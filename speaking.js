@@ -93,7 +93,18 @@
   var clock = $("spClock"), phaseEl = $("spPhase"), timeEl = $("spTime");
   var startBtn = $("spStart"), skipBtn = $("spSkip"), doneBtn = $("spDone"), newBtn = $("spNew");
   var follow = $("spFollow"), followList = $("spFollowList");
-  var timer = null, current = null, last = null;
+  var timer = null, current = null, last = null, spokeFrom = 0, spokeLen = 0;
+  // Badges: a speech counts once it lasted at least 20 seconds. Kept in this browser only.
+  function recordSpeech(secs, byTimer) {
+    if (secs < 20 || !current) return;
+    try {
+      var o = JSON.parse(localStorage.getItem("iep099-speak") || "{}");
+      o.n = (o.n || 0) + 1; o.themes = o.themes || {}; o.themes[current.theme.id] = 1;
+      if (secs >= 90) o.l90 = (o.l90 || 0) + 1;
+      if (byTimer && spokeLen >= 120) o.f120 = (o.f120 || 0) + 1;
+      localStorage.setItem("iep099-speak", JSON.stringify(o));
+    } catch (e) {}
+  }
 
   var all = document.createElement("option"); all.value = ""; all.textContent = "Any theme"; themeSel.appendChild(all);
   THEMES.forEach(function (t) { var o = document.createElement("option"); o.value = t.id; o.textContent = t.label; themeSel.appendChild(o); });
@@ -138,13 +149,15 @@
 
   function speak() {
     startBtn.hidden = true; skipBtn.hidden = true; doneBtn.hidden = false;
-    run(parseInt(lenSel.value, 10), "Speaking", finish);
+    spokeFrom = Date.now(); spokeLen = parseInt(lenSel.value, 10);
+    run(spokeLen, "Speaking", function () { finish(true); });
   }
   function plan() {
     startBtn.hidden = true; skipBtn.hidden = false;
     run(PLAN_SECONDS, "Planning", speak);
   }
-  function finish() {
+  function finish(byTimer) {
+    if (spokeFrom) { recordSpeech((Date.now() - spokeFrom) / 1000, byTimer === true); spokeFrom = 0; }
     stop(); doneBtn.hidden = true; skipBtn.hidden = true;
     phaseEl.textContent = "Time!"; timeEl.textContent = "";
     clock.className = "spk-clock done";
@@ -155,6 +168,7 @@
     follow.hidden = false;
     startBtn.hidden = false; startBtn.textContent = "Try the same topic again";
     if (E) { E.recordDay(); E.renderStreak(); }
+    if (window.IEPBadges) window.IEPBadges.announce();
   }
 
   startBtn.addEventListener("click", function () {

@@ -1,0 +1,384 @@
+{
+  "version": 1,
+  "stages": [
+    {
+      "n": 1,
+      "title": "The Sentence",
+      "blurb": "Build correct, complete sentences.",
+      "file": "stage1.json",
+      "lessons": [
+        {
+          "id": "1.1",
+          "title": "Subject, verb, object",
+          "min": 5,
+          "ready": true
+        },
+        {
+          "id": "1.2",
+          "title": "Complete sentences",
+          "min": 5,
+          "ready": true
+        },
+        {
+          "id": "1.3",
+          "title": "Fragments",
+          "min": 5,
+          "ready": true
+        },
+        {
+          "id": "1.4",
+          "title": "Run-ons and comma splices",
+          "min": 5,
+          "ready": true
+        },
+        {
+          "id": "1.5",
+          "title": "Capitalization and end punctuation",
+          "min": 5,
+          "ready": true
+        },
+        {
+          "id": "1.6",
+          "title": "Basic commas",
+          "min": 5,
+          "ready": true
+        },
+        {
+          "id": "1.7",
+          "title": "English word order",
+          "min": 5,
+          "ready": true
+        },
+        {
+          "id": "1.8",
+          "title": "Statements and questions",
+          "min": 5,
+          "ready": true
+        },
+        {
+          "id": "1.9",
+          "title": "Stage 1 review",
+          "min": 6,
+          "ready": true,
+          "review": true
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Types of Sentences",
+      "blurb": "Simple, compound and complex sentences.",
+      "file": "stage2.json",
+      "lessons": [
+        {
+          "id": "2.1",
+          "title": "Simple sentences",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "2.2",
+          "title": "Compound subjects and verbs",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "2.3",
+          "title": "Compound sentences and FANBOYS",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "2.4",
+          "title": "Semicolons",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "2.5",
+          "title": "Subordinate clauses",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "2.6",
+          "title": "Complex sentences",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "2.7",
+          "title": "Compound-complex sentences (optional)",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "2.8",
+          "title": "Sentence variety",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "2.9",
+          "title": "Stage 2 review",
+          "review": true,
+          "ready": true,
+          "min": 8
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Linking Words and Transitions",
+      "blurb": "Connect ideas smoothly.",
+      "file": "stage3.json",
+      "lessons": [
+        {
+          "id": "3.1",
+          "title": "Addition",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "3.2",
+          "title": "Contrast",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "3.3",
+          "title": "Cause and effect",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "3.4",
+          "title": "Examples",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "3.5",
+          "title": "Sequence",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "3.6",
+          "title": "Conclusion",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "3.7",
+          "title": "Punctuating each linker",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "3.8",
+          "title": "Conjunctions vs. transitions",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "3.9",
+          "title": "Avoiding overuse",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "3.10",
+          "title": "Stage 3 review",
+          "review": true,
+          "ready": true,
+          "min": 8
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "The Paragraph",
+      "blurb": "Write clear, organized paragraphs.",
+      "file": "stage4.json",
+      "lessons": [
+        {
+          "id": "4.1",
+          "title": "Topic sentence",
+          "min": 8,
+          "ready": true
+        },
+        {
+          "id": "4.2",
+          "title": "Supporting sentences",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "4.3",
+          "title": "Concluding sentence",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "4.4",
+          "title": "Unity",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "4.5",
+          "title": "Reasons, examples, facts, explanations",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "4.6",
+          "title": "Logical order",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "4.7",
+          "title": "Coherence and linkers",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "4.8",
+          "title": "Pronoun reference",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "4.9",
+          "title": "Descriptive paragraphs",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "4.10",
+          "title": "Narrative paragraphs",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "4.11",
+          "title": "Opinion paragraphs",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "4.12",
+          "title": "Process paragraphs",
+          "ready": true,
+          "min": 8
+        },
+        {
+          "id": "4.13",
+          "title": "Stage 4 review",
+          "review": true,
+          "ready": true,
+          "min": 8
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Before the Essay",
+      "blurb": "Plan your ideas and write a thesis.",
+      "file": "stage5.json",
+      "lessons": [
+        {
+          "id": "5.1",
+          "title": "Brainstorming: lists"
+        },
+        {
+          "id": "5.2",
+          "title": "Mind maps"
+        },
+        {
+          "id": "5.3",
+          "title": "Freewriting"
+        },
+        {
+          "id": "5.4",
+          "title": "Outlining"
+        },
+        {
+          "id": "5.5",
+          "title": "What makes a thesis arguable"
+        },
+        {
+          "id": "5.6",
+          "title": "The controlling idea"
+        },
+        {
+          "id": "5.7",
+          "title": "Writing your thesis"
+        },
+        {
+          "id": "5.8",
+          "title": "From a paragraph idea to a body paragraph"
+        },
+        {
+          "id": "5.9",
+          "title": "Stage 5 review",
+          "review": true
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "title": "The Expository Essay",
+      "blurb": "Write a two-body-paragraph essay.",
+      "file": "stage6.json",
+      "lessons": [
+        {
+          "id": "6.1",
+          "title": "Annotated model essay"
+        },
+        {
+          "id": "6.2",
+          "title": "Introduction: hook"
+        },
+        {
+          "id": "6.3",
+          "title": "Introduction: background and thesis"
+        },
+        {
+          "id": "6.4",
+          "title": "Body paragraph 1"
+        },
+        {
+          "id": "6.5",
+          "title": "Body paragraph 2, linked to the thesis"
+        },
+        {
+          "id": "6.6",
+          "title": "Transitions between paragraphs"
+        },
+        {
+          "id": "6.7",
+          "title": "Conclusion"
+        },
+        {
+          "id": "6.8",
+          "title": "Revision"
+        },
+        {
+          "id": "6.9",
+          "title": "Editing and common errors"
+        },
+        {
+          "id": "6.10",
+          "title": "Rubric and more models"
+        },
+        {
+          "id": "6.11",
+          "title": "Final timed task"
+        }
+      ]
+    }
+  ]
+}

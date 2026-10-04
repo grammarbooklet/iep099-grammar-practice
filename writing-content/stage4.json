@@ -1,0 +1,2493 @@
+{
+  "stage": 4,
+  "lessons": {
+    "4.1": {
+      "format": "v2",
+      "skill": "topic",
+      "goal": "Write a topic sentence that tells your reader the main idea of a paragraph.",
+      "warmup": {
+        "skills": [
+          "fragment",
+          "runon",
+          "comma",
+          "complete"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see its job in the paragraph.",
+        "sentences": [
+          {
+            "t": "My neighbourhood bakery is the heart of our street.",
+            "role": "topic",
+            "note": "It tells you what the whole paragraph is about.",
+            "label": "Topic sentence"
+          },
+          {
+            "t": "Every morning, neighbours line up for fresh bread and share the latest news.",
+            "role": "support",
+            "note": "A detail that proves the main idea.",
+            "label": "Supporting sentence"
+          },
+          {
+            "t": "On Fridays, the owner gives free biscuits to the children.",
+            "role": "support",
+            "note": "Another detail. Notice both details match the topic sentence.",
+            "label": "Supporting sentence"
+          },
+          {
+            "t": "For these reasons, the bakery brings people together.",
+            "role": "concluding",
+            "note": "It closes the paragraph and echoes the main idea.",
+            "label": "Concluding sentence"
+          }
+        ],
+        "takeaway": "A good topic sentence **names the topic** and **tells the main point** about it. It is big enough to cover every detail, but not so big it could start any paragraph."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "topic",
+          "q": "Which is the best topic sentence for a paragraph with these details? **I wake up at six. I study in the library. I exercise at night.**",
+          "options": [
+            "I wake up at six.",
+            "My daily routine keeps me busy and productive.",
+            "Routines are everywhere in the world."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "It is big enough to cover waking up, studying and exercising.",
+          "help": {
+            "nudge": "Does the sentence cover ALL three details, not just one?",
+            "rule": "A topic sentence must be **big enough** for every detail, but **not so big** that it could introduce any paragraph.",
+            "worked": "The details are waking early, studying and exercising. “My daily routine keeps me busy and productive.” covers all three. “I wake up at six.” covers only one.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "topic",
+                "q": "Which is the best topic sentence for these details? **We play football on Monday. We swim on Wednesday. We run on Friday.**",
+                "options": [
+                  "Sport is an important part of my week.",
+                  "We play football on Monday.",
+                  "Everyone in the world likes sport."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It covers football, swimming and running."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "topic",
+          "q": "Which sentence works best as a **topic sentence**?",
+          "options": [
+            "The bus is the best way to travel around my city.",
+            "The bus costs 300 fils.",
+            "I took a bus yesterday."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It states a main idea that other sentences (cheap, frequent, goes everywhere) can support.",
+          "help": {
+            "nudge": "Which sentence could have several details after it? The others are details themselves.",
+            "rule": "A topic sentence states an **idea you can support**. A single fact or event is usually a supporting detail.",
+            "worked": "“The bus costs 300 fils.” is one fact. “The bus is the best way to travel around my city.” is an idea you can support with price, routes and times.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "topic",
+                "q": "Which sentence works best as a **topic sentence**?",
+                "options": [
+                  "Our school library is a wonderful place to study.",
+                  "The library opens at eight.",
+                  "I borrowed a book on Monday."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It is an idea; the other two are single facts."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "topic",
+          "q": "This topic sentence is too narrow. Rewrite it so it covers the details below.",
+          "show": "I eat an apple every day.",
+          "extra": "Details: I also eat vegetables at lunch. I drink water instead of juice. I rarely eat sweets.",
+          "accept": [],
+          "patterns": [
+            "^(?!.*\\bapple\\b)(?=.*\\b(healthy|health|healthily|diet|habits|food|foods|meals|eat|eating)\\b)[A-Z][^.!?]{12,}\\.$"
+          ],
+          "example": "I try to eat healthy food every day.",
+          "why": "Many answers work. It should name the big idea (eating healthily), not one food.",
+          "help": {
+            "nudge": "What do ALL the details have in common? Name that big idea.",
+            "rule": "To widen a narrow sentence, ask: what is the **bigger idea** behind all my details?",
+            "worked": "Apples, vegetables, water and no sweets all point to one idea: eating healthily. So: “I try to eat healthy food every day.”",
+            "variants": [
+              {
+                "type": "fix",
+                "skill": "topic",
+                "q": "Too narrow again! Rewrite it so it covers the details below.",
+                "show": "I read a novel on Sunday.",
+                "extra": "Details: I read the news every morning. I read short stories before bed. I read recipes when I cook.",
+                "accept": [],
+                "patterns": [
+                  "^(?!.*\\bnovel\\b)(?=.*\\b([Rr]ead|[Rr]eading|[Bb]ooks|stories|habit|habits)\\b)[A-Z][^.!?]{12,}\\.$"
+                ],
+                "example": "Reading is part of my daily life.",
+                "why": "The big idea behind the details is reading in daily life."
+              }
+            ]
+          }
+        },
+        {
+          "type": "porder",
+          "skill": "paragraph",
+          "q": "Put the sentences in order to make a paragraph. The topic sentence goes first.",
+          "sentences": [
+            "Public libraries offer more than just books.",
+            "They run free English classes for adults.",
+            "Many also have quiet rooms where students can study.",
+            "For these reasons, a library is valuable to the whole community."
+          ],
+          "shuffled": [
+            2,
+            3,
+            0,
+            1
+          ],
+          "answers": [
+            [
+              0,
+              1,
+              2,
+              3
+            ],
+            [
+              0,
+              2,
+              1,
+              3
+            ]
+          ],
+          "why": "Topic sentence first, supporting sentences next (their order can vary), concluding sentence last.",
+          "help": {
+            "nudge": "Which sentence introduces the whole idea? And which one closes it with “For these reasons”?",
+            "rule": "Order: **topic sentence → supporting sentences → concluding sentence**.",
+            "worked": "“Public libraries offer more than just books.” introduces the idea, the two middle sentences give examples, and “For these reasons…” closes the paragraph."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "topic",
+          "q": "Is each sentence a topic sentence or a supporting detail?",
+          "cats": [
+            "Topic sentence",
+            "Supporting detail"
+          ],
+          "items": [
+            {
+              "t": "My grandmother’s kitchen is my favourite place.",
+              "c": 0
+            },
+            {
+              "t": "She bakes bread every Saturday.",
+              "c": 1
+            },
+            {
+              "t": "The smell of cinnamon fills the whole house.",
+              "c": 1
+            },
+            {
+              "t": "Learning another language opens many doors.",
+              "c": 0
+            }
+          ],
+          "why": "Topic sentences state an idea. Supporting details are specific things you can see, hear or count.",
+          "help": {
+            "nudge": "Can you picture or count the sentence? Details are specific; a topic sentence is an idea.",
+            "rule": "A **topic sentence** states an idea. **Supporting details** are specific things you can see, hear or count.",
+            "worked": "“She bakes bread every Saturday.” is a specific detail. “My grandmother’s kitchen is my favourite place.” is an idea the details support."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **one topic sentence** for a paragraph about your favourite weekday routine.",
+        "minWords": 6,
+        "placeholder": "My weekday routine is …",
+        "checks": [
+          {
+            "t": "It names my topic (my weekday routine).",
+            "auto": null
+          },
+          {
+            "t": "It is big enough for several details, but not just one detail.",
+            "auto": null
+          },
+          {
+            "t": "It starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make it broader",
+          "Make it clearer",
+          "Make it more interesting"
+        ],
+        "sample": "My weekday routine is busy, but it helps me finish everything on time."
+      }
+    },
+    "4.2": {
+      "format": "v2",
+      "skill": "support",
+      "goal": "Write supporting sentences that prove your topic sentence.",
+      "warmup": {
+        "skills": [
+          "topic",
+          "cause"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see how a paragraph proves its main idea.",
+        "sentences": [
+          {
+            "t": "Walking to work has many benefits.",
+            "role": "topic",
+            "label": "Topic sentence",
+            "note": "It names the main idea."
+          },
+          {
+            "t": "It is free, so I save money every month.",
+            "role": "support",
+            "label": "Support: a reason",
+            "note": "A reason that proves the topic sentence."
+          },
+          {
+            "t": "I also get fresh air and exercise before the day begins.",
+            "role": "support",
+            "label": "Support: another reason",
+            "note": "A second, different reason."
+          },
+          {
+            "t": "For example, on sunny mornings I notice parks and shops I never see from the bus.",
+            "role": "support",
+            "label": "Support: an example",
+            "note": "A specific example makes the idea real."
+          }
+        ],
+        "takeaway": "Supporting sentences **prove** the topic sentence with **reasons, examples and facts**. Each one connects directly to the main idea and is **specific**."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "support",
+          "q": "Which sentence best supports this topic sentence? “Learning to cook is a useful life skill.”",
+          "options": [
+            "Many restaurants open at noon.",
+            "Cooking at home saves money and helps you eat healthier food.",
+            "My friend has a red kitchen."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "It gives real reasons that prove cooking is useful.",
+          "help": {
+            "nudge": "Which sentence explains WHY cooking is useful?",
+            "rule": "A supporting sentence **proves** the topic sentence with a reason, example or fact.",
+            "worked": "“Saves money” and “healthier food” are reasons cooking is useful. The other two don’t prove anything.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "support",
+                "q": "Which sentence best supports this topic sentence? “Reading every day is good for students.”",
+                "options": [
+                  "Reading improves vocabulary and helps students concentrate.",
+                  "Some books are very long.",
+                  "My teacher drives a grey car."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It gives real reasons that prove reading is good."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "support",
+          "q": "Which sentence is NOT a good supporting sentence for “Cycling is good for my health”?",
+          "options": [
+            "It strengthens my legs and heart.",
+            "I feel more energetic after a ride.",
+            "My bicycle is blue."
+          ],
+          "answers": [
+            2
+          ],
+          "why": "The colour of the bicycle doesn’t prove anything about health.",
+          "help": {
+            "nudge": "Which sentence says nothing about health?",
+            "rule": "Every supporting sentence must connect to the topic sentence.",
+            "worked": "“My bicycle is blue.” is true, but it doesn’t support the idea about health."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "support",
+          "q": "Write a specific supporting sentence for the topic “Parks are good for the community.”",
+          "show": "Parks are nice.",
+          "accept": [],
+          "patterns": [
+            "^(?=.*\\b[Pp]arks?\\b)[A-Z][^.!?]{25,}\\.$"
+          ],
+          "example": "Parks give children a safe place to play after school.",
+          "why": "Many answers work. A good support sentence is specific and mentions how parks help.",
+          "help": {
+            "nudge": "Who uses a park, and for what? Add that detail.",
+            "rule": "Specific details (who, what, where) make support stronger than “nice”.",
+            "worked": "“Parks give children a safe place to play after school.” names who and what."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "support",
+          "q": "What kind of support is each sentence?",
+          "cats": [
+            "Reason",
+            "Example",
+            "Fact"
+          ],
+          "items": [
+            {
+              "t": "It saves money.",
+              "c": 0
+            },
+            {
+              "t": "For example, a monthly bus pass costs less than petrol.",
+              "c": 1
+            },
+            {
+              "t": "The city has more than forty bus routes.",
+              "c": 2
+            },
+            {
+              "t": "It is better for the environment.",
+              "c": 0
+            }
+          ],
+          "why": "Reasons say why, examples show one case, and facts can be checked.",
+          "help": {
+            "nudge": "Which one starts with “For example”? Which one can be checked?",
+            "rule": "**Reason**: why. **Example**: one specific case. **Fact**: can be checked.",
+            "worked": "“more than forty bus routes” is a number you can check, so it is a fact."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "support",
+          "q": "How many supporting sentences does a paragraph usually need?",
+          "options": [
+            "Exactly one",
+            "Usually two to four, enough to prove the idea",
+            "As many as possible"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "Enough to prove your idea, but not so many that you lose focus.",
+          "help": {
+            "nudge": "Think: enough to convince the reader, but no more.",
+            "rule": "Two to four strong supporting sentences is usual.",
+            "worked": "One is rarely enough; too many make the paragraph long and unfocused."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write a topic sentence and **three supporting sentences** about why a hobby is good for you.",
+        "minWords": 28,
+        "placeholder": "Playing … is a great hobby for me. …",
+        "checks": [
+          {
+            "t": "My first sentence is a clear topic sentence.",
+            "auto": null
+          },
+          {
+            "t": "Each supporting sentence proves it with a reason, example or fact.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make a reason more specific",
+          "Add an example",
+          "Check the topic sentence"
+        ],
+        "sample": "Playing football is a great hobby for me. It keeps my body strong and fit. It also helps me make friends in my neighbourhood. For example, we meet every Friday and talk after the match."
+      }
+    },
+    "4.3": {
+      "format": "v2",
+      "skill": "pconcl",
+      "goal": "Close a paragraph with a concluding sentence that echoes the main idea.",
+      "warmup": {
+        "skills": [
+          "support",
+          "concl"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence. Notice how the last one closes the paragraph.",
+        "sentences": [
+          {
+            "t": "Cycling is a healthy way to travel.",
+            "role": "topic",
+            "label": "Topic sentence",
+            "note": "The main idea."
+          },
+          {
+            "t": "It builds strong legs and a strong heart.",
+            "role": "support",
+            "label": "Support",
+            "note": "A reason."
+          },
+          {
+            "t": "It also reduces stress after a long day.",
+            "role": "support",
+            "label": "Support",
+            "note": "Another reason."
+          },
+          {
+            "t": "In short, cycling is good for both body and mind.",
+            "role": "concluding",
+            "label": "Concluding sentence",
+            "note": "It restates the main idea in new words and closes the paragraph."
+          }
+        ],
+        "takeaway": "A concluding sentence **restates the main idea in new words** (don’t copy the topic sentence) and **closes** the paragraph. Don’t add a new idea."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "pconcl",
+          "q": "Which is the best concluding sentence for a paragraph about the benefits of walking to work?",
+          "options": [
+            "In short, walking to work is good for my money and my health.",
+            "I also like swimming.",
+            "Walking is walking to work."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It restates the main idea in new words and closes the paragraph.",
+          "help": {
+            "nudge": "Which sentence repeats the main idea in different words?",
+            "rule": "A concluding sentence **restates the main idea** and closes the paragraph.",
+            "worked": "“…good for my money and my health” echoes “many benefits” without copying it.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "pconcl",
+                "q": "Which is the best concluding sentence for a paragraph about the advantages of reading?",
+                "options": [
+                  "Overall, reading helps students in many useful ways.",
+                  "My brother has many books.",
+                  "Reading reading reading."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It restates the idea in new words and closes."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "pconcl",
+          "q": "What is wrong with this concluding sentence? “Also, buses are very crowded in the morning.”",
+          "options": [
+            "It adds a new idea instead of closing the paragraph",
+            "It is too long",
+            "It has no verb"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "A concluding sentence should close the paragraph, not start a new idea.",
+          "help": {
+            "nudge": "Is it closing the idea, or starting a new one?",
+            "rule": "No new ideas in the concluding sentence.",
+            "worked": "“Also, buses are crowded…” introduces a new point, so the paragraph doesn’t end."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "pconcl",
+          "q": "Rewrite the topic sentence as a concluding sentence in new words. Topic sentence: “Walking to work has many benefits.”",
+          "show": "Walking to work has many benefits.",
+          "accept": [],
+          "patterns": [
+            "^(?!Walking to work has many benefits\\.)(?=.*\\b[Ww]alk(ing)?\\b)[A-Z][^.!?]{20,}\\.$"
+          ],
+          "example": "In conclusion, walking to work is good for me in many ways.",
+          "why": "Many answers work. Say the same idea with different words.",
+          "help": {
+            "nudge": "Keep the idea (walking is good for me) but change the words.",
+            "rule": "Restate the main idea in **new words**.",
+            "worked": "“Walking to work has many benefits” → “In conclusion, walking to work is good for me in many ways.”"
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "pconcl",
+          "q": "Does the sentence close the paragraph, or add a new idea?",
+          "cats": [
+            "Closes the paragraph",
+            "Adds a new idea"
+          ],
+          "items": [
+            {
+              "t": "To sum up, walking is cheap and healthy.",
+              "c": 0
+            },
+            {
+              "t": "Another reason people walk is the weather.",
+              "c": 1
+            },
+            {
+              "t": "Overall, walking improves my day.",
+              "c": 0
+            },
+            {
+              "t": "Next, I will describe my bike.",
+              "c": 1
+            }
+          ],
+          "why": "A concluding sentence wraps up the idea. Another reason or a new topic starts something new.",
+          "help": {
+            "nudge": "Which ones finish the idea, and which ones start something else?",
+            "rule": "Conclude: to sum up, overall, in short + the main idea.",
+            "worked": "“Another reason…” promises more, so the paragraph isn’t finished."
+          }
+        },
+        {
+          "type": "order",
+          "skill": "pconcl",
+          "q": "Put the words in order.",
+          "pieces": [
+            "In",
+            "short,",
+            "learning",
+            "a",
+            "language",
+            "opens",
+            "many",
+            "doors."
+          ],
+          "answers": [
+            "In short, learning a language opens many doors."
+          ],
+          "why": "A conclusion phrase, a comma, then the main idea in new words.",
+          "help": {
+            "nudge": "Start with the conclusion phrase and its comma.",
+            "rule": "Conclusion phrase, + main idea.",
+            "worked": "In short, learning a language opens many doors."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write a short paragraph (4 sentences): a topic sentence, two supporting sentences and a concluding sentence about a place you like.",
+        "minWords": 30,
+        "placeholder": "My favourite place is …",
+        "checks": [
+          {
+            "t": "My last sentence restates the main idea in new words.",
+            "auto": null
+          },
+          {
+            "t": "It does not add a new idea.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Restate the idea in new words",
+          "Remove a new idea",
+          "Check the topic sentence"
+        ],
+        "sample": "My neighbourhood park is a wonderful place to relax. It has tall trees and quiet paths. Families gather there to play and talk in the evenings. Overall, the park makes our area a happier place to live."
+      }
+    },
+    "4.4": {
+      "format": "v2",
+      "skill": "unity",
+      "goal": "Keep every sentence in a paragraph on one main idea.",
+      "warmup": {
+        "skills": [
+          "pconcl",
+          "topic"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "One of these sentences doesn’t belong. Tap each to find out.",
+        "sentences": [
+          {
+            "t": "Public libraries are valuable to the community.",
+            "role": "topic",
+            "label": "Topic sentence",
+            "note": "The main idea."
+          },
+          {
+            "t": "They lend books and magazines for free.",
+            "role": "support",
+            "label": "Supports the topic",
+            "note": "On topic."
+          },
+          {
+            "t": "My cousin bought a new car last week.",
+            "role": "concluding",
+            "label": "Off topic",
+            "note": "It is about something else. It breaks the unity, so delete it."
+          },
+          {
+            "t": "Many also run reading groups and computer classes.",
+            "role": "support",
+            "label": "Supports the topic",
+            "note": "On topic."
+          }
+        ],
+        "takeaway": "A paragraph has **unity** when every sentence supports **one** main idea. **Delete** (or move to another paragraph) any sentence about something else."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "unity",
+          "q": "Which sentence does NOT belong in a paragraph about the benefits of sleep?",
+          "options": [
+            "Sleep helps the brain remember what we learn.",
+            "Good sleep gives us more energy during the day.",
+            "I bought a blue jacket yesterday."
+          ],
+          "answers": [
+            2
+          ],
+          "why": "The jacket has nothing to do with sleep.",
+          "help": {
+            "nudge": "Which sentence is not about sleep?",
+            "rule": "Every sentence must support the main idea.",
+            "worked": "The first two are benefits of sleep. The jacket is unrelated.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "unity",
+                "q": "Which sentence does NOT belong in a paragraph about the benefits of exercise?",
+                "options": [
+                  "Exercise strengthens the heart.",
+                  "My neighbour has two cats.",
+                  "Regular exercise improves our mood."
+                ],
+                "answers": [
+                  1
+                ],
+                "why": "The neighbour’s cats are unrelated."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "unity",
+          "q": "Which sentence is off-topic?",
+          "extra": "Paragraph: Tea is popular in many countries. It is served hot or cold. My brother plays the guitar. Green tea is also very healthy.",
+          "options": [
+            "Tea is popular in many countries.",
+            "It is served hot or cold.",
+            "My brother plays the guitar.",
+            "Green tea is also very healthy."
+          ],
+          "answers": [
+            2
+          ],
+          "why": "The guitar has nothing to do with tea.",
+          "help": {
+            "nudge": "Read each sentence and ask: is it about tea?",
+            "rule": "Cross out the sentence that is about something else.",
+            "worked": "Three sentences are about tea. “My brother plays the guitar” is not."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "unity",
+          "q": "Replace this off-topic sentence with one that supports the topic “Parks help people relax.”",
+          "show": "Football tickets are expensive.",
+          "accept": [],
+          "patterns": [
+            "^(?=.*\\b(park|parks|relax|quiet|calm|peace|peaceful|trees|walk|walking|stress)\\b)[A-Z][^.!?]{20,}\\.$"
+          ],
+          "example": "Walking among the trees helps me forget my stress.",
+          "why": "Many answers work. The new sentence should be about relaxing in parks.",
+          "help": {
+            "nudge": "How do parks help people relax? Write one reason.",
+            "rule": "Replace an off-topic sentence with one that supports the main idea.",
+            "worked": "“Walking among the trees helps me forget my stress.” supports “Parks help people relax.”"
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "unity",
+          "q": "Does the sentence stay on the topic “my favourite season”?",
+          "cats": [
+            "On topic",
+            "Off topic"
+          ],
+          "items": [
+            {
+              "t": "I love summer because the evenings are long.",
+              "c": 0
+            },
+            {
+              "t": "The price of petrol went up last year.",
+              "c": 1
+            },
+            {
+              "t": "In winter, I enjoy hot chocolate and warm blankets.",
+              "c": 0
+            },
+            {
+              "t": "My neighbour has two cats.",
+              "c": 1
+            }
+          ],
+          "why": "On-topic sentences talk about seasons you like.",
+          "help": {
+            "nudge": "Is the sentence about a season?",
+            "rule": "On topic = it supports the main idea.",
+            "worked": "Petrol prices and cats aren’t about favourite seasons."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "unity",
+          "q": "What should you do with an off-topic sentence?",
+          "options": [
+            "Move it to the start",
+            "Delete it or save it for another paragraph",
+            "Add a linking word to it"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "It doesn’t support your main idea, so it doesn’t belong here.",
+          "help": {
+            "nudge": "Does it help prove your main idea?",
+            "rule": "Delete it, or keep it for a paragraph where it fits.",
+            "worked": "A linking word can’t make an unrelated idea relevant."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write a paragraph (4–5 sentences) about your favourite season. Keep every sentence on that one idea.",
+        "minWords": 30,
+        "placeholder": "My favourite season is …",
+        "checks": [
+          {
+            "t": "Every sentence is about my favourite season.",
+            "auto": null
+          },
+          {
+            "t": "My paragraph starts with a clear topic sentence.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Delete an off-topic sentence",
+          "Strengthen the topic sentence",
+          "Add a detail"
+        ],
+        "sample": "My favourite season is winter. The weather is cool, so we can sit outside in the evenings. Families go camping in the desert and cook together. I also love the smell of rain. Winter makes everything feel calm."
+      }
+    },
+    "4.5": {
+      "format": "v2",
+      "skill": "evidence",
+      "goal": "Support ideas with reasons, examples, facts and short explanations.",
+      "warmup": {
+        "skills": [
+          "support",
+          "example"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see what job it does.",
+        "sentences": [
+          {
+            "t": "Reading every day improves your English.",
+            "role": "topic",
+            "label": "Main idea",
+            "note": "The idea to be supported."
+          },
+          {
+            "t": "One reason is that you meet new words again and again.",
+            "role": "support",
+            "label": "Reason",
+            "note": "A reason says why."
+          },
+          {
+            "t": "For example, a short news article may repeat a useful word three times.",
+            "role": "support",
+            "label": "Example",
+            "note": "An example shows one real case."
+          },
+          {
+            "t": "Studies show that people remember words better when they see them often.",
+            "role": "support",
+            "label": "Fact",
+            "note": "A fact is something that can be checked."
+          },
+          {
+            "t": "This means regular reading builds your vocabulary faster than studying a list once.",
+            "role": "concluding",
+            "label": "Explanation",
+            "note": "An explanation shows how the support proves the point."
+          }
+        ],
+        "takeaway": "Strong support mixes **reasons**, **examples**, **facts** and **explanations**. After an example or fact, add a sentence that explains **why it matters**."
+      },
+      "practice": [
+        {
+          "type": "sort",
+          "skill": "evidence",
+          "q": "What kind of support is it?",
+          "cats": [
+            "Reason",
+            "Example",
+            "Fact",
+            "Explanation"
+          ],
+          "items": [
+            {
+              "t": "One reason is that it saves time.",
+              "c": 0
+            },
+            {
+              "t": "For example, a bus pass costs less than petrol.",
+              "c": 1
+            },
+            {
+              "t": "The city has more than forty bus routes.",
+              "c": 2
+            },
+            {
+              "t": "This means more people can travel without a car.",
+              "c": 3
+            }
+          ],
+          "why": "Reason: why. Example: one case. Fact: can be checked. Explanation: shows how it proves the point.",
+          "help": {
+            "nudge": "Which one can be checked? Which one begins “This means…”?",
+            "rule": "Reason (why) · Example (one case) · Fact (checkable) · Explanation (why it matters).",
+            "worked": "“This means more people can travel without a car.” explains the result of the facts."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "evidence",
+          "q": "Which sentence is an explanation of this example? “For example, a monthly bus pass costs less than petrol.”",
+          "options": [
+            "This shows that public transport can save families money.",
+            "The bus is blue.",
+            "I like buses."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It explains why the example matters.",
+          "help": {
+            "nudge": "Which sentence tells us why the example proves the point?",
+            "rule": "An explanation connects the example to your main idea.",
+            "worked": "“This shows that public transport can save families money.” links the example to the idea.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "evidence",
+                "q": "Which sentence is an explanation of this example? “For example, a ten-minute walk after lunch helps many people feel more alert.”",
+                "options": [
+                  "This means small daily habits can improve our energy.",
+                  "Lunch is at noon.",
+                  "I walk sometimes."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It explains why the example matters."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "evidence",
+          "q": "Add an example to support the idea “Learning a language has practical benefits.” Start with For example,",
+          "show": "Learning a language has practical benefits.",
+          "accept": [],
+          "patterns": [
+            "^For example, [^.!?]{15,}\\.$"
+          ],
+          "example": "For example, you can talk to people when you travel.",
+          "why": "Many answers work. Start with For example, and give one real case.",
+          "help": {
+            "nudge": "Think of one real situation where a language helps.",
+            "rule": "For example, + one specific case.",
+            "worked": "For example, you can talk to people when you travel."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "evidence",
+          "q": "Which one is a fact (something that can be checked)?",
+          "options": [
+            "Blue is the best colour for a classroom.",
+            "Water freezes at 0°C.",
+            "Everyone loves summer."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "You can check that water freezes at 0°C. The others are opinions.",
+          "help": {
+            "nudge": "Which sentence could you check in an atlas?",
+            "rule": "A fact can be checked. An opinion is what someone thinks.",
+            "worked": "“best colour” and “everyone loves” are opinions."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "evidence",
+          "q": "Why add an explanation after an example?",
+          "options": [
+            "To make the paragraph longer",
+            "To show how the example proves your point",
+            "To change the topic"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "The explanation connects the example back to your main idea.",
+          "help": {
+            "nudge": "What should the reader understand after the example?",
+            "rule": "Explain how the example proves the main idea.",
+            "worked": "Without an explanation, the reader may not see why the example matters."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **four sentences** supporting this idea: “Walking is good for your health.” Include a reason, an example and an explanation.",
+        "minWords": 30,
+        "placeholder": "Walking is good for your health. One reason is …",
+        "checks": [
+          {
+            "t": "I included a reason.",
+            "auto": null
+          },
+          {
+            "t": "I included an example (for example, such as…).",
+            "auto": "linkers"
+          },
+          {
+            "t": "I included a sentence explaining why it matters.",
+            "auto": null
+          }
+        ],
+        "focus": [
+          "Add an explanation",
+          "Make the example more specific",
+          "Check the topic sentence"
+        ],
+        "sample": "Walking is good for your health. One reason is that it strengthens your heart. For example, a thirty-minute walk each day helps many people lower their blood pressure. This means a simple habit can prevent serious problems later."
+      }
+    },
+    "4.6": {
+      "format": "v2",
+      "skill": "lorder",
+      "goal": "Arrange ideas in an order that makes sense: time, importance or space.",
+      "warmup": {
+        "skills": [
+          "evidence",
+          "sequence"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Three common ways to order a paragraph. Tap each example.",
+        "sentences": [
+          {
+            "t": "First, I wash the rice. Next, I boil it. Finally, I serve it.",
+            "role": "topic",
+            "label": "Time order",
+            "note": "Steps or events in the order they happen."
+          },
+          {
+            "t": "The most important reason is safety. Another reason is cost.",
+            "role": "support",
+            "label": "Order of importance",
+            "note": "From most to least important (or the reverse)."
+          },
+          {
+            "t": "At the entrance there is a garden. Inside, the hall leads to a library.",
+            "role": "concluding",
+            "label": "Space order",
+            "note": "Describe places from one side to the other, or outside to inside."
+          }
+        ],
+        "takeaway": "Choose one order and keep it: **time order**, **order of importance** or **space order**. Linking words (first, next; most importantly) make the order clear."
+      },
+      "practice": [
+        {
+          "type": "porder",
+          "skill": "lorder",
+          "q": "Put the sentences in order of importance.",
+          "sentences": [
+            "Parks are important for cities.",
+            "Most importantly, they give people space to exercise.",
+            "They also provide shade and cooler air.",
+            "In short, every city needs green spaces."
+          ],
+          "shuffled": [
+            1,
+            3,
+            0,
+            2
+          ],
+          "answers": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "why": "Topic first, the most important reason, then the extra reason, then the conclusion.",
+          "help": {
+            "nudge": "Which sentence introduces the idea? Which one says “most importantly”?",
+            "rule": "Topic sentence → most important → other reasons → conclusion.",
+            "worked": "Parks are important (topic) → most importantly (key reason) → they also (extra) → in short (conclusion)."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "lorder",
+          "q": "Which order does this describe? “First, mix the flour and water. Then, knead the dough. Finally, bake it.”",
+          "options": [
+            "Space order",
+            "Time order",
+            "Order of importance"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "The steps are in the order they happen.",
+          "help": {
+            "nudge": "Look at the words first, then, finally.",
+            "rule": "Time order uses sequence words for what happens when.",
+            "worked": "First → then → finally = time order.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "lorder",
+                "q": "Which order does this describe? “To begin with, open the file. After that, edit the text. Finally, save it.”",
+                "options": [
+                  "Time order",
+                  "Space order",
+                  "Order of importance"
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "Steps in the order they happen."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "lorder",
+          "q": "Which order suits describing a room from the door to the window?",
+          "options": [
+            "Time order",
+            "Space order",
+            "Order of importance"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "You are moving through the room in space.",
+          "help": {
+            "nudge": "Are you describing steps, ideas, or places?",
+            "rule": "Describe places in space order.",
+            "worked": "From the door to the window is a movement through space."
+          }
+        },
+        {
+          "type": "porder",
+          "skill": "lorder",
+          "q": "Put the sentences in time order.",
+          "sentences": [
+            "First, I opened the laptop.",
+            "Next, I typed my password.",
+            "Then, I checked my email.",
+            "Finally, I replied to my teacher."
+          ],
+          "shuffled": [
+            3,
+            1,
+            0,
+            2
+          ],
+          "answers": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "why": "First, next, then, finally.",
+          "help": {
+            "nudge": "Which action must come first?",
+            "rule": "Follow the sequence words.",
+            "worked": "Open → type password → check email → reply."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "lorder",
+          "q": "Which sentence shows order of importance?",
+          "options": [
+            "Most importantly, the course is free.",
+            "Then, the course starts at nine.",
+            "On the left, there is a classroom."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "“Most importantly” marks the key reason first.",
+          "help": {
+            "nudge": "Which one ranks the ideas?",
+            "rule": "Importance: most importantly, above all, also.",
+            "worked": "Then = time order. On the left = space order. Most importantly = importance."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write a paragraph (4–5 sentences) that explains how to prepare for a test. Use **time order**.",
+        "minWords": 30,
+        "placeholder": "To prepare for a test, start early. First, …",
+        "checks": [
+          {
+            "t": "My steps are in time order.",
+            "auto": null
+          },
+          {
+            "t": "I used at least two sequence words.",
+            "auto": "linkers"
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Check the order",
+          "Add a sequence word",
+          "Add a detail"
+        ],
+        "sample": "To prepare for a test, start early. First, read your notes and mark the difficult parts. Next, make a short summary of each unit. After that, practise with old questions and check your answers. Finally, sleep well the night before."
+      }
+    },
+    "4.7": {
+      "format": "v2",
+      "skill": "cohere",
+      "goal": "Make a paragraph flow with linking words and connected ideas.",
+      "warmup": {
+        "skills": [
+          "lorder",
+          "ctrans"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "The same ideas, three ways. Tap each version.",
+        "sentences": [
+          {
+            "t": "Public transport is useful. It is cheap. It is fast. It is safe.",
+            "role": "topic",
+            "label": "Choppy",
+            "note": "Four short sentences, no links between them."
+          },
+          {
+            "t": "Public transport is useful because it is cheap, fast and safe.",
+            "role": "support",
+            "label": "Joined",
+            "note": "The ideas are joined into one sentence."
+          },
+          {
+            "t": "Public transport is useful. First, it is cheap. Moreover, it is fast. Finally, it is safe.",
+            "role": "concluding",
+            "label": "Linked",
+            "note": "Linking words guide the reader from point to point."
+          }
+        ],
+        "takeaway": "A paragraph is **coherent** when ideas **flow**: use linking words, keep the **same key words** (or close synonyms), and keep ideas in a clear order."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "cohere",
+          "q": "Which linking word fits? “Exercise is good for you. ___, it helps you sleep better.”",
+          "options": [
+            "However",
+            "Moreover",
+            "Therefore"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "Another good point is being added.",
+          "help": {
+            "nudge": "Is the second sentence adding a point, contrasting, or a result?",
+            "rule": "Add a point: moreover, in addition, also.",
+            "worked": "Better sleep is another benefit, so we add it with Moreover.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "cohere",
+                "q": "Which linking word fits? “The library is quiet. ___, it has free computers.”",
+                "options": [
+                  "In addition",
+                  "However",
+                  "As a result"
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "Another good point is added."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "cohere",
+          "q": "Which version flows better?",
+          "options": [
+            "The park is large. The park is clean. The park is quiet.",
+            "The park is large, clean and quiet.",
+            "Large park. Clean park. Quiet park."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "The ideas are joined smoothly in one sentence.",
+          "help": {
+            "nudge": "Which one sounds smoothest read aloud?",
+            "rule": "Join repeated ideas into one sentence.",
+            "worked": "Repeating “The park is” three times is choppy; the list is smoother."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "cohere",
+          "q": "Add a linking word to connect the sentences.",
+          "show": "The course is useful. It is cheap.",
+          "accept": [
+            "The course is useful, and it is cheap."
+          ],
+          "patterns": [
+            "^The course is useful\\. (Moreover|In addition|Also|Furthermore), it is cheap\\.$"
+          ],
+          "example": "The course is useful. Moreover, it is cheap.",
+          "why": "Moreover, In addition and Furthermore all work (with a comma). Also and and work too.",
+          "help": {
+            "nudge": "Add a word that adds a second good point.",
+            "rule": "Moreover, / In addition, / Furthermore, + comma.",
+            "worked": "The course is useful. Moreover, it is cheap."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "cohere",
+          "q": "Choose the best next sentence to keep the paragraph coherent. “Public transport saves money.”",
+          "options": [
+            "It also reduces traffic in the city.",
+            "My shoes are comfortable.",
+            "Today is Tuesday."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It stays on the same idea (benefits of public transport).",
+          "help": {
+            "nudge": "Which sentence continues the same idea?",
+            "rule": "A coherent paragraph stays on one idea and builds on it.",
+            "worked": "Saving money and reducing traffic are both benefits of public transport."
+          }
+        },
+        {
+          "type": "order",
+          "skill": "cohere",
+          "q": "Put the words in order.",
+          "pieces": [
+            "Public",
+            "transport",
+            "is",
+            "useful.",
+            "First,",
+            "it",
+            "is",
+            "cheap."
+          ],
+          "answers": [
+            "Public transport is useful. First, it is cheap."
+          ],
+          "why": "The idea, then a linked first reason.",
+          "help": {
+            "nudge": "Which words make the first sentence?",
+            "rule": "Topic. First, reason.",
+            "worked": "Public transport is useful. First, it is cheap."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Rewrite this choppy paragraph with linking words so it flows: **Cycling is good. It is cheap. It keeps you fit. It is fun.**",
+        "minWords": 18,
+        "placeholder": "Cycling is good for many reasons. …",
+        "checks": [
+          {
+            "t": "I used at least two linking words.",
+            "auto": "linkers"
+          },
+          {
+            "t": "My ideas flow and are not just a list of short sentences.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Join two sentences",
+          "Add a linking word",
+          "Check the commas"
+        ],
+        "sample": "Cycling is good for many reasons. First, it is cheap. Moreover, it keeps you fit, and it is also fun."
+      }
+    },
+    "4.8": {
+      "format": "v2",
+      "skill": "pronoun",
+      "goal": "Use pronouns so it is always clear who or what they refer to.",
+      "warmup": {
+        "skills": [
+          "cohere",
+          "evidence"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Pronouns save repeating nouns, but they must be clear. Tap each example.",
+        "sentences": [
+          {
+            "t": "Maya and her sister live in a small town. She works in a bank.",
+            "role": "topic",
+            "label": "Unclear",
+            "note": "Who is “she”: Maya or her sister? The reader can’t tell."
+          },
+          {
+            "t": "Maya and her sister live in a small town. Maya works in a bank.",
+            "role": "support",
+            "label": "Clear",
+            "note": "Repeat the name when the pronoun could mean two people."
+          },
+          {
+            "t": "The library opens at eight. It closes at nine.",
+            "role": "support",
+            "label": "Clear pronoun",
+            "note": "Only one thing could be “it”."
+          },
+          {
+            "t": "Many students use apps. This habit helps them learn faster.",
+            "role": "concluding",
+            "label": "This + noun",
+            "note": "“This” alone can be vague. Add a noun: “This habit…”."
+          }
+        ],
+        "takeaway": "Every pronoun needs **one clear noun** it refers to. If it could mean two things, **repeat the noun**. Prefer **this + noun** to a lonely “this”."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "pronoun",
+          "q": "Which sentence has an unclear pronoun?",
+          "options": [
+            "Ali told Hamad that he was late.",
+            "Ali told Hamad that Hamad was late.",
+            "The bus was late, so it was crowded."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "“He” could mean Ali or Hamad.",
+          "help": {
+            "nudge": "Who could “he” be?",
+            "rule": "A pronoun must refer clearly to one noun.",
+            "worked": "With two men named, “he” could be either.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "pronoun",
+                "q": "Which sentence has an unclear pronoun?",
+                "options": [
+                  "Layla called Rana because she was worried.",
+                  "The library is old, and it is very quiet.",
+                  "My brother lost his keys."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "“She” could mean Layla or Rana."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "pronoun",
+          "q": "Fix the unclear pronoun.",
+          "show": "Sara met Lina at the café because she was early.",
+          "accept": [],
+          "patterns": [
+            "^Sara met Lina at the caf[eé] because (Sara|Lina) was early\\.$"
+          ],
+          "example": "Sara met Lina at the café because Sara was early.",
+          "why": "Replace “she” with the name you mean. Either name is correct.",
+          "help": {
+            "nudge": "Replace “she” with the actual name.",
+            "rule": "If a pronoun could mean two people, repeat the name.",
+            "worked": "…because Sara was early. (or …because Lina was early.)"
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "pronoun",
+          "q": "Which pronoun fits? “The students studied hard. ___ passed the test.”",
+          "options": [
+            "It",
+            "They",
+            "She"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "“The students” is plural, so we use they.",
+          "help": {
+            "nudge": "Is “the students” singular or plural?",
+            "rule": "Pronouns must match the noun in number: they for plural.",
+            "worked": "The students → they."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "pronoun",
+          "q": "Replace “this” with “this + a noun” to make it clearer.",
+          "show": "Many people walk to work. This saves money.",
+          "accept": [],
+          "patterns": [
+            "^Many people walk to work\\. This [a-z]+ saves money\\.$"
+          ],
+          "example": "Many people walk to work. This habit saves money.",
+          "why": "Many nouns work: habit, choice, practice, routine.",
+          "help": {
+            "nudge": "What does “this” refer to? Name it in one word.",
+            "rule": "This + noun is clearer than a lonely “this”.",
+            "worked": "This habit saves money."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "pronoun",
+          "q": "Is the pronoun clear?",
+          "cats": [
+            "Clear",
+            "Unclear"
+          ],
+          "items": [
+            {
+              "t": "The teacher gave Maya a book. She read it at home.",
+              "c": 1
+            },
+            {
+              "t": "The library is old. It has thousands of books.",
+              "c": 0
+            },
+            {
+              "t": "Ahmed and Khalid went out. He took the keys.",
+              "c": 1
+            },
+            {
+              "t": "My sister bought a car. It is red.",
+              "c": 0
+            }
+          ],
+          "why": "A pronoun is clear when only one noun could be meant.",
+          "help": {
+            "nudge": "Could the pronoun mean two different people or things?",
+            "rule": "Clear pronoun = one possible meaning.",
+            "worked": "In “The teacher gave Maya a book. She…”, “she” could be the teacher or Maya."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **three sentences** about two people (friends or family). Use pronouns, but make sure each one is clear.",
+        "minWords": 20,
+        "placeholder": "My brother and my cousin …",
+        "checks": [
+          {
+            "t": "Every pronoun clearly refers to one person or thing.",
+            "auto": null
+          },
+          {
+            "t": "I repeated a name where a pronoun could be unclear.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Repeat a name",
+          "Add this + noun",
+          "Make it clearer"
+        ],
+        "sample": "My brother and my cousin both love football. My brother plays every Friday, but my cousin prefers watching matches. They often watch them together."
+      }
+    },
+    "4.9": {
+      "format": "v2",
+      "skill": "desc",
+      "goal": "Describe a person, place or thing with specific details.",
+      "warmup": {
+        "skills": [
+          "unity",
+          "cohere"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "A descriptive paragraph paints a picture. Tap each sentence.",
+        "sentences": [
+          {
+            "t": "My grandmother’s kitchen is the warmest room in her house.",
+            "role": "topic",
+            "label": "Topic sentence: an overall impression",
+            "note": "It gives the main impression: warm."
+          },
+          {
+            "t": "The walls are painted bright yellow, and a blue curtain hangs over the small window.",
+            "role": "support",
+            "label": "Sight",
+            "note": "Specific colours and objects."
+          },
+          {
+            "t": "In the morning, the smell of fresh bread and cinnamon fills the air.",
+            "role": "support",
+            "label": "Smell",
+            "note": "Details from other senses make the description vivid."
+          },
+          {
+            "t": "Every corner feels like a hug, and I always leave happy.",
+            "role": "concluding",
+            "label": "Closing impression",
+            "note": "It returns to the overall feeling."
+          }
+        ],
+        "takeaway": "A descriptive paragraph gives a **clear overall impression** and supports it with **specific sensory details** (sight, sound, smell, touch, taste) in a logical **space order**."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "desc",
+          "q": "Which sentence is more descriptive?",
+          "options": [
+            "The room was nice.",
+            "The room was small, bright and full of old books.",
+            "I liked the room."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "It uses specific details instead of a general word like “nice”.",
+          "help": {
+            "nudge": "Which sentence lets you picture the room?",
+            "rule": "Use **specific** details (size, colour, objects), not general words like nice.",
+            "worked": "“small, bright and full of old books” paints a picture.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "desc",
+                "q": "Which sentence is more descriptive?",
+                "options": [
+                  "The garden was lovely.",
+                  "The garden was full of red roses and tall palm trees.",
+                  "I enjoyed the garden."
+                ],
+                "answers": [
+                  1
+                ],
+                "why": "Specific details paint a picture."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "desc",
+          "q": "Make this sentence more vivid with specific details.",
+          "show": "The market was busy.",
+          "accept": [],
+          "patterns": [
+            "^(?=.*\\bmarket\\b)(?=.*(,| and ))[A-Z][^.!?]{30,}\\.$"
+          ],
+          "example": "The market was busy, with loud sellers and the smell of fresh spices.",
+          "why": "Many answers work. Add two or three specific sensory details.",
+          "help": {
+            "nudge": "What could you hear, see or smell in a busy market?",
+            "rule": "Add specific sensory details instead of a general word.",
+            "worked": "“…with loud sellers and the smell of fresh spices.” adds sound and smell."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "desc",
+          "q": "Which sense does the detail use?",
+          "cats": [
+            "Sight",
+            "Sound",
+            "Smell",
+            "Touch"
+          ],
+          "items": [
+            {
+              "t": "bright yellow walls",
+              "c": 0
+            },
+            {
+              "t": "the hum of the fan",
+              "c": 1
+            },
+            {
+              "t": "fresh bread and cinnamon",
+              "c": 2
+            },
+            {
+              "t": "a rough wooden table",
+              "c": 3
+            }
+          ],
+          "why": "Details from different senses make a description vivid.",
+          "help": {
+            "nudge": "Which sense would you use to notice each one?",
+            "rule": "Sight, sound, smell, touch (and taste).",
+            "worked": "“Rough” is about touch."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "desc",
+          "q": "Which is a good topic sentence for a descriptive paragraph about a beach?",
+          "options": [
+            "The beach near my house is calm and beautiful at sunset.",
+            "I went to the beach last week.",
+            "Beaches have sand."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It gives an overall impression (calm, beautiful) that details can support.",
+          "help": {
+            "nudge": "Which sentence gives an overall impression?",
+            "rule": "A descriptive topic sentence names the subject and an overall impression.",
+            "worked": "“calm and beautiful at sunset” is an impression the details can support."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "desc",
+          "q": "Which order describes a room clearly?",
+          "options": [
+            "From the door to the far wall",
+            "In a random order",
+            "Only the ceiling"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Space order helps the reader picture the room.",
+          "help": {
+            "nudge": "How would a camera move through the room?",
+            "rule": "Describe in space order: left to right, near to far, outside to inside.",
+            "worked": "Door → far wall is a clear path."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write a descriptive paragraph (5–6 sentences) about a place you know well. Use details from at least two senses.",
+        "minWords": 40,
+        "placeholder": "… is the most peaceful place I know.",
+        "checks": [
+          {
+            "t": "My topic sentence gives an overall impression.",
+            "auto": null
+          },
+          {
+            "t": "I used specific details from at least two senses.",
+            "auto": null
+          },
+          {
+            "t": "My paragraph has a good length.",
+            "auto": "paragraphLen"
+          }
+        ],
+        "focus": [
+          "Add a sensory detail",
+          "Replace a general word",
+          "Check the order"
+        ],
+        "sample": "My grandmother’s garden is the most peaceful place I know. Tall palm trees give shade, and red flowers grow along the old stone wall. In the afternoon, birds sing and the fountain makes a soft sound. The air smells of mint and wet earth. Sitting there always makes me calm."
+      }
+    },
+    "4.10": {
+      "format": "v2",
+      "skill": "narr",
+      "goal": "Tell a short story in time order, with a clear beginning, middle and end.",
+      "warmup": {
+        "skills": [
+          "lorder",
+          "desc"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "A narrative paragraph tells what happened. Tap each sentence.",
+        "sentences": [
+          {
+            "t": "Last summer, I got lost in a big market.",
+            "role": "topic",
+            "label": "Opening: set the scene",
+            "note": "It says when, where and what happened."
+          },
+          {
+            "t": "First, I followed a map on my phone, but the battery died.",
+            "role": "support",
+            "label": "Event 1",
+            "note": "Past tense and a sequence word."
+          },
+          {
+            "t": "Then, I asked a shopkeeper for help, and he drew a map on paper.",
+            "role": "support",
+            "label": "Event 2",
+            "note": "The story moves forward in time order."
+          },
+          {
+            "t": "Finally, I found my way out, and I felt proud and relieved.",
+            "role": "concluding",
+            "label": "Ending: result and feeling",
+            "note": "It closes with the result and how the writer felt."
+          }
+        ],
+        "takeaway": "A narrative paragraph tells **what happened** in **time order**, with **past tense** verbs and **sequence words**. Open with the setting; end with the result or a feeling."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "narr",
+          "q": "Which sentence is the best opening for a narrative paragraph?",
+          "options": [
+            "Last winter, I got stuck in a snowstorm on the way to school.",
+            "Snow is white.",
+            "I like winter."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It sets the scene: when, where and what happened.",
+          "help": {
+            "nudge": "Which sentence tells a specific moment in the past?",
+            "rule": "Open a story with a specific time and event.",
+            "worked": "“Last winter… snowstorm… school” gives when, what and where.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "narr",
+                "q": "Which sentence is the best opening for a narrative paragraph?",
+                "options": [
+                  "Two years ago, my train stopped in the middle of the desert.",
+                  "Trains are fast.",
+                  "I enjoy travelling."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It sets the scene with a time and an event."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "narr",
+          "q": "Fix the verb tense.",
+          "show": "Yesterday, I go to the market and buy fruit.",
+          "accept": [
+            "Yesterday, I went to the market and bought fruit."
+          ],
+          "patterns": [],
+          "example": "Yesterday, I went to the market and bought fruit.",
+          "why": "A story about the past uses past tense: went, bought.",
+          "help": {
+            "nudge": "“Yesterday” tells you the time. Which tense do the verbs need?",
+            "rule": "Narrative = **past tense**.",
+            "worked": "go → went, buy → bought."
+          }
+        },
+        {
+          "type": "porder",
+          "skill": "narr",
+          "q": "Put the sentences in order to tell the story.",
+          "sentences": [
+            "Last Friday, my phone fell into a river.",
+            "First, I tried to reach it with a stick.",
+            "Then, a kind stranger helped me with a long branch.",
+            "Finally, I got it back, and I felt very lucky."
+          ],
+          "shuffled": [
+            2,
+            0,
+            3,
+            1
+          ],
+          "answers": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "why": "Opening, then the events in time order, then the ending.",
+          "help": {
+            "nudge": "Which sentence sets the scene? Which one ends the story?",
+            "rule": "Opening → events (first, then) → ending (finally).",
+            "worked": "Phone falls → tries a stick → stranger helps → gets it back."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "narr",
+          "q": "Which word group shows time order?",
+          "options": [
+            "First, next, finally",
+            "However, moreover, therefore",
+            "For example, such as, including"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "First, next and finally show the order of events.",
+          "help": {
+            "nudge": "Which words tell you WHEN something happens?",
+            "rule": "Time order: first, next, then, after that, finally.",
+            "worked": "The other groups contrast, add or give examples."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "narr",
+          "q": "Add a sequence word and a comma at the start.",
+          "show": "I opened the door and saw a surprise.",
+          "accept": [],
+          "patterns": [
+            "^(First|Then|Next|Suddenly|Finally|After that), I opened the door and saw a surprise\\.$"
+          ],
+          "example": "Then, I opened the door and saw a surprise.",
+          "why": "Several words work. Use a comma after the sequence word.",
+          "help": {
+            "nudge": "Add a word like Then or Suddenly at the start, with a comma.",
+            "rule": "Sequence word + comma + sentence.",
+            "worked": "Then, I opened the door and saw a surprise."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write a narrative paragraph (5–6 sentences) about a time you were surprised, lost or proud. Use past tense and sequence words.",
+        "minWords": 40,
+        "placeholder": "Last year, I …",
+        "checks": [
+          {
+            "t": "My events are in time order.",
+            "auto": null
+          },
+          {
+            "t": "I used past tense verbs and at least two sequence words.",
+            "auto": "linkers"
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Check the verb tenses",
+          "Add a sequence word",
+          "Add how I felt"
+        ],
+        "sample": "Last year, I got lost on my first day at university. First, I walked to the wrong building. Then, I asked a student for help, and she showed me the right way. After that, I ran to class and arrived just in time. Finally, the teacher smiled, and I felt relieved."
+      }
+    },
+    "4.11": {
+      "format": "v2",
+      "skill": "opin",
+      "goal": "State an opinion clearly and support it with reasons.",
+      "warmup": {
+        "skills": [
+          "evidence",
+          "pconcl"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "An opinion paragraph argues for a point of view. Tap each sentence.",
+        "sentences": [
+          {
+            "t": "In my opinion, students should learn to cook before they leave home.",
+            "role": "topic",
+            "label": "Opinion topic sentence",
+            "note": "It states a clear opinion."
+          },
+          {
+            "t": "First, cooking saves money because home meals cost less than restaurants.",
+            "role": "support",
+            "label": "Reason 1",
+            "note": "A reason with a short explanation."
+          },
+          {
+            "t": "In addition, cooking at home is healthier, since you control the ingredients.",
+            "role": "support",
+            "label": "Reason 2",
+            "note": "A second reason with an explanation."
+          },
+          {
+            "t": "For these reasons, every student should learn at least five simple recipes.",
+            "role": "concluding",
+            "label": "Restate the opinion",
+            "note": "It closes by restating the opinion."
+          }
+        ],
+        "takeaway": "An opinion paragraph has a **clear opinion**, **two or three reasons** with explanation, and a **conclusion** that restates the opinion."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "opin",
+          "q": "Which is a clear opinion for a topic sentence?",
+          "options": [
+            "In my opinion, public libraries are essential for students.",
+            "Libraries have books.",
+            "There is a library near my house."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It states what the writer believes. The others are just facts.",
+          "help": {
+            "nudge": "Which sentence says what the writer thinks?",
+            "rule": "Opinion topic sentence: In my opinion / I believe + a clear view.",
+            "worked": "“essential for students” is a view someone could agree or disagree with.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "opin",
+                "q": "Which is a clear opinion for a topic sentence?",
+                "options": [
+                  "I believe schools should start later in the morning.",
+                  "School starts at eight.",
+                  "There are many schools."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It states a view people could disagree with."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "opin",
+          "q": "Which sentence gives a reason, not just a repeated opinion?",
+          "options": [
+            "Homework is bad because it takes time from family life.",
+            "Homework is bad.",
+            "I think homework is bad."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "“Because…” gives the reason.",
+          "help": {
+            "nudge": "Which one explains WHY?",
+            "rule": "Opinion + because + reason.",
+            "worked": "“…because it takes time from family life” is the reason."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "opin",
+          "q": "Write one sentence with an opinion and a reason about this idea: “Students should wear uniforms.”",
+          "show": "Students should wear uniforms.",
+          "accept": [],
+          "patterns": [
+            "^(In my opinion, |I believe that )?[Ss]tudents should wear uniforms (because|since) [^.!?]{10,}\\.$"
+          ],
+          "example": "In my opinion, students should wear uniforms because they make everyone equal.",
+          "why": "Many reasons work. Use because or since to give the reason.",
+          "help": {
+            "nudge": "Add because and one reason.",
+            "rule": "Opinion + because + reason.",
+            "worked": "Students should wear uniforms because they make everyone equal."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "opin",
+          "q": "Is it an opinion or a fact?",
+          "cats": [
+            "Opinion",
+            "Fact"
+          ],
+          "items": [
+            {
+              "t": "Football is the best sport.",
+              "c": 0
+            },
+            {
+              "t": "Football is played with eleven players on each team.",
+              "c": 1
+            },
+            {
+              "t": "Winter is the nicest season.",
+              "c": 0
+            },
+            {
+              "t": "Water boils at 100°C.",
+              "c": 1
+            }
+          ],
+          "why": "A fact can be checked. An opinion is what someone thinks.",
+          "help": {
+            "nudge": "Can you check it, or do people disagree?",
+            "rule": "Fact: checkable. Opinion: a personal view.",
+            "worked": "“Best” and “nicest” are opinions."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "opin",
+          "q": "Which closing sentence restates the opinion?",
+          "options": [
+            "For these reasons, students should learn to cook.",
+            "Also, I like pizza.",
+            "Many students are busy."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It closes by repeating the opinion in new words.",
+          "help": {
+            "nudge": "Which one returns to the main opinion?",
+            "rule": "Close with For these reasons, + the opinion.",
+            "worked": "The other two add new ideas."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write an opinion paragraph (5–6 sentences): should students use phones in class? Give two reasons.",
+        "minWords": 40,
+        "placeholder": "In my opinion, …",
+        "checks": [
+          {
+            "t": "My topic sentence states a clear opinion.",
+            "auto": null
+          },
+          {
+            "t": "I gave two reasons and explained them.",
+            "auto": "linkers"
+          },
+          {
+            "t": "My last sentence restates my opinion.",
+            "auto": null
+          }
+        ],
+        "focus": [
+          "Explain a reason",
+          "Restate the opinion",
+          "Add a linking word"
+        ],
+        "sample": "In my opinion, students should use phones in class only for learning. First, a phone can work as a dictionary, so students can check words quickly. In addition, many apps help students practise grammar. However, phones should be silent and put away during tests. For these reasons, teachers should allow phones for learning tasks."
+      }
+    },
+    "4.12": {
+      "format": "v2",
+      "skill": "proc",
+      "goal": "Explain how to do something, step by step.",
+      "warmup": {
+        "skills": [
+          "lorder",
+          "narr"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "A process paragraph explains how to do something. Tap each sentence.",
+        "sentences": [
+          {
+            "t": "Making Arabic coffee is easy if you follow a few steps.",
+            "role": "topic",
+            "label": "Topic sentence: names the process",
+            "note": "It says what the process is."
+          },
+          {
+            "t": "First, heat water in a small pot until it is warm.",
+            "role": "support",
+            "label": "Step 1",
+            "note": "A sequence word and a command."
+          },
+          {
+            "t": "Next, add the ground coffee and a little cardamom, and let it boil gently.",
+            "role": "support",
+            "label": "Step 2",
+            "note": "Steps follow in time order."
+          },
+          {
+            "t": "Finally, pour the coffee into small cups and serve it hot.",
+            "role": "concluding",
+            "label": "Last step",
+            "note": "The last step ends the process."
+          }
+        ],
+        "takeaway": "A process paragraph names the process, gives **steps in order** with **sequence words**, uses **commands** (heat, add) or the present tense, and ends with the result."
+      },
+      "practice": [
+        {
+          "type": "porder",
+          "skill": "proc",
+          "q": "Put the sentences in order.",
+          "sentences": [
+            "Making a paper plane is easy.",
+            "First, fold the paper in half lengthwise.",
+            "Next, fold the top corners to the centre.",
+            "Finally, fold the wings down and throw it gently."
+          ],
+          "shuffled": [
+            3,
+            1,
+            0,
+            2
+          ],
+          "answers": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "why": "Topic sentence, then the steps in order.",
+          "help": {
+            "nudge": "Which sentence names the process? Which one is the last step?",
+            "rule": "Process: topic sentence → steps (first, next) → last step (finally).",
+            "worked": "Name it → fold in half → fold corners → fold wings and throw."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "proc",
+          "q": "Which is a good topic sentence for a process paragraph?",
+          "options": [
+            "Preparing for an exam takes four simple steps.",
+            "Exams are hard.",
+            "I had an exam yesterday."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It names the process and promises steps.",
+          "help": {
+            "nudge": "Which sentence promises a series of steps?",
+            "rule": "Name the process and hint at the steps.",
+            "worked": "“takes four simple steps” tells the reader what to expect.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "proc",
+                "q": "Which is a good topic sentence for a process paragraph?",
+                "options": [
+                  "Sending a formal email involves a few clear steps.",
+                  "Emails are common.",
+                  "I sent an email today."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It names the process and promises steps."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "proc",
+          "q": "Rewrite as an instruction using a command verb.",
+          "show": "You should wash the vegetables first.",
+          "accept": [
+            "First, wash the vegetables.",
+            "Wash the vegetables first.",
+            "Wash the vegetables."
+          ],
+          "patterns": [],
+          "example": "First, wash the vegetables.",
+          "why": "Instructions often start with the verb: wash, add, mix.",
+          "help": {
+            "nudge": "Start with the verb. You can add First, at the start.",
+            "rule": "Command form: verb + object.",
+            "worked": "First, wash the vegetables."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "proc",
+          "q": "Is the sentence a step or the result?",
+          "cats": [
+            "Step",
+            "Result"
+          ],
+          "items": [
+            {
+              "t": "Mix the flour and water.",
+              "c": 0
+            },
+            {
+              "t": "You will have a soft, smooth dough.",
+              "c": 1
+            },
+            {
+              "t": "Knead it for ten minutes.",
+              "c": 0
+            },
+            {
+              "t": "Now it is ready to bake.",
+              "c": 1
+            }
+          ],
+          "why": "A step tells you what to do. A result tells you what you get.",
+          "help": {
+            "nudge": "Which ones tell you to DO something?",
+            "rule": "Step: an action. Result: the outcome.",
+            "worked": "“Knead it” is an action; “Now it is ready” is an outcome."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "proc",
+          "q": "Which sequence word is best for the last step?",
+          "options": [
+            "First",
+            "Next",
+            "Finally"
+          ],
+          "answers": [
+            2
+          ],
+          "why": "Finally marks the last step.",
+          "help": {
+            "nudge": "Which word means “the end of the list”?",
+            "rule": "Beginning: first. Middle: next, then. End: finally.",
+            "worked": "Finally closes the sequence."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write a process paragraph (5–6 sentences) explaining how to do something simple: make tea, send an email or prepare for a test.",
+        "minWords": 40,
+        "placeholder": "Making … is simple if you follow … steps.",
+        "checks": [
+          {
+            "t": "My topic sentence names the process.",
+            "auto": null
+          },
+          {
+            "t": "My steps are in order, with sequence words.",
+            "auto": "linkers"
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Check the order of the steps",
+          "Add a sequence word",
+          "Add the result"
+        ],
+        "sample": "Making tea is simple if you follow four steps. First, boil fresh water in a kettle. Next, put a tea bag in a clean cup. Then, pour the hot water over the tea bag and wait for three minutes. Finally, remove the tea bag and add sugar or milk if you like."
+      }
+    },
+    "4.13": {
+      "format": "v2",
+      "review": true,
+      "from": [
+        "4.1",
+        "4.2",
+        "4.3",
+        "4.4",
+        "4.5",
+        "4.6",
+        "4.7",
+        "4.8",
+        "4.9",
+        "4.10",
+        "4.11",
+        "4.12"
+      ],
+      "count": 8,
+      "skill": "paragraph",
+      "goal": "Show that you can plan and write a complete, well-organised paragraph.",
+      "write": {
+        "prompt": "Write a paragraph (6–8 sentences) about a skill you learned, a decision you made, or a place you love. Include a topic sentence, three supporting sentences with one example, and a concluding sentence.",
+        "minWords": 50,
+        "placeholder": "Learning to … was one of the best decisions I ever made.",
+        "checks": [
+          {
+            "t": "I have a clear topic sentence and a concluding sentence that restates it.",
+            "auto": null
+          },
+          {
+            "t": "Every sentence supports one main idea, and I used linking words.",
+            "auto": "linkers"
+          },
+          {
+            "t": "My paragraph has a good length.",
+            "auto": "paragraphLen"
+          }
+        ],
+        "focus": [
+          "Check unity",
+          "Add an example",
+          "Check the linking words"
+        ],
+        "sample": "Learning to swim was one of the best decisions I ever made. First, swimming keeps my body healthy because it uses every muscle. For example, after thirty minutes in the pool, I feel strong but relaxed. In addition, it taught me patience, since I had to practise for months. Moreover, I made new friends at the club. Overall, learning to swim has improved my health and my confidence."
+      }
+    }
+  },
+  "skills": {
+    "topic": {
+      "label": "Topic sentences",
+      "good": "You can tell what makes a strong topic sentence.",
+      "improve": "A topic sentence names the topic and states an idea big enough to cover all the details."
+    },
+    "paragraph": {
+      "label": "Paragraph order",
+      "good": "You can order a paragraph.",
+      "improve": "Order a paragraph: topic sentence, supporting sentences, concluding sentence."
+    },
+    "support": {
+      "label": "Supporting sentences",
+      "good": "You write strong supporting sentences.",
+      "improve": "Support the topic sentence with specific reasons, examples and facts."
+    },
+    "pconcl": {
+      "label": "Concluding sentences",
+      "good": "You close paragraphs well.",
+      "improve": "Restate the main idea in new words, and don’t add a new idea."
+    },
+    "unity": {
+      "label": "Unity",
+      "good": "You keep your paragraph on one idea.",
+      "improve": "Delete any sentence that isn’t about the main idea."
+    },
+    "evidence": {
+      "label": "Reasons, examples, facts and explanations",
+      "good": "You support ideas in different ways.",
+      "improve": "Mix reasons, examples, facts and explanations."
+    },
+    "lorder": {
+      "label": "Logical order",
+      "good": "You order ideas logically.",
+      "improve": "Choose one order (time, importance or space) and keep it."
+    },
+    "cohere": {
+      "label": "Coherence",
+      "good": "Your paragraphs flow.",
+      "improve": "Use linking words and keep ideas connected."
+    },
+    "pronoun": {
+      "label": "Pronoun reference",
+      "good": "Your pronouns are clear.",
+      "improve": "Make sure each pronoun refers to one clear noun."
+    },
+    "desc": {
+      "label": "Descriptive paragraphs",
+      "good": "You describe with vivid detail.",
+      "improve": "Use specific sensory details, not general words like nice."
+    },
+    "narr": {
+      "label": "Narrative paragraphs",
+      "good": "You tell stories in order.",
+      "improve": "Use past tense, time order and sequence words."
+    },
+    "opin": {
+      "label": "Opinion paragraphs",
+      "good": "You state and support opinions.",
+      "improve": "State a clear opinion, give reasons, and restate it."
+    },
+    "proc": {
+      "label": "Process paragraphs",
+      "good": "You explain processes in order.",
+      "improve": "Name the process, give steps in order, end with the result."
+    }
+  }
+}

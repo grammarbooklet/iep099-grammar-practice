@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // IEP099 grammar practice — the two "bring the questions back" modes, sharing one page:
 //   ?mode=daily     the Daily 5: five quick questions, a few from the student's own past mistakes and the
 //                   rest new (or, once everything's been tried, random), for a 2-minute habit-sized session.

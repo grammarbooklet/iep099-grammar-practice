@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // Writing Center — progress storage and reward rules. No page code lives here: the trail map and the lesson
 // player both read and write progress through this one module, so the same rules (and, later, the same saved
 // record) can be reused by an installable app.

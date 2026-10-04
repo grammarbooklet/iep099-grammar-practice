@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // Optional "Save to OneDrive" button on the My Progress page. Uses MSAL.js (Microsoft's own sign-in
 // library, loaded from a CDN above this script) so a student can sign in with their own Microsoft or
 // institutional account and save their progress report as a file in their own OneDrive — this page never

@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // IEP099 grammar practice — the "keep coming back" layer: a daily streak, per-unit progress and mastery,
 // the mistakes a student still has to fix, and the small rewards after each check. Everything is derived
 // from what practice.js already saves in this browser's own localStorage — nothing is sent anywhere, and

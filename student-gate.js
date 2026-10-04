@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // Asks a student for their name and section number the first time they land anywhere on the site (the
 // catalog, or a unit/topic/activity page reached straight from a QR code) and remembers it in this
 // browser's own localStorage so they aren't asked again on later visits. Uses the same keys progress.js

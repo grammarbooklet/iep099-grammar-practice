@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // IEP099 grammar practice — the catalog's "your plan" panel: what this week of the syllabus covers, how
 // close the next quiz or exam is and how much of it the student has practiced, their weakest topic, and
 // shortcuts to the Daily 5 and to their saved mistakes.

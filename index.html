@@ -1,6 +1,8 @@
 <meta charset="utf-8">
 <title>IEP099 Grammar Practice</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Dr. Chadi Chahdi">
+<meta name="copyright" content="© Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -14,9 +16,10 @@
     <div class="rule" style="margin-left:auto;margin-right:auto"></div>
   </div>
   <div class="home-grid">
-    <a class="home-card" href="catalog.html">
+    <a class="home-card gb" href="catalog.html">
+      <span class="home-ring" id="gbRing" hidden></span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-      <b>Student</b>
+      <b>Grammar Booklet</b>
       <span>Browse units and practice activities</span>
     </a>
     <a class="home-card wc" href="writing.html">
@@ -43,6 +46,17 @@
     var c = 2 * Math.PI * 15, full = done >= total, el = document.getElementById("wcRing");
     el.innerHTML = '<svg viewBox="0 0 36 36" aria-hidden="true"><circle class="bg" cx="18" cy="18" r="15"/><circle class="fg" cx="18" cy="18" r="15" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + (c * (1 - done / total)).toFixed(1) + '" transform="rotate(-90 18 18)"/>' + (full ? '<path class="tick" d="M11.5 18.5l4.5 4.5 8.5-9.5"/>' : "") + "</svg>" + (full ? "" : "<b>" + done + "</b>");
     el.title = done + " of " + total + " lessons done"; el.className = "home-ring" + (full ? " full" : ""); el.hidden = false;
+  } catch (e) {}
+})();
+// A ring on the Grammar Booklet card: how many activities this learner has finished, and a tick when all are done.
+(function () {
+  try {
+    var r = JSON.parse(localStorage.getItem("iep099-results") || "null"), total = 198, done = r ? Object.keys(r).length : 0;
+    if (!done) return;
+    if (done > total) done = total;
+    var c = 2 * Math.PI * 15, full = done >= total, el = document.getElementById("gbRing");
+    el.innerHTML = '<svg viewBox="0 0 36 36" aria-hidden="true"><circle class="bg" cx="18" cy="18" r="15"/><circle class="fg" cx="18" cy="18" r="15" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + (c * (1 - done / total)).toFixed(1) + '" transform="rotate(-90 18 18)"/>' + (full ? '<path class="tick" d="M11.5 18.5l4.5 4.5 8.5-9.5"/>' : "") + "</svg>" + (full ? "" : "<b>" + done + "</b>");
+    el.title = done + " of " + total + " activities done"; el.className = "home-ring" + (full ? " full" : ""); el.hidden = false;
   } catch (e) {}
 })();
 // Older links and QR codes point at the site root with a #<unit or activity id> fragment (e.g. #ls1,

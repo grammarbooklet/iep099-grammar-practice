@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 /* Writing Center — styles for the session player (wv2.js), the portfolio and the backup box. */
 /* Explicit display rules on buttons/notes would otherwise override the hidden attribute. */
 .wc [hidden],.wc-card [hidden]{display:none!important}

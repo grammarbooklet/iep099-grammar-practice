@@ -1,4 +1,5 @@
-// IEP099 badges: 40 badges, every one locked until it is really earned. Each has a plain rule ("Finish 10 grammar
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
+// IEP099 badges: 34 badges (the six speaking badges are paused until speaking has a proper home), every one locked until it is really earned. Each has a plain rule ("Finish 10 grammar
 // activities") and a progress count, worked out from what this browser has saved (grammar results, practice days,
 // speaking sessions, Daily 5, Writing Center). Nothing is sent anywhere. Once earned, a badge stays earned.
 //
@@ -66,11 +67,6 @@
     { id: "bounce-back", name: "Bounce Back", kind: "w", how: "Raise a lesson from 1 star to 3 stars.", prog: function (s) { return count(s.wc.bounce ? 1 : 0, 1); } },
 
     { id: "word-collector", name: "Word Collector", kind: "p", how: "Finish 10 grammar activities.", prog: function (s) { return count(Object.keys(s.res).length, 10); } },
-    { id: "sound-explorer", name: "Sound Explorer", kind: "p", how: "Finish your first speaking practice (at least 20 seconds).", prog: function (s) { return count(s.speak.n || 0, 1); } },
-    { id: "listening-ace", name: "Listening Ace", kind: "p", how: "Finish 5 speaking practices.", prog: function (s) { return count(s.speak.n || 0, 5); } },
-    { id: "pronunciation-pro", name: "Pronunciation Pro", kind: "p", how: "Finish 10 speaking practices.", prog: function (s) { return count(s.speak.n || 0, 10); } },
-    { id: "conversation-starter", name: "Conversation Starter", kind: "p", how: "Speak on 3 different themes.", prog: function (s) { return count(Object.keys(s.speak.themes || {}).length, 3); } },
-    { id: "fluency-builder", name: "Fluency Builder", kind: "p", how: "Speak for 90 seconds or more, three times.", prog: function (s) { return count(s.speak.l90 || 0, 3); } },
     { id: "grammar-detective", name: "Grammar Detective", kind: "p", how: "Fix 10 earlier mistakes in Fix my mistakes.", prog: function (s) { return count(s.fixed, 10); } },
     { id: "word-roots-explorer", name: "Word Roots Explorer", kind: "p", how: "Finish grammar activities in 5 different units.", prog: function (s) { return count(distinct(Object.keys(s.res).map(function (k) { return s.res[k].unitTitle || s.res[k].unit; })), 5); } },
     { id: "pattern-spotter", name: "Pattern Spotter", kind: "p", how: "Finish the Daily 5 three times.", prog: function (s) { return count(s.daily.length, 3); } },
@@ -80,7 +76,6 @@
     { id: "team-player", name: "Team Player", kind: "p", how: "Finish a practice set from your instructor.", prog: function (s) { return count(s.sets.assigned || 0, 1); } },
     { id: "memory-keeper", name: "Memory Keeper", kind: "p", how: "Bring 5 Writing Center skills to strength 2 or more.", prog: function (s) { return count(Object.keys(s.wc.skills).filter(function (k) { return (s.wc.skills[k].s || 0) >= 2; }).length, 5); } },
     { id: "independent-learner", name: "Independent Learner", kind: "p", how: "Practise on 10 different days.", prog: function (s) { return count(distinct(s.days), 10); } },
-    { id: "confident-speaker", name: "Confident Speaker", kind: "p", how: "Finish three full 2-minute speeches.", prog: function (s) { return count(s.speak.f120 || 0, 3); } },
     { id: "question-trailblazer", name: "Question Trailblazer", kind: "p", how: "Finish 25 Writing Center lessons.", prog: function (s) { return count(doneIds(s).length, 25); } },
     { id: "time-keeper", name: "Time Keeper", kind: "p", how: "Practise 5 days in a row.", prog: function (s) { return count(bestRun(s.days), 5); } },
     { id: "problem-solver", name: "Problem Solver", kind: "p", how: "Fix 25 earlier mistakes in Fix my mistakes.", prog: function (s) { return count(s.fixed, 25); } },
@@ -130,7 +125,7 @@
     var c = 2 * Math.PI * 11, off = c * (1 - (total ? n / total : 0));
     return '<svg viewBox="0 0 28 28" class="bb-ring" aria-hidden="true"><circle cx="14" cy="14" r="11" fill="none" stroke="currentColor" stroke-opacity=".25" stroke-width="2.4"/>' +
       '<circle cx="14" cy="14" r="11" fill="none" stroke="#FCAD1B" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '" transform="rotate(-90 14 14)"/>' +
-      '<path d="M14 8.6l1.7 3.4 3.7.5-2.7 2.6.6 3.7-3.3-1.8-3.3 1.8.6-3.7-2.7-2.6 3.7-.5z" fill="currentColor"/></svg><span class="bb-n">' + n + "/" + total + "</span>";
+      '<path d="M14 8.6l1.7 3.4 3.7.5-2.7 2.6.6 3.7-3.3-1.8-3.3 1.8.6-3.7-2.7-2.6 3.7-.5z" fill="currentColor"/></svg><span class="bb-n">' + n + "/" + total + " badges</span>";
   }
   function refreshIcon() {
     var el = document.getElementById("barBadges"); if (!el) return;

@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 /* IEP099 Grammar Booklet — interactive practice site. Same palette/fonts as the print booklet's own design system. */
 :root{
   --navy:#121C40; --navy-2:#27325C; --ink:#161E38; --ink-2:#414B69; --mute:#6E7791; --rule:#D5DAE6; --hair:#E6E9F1; --tint:#F3F4F8; --paper:#FBFAF6; --surface:#FFFFFF;
@@ -437,3 +438,10 @@ a.plan-btn svg{width:15px;height:15px;flex:none}
 .home-card.wc .beta-tag{color:#fff;background:#7A4D00;font:800 10.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .home-card.wc .beta-tag{background:#FFC24D;color:#2B1E00}}
 :root[data-theme="dark"] .home-card.wc .beta-tag{background:#FFC24D;color:#2B1E00}
+
+/* welcome page: the Grammar Booklet card gets the same progress ring, in teal */
+.home-card{position:relative}
+.home-card.gb .home-ring .fg{stroke:var(--teal-d)}
+.home-card.gb .home-ring.full .bg{fill:var(--teal-d);stroke:var(--teal-d)}
+.home-card.gb .home-ring .tick{stroke:var(--teal-t)}
+.home-card.gb .home-ring b{color:var(--teal-d)}

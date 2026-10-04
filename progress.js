@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // IEP099 grammar practice — "My Progress" page. Reads results that practice.js already saved to this
 // browser's own localStorage (nothing is ever sent anywhere) and lets a student download a PDF report
 // carrying their name, instructor's name, and section number.
@@ -101,6 +102,7 @@
     var instructor = instructorEl.value.trim();
     var section = sectionEl.value.trim();
     var doc = new jspdf.jsPDF();
+      doc.setProperties({ author: "Dr. Chadi Chahdi", creator: "IEP099 Grammar Booklet, Second Edition" });
     var pageW = doc.internal.pageSize.getWidth(), pageH = doc.internal.pageSize.getHeight();
     var marginL = 16, marginR = 16, maxW = pageW - marginL - marginR;
 

@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // Writing Center — the "session" player. A session is: Warm-up review → Learn it → Practise (with adaptive help)
 // → Writing studio (draft, revise, see what changed) → Reward. It reuses the question builders from wlesson.js
 // (window.WCQ) and the rules, skills and portfolio in writing.js (window.WC).

@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // Writing Center: the trail map. Just the path: level and XP, the next suggested lesson, and every stage with its
 // lessons. Skills, portfolio, badges and the progress backup live on the "My Writing Center" page (the badge icon
 // in the top bar), so this page stays calm. Everything here is open: nothing is locked.

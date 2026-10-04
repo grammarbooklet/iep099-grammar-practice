@@ -1,0 +1,7 @@
+/* TEAM */
+Author: Dr. Chadi Chahdi
+Work: IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi.
+
+/* SITE */
+Standards: HTML, CSS, JavaScript (static site, no accounts, no tracking)
+Content: all lessons, exercises, explanations and examples were designed and written by Dr. Chadi Chahdi.

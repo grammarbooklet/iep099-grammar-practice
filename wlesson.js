@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // Writing Center — the lesson player. One lesson = Spot It → Try It → Build It → Reward. All lesson content
 // comes from writing-content/stageN.json; this file only knows how to show each kind of question, check the
 // answer, and hand the final score to WC (writing.js), which owns stars, XP and badges.

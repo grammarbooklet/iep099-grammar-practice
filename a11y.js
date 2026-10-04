@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // IEP099 grammar practice — display settings (text size, contrast, light/dark), available from every page.
 // Offered as an ordinary "Display settings" control rather than a flagged accessibility mode, so any
 // student can quietly adjust it without it calling attention to itself. Preferences persist per device.

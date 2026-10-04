@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // IEP099 grammar practice — impromptu speaking trainer. A random topic tied to a unit theme, one minute to
 // plan, a timed speech, then follow-up questions a partner (or the student) can answer. Nothing is recorded or
 // sent anywhere; finishing a speech just counts as a day of practice for the streak.

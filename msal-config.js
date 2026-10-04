@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // One-time setup for the OPTIONAL "Save to OneDrive" button on the My Progress page.
 // This feature stays off (the button stays hidden) until the placeholder below is replaced with a
 // real Client ID from an Azure app registration. Nothing else on the site depends on this file.

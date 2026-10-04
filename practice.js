@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // IEP099 grammar practice — shared rendering + checking engine for every topic page.
 // Consumes window.PAGE_DATA (set by an inline <script> on each generated page) and builds interactive
 // exercises from it: fill-in blanks and click-to-choose forms parsed from the booklet's own markup

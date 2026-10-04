@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // Optional: log every completed practice set (name, section, set title, score) to a Google Sheet you own,
 // so you can see who has completed which QR/link and their result. Entirely dormant until you set this up —
 // nothing is sent anywhere while the URL below is empty. This is the only way to "track" a set on a static

@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // "My progress" page of the Writing Center: badges (locked until earned, with progress), skills, portfolio and the
 // progress backup. These used to crowd the trail map; now they sit behind the badge icon in the top bar.
 (function () {

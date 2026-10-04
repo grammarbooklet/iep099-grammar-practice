@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 // IEP099 grammar practice — plays back an instructor-built custom set. Everything needed to render it
 // (which activities, title, note, time limit) is encoded in this page's own URL, built by builder.html —
 // there's no server or database behind this, so the link itself is the whole "shared set".
@@ -240,6 +241,7 @@
     var name = document.getElementById("setStudentName").value.trim() || "(name not entered)";
     var section = document.getElementById("setSection").value.trim();
     var doc = new jspdf.jsPDF();
+      doc.setProperties({ author: "Dr. Chadi Chahdi", creator: "IEP099 Grammar Booklet, Second Edition" });
     var pageW = doc.internal.pageSize.getWidth(), pageH = doc.internal.pageSize.getHeight();
     var marginL = 16, marginR = 16, maxW = pageW - marginL - marginR;
 

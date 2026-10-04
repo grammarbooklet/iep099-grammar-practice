@@ -1,3 +1,4 @@
+/* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
 /* Writing Center — its own look inside the same site: a warm paper-and-ink notebook (ruled lines, a red margin
    line, a pencil-yellow accent) on top of practice.css's colour tokens, so dark and high-contrast modes still work. */
 :root{ --wc-pencil:#F5B82E; --wc-pencil-ink:#2B1E00; --wc-ink:#2F4B9A; --wc-rule:rgba(47,75,154,.13); --wc-margin:#E58A80; --wc-note:#FFFDF3; }

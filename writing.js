@@ -116,17 +116,35 @@
 
   var indexPromise = null;
   function index() {
-    if (!indexPromise) indexPromise = fetch("writing-content/index.json").then(function (x) { return x.json(); }).then(function (d) {
+    if (!indexPromise) indexPromise = Promise.all([
+      fetch("writing-content/index.json").then(function (x) { return x.json(); }),
+      fetch("writing-content/schedule.json").then(function (x) { return x.json(); }).catch(function () { return {}; })
+    ]).then(function (a) {
+      var d = a[0]; d.schedule = a[1] || {};
       window.__WC_IDX = d;
       return d;
     });
     return indexPromise;
   }
 
-  // The first ready lesson not yet done, in path order (falls back to the first lesson).
+  // A stage is open when the previous stage is complete, or when its course week has begun (schedule.json).
+  function stageDone(stage, r) {
+    var ready = stage.lessons.filter(function (l) { return l.ready; });
+    return ready.length > 0 && ready.every(function (l) { return done(r, l.id); });
+  }
+  function stageState(idx, stage, r) {
+    var sch = idx.schedule || {}, wk = sch.weeks && sch.weeks[stage.n], opens = (sch.start && wk) ? addDays(sch.start, (wk - 1) * 7) : null;
+    var i = idx.stages.indexOf(stage), prev = i > 0 ? idx.stages[i - 1] : null;
+    var byDate = opens ? today() >= opens : true, byPrev = !!prev && stageDone(prev, r);
+    var p = opens ? opens.split("-") : null, label = p ? new Date(+p[0], +p[1] - 1, +p[2]).toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" }) : "";
+    return { open: byDate || byPrev, opens: opens, label: label, week: wk || null, prev: prev };
+  }
+
+  // The first ready lesson not yet done, in path order (falls back to the first lesson). Locked stages are skipped.
   function nextLesson(idx, r) {
     var found = null, first = null;
     idx.stages.forEach(function (s) {
+      if (!stageState(idx, s, r).open) return;
       s.lessons.forEach(function (l) {
         if (!l.ready) return;
         if (!first) first = { stage: s, lesson: l };
@@ -265,7 +283,7 @@
 
   window.WC = {
     LEVELS: LEVELS, XP: XP, BADGES: BADGES, STEPS: STEPS, read: read, write: write, level: level, starsFor: starsFor,
-    complete: complete, markSkipped: markSkipped, index: index, nextLesson: nextLesson, stageProgress: stageProgress,
+    complete: complete, markSkipped: markSkipped, index: index, nextLesson: nextLesson, stageProgress: stageProgress, stageState: stageState,
     setProgress: setProgress, skillResult: skillResult, dueSkills: dueSkills, today: today, addDays: addDays, daysBetween: daysBetween,
     savePiece: savePiece, toggleFav: toggleFav, exportCode: exportCode, importCode: importCode
   };

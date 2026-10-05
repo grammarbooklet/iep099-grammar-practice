@@ -45,6 +45,7 @@
     idx = r[0];
     idx.stages.forEach(function (s) { s.lessons.forEach(function (l) { if (l.id === lessonId) { stage = s; meta = l; } }); });
     if (!meta) return fail("We couldn’t find that lesson.");
+    if (!WC.stageState(idx, stage, WC.read()).open) return lockedStage();
     if (!meta.ready) return comingSoon();
     return fetch("writing-content/" + stage.file).then(function (x) { return x.json(); }).then(function (d) {
       stageData = d; lesson = d.lessons[lessonId];
@@ -58,6 +59,15 @@
   }).catch(function () { fail("Couldn’t load the lesson. Check your connection and reload."); });
 
   function fail(msg) { clear(); root.appendChild(h("div", "wc-card", "<p>" + esc(msg) + '</p><p><a class="wc-btn ghost" href="writing.html">Back to the path</a></p>')); }
+  function lockedStage() {
+    clear();
+    var g = WC.stageState(idx, stage, WC.read());
+    root.appendChild(h("div", "wc-card", '<p class="wc-eyebrow">Stage ' + stage.n + " · " + esc(stage.title) + '</p><h1 class="wc-h1">Not open yet</h1><p>This stage opens ' +
+      (g.label ? "on <b>" + esc(g.label) + "</b>" + (g.week ? " (Week " + g.week + ")" : "") : "later") + (g.prev ? ", or as soon as you finish Stage " + g.prev.n : "") + ".</p>" +
+      '<p><a class="wc-btn" id="lockNext" href="writing.html">Back to the path</a></p>'));
+    var nx = WC.nextLesson(idx, WC.read());
+    if (nx) { var a = document.getElementById("lockNext"); a.href = "wlesson.html?id=" + encodeURIComponent(nx.lesson.id); a.textContent = "Go to Lesson " + nx.lesson.id + ": " + nx.lesson.title; }
+  }
   function comingSoon() {
     clear();
     root.appendChild(h("div", "wc-card", "<p class=\"wc-eyebrow\">Stage " + stage.n + " · " + esc(stage.title) + "</p><h1 class=\"wc-h1\">" + esc(meta.title) + "</h1><p>This lesson is still being written. Nothing is locked: you can open any lesson, in any order.</p>" +

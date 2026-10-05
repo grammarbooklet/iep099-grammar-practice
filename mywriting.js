@@ -25,20 +25,42 @@
   function when(iso) { try { return new Date(iso).toLocaleDateString(undefined, { day: "numeric", month: "short" }); } catch (e) { return ""; } }
   function renderBadges() {
     if (!B) return;
-    var st = B.state(), earned = st.filter(function (b) { return b.earned; }).length;
-    $("bdSummary").innerHTML = "<b>" + earned + " of " + st.length + "</b> badges earned" +
-      '<div class="wc-bar"><i style="width:' + Math.round(earned / st.length * 100) + '%"></i></div>' +
-      "<small>Every badge starts locked. You unlock one by doing what it says.</small>";
-    function card(b) {
-      var d = b.def, pct = b.need ? Math.round(b.have / b.need * 100) : 0;
-      return '<article class="bd-card' + (b.earned ? " got" : " locked") + '" aria-label="' + esc(d.name) + (b.earned ? ", earned" : ", locked") + '">' +
-        '<div class="bd-img"><img src="' + B.src(d) + '" alt="" loading="lazy">' + (b.earned ? "" : '<span class="bd-lock" aria-hidden="true">🔒</span>') + "</div>" +
-        "<b>" + esc(d.name) + "</b><p>" + esc(d.how) + "</p>" +
-        (b.earned ? '<small class="bd-when">Earned' + (b.when ? " " + when(b.when) : "") + "</small>"
-          : '<div class="bd-prog"><i style="width:' + pct + '%"></i></div><small>' + b.have + " of " + b.need + "</small>") + "</article>";
+    var st = B.state(), earned = st.filter(function (b) { return b.earned; }).length, pctAll = Math.round(earned / st.length * 100);
+    var C = 2 * Math.PI * 26;
+    $("bdSummary").innerHTML = '<div class="bd-top"><span class="bd-ring" role="img" aria-label="' + earned + " of " + st.length + ' badges earned"><svg viewBox="0 0 60 60" aria-hidden="true"><circle class="bg" cx="30" cy="30" r="26"/><circle class="fg" cx="30" cy="30" r="26" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - Math.max(earned ? 0.06 : 0, earned / st.length))).toFixed(1) + '" transform="rotate(-90 30 30)"/></svg><b>' + earned + "</b></span>" +
+      "<div><strong>" + earned + " of " + st.length + " badges</strong><small>" + (earned === st.length ? "You have them all." : earned ? (st.length - earned) + " still to unlock. Tap any badge to see how." : "Every badge starts locked. Tap one to see how to unlock it.") + "</small></div></div>";
+
+    function pctOf(b) { return b.need ? Math.min(1, b.have / b.need) : 0; }
+    function tile(b) {
+      var d = b.def, p = pctOf(b);
+      var t = document.createElement("button"); t.type = "button"; t.className = "bd-tile" + (b.earned ? " got" : " locked");
+      t.setAttribute("aria-label", d.name + (b.earned ? ", earned" : ", locked, " + b.have + " of " + b.need));
+      t.innerHTML = '<span class="bd-img"><img src="' + B.src(d) + '" alt="" loading="lazy">' + (b.earned ? '<i class="bd-check" aria-hidden="true">✓</i>' : '<i class="bd-lock" aria-hidden="true">🔒</i>') + "</span>" +
+        "<b>" + esc(d.name) + "</b>" + (b.earned ? "" : '<span class="bd-prog"><i style="width:' + Math.round(p * 100) + '%"></i></span>');
+      t.addEventListener("click", function () { openSheet(b); });
+      return t;
     }
-    $("bdW").innerHTML = st.filter(function (b) { return b.def.kind === "w"; }).map(card).join("");
-    $("bdP").innerHTML = st.filter(function (b) { return b.def.kind === "p"; }).map(card).join("");
+    // inside each group the badges closest to unlocking come right after the earned ones
+    function fill(el, kind, titleEl) {
+      var list = st.filter(function (b) { return b.def.kind === kind; });
+      list.sort(function (x, y) { return (y.earned - x.earned) || (pctOf(y) - pctOf(x)); });
+      el.innerHTML = ""; list.forEach(function (b) { el.appendChild(tile(b)); });
+      var n = list.filter(function (b) { return b.earned; }).length;
+      if (titleEl) titleEl.innerHTML = titleEl.getAttribute("data-t") + " <span>" + n + "/" + list.length + "</span>";
+    }
+    fill($("bdW"), "w", $("bdWt")); fill($("bdP"), "p", $("bdPt"));
+  }
+
+  // tap a badge: a larger view with how to unlock it and how far along you are
+  function openSheet(b) {
+    var d = b.def, s = $("bdSheet"), p = b.need ? Math.min(100, Math.round(b.have / b.need * 100)) : 0;
+    s.innerHTML = '<div class="bd-card-big' + (b.earned ? " got" : " locked") + '" role="dialog" aria-modal="true" aria-label="' + esc(d.name) + '"><button type="button" class="bd-x" aria-label="Close">×</button>' +
+      '<span class="bd-img"><img src="' + B.src(d) + '" alt="">' + (b.earned ? "" : '<i class="bd-lock" aria-hidden="true">🔒</i>') + "</span><h3>" + esc(d.name) + "</h3><p>" + esc(d.how) + "</p>" +
+      (b.earned ? '<small class="bd-when">Earned' + (b.when ? " " + when(b.when) : "") + "</small>" : '<span class="bd-prog"><i style="width:' + p + '%"></i></span><small>' + b.have + " of " + b.need + "</small>") + "</div>";
+    s.hidden = false; var x = s.querySelector(".bd-x"); x.focus();
+    function close() { s.hidden = true; document.removeEventListener("keydown", key); }
+    function key(e) { if (e.key === "Escape") close(); }
+    x.addEventListener("click", close); s.addEventListener("click", function (e) { if (e.target === s) close(); }); document.addEventListener("keydown", key);
   }
 
   // ---------- skills ----------

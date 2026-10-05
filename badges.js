@@ -1,5 +1,5 @@
 /* © Dr. Chadi Chahdi. IEP099 Grammar Booklet, Second Edition, and the Writing Center. Designed and written by Dr. Chadi Chahdi. */
-// IEP099 badges: 34 badges (the six speaking badges are paused until speaking has a proper home), every one locked until it is really earned. Each has a plain rule ("Finish 10 grammar
+// IEP099 badges: 50 badges (the six speaking badges are paused until speaking has a proper home), every one locked until it is really earned. Each has a plain rule ("Finish 10 grammar
 // activities") and a progress count, worked out from what this browser has saved (grammar results, practice days,
 // speaking sessions, Daily 5, Writing Center). Nothing is sent anywhere. Once earned, a badge stays earned.
 //
@@ -79,7 +79,23 @@
     { id: "question-trailblazer", name: "Question Trailblazer", kind: "p", how: "Finish 40 Writing Center lessons.", prog: function (s) { return count(doneIds(s).length, 40); } },
     { id: "time-keeper", name: "Time Keeper", kind: "p", how: "Practise 7 days in a row.", prog: function (s) { return count(bestRun(s.days), 7); } },
     { id: "problem-solver", name: "Problem Solver", kind: "p", how: "Fix 40 earlier mistakes in Fix my mistakes.", prog: function (s) { return count(s.fixed, 40); } },
-    { id: "milestone-reacher", name: "Milestone Reacher", kind: "p", how: "Earn 20 other badges.", meta: 20, prog: function (s, earned) { return count(earned, 20); } }
+    { id: "sentence-builder", name: "Sentence Builder", kind: "w", how: "Finish every lesson in Stage 1, The Sentence.", svg: 1, prog: function (s) { return count(STAGES[1].filter(function (id) { return real(s, id); }).length, STAGES[1].length); } },
+    { id: "sentence-mixer", name: "Sentence Mixer", kind: "w", how: "Finish every lesson in Stage 2, Types of Sentences.", svg: 1, prog: function (s) { return count(STAGES[2].filter(function (id) { return real(s, id); }).length, STAGES[2].length); } },
+    { id: "link-master", name: "Link Master", kind: "w", how: "Finish every lesson in Stage 3, Linking Words.", svg: 1, prog: function (s) { return count(STAGES[3].filter(function (id) { return real(s, id); }).length, STAGES[3].length); } },
+    { id: "paragraph-pro", name: "Paragraph Pro", kind: "w", how: "Finish every lesson in Stage 4, The Paragraph.", svg: 1, prog: function (s) { return count(STAGES[4].filter(function (id) { return real(s, id); }).length, STAGES[4].length); } },
+    { id: "star-collector", name: "Star Collector", kind: "w", how: "Collect 30 stars across your lessons.", svg: 1, prog: function (s) { return count(doneIds(s).reduce(function (n, id) { return n + stars(s, id); }, 0), 30); } },
+    { id: "sharp-shooter", name: "Sharp Shooter", kind: "w", how: "Get a perfect score on 10 lessons.", svg: 1, prog: function (s) { return count(doneIds(s).filter(function (id) { return s.wc.lessons[id].best >= 100; }).length, 10); } },
+    { id: "polish-pro", name: "Polish Pro", kind: "w", how: "Revise your writing in 15 lessons.", svg: 1, prog: function (s) { return count(doneIds(s).filter(function (id) { return s.wc.lessons[id].revised; }).length, 15); } },
+    { id: "long-writer", name: "Long Writer", kind: "w", how: "Save a piece of writing of 100 words or more.", svg: 1, prog: function (s) { var m = 0; s.wc.portfolio.forEach(function (p) { (p.versions || []).forEach(function (v) { var n = (String(v.text || "").trim().match(/\S+/g) || []).length; if (n > m) m = n; }); }); return count(m, 100); } },
+    { id: "skill-master", name: "Skill Master", kind: "w", how: "Raise a Writing Center skill to full strength (5).", svg: 1, prog: function (s) { var m = 0; Object.keys(s.wc.skills).forEach(function (k) { m = Math.max(m, Math.floor(s.wc.skills[k].s || 0)); }); return count(m, 5); } },
+    { id: "all-rounder", name: "All-Rounder", kind: "w", how: "Practise 10 different Writing Center skills.", svg: 1, prog: function (s) { return count(Object.keys(s.wc.skills).length, 10); } },
+    { id: "top-of-class", name: "Top of the Class", kind: "w", how: "Earn 2,500 Writing Center XP.", svg: 1, prog: function (s) { return count(Math.floor(s.wc.xp || 0), 2500); } },
+    { id: "grammar-giant", name: "Grammar Giant", kind: "p", how: "Finish 100 grammar activities.", svg: 1, prog: function (s) { return count(Object.keys(s.res).length, 100); } },
+    { id: "accuracy-ace", name: "Accuracy Ace", kind: "p", how: "Score 100% on 30 grammar activities.", svg: 1, prog: function (s) { return count(Object.keys(s.res).filter(function (k) { return s.res[k].total > 0 && s.res[k].correct >= s.res[k].total; }).length, 30); } },
+    { id: "two-week-run", name: "Two-Week Run", kind: "p", how: "Practise 14 days in a row.", svg: 1, prog: function (s) { return count(bestRun(s.days), 14); } },
+    { id: "monthly-regular", name: "Monthly Regular", kind: "p", how: "Practise on 30 different days.", svg: 1, prog: function (s) { return count(distinct(s.days), 30); } },
+    { id: "daily-five-hero", name: "Daily 5 Hero", kind: "p", how: "Finish the Daily 5 twenty times.", svg: 1, prog: function (s) { return count(s.daily.length, 20); } },
+    { id: "milestone-reacher", name: "Milestone Reacher", kind: "p", how: "Earn 30 other badges.", meta: 30, prog: function (s, earned) { return count(earned, 30); } }
   ];
 
   function earnedMap() { return read(KEY, {}) || {}; }
@@ -105,7 +121,7 @@
     if (fresh.length) { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {} }
     return fresh;
   }
-  function src(def) { return "badges/" + def.id + ".webp"; }
+  function src(def) { return "badges/" + def.id + (def.svg ? ".svg" : ".webp"); }
 
   // ---------- a short toast when something new is earned ----------
   function toast(def) {

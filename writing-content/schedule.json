@@ -1,0 +1,12 @@
+{
+  "_about": "A Writing Center stage opens when the previous stage is complete, or on the first day of the course week named here. 'start' is the first day of Week 1 (YYYY-MM-DD). Edit the week numbers to change when each stage opens.",
+  "start": "2026-09-20",
+  "weeks": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 8,
+    "6": 9
+  }
+}

@@ -33,33 +33,52 @@
       panel.appendChild(entry("my-writing.html#badges", "Writing Center progress", '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>'));
     }
 
-    // Instructor access lives in this menu (Writing Center pages only): it opens a small passphrase box.
-    if (!instructor && window.WC && WC.instructorUnlock) {
+    // Instructor access lives in this menu on every student page. One passphrase opens every instructor tool: the key it
+    // makes is kept in this tab only, and the Writing Center, practice sets and the set builder all read it from there.
+    if (!instructor && window.crypto && crypto.subtle) {
+      var IK = "iep099-inst";
+      var hexBytes = function (h) { var u = new Uint8Array(h.length / 2); for (var i = 0; i < u.length; i++) u[i] = parseInt(h.substr(i * 2, 2), 16); return u; };
+      var hexOf = function (buf) { return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ("0" + b.toString(16)).slice(-2); }).join(""); };
+      var cfgJson = function () { return fetch("instructor.json", { cache: "no-store" }).then(function (r) { return r.json(); }); };
+      var stored = function () { var k = null; try { k = sessionStorage.getItem(IK); } catch (e) {} return k && /^[0-9a-f]{64}$/.test(k) ? k : null; };
       var ib = document.createElement("button"); ib.type = "button";
       ib.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/></svg><span>Instructor access</span>';
-      panel.appendChild(ib);
       var active = false;
-      WC.index().then(function (idx) { active = !!idx.instructor; if (active) ib.querySelector("span").textContent = "Exit instructor view"; });
+      if (stored()) cfgJson().then(function (cfg) { return crypto.subtle.digest("SHA-256", hexBytes(stored())).then(function (h) { if (hexOf(h) === cfg.v) { active = true; ib.querySelector("span").textContent = "Exit instructor view"; } }); }).catch(function () {});
+      panel.appendChild(ib);
       ib.addEventListener("click", function (e) {
         e.stopPropagation(); close(false);
-        if (active) { WC.instructorLock(); location.reload(); return; }
+        if (active) { try { sessionStorage.removeItem(IK); } catch (x) {} location.reload(); return; }
         openInstructorBox();
       });
+      var unlockWith = function (phrase) {
+        return cfgJson().then(function (cfg) {
+          return crypto.subtle.importKey("raw", new TextEncoder().encode(phrase), "PBKDF2", false, ["deriveBits"]).then(function (base) {
+            return crypto.subtle.deriveBits({ name: "PBKDF2", salt: hexBytes(cfg.salt), iterations: cfg.iter, hash: "SHA-256" }, base, 256);
+          }).then(function (K) {
+            return crypto.subtle.digest("SHA-256", K).then(function (h) {
+              if (hexOf(h) !== cfg.v) return false;
+              try { sessionStorage.setItem(IK, hexOf(K)); } catch (x) { return false; }
+              return true;
+            });
+          });
+        }).catch(function () { return false; });
+      };
     }
     function openInstructorBox() {
       var old = document.getElementById("instSheet"); if (old) old.remove();
-      var s = document.createElement("div"); s.id = "instSheet"; s.className = "inst-sheet";
-      s.innerHTML = '<form class="inst-card" role="dialog" aria-modal="true" aria-label="Instructor access"><button type="button" class="inst-x" aria-label="Close">×</button><h3>Instructor access</h3><p>Enter the passphrase to open every stage in this tab.</p><input type="password" autocomplete="off" aria-label="Passphrase"><button type="submit" class="inst-go">Open all stages</button><p class="inst-msg" aria-live="polite"></p></form>';
-      document.body.appendChild(s);
-      var f = s.querySelector("form"), inp = s.querySelector("input"), msg = s.querySelector(".inst-msg");
-      function shut() { s.remove(); document.removeEventListener("keydown", key); }
+      var sh = document.createElement("div"); sh.id = "instSheet"; sh.className = "inst-sheet";
+      sh.innerHTML = '<form class="inst-card" role="dialog" aria-modal="true" aria-label="Instructor access"><button type="button" class="inst-x" aria-label="Close">×</button><h3>Instructor access</h3><p>Enter the passphrase once. It opens every instructor tool in this tab.</p><input type="password" autocomplete="off" aria-label="Passphrase"><button type="submit" class="inst-go">Unlock</button><p class="inst-msg" aria-live="polite"></p></form>';
+      document.body.appendChild(sh);
+      var f = sh.querySelector("form"), inp = sh.querySelector("input"), msg = sh.querySelector(".inst-msg");
+      function shut() { sh.remove(); document.removeEventListener("keydown", key); }
       function key(ev) { if (ev.key === "Escape") shut(); }
       document.addEventListener("keydown", key);
-      s.querySelector(".inst-x").addEventListener("click", shut);
-      s.addEventListener("click", function (ev) { if (ev.target === s) shut(); });
+      sh.querySelector(".inst-x").addEventListener("click", shut);
+      sh.addEventListener("click", function (ev) { if (ev.target === sh) shut(); });
       f.addEventListener("submit", function (ev) {
         ev.preventDefault(); if (!inp.value) return; msg.textContent = "Checking…";
-        WC.instructorUnlock(inp.value).then(function (ok) {
+        unlockWith(inp.value).then(function (ok) {
           if (ok) location.reload(); else setTimeout(function () { msg.textContent = "That passphrase isn’t right."; }, 1200);
         });
       });

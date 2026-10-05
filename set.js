@@ -96,44 +96,24 @@
     });
   });
 
-  // ---------- instructor-only, on-device time adjustment (same passphrase as the builder tool) ----------
+  // ---------- instructor tools ----------
+  // Nothing instructor-only is written in this file or in the page. If the instructor passphrase has been entered in this
+  // browser tab (one passphrase opens every instructor tool), the extra controls are decrypted from set.lock.json and
+  // added to the page. Otherwise students see nothing at all.
+  window.IEPSet = { setTimeLimit: function (m) { setTimeLimit(m); }, getDeadline: function () { return deadline; } };
   (function () {
-    var PASSPHRASE_HASH = "0db7bbf4badf215a1ec84b3adf234a84017596d8e52ea8d855616fd10aa761ab";
-    function sha256Hex(text) {
-      return crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)).then(function (buf) {
-        return Array.prototype.map.call(new Uint8Array(buf), function (b) { return b.toString(16).padStart(2, "0"); }).join("");
-      });
-    }
-    var btn = document.getElementById("timeAdjustBtn"), panel = document.getElementById("timeAdjustPanel");
-    var unlocked = false;
-    btn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      panel.hidden = !panel.hidden;
-      if (!panel.hidden) {
-        var r = btn.getBoundingClientRect();
-        panel.style.top = (r.bottom + window.scrollY + 8) + "px";
-        panel.style.right = Math.max(16, window.innerWidth - r.right) + "px";
-        if (unlocked) document.getElementById("timeAdjustMinutes").value = deadline ? Math.ceil((deadline - Date.now()) / 60000) : 0;
-      }
-    });
-    document.addEventListener("click", function (e) { if (!panel.hidden && e.target !== btn && !panel.contains(e.target)) panel.hidden = true; });
-    document.getElementById("timeAdjustUnlockBtn").addEventListener("click", function () {
-      var v = document.getElementById("timeAdjustPass").value.trim();
-      if (!v) return;
-      sha256Hex(v).then(function (hash) {
-        if (hash !== PASSPHRASE_HASH) { document.getElementById("timeAdjustMsg").textContent = "That's not the right passphrase."; return; }
-        unlocked = true;
-        document.getElementById("timeAdjustGateRow").hidden = true;
-        document.getElementById("timeAdjustControls").hidden = false;
-        document.getElementById("timeAdjustMsg").textContent = "";
-        document.getElementById("timeAdjustMinutes").value = deadline ? Math.ceil((deadline - Date.now()) / 60000) : 0;
-      });
-    });
-    document.getElementById("timeAdjustApplyBtn").addEventListener("click", function () {
-      var mins = parseInt(document.getElementById("timeAdjustMinutes").value, 10) || 0;
-      setTimeLimit(mins);
-      document.getElementById("timeAdjustMsg").textContent = mins > 0 ? "Time limit set to " + mins + " min." : "Time limit removed.";
-    });
+    var k = null; try { k = sessionStorage.getItem("iep099-inst"); } catch (e) {}
+    if (!k || !/^[0-9a-f]{64}$/.test(k) || !window.crypto || !crypto.subtle) return;
+    function bytes(b64) { var t = atob(b64), u = new Uint8Array(t.length); for (var i = 0; i < t.length; i++) u[i] = t.charCodeAt(i); return u; }
+    var raw = new Uint8Array(32); for (var i = 0; i < 32; i++) raw[i] = parseInt(k.substr(i * 2, 2), 16);
+    fetch("set.lock.json", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (lock) {
+      return crypto.subtle.importKey("raw", raw, { name: "AES-GCM" }, false, ["decrypt"]).then(function (key) { return crypto.subtle.decrypt({ name: "AES-GCM", iv: bytes(lock.iv) }, key, bytes(lock.data)); });
+    }).then(function (buf) {
+      var p = JSON.parse(new TextDecoder().decode(buf)), parts = p.html.split("<!--SPLIT-->"), t = document.getElementById("timerBadge");
+      if (t) t.insertAdjacentHTML("beforebegin", parts[0]); else document.querySelector(".bar").insertAdjacentHTML("beforeend", parts[0]);
+      document.body.insertAdjacentHTML("beforeend", parts[1] || "");
+      var sc = document.createElement("script"); sc.textContent = p.js; document.body.appendChild(sc);
+    }).catch(function () { try { sessionStorage.removeItem("iep099-inst"); } catch (e) {} });
   })();
 
   // ---------- one Submit locks and reveals everything; a time-out calls the same sequence ----------

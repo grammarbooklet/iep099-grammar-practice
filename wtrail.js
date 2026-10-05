@@ -29,14 +29,7 @@
       $("instOff").addEventListener("click", function () { WC.instructorLock(); location.reload(); });
       return;
     }
-    host.innerHTML = '<details class="wc-inst"><summary>Instructor access</summary><form id="instForm"><label>Passphrase<input type="password" id="instPass" autocomplete="off"></label><button type="submit" class="wc-btn">Open all stages</button><p class="wc-note" id="instMsg" aria-live="polite"></p></form></details>';
-    $("instForm").addEventListener("submit", function (e) {
-      e.preventDefault(); var msg = $("instMsg"), v = $("instPass").value; if (!v) return; msg.textContent = "Checking…";
-      WC.instructorUnlock(v).then(function (ok) {
-        if (ok) location.reload();
-        else setTimeout(function () { msg.textContent = "That passphrase isn’t right."; }, 1200);
-      });
-    });
+    host.innerHTML = ""; // access is in the top-bar menu
   }
 
   WC.index().then(function (idx) {

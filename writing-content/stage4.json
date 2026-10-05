@@ -52,7 +52,8 @@
           "options": [
             "I wake up at six.",
             "My daily routine keeps me busy and productive.",
-            "Routines are everywhere in the world."
+            "Routines are everywhere in the world.",
+            "I study in the library after class."
           ],
           "answers": [
             1
@@ -70,7 +71,8 @@
                 "options": [
                   "Sport is an important part of my week.",
                   "We play football on Monday.",
-                  "Everyone in the world likes sport."
+                  "Everyone in the world likes sport.",
+                  "Football is my favourite sport."
                 ],
                 "answers": [
                   0
@@ -87,7 +89,8 @@
           "options": [
             "The bus is the best way to travel around my city.",
             "The bus costs 300 fils.",
-            "I took a bus yesterday."
+            "I took a bus yesterday.",
+            "The bus stops outside my house."
           ],
           "answers": [
             0
@@ -105,7 +108,8 @@
                 "options": [
                   "Our school library is a wonderful place to study.",
                   "The library opens at eight.",
-                  "I borrowed a book on Monday."
+                  "I borrowed a book on Monday.",
+                  "The library has three floors."
                 ],
                 "answers": [
                   0
@@ -294,7 +298,8 @@
           "options": [
             "Many restaurants open at noon.",
             "Cooking at home saves money and helps you eat healthier food.",
-            "My friend has a red kitchen."
+            "Cooking programmes are popular on television.",
+            "Some people cook every day."
           ],
           "answers": [
             1
@@ -312,7 +317,8 @@
                 "options": [
                   "Reading improves vocabulary and helps students concentrate.",
                   "Some books are very long.",
-                  "My teacher drives a grey car."
+                  "Many people read novels on holiday.",
+                  "Libraries have thousands of books."
                 ],
                 "answers": [
                   0
@@ -329,7 +335,8 @@
           "options": [
             "It strengthens my legs and heart.",
             "I feel more energetic after a ride.",
-            "My bicycle is blue."
+            "Bicycles are cheaper than cars.",
+            "Regular rides help me sleep better."
           ],
           "answers": [
             2
@@ -399,7 +406,8 @@
           "options": [
             "Exactly one",
             "Usually two to four, enough to prove the idea",
-            "As many as possible"
+            "As many as possible",
+            "At least ten"
           ],
           "answers": [
             1
@@ -487,7 +495,8 @@
           "options": [
             "In short, walking to work is good for my money and my health.",
             "I also like swimming.",
-            "Walking is walking to work."
+            "Walking is walking to work.",
+            "Another benefit of walking is that it is quiet."
           ],
           "answers": [
             0
@@ -505,7 +514,8 @@
                 "options": [
                   "Overall, reading helps students in many useful ways.",
                   "My brother has many books.",
-                  "Reading reading reading."
+                  "In addition, many students read at night.",
+                  "Reading can also be done on a bus."
                 ],
                 "answers": [
                   0
@@ -522,7 +532,8 @@
           "options": [
             "It adds a new idea instead of closing the paragraph",
             "It is too long",
-            "It has no verb"
+            "It has no verb",
+            "It does not use a linking word"
           ],
           "answers": [
             0
@@ -684,7 +695,8 @@
           "options": [
             "Sleep helps the brain remember what we learn.",
             "Good sleep gives us more energy during the day.",
-            "I bought a blue jacket yesterday."
+            "Beds are available in many different sizes.",
+            "Rest also improves our mood."
           ],
           "answers": [
             2
@@ -701,8 +713,9 @@
                 "q": "Which sentence does NOT belong in a paragraph about the benefits of exercise?",
                 "options": [
                   "Exercise strengthens the heart.",
-                  "My neighbour has two cats.",
-                  "Regular exercise improves our mood."
+                  "Gym membership prices have risen this year.",
+                  "Regular exercise improves our mood.",
+                  "Exercise helps us sleep better."
                 ],
                 "answers": [
                   1
@@ -790,7 +803,8 @@
           "options": [
             "Move it to the start",
             "Delete it or save it for another paragraph",
-            "Add a linking word to it"
+            "Add a linking word to it",
+            "Change it into a question"
           ],
           "answers": [
             1
@@ -918,8 +932,9 @@
           "q": "Which sentence is an explanation of this example? “For example, a monthly bus pass costs less than petrol.”",
           "options": [
             "This shows that public transport can save families money.",
-            "The bus is blue.",
-            "I like buses."
+            "Bus passes are sold at stations.",
+            "Many people buy bus passes every month.",
+            "Public transport can be slow."
           ],
           "answers": [
             0
@@ -936,8 +951,9 @@
                 "q": "Which sentence is an explanation of this example? “For example, a ten-minute walk after lunch helps many people feel more alert.”",
                 "options": [
                   "This means small daily habits can improve our energy.",
-                  "Lunch is at noon.",
-                  "I walk sometimes."
+                  "Breakfast is served until ten.",
+                  "Many students skip breakfast.",
+                  "Walking can take a long time."
                 ],
                 "answers": [
                   0
@@ -971,7 +987,8 @@
           "options": [
             "Blue is the best colour for a classroom.",
             "Water freezes at 0°C.",
-            "Everyone loves summer."
+            "Everyone loves summer.",
+            "Winter is the most beautiful season."
           ],
           "answers": [
             1
@@ -990,7 +1007,8 @@
           "options": [
             "To make the paragraph longer",
             "To show how the example proves your point",
-            "To change the topic"
+            "To change the topic",
+            "To repeat the topic sentence"
           ],
           "answers": [
             1
@@ -1103,7 +1121,8 @@
           "options": [
             "Space order",
             "Time order",
-            "Order of importance"
+            "Order of importance",
+            "Order of difficulty"
           ],
           "answers": [
             1
@@ -1121,7 +1140,8 @@
                 "options": [
                   "Time order",
                   "Space order",
-                  "Order of importance"
+                  "Order of importance",
+                  "Order of difficulty"
                 ],
                 "answers": [
                   0
@@ -1138,7 +1158,8 @@
           "options": [
             "Time order",
             "Space order",
-            "Order of importance"
+            "Order of importance",
+            "Cause and effect order"
           ],
           "answers": [
             1
@@ -1188,7 +1209,8 @@
           "options": [
             "Most importantly, the course is free.",
             "Then, the course starts at nine.",
-            "On the left, there is a classroom."
+            "On the left, there is a classroom.",
+            "First, you register online."
           ],
           "answers": [
             0
@@ -1270,7 +1292,8 @@
           "options": [
             "However",
             "Moreover",
-            "Therefore"
+            "Therefore",
+            "For example"
           ],
           "answers": [
             1
@@ -1288,7 +1311,8 @@
                 "options": [
                   "In addition",
                   "However",
-                  "As a result"
+                  "As a result",
+                  "In contrast"
                 ],
                 "answers": [
                   0
@@ -1305,7 +1329,8 @@
           "options": [
             "The park is large. The park is clean. The park is quiet.",
             "The park is large, clean and quiet.",
-            "Large park. Clean park. Quiet park."
+            "Large park. Clean park. Quiet park.",
+            "The park is large, it is clean, it is quiet."
           ],
           "answers": [
             1
@@ -1343,7 +1368,8 @@
           "options": [
             "It also reduces traffic in the city.",
             "My shoes are comfortable.",
-            "Today is Tuesday."
+            "Today is Tuesday.",
+            "Many people drive to work."
           ],
           "answers": [
             0
@@ -1455,7 +1481,8 @@
           "options": [
             "Ali told Hamad that he was late.",
             "Ali told Hamad that Hamad was late.",
-            "The bus was late, so it was crowded."
+            "The bus was late, so it was crowded.",
+            "Rana took her bag and left."
           ],
           "answers": [
             0
@@ -1473,7 +1500,8 @@
                 "options": [
                   "Layla called Rana because she was worried.",
                   "The library is old, and it is very quiet.",
-                  "My brother lost his keys."
+                  "My brother lost his keys.",
+                  "Sami thanked Omar for the lift."
                 ],
                 "answers": [
                   0
@@ -1507,7 +1535,8 @@
           "options": [
             "It",
             "They",
-            "She"
+            "She",
+            "We"
           ],
           "answers": [
             1
@@ -1645,7 +1674,8 @@
           "options": [
             "The room was nice.",
             "The room was small, bright and full of old books.",
-            "I liked the room."
+            "I liked the room.",
+            "The room was very good."
           ],
           "answers": [
             1
@@ -1663,7 +1693,8 @@
                 "options": [
                   "The garden was lovely.",
                   "The garden was full of red roses and tall palm trees.",
-                  "I enjoyed the garden."
+                  "I enjoyed the garden.",
+                  "The garden was big and nice."
                 ],
                 "answers": [
                   1
@@ -1732,7 +1763,8 @@
           "options": [
             "The beach near my house is calm and beautiful at sunset.",
             "I went to the beach last week.",
-            "Beaches have sand."
+            "Beaches have sand.",
+            "The beach is a popular place."
           ],
           "answers": [
             0
@@ -1751,7 +1783,8 @@
           "options": [
             "From the door to the far wall",
             "In a random order",
-            "Only the ceiling"
+            "Only the ceiling",
+            "From the smallest object to the biggest"
           ],
           "answers": [
             0
@@ -1839,7 +1872,8 @@
           "options": [
             "Last winter, I got stuck in a snowstorm on the way to school.",
             "Snow is white.",
-            "I like winter."
+            "I like winter.",
+            "Winter is a cold season."
           ],
           "answers": [
             0
@@ -1857,7 +1891,8 @@
                 "options": [
                   "Two years ago, my train stopped in the middle of the desert.",
                   "Trains are fast.",
-                  "I enjoy travelling."
+                  "I enjoy travelling.",
+                  "Many people travel by train."
                 ],
                 "answers": [
                   0
@@ -1922,7 +1957,8 @@
           "options": [
             "First, next, finally",
             "However, moreover, therefore",
-            "For example, such as, including"
+            "For example, such as, including",
+            "Because, since, although"
           ],
           "answers": [
             0
@@ -2027,7 +2063,8 @@
           "options": [
             "In my opinion, public libraries are essential for students.",
             "Libraries have books.",
-            "There is a library near my house."
+            "There is a library near my house.",
+            "Public libraries open early."
           ],
           "answers": [
             0
@@ -2045,7 +2082,8 @@
                 "options": [
                   "I believe schools should start later in the morning.",
                   "School starts at eight.",
-                  "There are many schools."
+                  "There are many schools.",
+                  "Schools have long corridors."
                 ],
                 "answers": [
                   0
@@ -2062,7 +2100,8 @@
           "options": [
             "Homework is bad because it takes time from family life.",
             "Homework is bad.",
-            "I think homework is bad."
+            "I think homework is bad.",
+            "Homework is very bad for students."
           ],
           "answers": [
             0
@@ -2131,7 +2170,8 @@
           "options": [
             "For these reasons, students should learn to cook.",
             "Also, I like pizza.",
-            "Many students are busy."
+            "Many students are busy.",
+            "In addition, cooking is fun."
           ],
           "answers": [
             0
@@ -2250,7 +2290,8 @@
           "options": [
             "Preparing for an exam takes four simple steps.",
             "Exams are hard.",
-            "I had an exam yesterday."
+            "I had an exam yesterday.",
+            "Exams are held in the winter."
           ],
           "answers": [
             0
@@ -2268,7 +2309,8 @@
                 "options": [
                   "Sending a formal email involves a few clear steps.",
                   "Emails are common.",
-                  "I sent an email today."
+                  "I sent an email today.",
+                  "Email is a fast way to write."
                 ],
                 "answers": [
                   0
@@ -2337,7 +2379,8 @@
           "options": [
             "First",
             "Next",
-            "Finally"
+            "Finally",
+            "Meanwhile"
           ],
           "answers": [
             2

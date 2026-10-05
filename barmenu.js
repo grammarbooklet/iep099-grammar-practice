@@ -33,8 +33,42 @@
       panel.appendChild(entry("my-writing.html#badges", "Writing Center progress", '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>'));
     }
 
+    // Instructor access lives in this menu (Writing Center pages only): it opens a small passphrase box.
+    if (!instructor && window.WC && WC.instructorUnlock) {
+      var ib = document.createElement("button"); ib.type = "button";
+      ib.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/></svg><span>Instructor access</span>';
+      panel.appendChild(ib);
+      var active = false;
+      WC.index().then(function (idx) { active = !!idx.instructor; if (active) ib.querySelector("span").textContent = "Exit instructor view"; });
+      ib.addEventListener("click", function (e) {
+        e.stopPropagation(); close(false);
+        if (active) { WC.instructorLock(); location.reload(); return; }
+        openInstructorBox();
+      });
+    }
+    function openInstructorBox() {
+      var old = document.getElementById("instSheet"); if (old) old.remove();
+      var s = document.createElement("div"); s.id = "instSheet"; s.className = "inst-sheet";
+      s.innerHTML = '<form class="inst-card" role="dialog" aria-modal="true" aria-label="Instructor access"><button type="button" class="inst-x" aria-label="Close">×</button><h3>Instructor access</h3><p>Enter the passphrase to open every stage in this tab.</p><input type="password" autocomplete="off" aria-label="Passphrase"><button type="submit" class="inst-go">Open all stages</button><p class="inst-msg" aria-live="polite"></p></form>';
+      document.body.appendChild(s);
+      var f = s.querySelector("form"), inp = s.querySelector("input"), msg = s.querySelector(".inst-msg");
+      function shut() { s.remove(); document.removeEventListener("keydown", key); }
+      function key(ev) { if (ev.key === "Escape") shut(); }
+      document.addEventListener("keydown", key);
+      s.querySelector(".inst-x").addEventListener("click", shut);
+      s.addEventListener("click", function (ev) { if (ev.target === s) shut(); });
+      f.addEventListener("submit", function (ev) {
+        ev.preventDefault(); if (!inp.value) return; msg.textContent = "Checking…";
+        WC.instructorUnlock(inp.value).then(function (ok) {
+          if (ok) location.reload(); else setTimeout(function () { msg.textContent = "That passphrase isn’t right."; }, 1200);
+        });
+      });
+      inp.focus();
+    }
+
     function close(focusBtn) { panel.hidden = true; btn.setAttribute("aria-expanded", "false"); if (focusBtn) btn.focus(); }
-    function open() { panel.hidden = false; btn.setAttribute("aria-expanded", "true"); var f = panel.querySelector("a, button"); if (f) f.focus(); }
+    var openedAt = 0;
+    function open() { openedAt = Date.now(); panel.hidden = false; btn.setAttribute("aria-expanded", "true"); var f = panel.querySelector("a, button"); if (f) { try { f.focus({ preventScroll: true }); } catch (e) { f.focus(); } } }
 
     // display settings: the existing settings button stays in the page but out of sight; this row opens its panel
     var ghost = bar.querySelector(".a11y-btn");
@@ -48,6 +82,9 @@
 
     btn.addEventListener("click", function (e) { e.stopPropagation(); if (panel.hidden) open(); else close(false); });
     document.addEventListener("click", function (e) { if (!panel.hidden && !wrap.contains(e.target)) close(false); });
+    // On a phone the menu also closes as soon as you touch the screen anywhere else, or scroll the page.
+    document.addEventListener("touchstart", function (e) { if (!panel.hidden && !wrap.contains(e.target)) close(false); }, { passive: true });
+    window.addEventListener("scroll", function () { if (!panel.hidden && Date.now() - openedAt > 350) close(false); }, { passive: true });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hidden) close(true); });
 
     // order in the bar: ... title · badges · menu

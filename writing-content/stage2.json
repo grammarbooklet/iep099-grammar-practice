@@ -5,23 +5,57 @@
       "format": "v2",
       "skill": "simple",
       "goal": "Recognise and write a simple sentence: one subject-verb group that can stand alone.",
-      "warmup": { "skills": ["complete", "fragment"], "count": 2 },
+      "warmup": {
+        "skills": [
+          "complete",
+          "fragment"
+        ],
+        "count": 2
+      },
       "spot": {
         "intro": "Tap each sentence to see what makes it simple.",
         "sentences": [
-          { "t": "Maya plays tennis.", "role": "topic", "label": "Simple sentence", "note": "One subject (Maya) and one verb (plays)." },
-          { "t": "Maya plays tennis on Saturday mornings at the club.", "role": "support", "label": "Still simple", "note": "More detail doesn’t change the type. There is still one subject and one verb." },
-          { "t": "Maya and her sister play tennis.", "role": "support", "label": "Still simple", "note": "Two subjects share one verb. It is still one idea." },
-          { "t": "Maya plays tennis and swims.", "role": "concluding", "label": "Still simple", "note": "Two verbs share one subject. It is still one idea." }
+          {
+            "t": "Maya plays tennis.",
+            "role": "topic",
+            "label": "Simple sentence",
+            "note": "One subject (Maya) and one verb (plays)."
+          },
+          {
+            "t": "Maya plays tennis on Saturday mornings at the club.",
+            "role": "support",
+            "label": "Still simple",
+            "note": "More detail doesn’t change the type. There is still one subject and one verb."
+          },
+          {
+            "t": "Maya and her sister play tennis.",
+            "role": "support",
+            "label": "Still simple",
+            "note": "Two subjects share one verb. It is still one idea."
+          },
+          {
+            "t": "Maya plays tennis and swims.",
+            "role": "concluding",
+            "label": "Still simple",
+            "note": "Two verbs share one subject. It is still one idea."
+          }
         ],
         "takeaway": "A **simple sentence** has **one independent clause**: one subject-verb group that can stand alone. It can be short or long."
       },
       "practice": [
         {
-          "type": "choose", "skill": "simple",
+          "type": "choose",
+          "skill": "simple",
           "q": "Which is a simple sentence?",
-          "options": ["Because the bus was late.", "The bus was late, so we walked.", "The bus arrived late at the station."],
-          "answers": [2],
+          "options": [
+            "Because the bus was late.",
+            "The bus was late, so we walked.",
+            "The bus arrived late at the station.",
+            "When the bus arrived at the station."
+          ],
+          "answers": [
+            2
+          ],
           "why": "It has one subject (the bus) and one verb (arrived), and it stands alone.",
           "help": {
             "nudge": "Count the subject-verb groups. A simple sentence has only one.",
@@ -29,23 +63,48 @@
             "worked": "“The bus arrived late at the station.” has one group (the bus + arrived). “The bus was late, so we walked.” has two (the bus was late / we walked).",
             "variants": [
               {
-                "type": "choose", "skill": "simple",
+                "type": "choose",
+                "skill": "simple",
                 "q": "Which is a simple sentence?",
-                "options": ["My uncle repairs old watches in his small shop.", "My uncle repairs watches, and his son sells them.", "When my uncle repairs watches."],
-                "answers": [0], "why": "One subject-verb group: my uncle repairs."
+                "options": [
+                  "My uncle repairs old watches in his small shop.",
+                  "My uncle repairs watches, and his son sells them.",
+                  "When my uncle repairs watches.",
+                  "My uncle repairs watches because they break often."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "One subject-verb group: my uncle repairs."
               }
             ]
           }
         },
         {
-          "type": "sort", "skill": "simple",
+          "type": "sort",
+          "skill": "simple",
           "q": "Is each sentence simple or not simple?",
-          "cats": ["Simple", "Not simple"],
+          "cats": [
+            "Simple",
+            "Not simple"
+          ],
           "items": [
-            { "t": "Our team won the match.", "c": 0 },
-            { "t": "Our team won the match, and we celebrated.", "c": 1 },
-            { "t": "The children played in the garden after lunch.", "c": 0 },
-            { "t": "Although it rained, we played outside.", "c": 1 }
+            {
+              "t": "Our team won the match.",
+              "c": 0
+            },
+            {
+              "t": "Our team won the match, and we celebrated.",
+              "c": 1
+            },
+            {
+              "t": "The children played in the garden after lunch.",
+              "c": 0
+            },
+            {
+              "t": "Although it rained, we played outside.",
+              "c": 1
+            }
           ],
           "why": "A simple sentence has one subject-verb group. The other two have two.",
           "help": {
@@ -55,11 +114,14 @@
           }
         },
         {
-          "type": "fix", "skill": "simple",
+          "type": "fix",
+          "skill": "simple",
           "q": "Make this simple sentence longer by adding where and when. Keep one subject-verb group.",
           "show": "The baker works.",
           "accept": [],
-          "patterns": ["^The baker works (?!.*\\b(and|but|so|because|when|while|although|if|which|who)\\b)[^,;.!?]{8,}\\.$"],
+          "patterns": [
+            "^The baker works (?!.*\\b(and|but|so|because|when|while|although|if|which|who)\\b)[^,;.!?]{8,}\\.$"
+          ],
           "example": "The baker works at a small shop every morning.",
           "why": "Many answers work. Add details such as where, when or what kind, but don’t add a second subject and verb.",
           "help": {
@@ -68,11 +130,14 @@
             "worked": "“The baker works at a small shop every morning.” adds where and when. There is still one subject (the baker) and one verb (works).",
             "variants": [
               {
-                "type": "fix", "skill": "simple",
+                "type": "fix",
+                "skill": "simple",
                 "q": "Make this simple sentence longer by adding where and when. Keep one subject-verb group.",
                 "show": "The students study.",
                 "accept": [],
-                "patterns": ["^The students study (?!.*\\b(and|but|so|because|when|while|although|if|which|who)\\b)[^,;.!?]{8,}\\.$"],
+                "patterns": [
+                  "^The students study (?!.*\\b(and|but|so|because|when|while|although|if|which|who)\\b)[^,;.!?]{8,}\\.$"
+                ],
                 "example": "The students study in the library after class.",
                 "why": "Add details, but keep one subject-verb group."
               }
@@ -80,10 +145,21 @@
           }
         },
         {
-          "type": "order", "skill": "simple",
+          "type": "order",
+          "skill": "simple",
           "q": "Put the words in order to make a simple sentence.",
-          "pieces": ["walked", "We", "the", "river", "along", "after", "dinner."],
-          "answers": ["We walked along the river after dinner."],
+          "pieces": [
+            "walked",
+            "We",
+            "the",
+            "river",
+            "along",
+            "after",
+            "dinner."
+          ],
+          "answers": [
+            "We walked along the river after dinner."
+          ],
           "why": "One subject (We), one verb (walked), then the details.",
           "help": {
             "nudge": "Start with who did it.",
@@ -92,10 +168,18 @@
           }
         },
         {
-          "type": "choose", "skill": "simple",
+          "type": "choose",
+          "skill": "simple",
           "q": "Which sentence is simple, even though it is long?",
-          "options": ["Every Friday evening my parents visit my grandmother in the old part of the city.", "My parents visit my grandmother, and they bring her fruit.", "My parents visit my grandmother because she lives alone."],
-          "answers": [0],
+          "options": [
+            "Every Friday evening my parents visit my grandmother in the old part of the city.",
+            "My parents visit my grandmother, and they bring her fruit.",
+            "My parents visit my grandmother because she lives alone.",
+            "Although my parents are busy, they visit my grandmother on Fridays."
+          ],
+          "answers": [
+            0
+          ],
           "why": "It has only one subject-verb group (my parents visit). The other two have two.",
           "help": {
             "nudge": "Length doesn’t matter. Count the subject-verb groups.",
@@ -109,35 +193,74 @@
         "minWords": 8,
         "placeholder": "My neighbourhood has …",
         "checks": [
-          { "t": "Each sentence has one subject-verb group (details are fine).", "auto": null },
-          { "t": "I added details (where, when or what kind).", "auto": null },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "Each sentence has one subject-verb group (details are fine).",
+            "auto": null
+          },
+          {
+            "t": "I added details (where, when or what kind).",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
-        "focus": ["Add a detail", "Make it clearer", "Check capitals and full stops"],
+        "focus": [
+          "Add a detail",
+          "Make it clearer",
+          "Check capitals and full stops"
+        ],
         "sample": "My neighbourhood has a small park near the school. Children play football there after lessons."
       }
     },
-
     "2.2": {
       "format": "v2",
       "skill": "cv",
       "goal": "Join two subjects or two verbs inside one simple sentence.",
-      "warmup": { "skills": ["simple", "complete"], "count": 2 },
+      "warmup": {
+        "skills": [
+          "simple",
+          "complete"
+        ],
+        "count": 2
+      },
       "spot": {
         "intro": "Tap each sentence to see what is joined.",
         "sentences": [
-          { "t": "Sara and Omar study together.", "role": "topic", "label": "Compound subject", "note": "Two subjects, one verb. The verb is plural: study." },
-          { "t": "Sara studies at night and works in the morning.", "role": "support", "label": "Compound verb", "note": "One subject, two verbs. No comma is needed." },
-          { "t": "My mother and my aunt cook and serve the food.", "role": "concluding", "label": "Both together", "note": "Two subjects and two verbs. It is still one clause, so it is still simple." }
+          {
+            "t": "Sara and Omar study together.",
+            "role": "topic",
+            "label": "Compound subject",
+            "note": "Two subjects, one verb. The verb is plural: study."
+          },
+          {
+            "t": "Sara studies at night and works in the morning.",
+            "role": "support",
+            "label": "Compound verb",
+            "note": "One subject, two verbs. No comma is needed."
+          },
+          {
+            "t": "My mother and my aunt cook and serve the food.",
+            "role": "concluding",
+            "label": "Both together",
+            "note": "Two subjects and two verbs. It is still one clause, so it is still simple."
+          }
         ],
         "takeaway": "Join subjects or verbs with **and** or **or**. It is still one clause, so you don’t need a comma."
       },
       "practice": [
         {
-          "type": "tap", "skill": "cv",
+          "type": "tap",
+          "skill": "cv",
           "q": "Tap the two subjects.",
           "text": "Hamad and Ali play football every Friday.",
-          "answers": [[0, 2]],
+          "answers": [
+            [
+              0,
+              2
+            ]
+          ],
           "why": "“Hamad” and “Ali” are the two subjects. They share the verb “play”.",
           "help": {
             "nudge": "Who plays football? There are two answers.",
@@ -145,20 +268,35 @@
             "worked": "Hamad and Ali are both doing the action, so both are subjects.",
             "variants": [
               {
-                "type": "tap", "skill": "cv",
+                "type": "tap",
+                "skill": "cv",
                 "q": "Tap the two subjects.",
                 "text": "Layla and her cousin visit the museum on Sundays.",
-                "answers": [[0, 2, 3]],
+                "answers": [
+                  [
+                    0,
+                    2,
+                    3
+                  ]
+                ],
                 "why": "“Layla” and “her cousin” are the subjects."
               }
             ]
           }
         },
         {
-          "type": "choose", "skill": "cv",
+          "type": "choose",
+          "skill": "cv",
           "q": "Which sentence is correct?",
-          "options": ["Rana and her cousin studies English.", "Rana and her cousin study English.", "Rana and her cousin is studying English."],
-          "answers": [1],
+          "options": [
+            "Rana and her cousin studies English.",
+            "Rana and her cousin study English.",
+            "Rana and her cousin is studying English.",
+            "Rana, and her cousin, study English."
+          ],
+          "answers": [
+            1
+          ],
           "why": "Two subjects joined by “and” need a plural verb: study.",
           "help": {
             "nudge": "Is the subject one person, or more than one?",
@@ -166,20 +304,35 @@
             "worked": "Rana + her cousin = two people, so the verb is “study” (not “studies”).",
             "variants": [
               {
-                "type": "choose", "skill": "cv",
+                "type": "choose",
+                "skill": "cv",
                 "q": "Which sentence is correct?",
-                "options": ["Ali and Hamad plays chess.", "Ali and Hamad play chess.", "Ali and Hamad is playing chess."],
-                "answers": [1], "why": "Two subjects with “and” take a plural verb."
+                "options": [
+                  "Ali and Hamad plays chess.",
+                  "Ali and Hamad play chess.",
+                  "Ali and Hamad is playing chess.",
+                  "Ali, and Hamad, play chess."
+                ],
+                "answers": [
+                  1
+                ],
+                "why": "Two subjects with “and” take a plural verb."
               }
             ]
           }
         },
         {
-          "type": "fix", "skill": "cv",
+          "type": "fix",
+          "skill": "cv",
           "q": "Combine the two sentences into one with a compound verb. No comma.",
           "show": "Lina cooks dinner. Lina washes the dishes.",
-          "accept": ["Lina cooks dinner and washes the dishes.", "Lina cooks dinner and then washes the dishes."],
-          "patterns": ["^Lina cooks (the )?dinner and (then )?washes (the )?dishes\\.$"],
+          "accept": [
+            "Lina cooks dinner and washes the dishes.",
+            "Lina cooks dinner and then washes the dishes."
+          ],
+          "patterns": [
+            "^Lina cooks (the )?dinner and (then )?washes (the )?dishes\\.$"
+          ],
           "example": "Lina cooks dinner and washes the dishes.",
           "why": "Both verbs share one subject, so join them with “and”. You don’t repeat “Lina”.",
           "help": {
@@ -188,11 +341,16 @@
             "worked": "Lina cooks dinner and washes the dishes.",
             "variants": [
               {
-                "type": "fix", "skill": "cv",
+                "type": "fix",
+                "skill": "cv",
                 "q": "Combine the two sentences into one with a compound verb. No comma.",
                 "show": "Karim opens the shop. Karim sells fruit.",
-                "accept": ["Karim opens the shop and sells fruit."],
-                "patterns": ["^Karim opens the shop and (then )?sells (the )?fruit\\.$"],
+                "accept": [
+                  "Karim opens the shop and sells fruit."
+                ],
+                "patterns": [
+                  "^Karim opens the shop and (then )?sells (the )?fruit\\.$"
+                ],
                 "example": "Karim opens the shop and sells fruit.",
                 "why": "One subject, two verbs joined by and."
               }
@@ -200,10 +358,18 @@
           }
         },
         {
-          "type": "choose", "skill": "cv",
+          "type": "choose",
+          "skill": "cv",
           "q": "Which sentence is punctuated correctly?",
-          "options": ["Sara studies at night, and works in the morning.", "Sara studies at night and works in the morning.", "Sara studies at night; and works in the morning."],
-          "answers": [1],
+          "options": [
+            "Sara studies at night, and works in the morning.",
+            "Sara studies at night and works in the morning.",
+            "Sara studies at night; and works in the morning.",
+            "Sara studies at night, and, works in the morning."
+          ],
+          "answers": [
+            1
+          ],
           "why": "A compound verb is not a new clause, so there is no comma.",
           "help": {
             "nudge": "Does “works in the morning” have its own subject?",
@@ -212,10 +378,14 @@
           }
         },
         {
-          "type": "fix", "skill": "cv",
+          "type": "fix",
+          "skill": "cv",
           "q": "Combine the two sentences into one with a compound subject.",
           "show": "Omar likes tea. Fatima likes tea.",
-          "accept": ["Omar and Fatima like tea.", "Fatima and Omar like tea."],
+          "accept": [
+            "Omar and Fatima like tea.",
+            "Fatima and Omar like tea."
+          ],
           "patterns": [],
           "example": "Omar and Fatima like tea.",
           "why": "Join the subjects with “and”. The verb changes to “like”.",
@@ -225,10 +395,14 @@
             "worked": "Omar and Fatima like tea.",
             "variants": [
               {
-                "type": "fix", "skill": "cv",
+                "type": "fix",
+                "skill": "cv",
                 "q": "Combine the two sentences into one with a compound subject.",
                 "show": "Ali plays chess. Hamad plays chess.",
-                "accept": ["Ali and Hamad play chess.", "Hamad and Ali play chess."],
+                "accept": [
+                  "Ali and Hamad play chess.",
+                  "Hamad and Ali play chess."
+                ],
                 "patterns": [],
                 "example": "Ali and Hamad play chess.",
                 "why": "Two subjects, one plural verb."
@@ -242,36 +416,83 @@
         "minWords": 10,
         "placeholder": "My sister and I …",
         "checks": [
-          { "t": "One sentence has two subjects joined by and / or.", "auto": null },
-          { "t": "One sentence has two verbs joined by and / or, with no comma.", "auto": null },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "One sentence has two subjects joined by and / or.",
+            "auto": null
+          },
+          {
+            "t": "One sentence has two verbs joined by and / or, with no comma.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
-        "focus": ["Make it clearer", "Add a detail", "Check the verbs"],
+        "focus": [
+          "Make it clearer",
+          "Add a detail",
+          "Check the verbs"
+        ],
         "sample": "My sister and I walk to school together. We talk and laugh all the way."
       }
     },
-
     "2.3": {
       "format": "v2",
       "skill": "fanboys",
       "goal": "Join two complete sentences with a comma and a FANBOYS word.",
-      "warmup": { "skills": ["runon", "splice", "cv"], "count": 2 },
+      "warmup": {
+        "skills": [
+          "runon",
+          "splice",
+          "cv"
+        ],
+        "count": 2
+      },
       "spot": {
         "intro": "FANBOYS: **F**or, **A**nd, **N**or, **B**ut, **O**r, **Y**et, **S**o. Tap each sentence.",
         "sentences": [
-          { "t": "The shop was closed, so we went home.", "role": "topic", "label": "so = result", "note": "Two complete sentences joined by a comma + so." },
-          { "t": "I like tea, but my brother prefers coffee.", "role": "support", "label": "but = contrast", "note": "But shows a contrast." },
-          { "t": "You can take the bus, or you can walk.", "role": "support", "label": "or = choice", "note": "Or offers a choice." },
-          { "t": "She was ill, yet she came to class.", "role": "concluding", "label": "yet = surprise", "note": "Yet shows something unexpected." }
+          {
+            "t": "The shop was closed, so we went home.",
+            "role": "topic",
+            "label": "so = result",
+            "note": "Two complete sentences joined by a comma + so."
+          },
+          {
+            "t": "I like tea, but my brother prefers coffee.",
+            "role": "support",
+            "label": "but = contrast",
+            "note": "But shows a contrast."
+          },
+          {
+            "t": "You can take the bus, or you can walk.",
+            "role": "support",
+            "label": "or = choice",
+            "note": "Or offers a choice."
+          },
+          {
+            "t": "She was ill, yet she came to class.",
+            "role": "concluding",
+            "label": "yet = surprise",
+            "note": "Yet shows something unexpected."
+          }
         ],
         "takeaway": "A **compound sentence** = complete sentence + **comma** + **FANBOYS word** + complete sentence."
       },
       "practice": [
         {
-          "type": "choose", "skill": "fanboys",
+          "type": "choose",
+          "skill": "fanboys",
           "q": "Which is a correct compound sentence?",
-          "options": ["I wanted to go, but it was too late.", "I wanted to go but, it was too late.", "I wanted to go, it was too late."],
-          "answers": [0],
+          "options": [
+            "I wanted to go, but it was too late.",
+            "I wanted to go but, it was too late.",
+            "I wanted to go, it was too late.",
+            "I wanted to go; but it was too late."
+          ],
+          "answers": [
+            0
+          ],
           "why": "A comma comes before the joining word, and both parts are complete sentences.",
           "help": {
             "nudge": "Where does the comma go: before or after the joining word?",
@@ -279,19 +500,36 @@
             "worked": "“I wanted to go” + , + but + “it was too late”.",
             "variants": [
               {
-                "type": "choose", "skill": "fanboys",
+                "type": "choose",
+                "skill": "fanboys",
                 "q": "Which is a correct compound sentence?",
-                "options": ["The film was long, yet we enjoyed it.", "The film was long yet, we enjoyed it.", "The film was long, we enjoyed it."],
-                "answers": [0], "why": "Comma before “yet”, and both parts are complete."
+                "options": [
+                  "The film was long, yet we enjoyed it.",
+                  "The film was long yet, we enjoyed it.",
+                  "The film was long, we enjoyed it.",
+                  "The film was long; yet we enjoyed it."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "Comma before “yet”, and both parts are complete."
               }
             ]
           }
         },
         {
-          "type": "choose", "skill": "fanboys",
+          "type": "choose",
+          "skill": "fanboys",
           "q": "Choose the best joining word: “The test was difficult, ___ I passed it.”",
-          "options": ["so", "but", "or"],
-          "answers": [1],
+          "options": [
+            "so",
+            "but",
+            "or",
+            "for"
+          ],
+          "answers": [
+            1
+          ],
           "why": "“But” shows a contrast: it was difficult, yet I passed.",
           "help": {
             "nudge": "Is the second part a result, or a surprise?",
@@ -300,11 +538,14 @@
           }
         },
         {
-          "type": "fix", "skill": "fanboys",
+          "type": "fix",
+          "skill": "fanboys",
           "q": "Join the sentences with a comma and a joining word.",
           "show": "It was late. We kept walking.",
           "accept": [],
-          "patterns": ["^It was late, (but|yet|and|so) we kept walking\\.$"],
+          "patterns": [
+            "^It was late, (but|yet|and|so) we kept walking\\.$"
+          ],
           "example": "It was late, but we kept walking.",
           "why": "Several joining words work: but and yet show contrast, and adds, so shows a result.",
           "help": {
@@ -313,11 +554,14 @@
             "worked": "It was late, but we kept walking.",
             "variants": [
               {
-                "type": "fix", "skill": "fanboys",
+                "type": "fix",
+                "skill": "fanboys",
                 "q": "Join the sentences with a comma and a joining word.",
                 "show": "The bus was full. We waited for the next one.",
                 "accept": [],
-                "patterns": ["^The bus was full, (so|and) we waited for the next one\\.$"],
+                "patterns": [
+                  "^The bus was full, (so|and) we waited for the next one\\.$"
+                ],
                 "example": "The bus was full, so we waited for the next one.",
                 "why": "So shows the result; and also works."
               }
@@ -325,10 +569,13 @@
           }
         },
         {
-          "type": "fix", "skill": "fanboys",
+          "type": "fix",
+          "skill": "fanboys",
           "q": "Add the missing comma.",
           "show": "She likes coffee but he prefers tea.",
-          "accept": ["She likes coffee, but he prefers tea."],
+          "accept": [
+            "She likes coffee, but he prefers tea."
+          ],
           "patterns": [],
           "example": "She likes coffee, but he prefers tea.",
           "why": "A compound sentence needs a comma before the joining word.",
@@ -339,10 +586,23 @@
           }
         },
         {
-          "type": "order", "skill": "fanboys",
+          "type": "order",
+          "skill": "fanboys",
           "q": "Put the words in order.",
-          "pieces": ["We", "could", "take", "a", "taxi,", "or", "we", "could", "walk."],
-          "answers": ["We could take a taxi, or we could walk."],
+          "pieces": [
+            "We",
+            "could",
+            "take",
+            "a",
+            "taxi,",
+            "or",
+            "we",
+            "could",
+            "walk."
+          ],
+          "answers": [
+            "We could take a taxi, or we could walk."
+          ],
           "why": "Two complete sentences, joined by a comma and “or”.",
           "help": {
             "nudge": "Which word joins the two parts? The comma comes right before it.",
@@ -356,35 +616,77 @@
         "minWords": 14,
         "placeholder": "I want to …, but …",
         "checks": [
-          { "t": "Each half could stand alone as a sentence.", "auto": null },
-          { "t": "I used a comma before the joining word.", "auto": "commaJoin" },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "Each half could stand alone as a sentence.",
+            "auto": null
+          },
+          {
+            "t": "I used a comma before the joining word.",
+            "auto": "commaJoin"
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
-        "focus": ["Make it clearer", "Check the commas", "Try a different joining word"],
+        "focus": [
+          "Make it clearer",
+          "Check the commas",
+          "Try a different joining word"
+        ],
         "sample": "I want to visit the beach, but the weather may be cold. We could go to the cinema, or we could stay home."
       }
     },
-
     "2.4": {
       "format": "v2",
       "skill": "semi",
       "goal": "Join two closely related complete sentences with a semicolon.",
-      "warmup": { "skills": ["fanboys", "splice", "runon"], "count": 2 },
+      "warmup": {
+        "skills": [
+          "fanboys",
+          "splice",
+          "runon"
+        ],
+        "count": 2
+      },
       "spot": {
         "intro": "A semicolon works like a full stop that keeps two ideas close. Tap each sentence.",
         "sentences": [
-          { "t": "The library closes at nine; students must leave by then.", "role": "topic", "label": "Semicolon", "note": "It joins two complete sentences that are closely related." },
-          { "t": "She loves music; her brother prefers sports.", "role": "support", "label": "No joining word", "note": "No and / but / so is needed after the semicolon." },
-          { "t": "The soup was cold; I ordered another one.", "role": "concluding", "label": "Cause and result", "note": "Both sides could stand alone as sentences." }
+          {
+            "t": "The library closes at nine; students must leave by then.",
+            "role": "topic",
+            "label": "Semicolon",
+            "note": "It joins two complete sentences that are closely related."
+          },
+          {
+            "t": "She loves music; her brother prefers sports.",
+            "role": "support",
+            "label": "No joining word",
+            "note": "No and / but / so is needed after the semicolon."
+          },
+          {
+            "t": "The soup was cold; I ordered another one.",
+            "role": "concluding",
+            "label": "Cause and result",
+            "note": "Both sides could stand alone as sentences."
+          }
         ],
         "takeaway": "**Complete sentence ; complete sentence.** Use it instead of a full stop for two closely linked ideas. Don’t add and / but / so after it."
       },
       "practice": [
         {
-          "type": "choose", "skill": "semi",
+          "type": "choose",
+          "skill": "semi",
           "q": "Which sentence uses a semicolon correctly?",
-          "options": ["The bus was late; we walked home.", "The bus was late; so we walked home.", "The bus; was late, we walked."],
-          "answers": [0],
+          "options": [
+            "The bus was late; we walked home.",
+            "The bus was late; so we walked home.",
+            "The bus; was late, we walked.",
+            "The bus was late, we walked home."
+          ],
+          "answers": [
+            0
+          ],
           "why": "Both sides are complete sentences, and there is no joining word after the semicolon.",
           "help": {
             "nudge": "Can both sides stand alone? And is there a joining word after the semicolon?",
@@ -392,23 +694,48 @@
             "worked": "“The bus was late” and “we walked home” are both complete, so the semicolon works. In option 2, “so” should not follow it.",
             "variants": [
               {
-                "type": "choose", "skill": "semi",
+                "type": "choose",
+                "skill": "semi",
                 "q": "Which sentence uses a semicolon correctly?",
-                "options": ["It rained all morning; the match was cancelled.", "It rained all morning; and the match was cancelled.", "It rained; all morning the match, was cancelled."],
-                "answers": [0], "why": "Two complete sentences, no joining word after the semicolon."
+                "options": [
+                  "It rained all morning; the match was cancelled.",
+                  "It rained all morning; and the match was cancelled.",
+                  "It rained; all morning the match, was cancelled.",
+                  "It rained all morning, the match was cancelled."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "Two complete sentences, no joining word after the semicolon."
               }
             ]
           }
         },
         {
-          "type": "sort", "skill": "semi",
+          "type": "sort",
+          "skill": "semi",
           "q": "Is the semicolon correct?",
-          "cats": ["Correct", "Not correct"],
+          "cats": [
+            "Correct",
+            "Not correct"
+          ],
           "items": [
-            { "t": "I like tea; my sister likes coffee.", "c": 0 },
-            { "t": "I like tea; and my sister likes coffee.", "c": 1 },
-            { "t": "Because I was tired; I slept.", "c": 1 },
-            { "t": "The shop opens at nine; it closes at six.", "c": 0 }
+            {
+              "t": "I like tea; my sister likes coffee.",
+              "c": 0
+            },
+            {
+              "t": "I like tea; and my sister likes coffee.",
+              "c": 1
+            },
+            {
+              "t": "Because I was tired; I slept.",
+              "c": 1
+            },
+            {
+              "t": "The shop opens at nine; it closes at six.",
+              "c": 0
+            }
           ],
           "why": "Both sides must be complete sentences, with no joining word after the semicolon.",
           "help": {
@@ -418,10 +745,13 @@
           }
         },
         {
-          "type": "fix", "skill": "semi",
+          "type": "fix",
+          "skill": "semi",
           "q": "Join the sentences with a semicolon instead of a full stop.",
           "show": "The museum is free. Everyone is welcome.",
-          "accept": ["The museum is free; everyone is welcome."],
+          "accept": [
+            "The museum is free; everyone is welcome."
+          ],
           "patterns": [],
           "example": "The museum is free; everyone is welcome.",
           "why": "After a semicolon, the next word starts with a small letter (unless it is a name).",
@@ -431,10 +761,13 @@
             "worked": "The museum is free; everyone is welcome.",
             "variants": [
               {
-                "type": "fix", "skill": "semi",
+                "type": "fix",
+                "skill": "semi",
                 "q": "Join the sentences with a semicolon instead of a full stop.",
                 "show": "The park closes at six. Everyone must leave.",
-                "accept": ["The park closes at six; everyone must leave."],
+                "accept": [
+                  "The park closes at six; everyone must leave."
+                ],
                 "patterns": [],
                 "example": "The park closes at six; everyone must leave.",
                 "why": "Semicolon and a small letter."
@@ -443,10 +776,13 @@
           }
         },
         {
-          "type": "fix", "skill": "semi",
+          "type": "fix",
+          "skill": "semi",
           "q": "Fix this comma splice with a semicolon.",
           "show": "The soup was cold, I ordered another one.",
-          "accept": ["The soup was cold; I ordered another one."],
+          "accept": [
+            "The soup was cold; I ordered another one."
+          ],
           "patterns": [],
           "example": "The soup was cold; I ordered another one.",
           "why": "A comma alone can’t join two sentences. A semicolon can.",
@@ -457,10 +793,18 @@
           }
         },
         {
-          "type": "choose", "skill": "semi",
+          "type": "choose",
+          "skill": "semi",
           "q": "Which is NOT a good place for a semicolon?",
-          "options": ["The rain stopped; we went outside.", "Because I was late; I ran.", "My phone broke; I need a new one."],
-          "answers": [1],
+          "options": [
+            "The rain stopped; we went outside.",
+            "Because I was late; I ran.",
+            "My phone broke; I need a new one.",
+            "I like tea; she likes coffee."
+          ],
+          "answers": [
+            1
+          ],
           "why": "“Because I was late” can’t stand alone, so a semicolon can’t follow it.",
           "help": {
             "nudge": "Can “Because I was late” stand alone as a sentence?",
@@ -474,40 +818,95 @@
         "minWords": 12,
         "placeholder": "I woke up early; …",
         "checks": [
-          { "t": "Both sides of each semicolon are complete sentences.", "auto": null },
-          { "t": "I did not use and / but / so right after the semicolon.", "auto": "semicolon" },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "Both sides of each semicolon are complete sentences.",
+            "auto": null
+          },
+          {
+            "t": "I did not use and / but / so right after the semicolon.",
+            "auto": "semicolon"
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
-        "focus": ["Make it clearer", "Check the semicolon", "Check my capitals"],
+        "focus": [
+          "Make it clearer",
+          "Check the semicolon",
+          "Check my capitals"
+        ],
         "sample": "I woke up early; the city was still quiet. My class starts at nine; I never want to be late."
       }
     },
-
     "2.5": {
       "format": "v2",
       "skill": "subclause",
       "goal": "Recognise a subordinate clause: it has a subject and a verb, but it can’t stand alone.",
-      "warmup": { "skills": ["fanboys", "semi", "fragment"], "count": 2 },
+      "warmup": {
+        "skills": [
+          "fanboys",
+          "semi",
+          "fragment"
+        ],
+        "count": 2
+      },
       "spot": {
         "intro": "The highlighted part of each sentence is a subordinate clause. Tap to see why.",
         "sentences": [
-          { "t": "I stayed home ==because it was raining==.", "role": "topic", "label": "Subordinate clause", "note": "It has a subject (it) and a verb (was), but “because it was raining” can’t stand alone." },
-          { "t": "==Although the exam was difficult==, most students passed.", "role": "support", "label": "Starts with although", "note": "A subordinate clause starts with a word like although." },
-          { "t": "==When the bell rang==, the students left.", "role": "support", "label": "Starts with when", "note": "When, if, because and while work the same way." },
-          { "t": "==If you study every day==, you will improve.", "role": "concluding", "label": "Starts with if", "note": "Without the main clause, “If you study every day” feels unfinished." }
+          {
+            "t": "I stayed home ==because it was raining==.",
+            "role": "topic",
+            "label": "Subordinate clause",
+            "note": "It has a subject (it) and a verb (was), but “because it was raining” can’t stand alone."
+          },
+          {
+            "t": "==Although the exam was difficult==, most students passed.",
+            "role": "support",
+            "label": "Starts with although",
+            "note": "A subordinate clause starts with a word like although."
+          },
+          {
+            "t": "==When the bell rang==, the students left.",
+            "role": "support",
+            "label": "Starts with when",
+            "note": "When, if, because and while work the same way."
+          },
+          {
+            "t": "==If you study every day==, you will improve.",
+            "role": "concluding",
+            "label": "Starts with if",
+            "note": "Without the main clause, “If you study every day” feels unfinished."
+          }
         ],
         "takeaway": "A **subordinate clause** has a subject and a verb but **cannot stand alone**. It begins with a word like **because, although, when, if, while, since, after, before**."
       },
       "practice": [
         {
-          "type": "sort", "skill": "subclause",
+          "type": "sort",
+          "skill": "subclause",
           "q": "Can it stand alone as a sentence?",
-          "cats": ["Can stand alone", "Cannot stand alone"],
+          "cats": [
+            "Can stand alone",
+            "Cannot stand alone"
+          ],
           "items": [
-            { "t": "The road was closed.", "c": 0 },
-            { "t": "Because the road was closed", "c": 1 },
-            { "t": "When we arrived", "c": 1 },
-            { "t": "We arrived late.", "c": 0 }
+            {
+              "t": "The road was closed.",
+              "c": 0
+            },
+            {
+              "t": "Because the road was closed",
+              "c": 1
+            },
+            {
+              "t": "When we arrived",
+              "c": 1
+            },
+            {
+              "t": "We arrived late.",
+              "c": 0
+            }
           ],
           "why": "Words like because and when make a clause need more.",
           "help": {
@@ -517,10 +916,19 @@
           }
         },
         {
-          "type": "tap", "skill": "subclause",
+          "type": "tap",
+          "skill": "subclause",
           "q": "Tap the subordinate clause (the part that cannot stand alone).",
           "text": "We missed the bus because we woke up late.",
-          "answers": [[4, 5, 6, 7, 8]],
+          "answers": [
+            [
+              4,
+              5,
+              6,
+              7,
+              8
+            ]
+          ],
           "why": "“because we woke up late” can’t stand alone.",
           "help": {
             "nudge": "Look for the word “because”. The clause starts there.",
@@ -528,20 +936,37 @@
             "worked": "“We missed the bus” can stand alone. “because we woke up late” cannot.",
             "variants": [
               {
-                "type": "tap", "skill": "subclause",
+                "type": "tap",
+                "skill": "subclause",
                 "q": "Tap the subordinate clause (the part that cannot stand alone).",
                 "text": "Our flight was delayed because the weather was bad.",
-                "answers": [[4, 5, 6, 7, 8]],
+                "answers": [
+                  [
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                  ]
+                ],
                 "why": "“because the weather was bad” can’t stand alone."
               }
             ]
           }
         },
         {
-          "type": "choose", "skill": "subclause",
+          "type": "choose",
+          "skill": "subclause",
           "q": "Which word starts a subordinate clause?",
-          "options": ["and", "although", "but"],
-          "answers": [1],
+          "options": [
+            "and",
+            "although",
+            "however",
+            "but"
+          ],
+          "answers": [
+            1
+          ],
           "why": "Although, because, when and if start subordinate clauses. And and but are FANBOYS joining words.",
           "help": {
             "nudge": "Which one is NOT a FANBOYS word?",
@@ -550,11 +975,15 @@
           }
         },
         {
-          "type": "fix", "skill": "subclause",
+          "type": "fix",
+          "skill": "subclause",
           "q": "Fix this fragment by adding a main clause.",
           "show": "Although it was cold.",
           "accept": [],
-          "patterns": ["^Although it was cold, [a-z][^.!?]{6,}\\.$", "^[A-Z][^.!?]{6,} although it was cold\\.$"],
+          "patterns": [
+            "^Although it was cold, [a-z][^.!?]{6,}\\.$",
+            "^[A-Z][^.!?]{6,} although it was cold\\.$"
+          ],
           "example": "Although it was cold, we played outside.",
           "why": "Many answers work. Add a main clause that can stand alone.",
           "help": {
@@ -563,11 +992,15 @@
             "worked": "Although it was cold, we played outside.",
             "variants": [
               {
-                "type": "fix", "skill": "subclause",
+                "type": "fix",
+                "skill": "subclause",
                 "q": "Fix this fragment by adding a main clause.",
                 "show": "Because the shop was closed.",
                 "accept": [],
-                "patterns": ["^Because the shop was closed, [a-z][^.!?]{6,}\\.$", "^[A-Z][^.!?]{6,} because the shop was closed\\.$"],
+                "patterns": [
+                  "^Because the shop was closed, [a-z][^.!?]{6,}\\.$",
+                  "^[A-Z][^.!?]{6,} because the shop was closed\\.$"
+                ],
                 "example": "Because the shop was closed, we went home.",
                 "why": "Add a main clause that can stand alone."
               }
@@ -575,10 +1008,18 @@
           }
         },
         {
-          "type": "choose", "skill": "subclause",
+          "type": "choose",
+          "skill": "subclause",
           "q": "Which one is a complete sentence?",
-          "options": ["When the lesson finished.", "When the lesson finished, we left.", "When the lesson finished and."],
-          "answers": [1],
+          "options": [
+            "When the lesson finished.",
+            "When the lesson finished, we left.",
+            "When the lesson finished and.",
+            "The lesson finished when."
+          ],
+          "answers": [
+            1
+          ],
           "why": "It has a main clause (we left) as well as the subordinate clause.",
           "help": {
             "nudge": "Which option answers: what happened when the lesson finished?",
@@ -592,36 +1033,83 @@
         "minWords": 6,
         "placeholder": "When I finish my homework, …",
         "checks": [
-          { "t": "My sentence has a part that can’t stand alone (the subordinate clause).", "auto": null },
-          { "t": "It also has a main clause that can stand alone.", "auto": null },
-          { "t": "It starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "My sentence has a part that can’t stand alone (the subordinate clause).",
+            "auto": null
+          },
+          {
+            "t": "It also has a main clause that can stand alone.",
+            "auto": null
+          },
+          {
+            "t": "It starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
-        "focus": ["Make it clearer", "Check the clauses", "Add a detail"],
+        "focus": [
+          "Make it clearer",
+          "Check the clauses",
+          "Add a detail"
+        ],
         "sample": "When I finish my homework, I watch a film."
       }
     },
-
     "2.6": {
       "format": "v2",
       "skill": "complex",
       "goal": "Write complex sentences and punctuate them correctly.",
-      "warmup": { "skills": ["subclause", "fanboys", "fragment"], "count": 2 },
+      "warmup": {
+        "skills": [
+          "subclause",
+          "fanboys",
+          "fragment"
+        ],
+        "count": 2
+      },
       "spot": {
         "intro": "Watch where the comma goes. Tap each sentence.",
         "sentences": [
-          { "t": "==Because it was raining==, we stayed home.", "role": "topic", "label": "Subordinate clause first", "note": "A comma goes after the opening clause." },
-          { "t": "We stayed home ==because it was raining==.", "role": "support", "label": "Subordinate clause second", "note": "Usually no comma." },
-          { "t": "==Although he was tired==, he finished the report.", "role": "support", "label": "Comma after the although-clause", "note": "The clause comes first, so there is a comma." },
-          { "t": "He finished the report ==although he was tired==.", "role": "concluding", "label": "No comma", "note": "Same meaning, clause second, no comma." }
+          {
+            "t": "==Because it was raining==, we stayed home.",
+            "role": "topic",
+            "label": "Subordinate clause first",
+            "note": "A comma goes after the opening clause."
+          },
+          {
+            "t": "We stayed home ==because it was raining==.",
+            "role": "support",
+            "label": "Subordinate clause second",
+            "note": "Usually no comma."
+          },
+          {
+            "t": "==Although he was tired==, he finished the report.",
+            "role": "support",
+            "label": "Comma after the although-clause",
+            "note": "The clause comes first, so there is a comma."
+          },
+          {
+            "t": "He finished the report ==although he was tired==.",
+            "role": "concluding",
+            "label": "No comma",
+            "note": "Same meaning, clause second, no comma."
+          }
         ],
         "takeaway": "A **complex sentence** = main clause + subordinate clause. **Subordinate clause first? Add a comma. Second? Usually no comma.**"
       },
       "practice": [
         {
-          "type": "choose", "skill": "complex",
+          "type": "choose",
+          "skill": "complex",
           "q": "Which sentence is punctuated correctly?",
-          "options": ["When the class ended we went home.", "When the class ended, we went home.", "When the class ended; we went home."],
-          "answers": [1],
+          "options": [
+            "When the class ended we went home.",
+            "When the class ended, we went home.",
+            "When the class ended; we went home.",
+            "When, the class ended we went home."
+          ],
+          "answers": [
+            1
+          ],
           "why": "A comma follows the opening subordinate clause.",
           "help": {
             "nudge": "The sentence starts with a subordinate clause. What comes after it?",
@@ -629,23 +1117,48 @@
             "worked": "“When the class ended” is the opening clause, so add a comma after it.",
             "variants": [
               {
-                "type": "choose", "skill": "complex",
+                "type": "choose",
+                "skill": "complex",
                 "q": "Which sentence is punctuated correctly?",
-                "options": ["If you practise every day you will improve.", "If you practise every day, you will improve.", "If you practise every day; you will improve."],
-                "answers": [1], "why": "Comma after the opening clause."
+                "options": [
+                  "If you practise every day you will improve.",
+                  "If you practise every day, you will improve.",
+                  "If you practise every day; you will improve.",
+                  "If, you practise every day you will improve."
+                ],
+                "answers": [
+                  1
+                ],
+                "why": "Comma after the opening clause."
               }
             ]
           }
         },
         {
-          "type": "sort", "skill": "complex",
+          "type": "sort",
+          "skill": "complex",
           "q": "Does the sentence need a comma?",
-          "cats": ["Comma needed", "No comma needed"],
+          "cats": [
+            "Comma needed",
+            "No comma needed"
+          ],
           "items": [
-            { "t": "Because I was hungry I ate a sandwich.", "c": 0 },
-            { "t": "I ate a sandwich because I was hungry.", "c": 1 },
-            { "t": "Although it was late we kept working.", "c": 0 },
-            { "t": "We kept working although it was late.", "c": 1 }
+            {
+              "t": "Because I was hungry I ate a sandwich.",
+              "c": 0
+            },
+            {
+              "t": "I ate a sandwich because I was hungry.",
+              "c": 1
+            },
+            {
+              "t": "Although it was late we kept working.",
+              "c": 0
+            },
+            {
+              "t": "We kept working although it was late.",
+              "c": 1
+            }
           ],
           "why": "A comma is needed only when the subordinate clause comes first.",
           "help": {
@@ -655,10 +1168,13 @@
           }
         },
         {
-          "type": "fix", "skill": "complex",
+          "type": "fix",
+          "skill": "complex",
           "q": "Join the sentences with because. Start with the because-part.",
           "show": "We stayed inside. It was cold.",
-          "accept": ["Because it was cold, we stayed inside."],
+          "accept": [
+            "Because it was cold, we stayed inside."
+          ],
           "patterns": [],
           "example": "Because it was cold, we stayed inside.",
           "why": "The because-part comes first, so a comma follows it.",
@@ -668,10 +1184,13 @@
             "worked": "Because it was cold, we stayed inside.",
             "variants": [
               {
-                "type": "fix", "skill": "complex",
+                "type": "fix",
+                "skill": "complex",
                 "q": "Join the sentences with because. Start with the because-part.",
                 "show": "We took an umbrella. It was raining.",
-                "accept": ["Because it was raining, we took an umbrella."],
+                "accept": [
+                  "Because it was raining, we took an umbrella."
+                ],
                 "patterns": [],
                 "example": "Because it was raining, we took an umbrella.",
                 "why": "Because-part first, then a comma."
@@ -680,10 +1199,14 @@
           }
         },
         {
-          "type": "fix", "skill": "complex",
+          "type": "fix",
+          "skill": "complex",
           "q": "Join the sentences with although.",
           "show": "The film was long. I enjoyed it.",
-          "accept": ["Although the film was long, I enjoyed it.", "I enjoyed it although the film was long."],
+          "accept": [
+            "Although the film was long, I enjoyed it.",
+            "I enjoyed it although the film was long."
+          ],
           "patterns": [],
           "example": "Although the film was long, I enjoyed it.",
           "why": "Both orders are correct. Use a comma only when although comes first.",
@@ -694,10 +1217,22 @@
           }
         },
         {
-          "type": "order", "skill": "complex",
+          "type": "order",
+          "skill": "complex",
           "q": "Put the words in order.",
-          "pieces": ["After", "we", "finished", "dinner,", "we", "watched", "a", "film."],
-          "answers": ["After we finished dinner, we watched a film."],
+          "pieces": [
+            "After",
+            "we",
+            "finished",
+            "dinner,",
+            "we",
+            "watched",
+            "a",
+            "film."
+          ],
+          "answers": [
+            "After we finished dinner, we watched a film."
+          ],
           "why": "Subordinate clause first, then a comma, then the main clause.",
           "help": {
             "nudge": "Which clause starts with “After”? A comma follows it.",
@@ -711,39 +1246,90 @@
         "minWords": 14,
         "placeholder": "Because I have exams soon, …",
         "checks": [
-          { "t": "One sentence starts with a subordinate clause and has a comma after it.", "auto": null },
-          { "t": "One sentence ends with a subordinate clause and has no comma before it.", "auto": null },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "One sentence starts with a subordinate clause and has a comma after it.",
+            "auto": null
+          },
+          {
+            "t": "One sentence ends with a subordinate clause and has no comma before it.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
-        "focus": ["Check the comma", "Make it clearer", "Add a detail"],
+        "focus": [
+          "Check the comma",
+          "Make it clearer",
+          "Add a detail"
+        ],
         "sample": "Because I have exams soon, I study every evening. I stay focused when I turn off my phone."
       }
     },
-
     "2.7": {
       "format": "v2",
       "skill": "cc",
       "goal": "Recognise a sentence with two main clauses and a subordinate clause. This lesson is optional.",
-      "warmup": { "skills": ["complex", "fanboys"], "count": 2 },
+      "warmup": {
+        "skills": [
+          "complex",
+          "fanboys"
+        ],
+        "count": 2
+      },
       "spot": {
         "intro": "An optional stretch lesson. Tap each sentence.",
         "sentences": [
-          { "t": "==Although it was late==, we kept working, and we finished the report.", "role": "topic", "label": "Compound-complex", "note": "Two main clauses (we kept working / we finished the report) and one subordinate clause (Although it was late)." },
-          { "t": "We waited ==because the train was late==, but it never came.", "role": "support", "label": "Compound-complex", "note": "A main clause with a subordinate clause, joined by “but” to a second main clause." },
-          { "t": "I like tea, but my brother likes coffee.", "role": "concluding", "label": "Only compound", "note": "There is no subordinate clause here, so this is compound, not compound-complex." }
+          {
+            "t": "==Although it was late==, we kept working, and we finished the report.",
+            "role": "topic",
+            "label": "Compound-complex",
+            "note": "Two main clauses (we kept working / we finished the report) and one subordinate clause (Although it was late)."
+          },
+          {
+            "t": "We waited ==because the train was late==, but it never came.",
+            "role": "support",
+            "label": "Compound-complex",
+            "note": "A main clause with a subordinate clause, joined by “but” to a second main clause."
+          },
+          {
+            "t": "I like tea, but my brother likes coffee.",
+            "role": "concluding",
+            "label": "Only compound",
+            "note": "There is no subordinate clause here, so this is compound, not compound-complex."
+          }
         ],
         "takeaway": "**Compound-complex** = two or more main clauses + at least one subordinate clause. It is a bonus skill: use these sentences sparingly."
       },
       "practice": [
         {
-          "type": "sort", "skill": "cc",
+          "type": "sort",
+          "skill": "cc",
           "q": "What type is each sentence?",
-          "cats": ["Simple", "Compound", "Complex", "Compound-complex"],
+          "cats": [
+            "Simple",
+            "Compound",
+            "Complex",
+            "Compound-complex"
+          ],
           "items": [
-            { "t": "We walked.", "c": 0 },
-            { "t": "The bus was late, so we walked.", "c": 1 },
-            { "t": "Because the bus was late, we walked.", "c": 2 },
-            { "t": "Because the bus was late, we walked, and we arrived after the lesson began.", "c": 3 }
+            {
+              "t": "We walked.",
+              "c": 0
+            },
+            {
+              "t": "The bus was late, so we walked.",
+              "c": 1
+            },
+            {
+              "t": "Because the bus was late, we walked.",
+              "c": 2
+            },
+            {
+              "t": "Because the bus was late, we walked, and we arrived after the lesson began.",
+              "c": 3
+            }
           ],
           "why": "Count the main clauses and the subordinate clauses.",
           "help": {
@@ -753,10 +1339,18 @@
           }
         },
         {
-          "type": "choose", "skill": "cc",
+          "type": "choose",
+          "skill": "cc",
           "q": "Which sentence is compound-complex?",
-          "options": ["We waited because the train was late, but it never came.", "We waited, and it never came.", "We waited until it came."],
-          "answers": [0],
+          "options": [
+            "We waited because the train was late, but it never came.",
+            "We waited, and it never came.",
+            "We waited until it came.",
+            "We waited because the train was late."
+          ],
+          "answers": [
+            0
+          ],
           "why": "Two main clauses (we waited / it never came) and one subordinate clause (because the train was late).",
           "help": {
             "nudge": "Look for two main clauses AND one subordinate clause.",
@@ -765,11 +1359,15 @@
           }
         },
         {
-          "type": "fix", "skill": "cc",
+          "type": "fix",
+          "skill": "cc",
           "q": "Join the three ideas into one sentence. Use a because / when / while part and a comma + and.",
           "show": "It was raining. We stayed inside. We watched a film.",
           "accept": [],
-          "patterns": ["^(Because|Since|As|When|While) it was raining, we stayed inside,? (and|so) we watched a film\\.$", "^We stayed inside (because|since|as) it was raining,? (and|so) we watched a film\\.$"],
+          "patterns": [
+            "^(Because|Since|As|When|While) it was raining, we stayed inside,? (and|so) we watched a film\\.$",
+            "^We stayed inside (because|since|as) it was raining,? (and|so) we watched a film\\.$"
+          ],
           "example": "Because it was raining, we stayed inside, and we watched a film.",
           "why": "Many orders work. You need one subordinate clause and two main clauses.",
           "help": {
@@ -779,10 +1377,18 @@
           }
         },
         {
-          "type": "choose", "skill": "cc",
+          "type": "choose",
+          "skill": "cc",
           "q": "How should you use compound-complex sentences?",
-          "options": ["Everywhere: longer sentences are always better.", "Sparingly: mix them with shorter sentences so your writing stays clear.", "Never: they are always wrong."],
-          "answers": [1],
+          "options": [
+            "Everywhere: longer sentences are always better.",
+            "Sparingly: mix them with shorter sentences so your writing stays clear.",
+            "Only in the introduction of an essay.",
+            "Only when you are not sure of the grammar."
+          ],
+          "answers": [
+            1
+          ],
           "why": "Long sentences can be powerful but hard to read. Variety is the goal.",
           "help": {
             "nudge": "Think about your reader.",
@@ -796,36 +1402,83 @@
         "minWords": 12,
         "placeholder": "Although I was tired, …",
         "checks": [
-          { "t": "It has two main clauses.", "auto": null },
-          { "t": "It has a subordinate clause (because, although, when…).", "auto": null },
-          { "t": "It starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "It has two main clauses.",
+            "auto": null
+          },
+          {
+            "t": "It has a subordinate clause (because, although, when…).",
+            "auto": null
+          },
+          {
+            "t": "It starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
-        "focus": ["Check the commas", "Make it clearer", "Shorten it if it is too long"],
+        "focus": [
+          "Check the commas",
+          "Make it clearer",
+          "Shorten it if it is too long"
+        ],
         "sample": "Although I was tired, I finished my homework, and I helped my sister with hers."
       }
     },
-
     "2.8": {
       "format": "v2",
       "skill": "variety",
       "goal": "Mix short and long sentences and different sentence types so your writing flows.",
-      "warmup": { "skills": ["complex", "fanboys", "simple"], "count": 2 },
+      "warmup": {
+        "skills": [
+          "complex",
+          "fanboys",
+          "simple"
+        ],
+        "count": 2
+      },
       "spot": {
         "intro": "Same ideas, different rhythm. Tap each sentence.",
         "sentences": [
-          { "t": "I woke up. I ate breakfast. I went to school. I met my friends.", "role": "topic", "label": "Choppy", "note": "Four short simple sentences in a row. It sounds repetitive." },
-          { "t": "After I woke up, I ate breakfast and went to school, where I met my friends.", "role": "support", "label": "Varied", "note": "The same ideas, joined smoothly into one sentence." },
-          { "t": "I woke up late; I ate quickly.", "role": "support", "label": "A semicolon for variety", "note": "A semicolon can link two short, related ideas." },
-          { "t": "It worked.", "role": "concluding", "label": "Short for emphasis", "note": "A very short sentence after longer ones adds emphasis." }
+          {
+            "t": "I woke up. I ate breakfast. I went to school. I met my friends.",
+            "role": "topic",
+            "label": "Choppy",
+            "note": "Four short simple sentences in a row. It sounds repetitive."
+          },
+          {
+            "t": "After I woke up, I ate breakfast and went to school, where I met my friends.",
+            "role": "support",
+            "label": "Varied",
+            "note": "The same ideas, joined smoothly into one sentence."
+          },
+          {
+            "t": "I woke up late; I ate quickly.",
+            "role": "support",
+            "label": "A semicolon for variety",
+            "note": "A semicolon can link two short, related ideas."
+          },
+          {
+            "t": "It worked.",
+            "role": "concluding",
+            "label": "Short for emphasis",
+            "note": "A very short sentence after longer ones adds emphasis."
+          }
         ],
         "takeaway": "Mix **short and long** sentences, and **simple, compound and complex** types. Don’t make every sentence the same shape."
       },
       "practice": [
         {
-          "type": "choose", "skill": "variety",
+          "type": "choose",
+          "skill": "variety",
           "q": "Which version reads best?",
-          "options": ["We arrived. We checked in. We ate dinner. We went to bed.", "After we arrived and checked in, we ate dinner and went to bed.", "We arrived and we checked in and we ate dinner and we went to bed."],
-          "answers": [1],
+          "options": [
+            "We arrived. We checked in. We ate dinner. We went to bed.",
+            "After we arrived and checked in, we ate dinner and went to bed.",
+            "We arrived and we checked in and we ate dinner and we went to bed.",
+            "We arrived, we checked in, we ate dinner, we went to bed."
+          ],
+          "answers": [
+            1
+          ],
           "why": "Option 2 combines the ideas smoothly. Option 1 is choppy; option 3 repeats “we … and”.",
           "help": {
             "nudge": "Which version sounds smoothest when you read it aloud?",
@@ -833,20 +1486,32 @@
             "worked": "“After we arrived and checked in” (opening clause), then “ate dinner and went to bed” (compound verb).",
             "variants": [
               {
-                "type": "choose", "skill": "variety",
+                "type": "choose",
+                "skill": "variety",
                 "q": "Which version reads best?",
-                "options": ["I got home. I made tea. I read a book.", "After I got home, I made tea and read a book.", "I got home and I made tea and I read a book."],
-                "answers": [1], "why": "It joins the ideas smoothly."
+                "options": [
+                  "I got home. I made tea. I read a book.",
+                  "After I got home, I made tea and read a book.",
+                  "I got home and I made tea and I read a book.",
+                  "I got home, I made tea, I read a book."
+                ],
+                "answers": [
+                  1
+                ],
+                "why": "It joins the ideas smoothly."
               }
             ]
           }
         },
         {
-          "type": "fix", "skill": "variety",
+          "type": "fix",
+          "skill": "variety",
           "q": "Combine the three sentences into ONE smoother sentence.",
           "show": "I finished work. I went to the gym. I felt energetic.",
           "accept": [],
-          "patterns": ["^(?=[^.!?]*finished work)(?=[^.!?]*gym)(?=[^.!?]*energetic)[A-Z][^.!?]{20,}\\.$"],
+          "patterns": [
+            "^(?=[^.!?]*finished work)(?=[^.!?]*gym)(?=[^.!?]*energetic)[A-Z][^.!?]{20,}\\.$"
+          ],
           "example": "After I finished work, I went to the gym, and I felt energetic.",
           "why": "Many answers work. Use and, because or after to join all three ideas in one sentence.",
           "help": {
@@ -855,11 +1520,14 @@
             "worked": "After I finished work, I went to the gym and felt energetic.",
             "variants": [
               {
-                "type": "fix", "skill": "variety",
+                "type": "fix",
+                "skill": "variety",
                 "q": "Combine the three sentences into ONE smoother sentence.",
                 "show": "It was late. I was hungry. I made dinner.",
                 "accept": [],
-                "patterns": ["^(?=[^.!?]*late)(?=[^.!?]*hungry)(?=[^.!?]*dinner)[A-Z][^.!?]{15,}\\.$"],
+                "patterns": [
+                  "^(?=[^.!?]*late)(?=[^.!?]*hungry)(?=[^.!?]*dinner)[A-Z][^.!?]{15,}\\.$"
+                ],
                 "example": "Because it was late and I was hungry, I made dinner.",
                 "why": "Join all three ideas in one sentence."
               }
@@ -867,10 +1535,18 @@
           }
         },
         {
-          "type": "choose", "skill": "variety",
+          "type": "choose",
+          "skill": "variety",
           "q": "After two long sentences, which sentence adds emphasis?",
-          "options": ["It was a very big success for everyone who took part in the project.", "It worked.", "The project which we started in January was successful."],
-          "answers": [1],
+          "options": [
+            "It was a very big success for everyone who took part in the project.",
+            "It worked.",
+            "The project which we started in January was successful.",
+            "The project that was started in January had been a success."
+          ],
+          "answers": [
+            1
+          ],
           "why": "A very short sentence stands out after longer ones.",
           "help": {
             "nudge": "Which sentence is the shortest and punchiest?",
@@ -879,14 +1555,31 @@
           }
         },
         {
-          "type": "sort", "skill": "variety",
+          "type": "sort",
+          "skill": "variety",
           "q": "Which type is each sentence?",
-          "cats": ["Simple", "Compound", "Complex"],
+          "cats": [
+            "Simple",
+            "Compound",
+            "Complex"
+          ],
           "items": [
-            { "t": "We left early.", "c": 0 },
-            { "t": "We left early, but the road was still busy.", "c": 1 },
-            { "t": "We left early because the road is usually busy.", "c": 2 },
-            { "t": "The road was busy.", "c": 0 }
+            {
+              "t": "We left early.",
+              "c": 0
+            },
+            {
+              "t": "We left early, but the road was still busy.",
+              "c": 1
+            },
+            {
+              "t": "We left early because the road is usually busy.",
+              "c": 2
+            },
+            {
+              "t": "The road was busy.",
+              "c": 0
+            }
           ],
           "why": "Simple: one group. Compound: two main clauses. Complex: a main clause and a subordinate clause.",
           "help": {
@@ -896,11 +1589,14 @@
           }
         },
         {
-          "type": "fix", "skill": "variety",
+          "type": "fix",
+          "skill": "variety",
           "q": "Rewrite the three sentences as one sentence in your own way.",
           "show": "I was tired. I had homework. I stayed up late.",
           "accept": [],
-          "patterns": ["^(?=[^.!?]*tired)(?=[^.!?]*homework)(?=[^.!?]*late)[A-Z][^.!?]{20,}\\.$"],
+          "patterns": [
+            "^(?=[^.!?]*tired)(?=[^.!?]*homework)(?=[^.!?]*late)[A-Z][^.!?]{20,}\\.$"
+          ],
           "example": "Although I was tired, I had homework, so I stayed up late.",
           "why": "Many answers work. Join all three ideas with a linking word or clause.",
           "help": {
@@ -915,19 +1611,40 @@
         "minWords": 12,
         "placeholder": "After I woke up, …",
         "checks": [
-          { "t": "I joined some ideas (not all short sentences in a row).", "auto": null },
-          { "t": "I used at least two different sentence types.", "auto": null },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "I joined some ideas (not all short sentences in a row).",
+            "auto": null
+          },
+          {
+            "t": "I used at least two different sentence types.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
-        "focus": ["Join two ideas", "Add a short sentence", "Check punctuation"],
+        "focus": [
+          "Join two ideas",
+          "Add a short sentence",
+          "Check punctuation"
+        ],
         "sample": "After I woke up, I made tea and read the news. Then I went to work."
       }
     },
-
     "2.9": {
       "format": "v2",
       "review": true,
-      "from": ["2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8"],
+      "from": [
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4",
+        "2.5",
+        "2.6",
+        "2.7",
+        "2.8"
+      ],
       "count": 8,
       "skill": "variety",
       "goal": "Show that you can recognise and use simple, compound and complex sentences.",
@@ -936,23 +1653,68 @@
         "minWords": 25,
         "placeholder": "My favourite place is …",
         "checks": [
-          { "t": "I wrote a compound sentence: a comma and a joining word.", "auto": "commaJoin" },
-          { "t": "I wrote a complex sentence with the right comma, and my sentences are not all the same length.", "auto": null },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "I wrote a compound sentence: a comma and a joining word.",
+            "auto": "commaJoin"
+          },
+          {
+            "t": "I wrote a complex sentence with the right comma, and my sentences are not all the same length.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
-        "focus": ["Vary my sentences", "Check the commas", "Make it clearer"],
+        "focus": [
+          "Vary my sentences",
+          "Check the commas",
+          "Make it clearer"
+        ],
         "sample": "My favourite place is the old market in the city centre. It is crowded, but I love the colours and the smells. When I visit, I always buy fresh bread. The sellers know me, so they often give me a small gift."
       }
     }
   },
   "skills": {
-    "simple": { "label": "Simple sentences", "good": "You can spot a simple sentence.", "improve": "A simple sentence has one subject-verb group, however long it is." },
-    "cv": { "label": "Compound subjects and verbs", "good": "You join subjects and verbs well.", "improve": "Join two subjects or two verbs with and / or, and use no comma." },
-    "fanboys": { "label": "Joining with FANBOYS", "good": "You join sentences with a comma and a joining word.", "improve": "Clause + comma + FANBOYS + clause." },
-    "semi": { "label": "Semicolons", "good": "You use semicolons correctly.", "improve": "A semicolon needs a complete sentence on both sides and no and / but / so after it." },
-    "subclause": { "label": "Subordinate clauses", "good": "You recognise subordinate clauses.", "improve": "A subordinate clause starts with because, although, when, if… and can’t stand alone." },
-    "complex": { "label": "Complex sentences", "good": "You punctuate complex sentences correctly.", "improve": "Subordinate clause first? Add a comma. Second? Usually no comma." },
-    "cc": { "label": "Compound-complex sentences", "good": "You can spot compound-complex sentences.", "improve": "Compound-complex = two main clauses + a subordinate clause." },
-    "variety": { "label": "Sentence variety", "good": "You mix your sentences well.", "improve": "Mix short and long sentences and different types." }
+    "simple": {
+      "label": "Simple sentences",
+      "good": "You can spot a simple sentence.",
+      "improve": "A simple sentence has one subject-verb group, however long it is."
+    },
+    "cv": {
+      "label": "Compound subjects and verbs",
+      "good": "You join subjects and verbs well.",
+      "improve": "Join two subjects or two verbs with and / or, and use no comma."
+    },
+    "fanboys": {
+      "label": "Joining with FANBOYS",
+      "good": "You join sentences with a comma and a joining word.",
+      "improve": "Clause + comma + FANBOYS + clause."
+    },
+    "semi": {
+      "label": "Semicolons",
+      "good": "You use semicolons correctly.",
+      "improve": "A semicolon needs a complete sentence on both sides and no and / but / so after it."
+    },
+    "subclause": {
+      "label": "Subordinate clauses",
+      "good": "You recognise subordinate clauses.",
+      "improve": "A subordinate clause starts with because, although, when, if… and can’t stand alone."
+    },
+    "complex": {
+      "label": "Complex sentences",
+      "good": "You punctuate complex sentences correctly.",
+      "improve": "Subordinate clause first? Add a comma. Second? Usually no comma."
+    },
+    "cc": {
+      "label": "Compound-complex sentences",
+      "good": "You can spot compound-complex sentences.",
+      "improve": "Compound-complex = two main clauses + a subordinate clause."
+    },
+    "variety": {
+      "label": "Sentence variety",
+      "good": "You mix your sentences well.",
+      "improve": "Mix short and long sentences and different types."
+    }
   }
 }

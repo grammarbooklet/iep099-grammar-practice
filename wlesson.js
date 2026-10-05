@@ -12,11 +12,24 @@
   var root = document.getElementById("lessonRoot");
   var params = new URLSearchParams(location.search);
   var lessonId = params.get("id") || "1.1";
+  // A lesson always opens at the top: never where the previous page happened to be scrolled to (common on phones).
+  try { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; } catch (e) {}
+  window.scrollTo(0, 0);
+  window.addEventListener("pageshow", function () { window.scrollTo(0, 0); });
+  // When a new screen is built, its main button is focused for keyboard users. Browsers scroll a focused button
+  // into view, which on a phone dragged the page halfway down. For a moment after each screen is built, focus
+  // without scrolling; later focus (for example the Next button after an answer) behaves as normal.
+  var screenBuiltAt = Date.now();
+  (function () {
+    var f = HTMLElement.prototype.focus;
+    HTMLElement.prototype.focus = function (o) { return f.call(this, (o || Date.now() - screenBuiltAt < 600) ? (o || { preventScroll: true }) : undefined); };
+  })();
 
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
   // ==subject== **verb** ++object++ — the same lightweight markup the grammar pages use, plus a highlight.
   function md(s) {
-    return esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\+\+(.+?)\+\+/g, "<u>$1</u>").replace(/==(.+?)==/g, "<mark>$1</mark>");
+    return esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\+\+(.+?)\+\+/g, "<u>$1</u>").replace(/==(.+?)==/g, "<mark>$1</mark>")
+      .replace(/(^|[^*])\*([^*\n]+?)\*(?!\*)/g, "$1<em>$2</em>"); // a single pair of asterisks means italics
   }
 
   // A rule is easier to read as short steps than as one block of text: one sentence per row, key words as chips.
@@ -35,7 +48,7 @@
   function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
   function norm(s) { return String(s).replace(/[’‘]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, " ").trim(); }
   function sameSet(a, b) { if (a.length !== b.length) return false; var x = a.slice().sort(), y = b.slice().sort(); return x.every(function (v, i) { return v === y[i]; }); }
-  function clear() { root.innerHTML = ""; window.scrollTo(0, 0); }
+  function clear() { root.innerHTML = ""; screenBuiltAt = Date.now(); window.scrollTo(0, 0); }
 
   var idx, stage, lesson, stageData, meta;
   var items = [], pos = 0, earned = 0, possible = 0, missed = [], skillStats = {}, practiceOnly = false;
@@ -116,8 +129,9 @@
     c.appendChild(h("h1", "wc-h1", esc(meta.title)));
     c.appendChild(h("p", "wc-step", "Learn"));
     c.appendChild(h("div", "wc-lead wc-rulebox", rules(lesson.spot.intro)));
-    if (lesson.spot.legend) c.appendChild(h("p", "wc-legend", md(lesson.spot.legend)));
+    // the Examples heading comes first, and the colour legend (for example Subject · Verb · Object) sits right under it
     if ((lesson.spot.examples || []).length) c.appendChild(h("p", "wc-ex-h", "Examples"));
+    if (lesson.spot.legend) c.appendChild(h("p", "wc-legend", md(lesson.spot.legend)));
     (lesson.spot.examples || []).forEach(function (ex) {
       var b = h("div", "wc-ex");
       b.appendChild(h("p", "wc-ex-t", md(ex.t)));
@@ -174,10 +188,11 @@
       if (res.earned < res.possible) missed.push(it);
       var ok = res.earned === res.possible;
       if (!practiceOnly && it.skill) WC.skillResult(it.skill, ok ? "first" : "miss");
-      fb.className = "wc-fb " + (ok ? "ok" : res.earned > 0 ? "part" : "bad");
+      fb.className = "wc-fb " + (ok ? "ok" : res.earned > 0 ? "part" : "bad"); if (window.IEPSound) { if (ok) window.IEPSound.play("correct"); }
       if (!ok) praiseMiss();
       fb.innerHTML = "<b>" + (ok ? praise("first").lead : res.earned > 0 ? "Almost. " : "Not quite. ") + "</b>" + (it.why ? md(it.why) : "") + (!ok && res.answer ? '<span class="wc-ans">' + res.answer + "</span>" : "");
       fb.hidden = false;
+      if (ok) setTimeout(function () { if (window.IEPFx) window.IEPFx.flyStar(fb); }, 450);
       var last = pos === items.length - 1;
       chk.textContent = last ? "See results →" : "Next →"; chk.disabled = false;
       chk.onclick = function () { pos++; showItem(); };
@@ -438,7 +453,7 @@
     }
     return { stamp: pair[0], lead: pair[1], tone: Math.floor(Math.random() * 3) };
   }
-  function praiseMiss() { praiseRun = 0; }
+  function praiseMiss() { praiseRun = 0; if (window.IEPSound) window.IEPSound.miss(); }
   function wordCount(t) { var m = t.trim().match(/\S+/g); return m ? m.length : 0; }
 
   // Word-level comparison: marks the words in the revision that weren't in the draft.
@@ -581,10 +596,11 @@
       if (res.capped) c.appendChild(h("p", "wc-quiet", "Write the Build It to earn the third star."));
       // celebrations only when there is something to celebrate
       if (res.levelUp) c.appendChild(h("p", "wc-badge-new", "🎉 Level up! You are now a <b>" + esc(res.level.name) + "</b>."));
-      (window.IEPBadges ? window.IEPBadges.check() : []).forEach(function (d) { var p = h("p", "wc-badge-new"); p.innerHTML = '<img class="wc-badge-img" src="' + window.IEPBadges.src(d) + '" alt=""> New badge: <b>' + esc(d.name) + "</b>"; c.appendChild(p); });
+      (window.IEPBadges ? window.IEPBadges.check() : []).forEach(function (d, bi) { setTimeout(function () { window.IEPBadges.reveal(d); }, 900 + bi * 6000); var p = h("p", "wc-badge-new"); p.innerHTML = '<img class="wc-badge-img" src="' + window.IEPBadges.src(d) + '" alt=""> New badge: <b>' + esc(d.name) + "</b>"; c.appendChild(p); });
       var skipped = res.skippedNow || [];
       if (skipped.length) c.appendChild(h("p", "wc-badge-new", "✅ Stage check passed. " + skipped.length + " lesson" + (skipped.length === 1 ? "" : "s") + " marked as skipped."));
-      if (pct === 100 || stars === 3) E && E.confetti();
+      var celebrated = stars >= 2; if (celebrated && window.IEPFx) window.IEPFx.celebrate();
+      WC.stageCheck(c, lessonId, celebrated);
       // details, tucked away
       var xp = h("div", "wc-xp");
       xp.innerHTML = (res.gained > 0 ? "<b>+" + res.gained + " XP</b>" : "<b>No new XP this time</b>") + " · Level " + res.level.n + ": " + esc(res.level.name) +

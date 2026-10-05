@@ -1,0 +1,1832 @@
+{
+  "stage": 5,
+  "lessons": {
+    "5.1": {
+      "format": "v2",
+      "skill": "list",
+      "goal": "Collect many ideas quickly before you choose the best ones.",
+      "warmup": {
+        "skills": [
+          "topic",
+          "support"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each line of this brainstorm to see how it works.",
+        "sentences": [
+          {
+            "t": "Topic: What makes a good place to study?",
+            "role": "topic",
+            "note": "Start with the topic at the top of the page.",
+            "label": "Topic"
+          },
+          {
+            "t": "quiet room, good light, comfortable chair, no phone",
+            "role": "support",
+            "note": "Write words and short phrases. You do not need full sentences.",
+            "label": "A quick list"
+          },
+          {
+            "t": "library, a desk by the window, a café with headphones",
+            "role": "support",
+            "note": "Keep going, even if an idea seems small. Do not judge yet.",
+            "label": "More ideas"
+          },
+          {
+            "t": "cold coffee, a long walk, my cat",
+            "role": "support",
+            "note": "Some ideas will not fit. That is fine. You can cross them out later.",
+            "label": "Ideas that may not fit"
+          },
+          {
+            "t": "Now circle the best ideas: quiet room, good light, no phone.",
+            "role": "concluding",
+            "note": "Only now do you choose. Circle the ideas that answer the topic best.",
+            "label": "Choose"
+          }
+        ],
+        "takeaway": "**Brainstorm first, judge later.** Write as many short ideas as you can in a list, then **circle the best ones**."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "list",
+          "q": "What should you do **first** when you brainstorm?",
+          "options": [
+            "Write as many ideas as you can, without judging them.",
+            "Choose the best idea and develop it fully.",
+            "Write a full sentence for each idea.",
+            "Fix the spelling of each idea."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Brainstorming is about collecting many ideas first. You choose later.",
+          "help": {
+            "nudge": "Is brainstorming the time to judge ideas, or to collect them?",
+            "rule": "**Brainstorm first, judge later.** Collect many ideas quickly in a list.",
+            "worked": "Do not stop to check spelling or to decide if an idea is good. Write it down and move on.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "list",
+                "q": "Your teacher says, “Brainstorm for two minutes.” What do you do?",
+                "options": [
+                  "Write many short ideas quickly.",
+                  "Write one perfect sentence.",
+                  "Wait until you have the best idea.",
+                  "Write a detailed paragraph for each idea."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "In a brainstorm you write many ideas fast."
+              }
+            ]
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "list",
+          "q": "Is each action a **good brainstorming habit** or **not helpful**?",
+          "cats": [
+            "Good habit",
+            "Not helpful"
+          ],
+          "items": [
+            {
+              "t": "Writing words and short phrases.",
+              "c": 0
+            },
+            {
+              "t": "Crossing out every idea that seems silly.",
+              "c": 1
+            },
+            {
+              "t": "Writing down a lot of ideas.",
+              "c": 0
+            },
+            {
+              "t": "Stopping to fix every spelling mistake.",
+              "c": 1
+            }
+          ],
+          "why": "Collect ideas first. Cleaning up and judging come later.",
+          "help": {
+            "nudge": "Does the action help you collect more ideas, or does it slow you down?",
+            "rule": "Good brainstorming is **fast, short and open**. Judging and correcting slow you down.",
+            "worked": "“Writing words and short phrases” is fast. “Stopping to fix every spelling mistake” slows you down."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "list",
+          "q": "Which is the **best brainstorm** for the topic *why people volunteer*?",
+          "options": [
+            "help others, meet new people, learn skills, feel useful, gain experience",
+            "I think volunteering is good because it helps many people in my community and it is useful.",
+            "volunteer",
+            "volunteering, charity, community"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "A brainstorm is a quick list of short ideas. One long sentence is slow, and one word is not enough.",
+          "help": {
+            "nudge": "Which one is a list of several short ideas?",
+            "rule": "A brainstorm is a **list of short ideas**, not a full sentence and not a single word.",
+            "worked": "“help others, meet new people, learn skills…” gives five quick ideas you can choose from.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "list",
+                "q": "Which is the best brainstorm for the topic *a good teacher*?",
+                "options": [
+                  "patient, clear, kind, fair, funny, helpful",
+                  "A good teacher is someone who explains each lesson clearly to every student.",
+                  "teacher",
+                  "teacher, school, class"
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It is a quick list of short ideas."
+              }
+            ]
+          }
+        },
+        {
+          "type": "tap",
+          "skill": "list",
+          "q": "Tap the idea that does **not** belong on a brainstorm list for the topic *healthy habits*.",
+          "text": "exercise sleep water television fruit",
+          "answers": [
+            [
+              3
+            ]
+          ],
+          "why": "Television does not belong with healthy habits. Everything else does.",
+          "help": {
+            "nudge": "Which idea has nothing to do with staying healthy?",
+            "rule": "When you review a list, look for ideas that **do not answer the topic**.",
+            "worked": "Exercise, sleep, water and fruit are all healthy habits. Television is not.",
+            "variants": [
+              {
+                "type": "tap",
+                "skill": "list",
+                "q": "Tap the idea that does not belong on a list for the topic *a good friend*.",
+                "text": "kind honest funny printer loyal",
+                "answers": [
+                  [
+                    3
+                  ]
+                ],
+                "why": "A printer is not a quality of a good friend."
+              }
+            ]
+          }
+        },
+        {
+          "type": "porder",
+          "skill": "list",
+          "q": "Put the steps of brainstorming in order.",
+          "sentences": [
+            "Read the topic.",
+            "Write many ideas in a list.",
+            "Circle the best ideas.",
+            "Plan your essay."
+          ],
+          "shuffled": [
+            2,
+            0,
+            3,
+            1
+          ],
+          "answers": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "why": "You read the topic, collect ideas, choose the best, and only then plan.",
+          "help": {
+            "nudge": "What must you do before you can choose the best ideas?",
+            "rule": "The order is: **topic → many ideas → circle the best → plan**.",
+            "worked": "You cannot circle the best ideas until you have a list of ideas to choose from."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **one sentence** that lists at least six ideas for the topic *a good friend*. Use commas between the ideas.",
+        "minWords": 10,
+        "placeholder": "A good friend is kind, …",
+        "checks": [
+          {
+            "t": "I listed at least six ideas.",
+            "auto": null
+          },
+          {
+            "t": "I used commas between my ideas.",
+            "auto": "listComma"
+          },
+          {
+            "t": "My sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Add more ideas",
+          "Use shorter ideas",
+          "Cross out the weak ideas"
+        ],
+        "sample": "A good friend is kind, honest, funny, loyal, patient, helpful and a good listener."
+      }
+    },
+    "5.2": {
+      "format": "v2",
+      "skill": "mindmap",
+      "goal": "Group your ideas on a mind map: topic in the centre, ideas on branches.",
+      "warmup": {
+        "skills": [
+          "topic",
+          "support"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each part of this mind map. It is written as lines so you can read it.",
+        "sentences": [
+          {
+            "t": "Centre: Learning English",
+            "role": "topic",
+            "note": "The topic goes in the middle of the page.",
+            "label": "Centre"
+          },
+          {
+            "t": "Branch 1: Speaking. Talk to classmates, join a club, practise with friends.",
+            "role": "support",
+            "note": "Each main branch is one big idea, with small details around it.",
+            "label": "Main branch"
+          },
+          {
+            "t": "Branch 2: Writing. Keep a journal, write emails, ask for feedback.",
+            "role": "support",
+            "note": "Another big idea. Its details belong only to this branch.",
+            "label": "Main branch"
+          },
+          {
+            "t": "Branch 3: Listening. Watch videos, listen to podcasts, take notes.",
+            "role": "support",
+            "note": "A third idea. Three branches give a clear picture.",
+            "label": "Main branch"
+          },
+          {
+            "t": "Choose the two strongest branches for your essay.",
+            "role": "concluding",
+            "note": "You do not have to use every branch. Pick the best ones.",
+            "label": "Choose"
+          }
+        ],
+        "takeaway": "A mind map puts the **topic in the centre**, **main ideas on branches** and **details on smaller branches**. Then you choose the strongest branches."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "mindmap",
+          "q": "Where does the topic go on a mind map?",
+          "options": [
+            "In the middle",
+            "At the bottom",
+            "On the smallest branch",
+            "At the end of the longest branch"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "The topic is the centre. Everything grows out from it.",
+          "help": {
+            "nudge": "What do all the branches connect to?",
+            "rule": "**Centre** = topic. **Main branches** = big ideas. **Small branches** = details.",
+            "worked": "In a map about “Learning English”, the words “Learning English” go in the middle, and “Speaking” is a main branch.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "mindmap",
+                "q": "In a mind map about *healthy habits*, what goes in the centre?",
+                "options": [
+                  "Healthy habits",
+                  "Sleep",
+                  "Drink water",
+                  "Staying healthy is important"
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "The topic goes in the centre; sleep and water are branches or details."
+              }
+            ]
+          }
+        },
+        {
+          "type": "label",
+          "skill": "mindmap",
+          "q": "Label each part of this mind map about **cooking at home**.",
+          "labels": [
+            "Centre (topic)",
+            "Main branch",
+            "Detail"
+          ],
+          "parts": [
+            {
+              "t": "Cooking at home",
+              "a": 0
+            },
+            {
+              "t": "Saving money",
+              "a": 1
+            },
+            {
+              "t": "Buy cheaper ingredients",
+              "a": 2
+            }
+          ],
+          "why": "The topic is the centre, “saving money” is a big idea, and “buy cheaper ingredients” is a detail of that idea.",
+          "help": {
+            "nudge": "Which part is biggest? Which is the smallest?",
+            "rule": "From biggest to smallest: **centre → main branch → detail**.",
+            "worked": "“Cooking at home” covers everything, “Saving money” is one big idea, and “Buy cheaper ingredients” is one small detail."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "mindmap",
+          "q": "Put each detail on the right branch of a map about **staying healthy**.",
+          "cats": [
+            "Food",
+            "Exercise"
+          ],
+          "items": [
+            {
+              "t": "eat more vegetables",
+              "c": 0
+            },
+            {
+              "t": "go for a morning walk",
+              "c": 1
+            },
+            {
+              "t": "drink less juice",
+              "c": 0
+            },
+            {
+              "t": "play football twice a week",
+              "c": 1
+            }
+          ],
+          "why": "A detail belongs on the branch it explains.",
+          "help": {
+            "nudge": "Is the detail about what you eat and drink, or about moving your body?",
+            "rule": "Details go on the **branch they explain**.",
+            "worked": "“eat more vegetables” is about food. “go for a morning walk” is about exercise.",
+            "variants": [
+              {
+                "type": "sort",
+                "skill": "mindmap",
+                "q": "Put each detail on the right branch of a map about **studying well**.",
+                "cats": [
+                  "Place",
+                  "Time"
+                ],
+                "items": [
+                  {
+                    "t": "a quiet library",
+                    "c": 0
+                  },
+                  {
+                    "t": "an hour after dinner",
+                    "c": 1
+                  },
+                  {
+                    "t": "a desk by the window",
+                    "c": 0
+                  },
+                  {
+                    "t": "early in the morning",
+                    "c": 1
+                  }
+                ],
+                "why": "Details about where go with Place; details about when go with Time."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "mindmap",
+          "q": "Which detail does **not** belong on the branch **sleep** in a map about staying healthy?",
+          "options": [
+            "go to bed early",
+            "keep the room dark",
+            "buy new running shoes",
+            "avoid screens before bed"
+          ],
+          "answers": [
+            2
+          ],
+          "why": "Running shoes belong on an exercise branch, not a sleep branch.",
+          "help": {
+            "nudge": "Which detail is about something other than sleep?",
+            "rule": "Check each detail against its **branch heading**. If it does not explain the branch, it belongs somewhere else.",
+            "worked": "Going to bed early and a dark room both help sleep. Running shoes are about exercise."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "mindmap",
+          "q": "Write a **main branch heading** that covers these details.",
+          "show": "Details: buy fruit, buy vegetables, buy fish",
+          "accept": [],
+          "patterns": [
+            "^(?=.*\\b(food|foods|groceries|shopping|ingredients|meals)\\b)[A-Za-z ,'-]{4,40}$"
+          ],
+          "example": "Shopping for food",
+          "why": "A branch heading names the big idea behind all the details.",
+          "help": {
+            "nudge": "What do fruit, vegetables and fish have in common?",
+            "rule": "A main branch heading is the **big idea** that covers all its details.",
+            "worked": "Fruit, vegetables and fish are all things you buy as food, so a good heading is “Shopping for food”."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **three sentences** that describe a mind map for the topic *spending free time*. Name the centre and two branches, with one detail for each.",
+        "minWords": 25,
+        "placeholder": "In the centre of my mind map is …",
+        "checks": [
+          {
+            "t": "I named the centre (the topic) of the map.",
+            "auto": null
+          },
+          {
+            "t": "I described two main branches and gave a detail for each.",
+            "auto": null
+          },
+          {
+            "t": "My sentences start with a capital letter and end with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Add a third branch",
+          "Add more details",
+          "Make the branch names clearer"
+        ],
+        "sample": "In the centre of my mind map is spending free time. One branch is sports, with details such as football and swimming. Another branch is hobbies, with details such as drawing and reading."
+      }
+    },
+    "5.3": {
+      "format": "v2",
+      "skill": "freewrite",
+      "goal": "Write without stopping to discover ideas, then keep the best ones.",
+      "warmup": {
+        "skills": [
+          "topic",
+          "unity"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each part of this freewriting example to see how freewriting works.",
+        "sentences": [
+          {
+            "t": "Set a timer for five minutes and keep your pen moving.",
+            "role": "topic",
+            "note": "The rule of freewriting: do not stop writing until the time ends.",
+            "label": "The rule"
+          },
+          {
+            "t": "I do not know what to write about my school so maybe the library it has big tables and quiet chairs.",
+            "role": "support",
+            "note": "Spelling, grammar and neat sentences do not matter yet. Just keep going.",
+            "label": "Messy is fine"
+          },
+          {
+            "t": "Actually the best thing is that I can study there with my friends after class.",
+            "role": "support",
+            "note": "Somewhere in the mess is a good idea. This one could become a topic sentence.",
+            "label": "A useful idea"
+          },
+          {
+            "t": "Now underline the two best ideas and use them in your plan.",
+            "role": "concluding",
+            "note": "When the timer ends, read your text, underline the best ideas and leave the rest.",
+            "label": "Afterwards"
+          }
+        ],
+        "takeaway": "In **freewriting** you write without stopping for a set time and **do not fix mistakes**. Afterwards you **underline the best ideas**."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "freewrite",
+          "q": "What is the main rule of freewriting?",
+          "options": [
+            "Keep writing without stopping for the whole time.",
+            "Check every sentence for mistakes.",
+            "Write only your best ideas.",
+            "Stop whenever you do not know what to say."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "You keep your pen moving. Correcting comes later.",
+          "help": {
+            "nudge": "Is freewriting about being perfect or about not stopping?",
+            "rule": "**Do not stop** writing, and **do not correct** while you write.",
+            "worked": "If you stop to fix a spelling mistake, you break the flow. Fix mistakes later.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "freewrite",
+                "q": "A classmate stops after every sentence to check the grammar. Is that freewriting?",
+                "options": [
+                  "No, freewriting means writing without stopping.",
+                  "Yes, good writers always check each sentence.",
+                  "Yes, as long as the grammar is perfect.",
+                  "No, because freewriting must be handwritten."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "Freewriting means you keep going and fix mistakes afterwards."
+              }
+            ]
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "freewrite",
+          "q": "Is each action part of **freewriting** or **not freewriting**?",
+          "cats": [
+            "Freewriting",
+            "Not freewriting"
+          ],
+          "items": [
+            {
+              "t": "Setting a timer.",
+              "c": 0
+            },
+            {
+              "t": "Stopping to correct spelling.",
+              "c": 1
+            },
+            {
+              "t": "Writing whatever comes to mind.",
+              "c": 0
+            },
+            {
+              "t": "Waiting for the perfect idea.",
+              "c": 1
+            }
+          ],
+          "why": "Freewriting is timed, continuous and unedited.",
+          "help": {
+            "nudge": "Does the action keep you writing, or does it make you stop?",
+            "rule": "Freewriting is **timed**, **continuous** and **unedited**.",
+            "worked": "A timer and writing whatever comes to mind keep you going. Stopping to correct or waiting for a perfect idea does not."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "freewrite",
+          "q": "After you freewrite, what do you do **next**?",
+          "options": [
+            "Underline the best ideas.",
+            "Delete everything and start again.",
+            "Hand it in as your essay.",
+            "Correct every spelling mistake."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "You read your text and pick out the ideas worth using.",
+          "help": {
+            "nudge": "Your freewriting is messy. What is it useful for?",
+            "rule": "Freewriting is a way to **find ideas**, not a finished text.",
+            "worked": "After you finish, read it, underline the best ideas, and use those in your plan."
+          }
+        },
+        {
+          "type": "tap",
+          "skill": "freewrite",
+          "q": "Tap the **best idea** to keep from this freewriting.",
+          "text": "I am tired and the bus was late but I really enjoy teaching my little brother to read.",
+          "answers": [
+            [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ],
+            [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ]
+          ],
+          "why": "The idea about teaching a little brother to read could grow into a whole paragraph. Being tired and the late bus are only passing remarks.",
+          "help": {
+            "nudge": "Which part could you write several sentences about?",
+            "rule": "Keep the idea that has **the most to say**. The rest can stay behind.",
+            "worked": "“I really enjoy teaching my little brother to read” could lead to examples and reasons. “The bus was late” does not."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "freewrite",
+          "q": "Freewriting gives rough sentences. Fix this one so it is a clear, complete sentence.",
+          "show": "my school library big tables quiet",
+          "accept": [],
+          "patterns": [
+            "^(?=.*\\blibrary\\b)(?=.*\\b(has|have|is|are|offers|provides|contains)\\b)[A-Z][^.!?]{12,}[.]$"
+          ],
+          "example": "My school library has big tables and quiet corners.",
+          "why": "After freewriting, you turn the best ideas into full sentences with a capital letter, a verb and a full stop.",
+          "help": {
+            "nudge": "What is missing: a verb, a capital letter or a full stop?",
+            "rule": "A complete sentence has a **subject**, a **verb**, a **capital letter** and **end punctuation**.",
+            "worked": "“my school library big tables quiet” has no verb. Adding “has” and “and” gives “My school library has big tables and quiet corners.”"
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Freewrite for **three minutes** about *a place where you feel relaxed*. Keep writing and do not worry about mistakes. Then underline your best idea.",
+        "minWords": 30,
+        "placeholder": "I feel relaxed when I am at …",
+        "checks": [
+          {
+            "t": "I kept writing and did not stop.",
+            "auto": null
+          },
+          {
+            "t": "I did not stop to fix mistakes.",
+            "auto": null
+          },
+          {
+            "t": "I found one idea I could use in a plan.",
+            "auto": null
+          }
+        ],
+        "focus": [
+          "Write more",
+          "Pick the best idea",
+          "Write one clear sentence about it"
+        ],
+        "sample": "I feel relaxed when I am on the roof of my house in the evening. The air is cool and the sky is quiet. I can hear birds and sometimes my neighbour playing music. I think about nothing and just breathe. It is my favourite place to rest after a busy day."
+      }
+    },
+    "5.4": {
+      "format": "v2",
+      "skill": "outline",
+      "goal": "Plan an essay in order with an outline: thesis, body points and conclusion.",
+      "warmup": {
+        "skills": [
+          "topic",
+          "support"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each line of this essay outline to see what it does.",
+        "sentences": [
+          {
+            "t": "Topic: Why students should join a club.",
+            "role": "topic",
+            "note": "The outline starts with the topic you plan to write about.",
+            "label": "Topic"
+          },
+          {
+            "t": "Thesis: Joining a club helps students make friends and learn new skills.",
+            "role": "topic",
+            "note": "This is your main point. Every part of the outline supports it.",
+            "label": "Thesis"
+          },
+          {
+            "t": "Body 1: Clubs help students make friends. Shared interests, weekly meetings.",
+            "role": "support",
+            "note": "The first reason, with its supporting details.",
+            "label": "Body paragraph 1"
+          },
+          {
+            "t": "Body 2: Clubs teach new skills. Leadership, teamwork.",
+            "role": "support",
+            "note": "The second reason. It also supports the thesis.",
+            "label": "Body paragraph 2"
+          },
+          {
+            "t": "Conclusion: Restate the thesis and give a final thought.",
+            "role": "concluding",
+            "note": "The outline ends by closing the essay.",
+            "label": "Conclusion"
+          }
+        ],
+        "takeaway": "An **outline** lists the **thesis**, the **main point of each body paragraph** with its details, and the **conclusion**, in order."
+      },
+      "practice": [
+        {
+          "type": "porder",
+          "skill": "outline",
+          "q": "Put the parts of an essay outline in order.",
+          "sentences": [
+            "Introduction and thesis",
+            "Body paragraph 1",
+            "Body paragraph 2",
+            "Conclusion"
+          ],
+          "shuffled": [
+            3,
+            1,
+            0,
+            2
+          ],
+          "answers": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "why": "An essay opens with the introduction and thesis, develops its points in the body, and ends with the conclusion.",
+          "help": {
+            "nudge": "Which part opens the essay? Which part ends it?",
+            "rule": "The order is **introduction and thesis → body paragraphs → conclusion**.",
+            "worked": "The introduction states the thesis first. The body proves it. The conclusion closes the essay."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "outline",
+          "q": "Is each line a **main point** or a **detail**?",
+          "cats": [
+            "Main point",
+            "Detail"
+          ],
+          "items": [
+            {
+              "t": "Learning a language opens many opportunities.",
+              "c": 0
+            },
+            {
+              "t": "It can help you get a better job.",
+              "c": 1
+            },
+            {
+              "t": "You can make friends from other cultures.",
+              "c": 1
+            },
+            {
+              "t": "Sport teaches young people teamwork.",
+              "c": 0
+            }
+          ],
+          "why": "A main point is a big idea. A detail is one specific example or reason inside it.",
+          "help": {
+            "nudge": "Is the line a big idea, or one example of a bigger idea?",
+            "rule": "A **main point** is a big idea. A **detail** supports a main point.",
+            "worked": "“Learning a language opens many opportunities” is big. “It can help you get a better job” is one opportunity."
+          }
+        },
+        {
+          "type": "label",
+          "skill": "outline",
+          "q": "Label each line of this outline.",
+          "labels": [
+            "Thesis",
+            "Body paragraph point",
+            "Detail"
+          ],
+          "parts": [
+            {
+              "t": "Volunteering benefits both the helper and the community.",
+              "a": 0
+            },
+            {
+              "t": "Volunteers learn useful skills.",
+              "a": 1
+            },
+            {
+              "t": "organising events",
+              "a": 2
+            }
+          ],
+          "why": "The thesis is the main point of the whole essay. A body paragraph point supports it, and a detail supports the body point.",
+          "help": {
+            "nudge": "Which line is about the whole essay? Which is the smallest?",
+            "rule": "**Thesis** (whole essay) → **body point** (one paragraph) → **detail** (one example).",
+            "worked": "“Volunteering benefits both the helper and the community” covers the whole essay, so it is the thesis."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "outline",
+          "q": "Which is the **best plan** for an essay with the thesis *Public libraries are valuable to students*?",
+          "options": [
+            "Body 1: free books and computers. Body 2: quiet places to study.",
+            "Body 1: my favourite book. Body 2: my holiday.",
+            "Body 1: libraries are old buildings. Body 2: libraries have many shelves.",
+            "Body 1: libraries open early. Body 2: libraries are near my house."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Each body point must support the thesis.",
+          "help": {
+            "nudge": "Which body points explain why libraries are valuable?",
+            "rule": "Every body point must **support the thesis**.",
+            "worked": "Free books and quiet study places both show why libraries are valuable to students.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "outline",
+                "q": "Which is the best plan for an essay with the thesis *Walking to school benefits students*?",
+                "options": [
+                  "Body 1: it keeps students healthy. Body 2: it saves money.",
+                  "Body 1: schools have gates. Body 2: teachers wear glasses.",
+                  "Body 1: walking is a type of exercise. Body 2: many people walk.",
+                  "Body 1: students walk on the pavement. Body 2: students walk slowly."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "Health and money are two reasons that support the thesis."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "outline",
+          "q": "Write a **body paragraph point** about health for this thesis.",
+          "show": "Thesis: Regular exercise improves both health and mood.",
+          "accept": [],
+          "patterns": [
+            "^(?!.*\\bThesis\\b)(?=.*\\b(health|healthy|heart|fitness|fit|body|strong)\\b)[A-Z][^.!?]{10,}[.]?$"
+          ],
+          "example": "Exercise keeps the heart and body healthy.",
+          "why": "The first body point should support the thesis and focus on one part of it: health.",
+          "help": {
+            "nudge": "The thesis has two parts: health and mood. Which part does Body 1 cover?",
+            "rule": "Each body point covers **one part** of the thesis.",
+            "worked": "The thesis mentions health and mood. Body 1 can be about health: “Exercise keeps the heart and body healthy.”"
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write a **short outline** for an essay called *Why students should learn a second language*: a thesis, two body points and a conclusion.",
+        "minWords": 25,
+        "placeholder": "Thesis: …",
+        "checks": [
+          {
+            "t": "My outline has a thesis, two body points and a conclusion.",
+            "auto": null
+          },
+          {
+            "t": "Each body point supports the thesis.",
+            "auto": null
+          },
+          {
+            "t": "My lines start with a capital letter and end with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make the thesis clearer",
+          "Make the body points different",
+          "Add a detail"
+        ],
+        "sample": "Thesis: Learning a second language gives students better job chances and wider friendships. Body 1: Employers value people who speak more than one language. Body 2: Speaking another language helps you make friends from other cultures. Conclusion: Restate the thesis and close with a final thought."
+      }
+    },
+    "5.5": {
+      "format": "v2",
+      "skill": "argue",
+      "goal": "Tell an arguable thesis from a fact and from an announcement.",
+      "warmup": {
+        "skills": [
+          "topic",
+          "concl"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see why it is, or is not, a good thesis.",
+        "sentences": [
+          {
+            "t": "Students learn better when classes start later in the morning.",
+            "role": "topic",
+            "note": "People can agree or disagree with this, so it can be argued.",
+            "label": "Arguable thesis"
+          },
+          {
+            "t": "The school day starts at eight o’clock.",
+            "role": "support",
+            "note": "A fact is simply true. There is nothing to argue.",
+            "label": "A fact"
+          },
+          {
+            "t": "In this essay I will talk about school start times.",
+            "role": "support",
+            "note": "An announcement only names the topic. It makes no point.",
+            "label": "An announcement"
+          },
+          {
+            "t": "Ask yourself: could a reasonable person disagree? If yes, you can argue it.",
+            "role": "concluding",
+            "note": "Use this quick test on your own thesis.",
+            "label": "Test it"
+          }
+        ],
+        "takeaway": "A good thesis is a **statement people could agree or disagree with**. A **fact** cannot be argued, and an **announcement** only names the topic."
+      },
+      "practice": [
+        {
+          "type": "sort",
+          "skill": "argue",
+          "q": "Is each sentence a **fact**, an **announcement** or an **arguable thesis**?",
+          "cats": [
+            "Fact",
+            "Announcement",
+            "Arguable thesis"
+          ],
+          "items": [
+            {
+              "t": "Water boils at one hundred degrees Celsius.",
+              "c": 0
+            },
+            {
+              "t": "This essay is about recycling.",
+              "c": 1
+            },
+            {
+              "t": "Every school should teach students how to cook.",
+              "c": 2
+            },
+            {
+              "t": "There are seven days in a week.",
+              "c": 0
+            },
+            {
+              "t": "I am going to write about sport.",
+              "c": 1
+            },
+            {
+              "t": "Part-time jobs help students manage their time.",
+              "c": 2
+            }
+          ],
+          "why": "Facts are simply true. Announcements name the topic. An arguable thesis makes a point someone could disagree with.",
+          "help": {
+            "nudge": "For each sentence ask: is it just true? Does it only name a topic? Or could someone disagree?",
+            "rule": "**Fact** = true. **Announcement** = names the topic. **Arguable thesis** = a point people could disagree with.",
+            "worked": "“There are seven days in a week” is just true, so it is a fact. “Every school should teach students how to cook” is a point someone could disagree with."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "argue",
+          "q": "Which sentence is an arguable thesis?",
+          "options": [
+            "Schools should give students a longer lunch break.",
+            "Lunch is at noon.",
+            "I will write about lunch breaks.",
+            "Many students eat lunch at school."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "The first sentence makes a point that people could agree or disagree with.",
+          "help": {
+            "nudge": "Which sentence would start a discussion?",
+            "rule": "An arguable thesis makes a **point of view** clear.",
+            "worked": "“Lunch is at noon” is a fact. “I will write about lunch breaks” is an announcement.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "argue",
+                "q": "Which sentence is an arguable thesis?",
+                "options": [
+                  "Every student should learn to swim.",
+                  "Swimming pools are blue.",
+                  "I am going to write about swimming.",
+                  "Swimming is a popular sport."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "Only the first sentence is a point of view someone could argue with."
+              }
+            ]
+          }
+        },
+        {
+          "type": "tap",
+          "skill": "argue",
+          "q": "Tap the words that show the writer's **opinion**.",
+          "text": "Reading for twenty minutes every day is extremely valuable.",
+          "answers": [
+            [
+              7,
+              8
+            ],
+            [
+              8
+            ]
+          ],
+          "why": "“Extremely valuable” shows what the writer thinks.",
+          "help": {
+            "nudge": "Which words tell you what the writer thinks, not just what is true?",
+            "rule": "Opinion words such as *valuable*, *important*, *better* and *should* signal an arguable point.",
+            "worked": "“Reading for twenty minutes every day” is an action. “Extremely valuable” is the writer’s judgement of it."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "argue",
+          "q": "This sentence is only an announcement. Rewrite it as an arguable thesis.",
+          "show": "This essay is about school uniforms.",
+          "accept": [],
+          "patterns": [
+            "^(?!.*\\b(essay|about|write)\\b)(?=.*\\buniforms?\\b)(?=.*\\b(should|help|helps|improve|improves|make|makes|better|important|useful|unfair|fair)\\b)[A-Z][^.!?]{15,}[.]$"
+          ],
+          "example": "School uniforms help students feel equal and focused.",
+          "why": "An arguable thesis states a point about the topic. It does not say what the essay is about.",
+          "help": {
+            "nudge": "What is your opinion about school uniforms? Say it directly.",
+            "rule": "Turn an announcement into a thesis by **stating your point** instead of naming your topic.",
+            "worked": "“This essay is about school uniforms” names the topic. “School uniforms help students feel equal and focused” makes a point."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "argue",
+          "q": "Why is *Today is Monday.* a weak thesis?",
+          "options": [
+            "It is only a fact, so nobody can argue with it.",
+            "It is too short to be a thesis.",
+            "It does not name the topic.",
+            "It is an announcement of the topic."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "A thesis needs a point someone could disagree with.",
+          "help": {
+            "nudge": "Could anyone disagree with that sentence?",
+            "rule": "If **nobody can disagree**, the sentence is a fact, not a thesis.",
+            "worked": "Today is Monday, or it is not. There is no point of view to argue."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **one arguable thesis** about a topic you care about, such as sleep, sport or technology.",
+        "minWords": 8,
+        "placeholder": "Students should …",
+        "checks": [
+          {
+            "t": "People could agree or disagree with my sentence.",
+            "auto": null
+          },
+          {
+            "t": "It is not just a fact or an announcement.",
+            "auto": null
+          },
+          {
+            "t": "It starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make the opinion clearer",
+          "Make it more specific",
+          "Check that it is not a fact"
+        ],
+        "sample": "Students should sleep at least eight hours because it improves their learning."
+      }
+    },
+    "5.6": {
+      "format": "v2",
+      "skill": "control",
+      "goal": "Find and write the controlling idea: the exact point your thesis makes.",
+      "warmup": {
+        "skills": [
+          "topic",
+          "argue"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each part to see how a thesis is built.",
+        "sentences": [
+          {
+            "t": "Public parks are valuable because they give people a free place to relax.",
+            "role": "topic",
+            "note": "This thesis has two parts: a topic and a point about it.",
+            "label": "Thesis"
+          },
+          {
+            "t": "Public parks",
+            "role": "support",
+            "note": "What the sentence is about.",
+            "label": "The topic"
+          },
+          {
+            "t": "valuable because they give people a free place to relax",
+            "role": "support",
+            "note": "The writer’s exact point. It controls what the essay will discuss.",
+            "label": "Controlling idea"
+          },
+          {
+            "t": "Public parks are good.",
+            "role": "concluding",
+            "note": "“Good” could mean anything. A clear controlling idea gives the reader a direction.",
+            "label": "Too vague"
+          }
+        ],
+        "takeaway": "The **controlling idea** is the **exact point** you make about your topic. It must be **clear and specific**, because it controls everything in the essay."
+      },
+      "practice": [
+        {
+          "type": "label",
+          "skill": "control",
+          "q": "Label the two parts of this thesis: **Cycling to school improves students’ health.**",
+          "labels": [
+            "Topic",
+            "Controlling idea"
+          ],
+          "parts": [
+            {
+              "t": "Cycling to school",
+              "a": 0
+            },
+            {
+              "t": "improves students’ health",
+              "a": 1
+            }
+          ],
+          "why": "The topic is what the sentence is about. The controlling idea is the point made about it.",
+          "help": {
+            "nudge": "Which part names the subject? Which part says something about it?",
+            "rule": "**Topic** = what you write about. **Controlling idea** = what you say about it.",
+            "worked": "“Cycling to school” is the subject. “improves students’ health” is the point about it."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "control",
+          "q": "Which controlling idea is the **most specific**? *Social media ___.*",
+          "options": [
+            "is good",
+            "helps people stay in touch with relatives who live far away",
+            "is something many people use",
+            "is very popular today"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "It gives a clear, specific point that the essay can explain.",
+          "help": {
+            "nudge": "Which one says exactly how or why?",
+            "rule": "A specific controlling idea says **how** or **why**, not just good or bad.",
+            "worked": "“is good” could mean anything. “helps people stay in touch with relatives who live far away” tells the reader exactly what the essay will explain.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "control",
+                "q": "Which controlling idea is the most specific? *Exercise ___.*",
+                "options": [
+                  "is nice",
+                  "lowers stress and improves sleep",
+                  "is a thing people do",
+                  "is useful"
+                ],
+                "answers": [
+                  1
+                ],
+                "why": "It names two clear effects."
+              }
+            ]
+          }
+        },
+        {
+          "type": "tap",
+          "skill": "control",
+          "q": "Tap the **controlling idea**.",
+          "text": "Online shopping saves busy people time.",
+          "answers": [
+            [
+              2,
+              3,
+              4,
+              5
+            ]
+          ],
+          "why": "“saves busy people time” is the point made about online shopping.",
+          "help": {
+            "nudge": "Which words say something about online shopping?",
+            "rule": "The controlling idea usually comes after the topic and says **what the topic does or is**.",
+            "worked": "“Online shopping” is the topic. “saves busy people time” is the controlling idea.",
+            "variants": [
+              {
+                "type": "tap",
+                "skill": "control",
+                "q": "Tap the controlling idea.",
+                "text": "Reading stories builds children’s imagination.",
+                "answers": [
+                  [
+                    2,
+                    3,
+                    4
+                  ]
+                ],
+                "why": "“builds children’s imagination” is the point about reading stories."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "control",
+          "q": "Make the controlling idea more specific. Rewrite the sentence.",
+          "show": "Sports are good.",
+          "extra": "Hint: say how or why they are good.",
+          "accept": [],
+          "patterns": [
+            "^(?!.*\\bgood\\b)(?=.*\\b[Ss]ports?\\b)(?=.*\\b(health|healthy|teamwork|fit|fitness|friends|discipline|confidence|energy|stress)\\b)[A-Z][^.!?]{15,}[.]$"
+          ],
+          "example": "Sports build teamwork and keep young people healthy.",
+          "why": "A specific controlling idea tells the reader exactly what the essay will explain.",
+          "help": {
+            "nudge": "Why are sports good? Name one or two clear reasons.",
+            "rule": "Replace a vague word like **good** with the **reason**.",
+            "worked": "“Sports are good” is vague. “Sports build teamwork and keep young people healthy” names two reasons."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "control",
+          "q": "Which thesis has a clear controlling idea?",
+          "options": [
+            "Recycling is a topic.",
+            "Recycling saves resources and reduces waste.",
+            "Many people recycle things.",
+            "Recycling is important."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "It tells the reader exactly what recycling does.",
+          "help": {
+            "nudge": "Which sentence says something clear about recycling?",
+            "rule": "A controlling idea says what the topic **does, causes or means**.",
+            "worked": "“Recycling saves resources and reduces waste” gives two clear points about recycling."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **one thesis** about *learning online*. Make the controlling idea specific, not just “good” or “bad”.",
+        "minWords": 8,
+        "placeholder": "Learning online …",
+        "checks": [
+          {
+            "t": "My sentence names a topic (learning online).",
+            "auto": null
+          },
+          {
+            "t": "My controlling idea is specific, not just good or bad.",
+            "auto": null
+          },
+          {
+            "t": "It starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make the idea more specific",
+          "Say how or why",
+          "Cut extra words"
+        ],
+        "sample": "Learning online gives students flexibility and saves them travel time."
+      }
+    },
+    "5.7": {
+      "format": "v2",
+      "skill": "thesis",
+      "goal": "Write a clear thesis statement: topic plus controlling idea in one sentence.",
+      "warmup": {
+        "skills": [
+          "control",
+          "argue"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each step to see how a thesis is put together.",
+        "sentences": [
+          {
+            "t": "Volunteering",
+            "role": "support",
+            "note": "Start with your topic.",
+            "label": "Topic"
+          },
+          {
+            "t": "helps students gain skills and help their community",
+            "role": "support",
+            "note": "Add your exact point about the topic.",
+            "label": "Controlling idea"
+          },
+          {
+            "t": "Volunteering helps students gain skills and help their community.",
+            "role": "topic",
+            "note": "Join them in one clear sentence. A good thesis may also hint at the two body paragraphs.",
+            "label": "Thesis"
+          },
+          {
+            "t": "Check: is it arguable, specific and one sentence?",
+            "role": "concluding",
+            "note": "Three quick checks before you move on to your outline.",
+            "label": "Check it"
+          }
+        ],
+        "takeaway": "Write your thesis as **one clear sentence**: your **topic** plus your **controlling idea**. It should be **arguable** and **specific**."
+      },
+      "practice": [
+        {
+          "type": "order",
+          "skill": "thesis",
+          "q": "Put the words in order to make a thesis.",
+          "pieces": [
+            "Regular",
+            "exercise",
+            "improves",
+            "both",
+            "health",
+            "and",
+            "mood."
+          ],
+          "answers": [
+            "Regular exercise improves both health and mood."
+          ],
+          "why": "The topic comes first, then the controlling idea.",
+          "help": {
+            "nudge": "Which words name the topic? Which words say the point?",
+            "rule": "A thesis is **topic first, controlling idea next**, in one sentence.",
+            "worked": "“Regular exercise” is the topic. “improves both health and mood” is the controlling idea."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "thesis",
+          "q": "Which is the **best** thesis?",
+          "options": [
+            "Many students use phones.",
+            "Students should use phones in class only for learning tasks.",
+            "This essay is about phones.",
+            "Phones are used for many things."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "It makes a clear, arguable point about a topic.",
+          "help": {
+            "nudge": "Which sentence takes a position and could start a discussion?",
+            "rule": "A strong thesis is **arguable** and **specific**.",
+            "worked": "“Many students use phones” is a fact. “This essay is about phones” is an announcement.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "thesis",
+                "q": "Which is the best thesis?",
+                "options": [
+                  "Schools should offer more outdoor lessons.",
+                  "Schools have classrooms.",
+                  "I will write about schools.",
+                  "Many schools have playgrounds."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "Only the first makes an arguable point."
+              }
+            ]
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "thesis",
+          "q": "Is each sentence a **strong thesis** or a **weak thesis**?",
+          "cats": [
+            "Strong",
+            "Weak"
+          ],
+          "items": [
+            {
+              "t": "Public libraries help students study and save money.",
+              "c": 0
+            },
+            {
+              "t": "Libraries are good.",
+              "c": 1
+            },
+            {
+              "t": "I will write about libraries.",
+              "c": 1
+            },
+            {
+              "t": "Eating breakfast helps students concentrate in class.",
+              "c": 0
+            }
+          ],
+          "why": "Strong theses are specific and arguable. Weak ones are vague or only announce a topic.",
+          "help": {
+            "nudge": "Is the sentence specific and arguable?",
+            "rule": "**Strong** = specific and arguable. **Weak** = vague, a fact, or an announcement.",
+            "worked": "“Libraries are good” is vague. “Public libraries help students study and save money” is specific."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "thesis",
+          "q": "Combine the topic and the controlling idea into **one thesis sentence**.",
+          "show": "Topic: reading. Controlling idea: improves vocabulary.",
+          "accept": [],
+          "patterns": [
+            "^(?=.*\\b[Rr]ead(ing)?\\b)(?=.*\\bvocabulary\\b)(?=.*\\b(improves?|builds?|increases?|expands?|helps?)\\b)[A-Z][^.!?]{15,}[.]$"
+          ],
+          "example": "Reading improves vocabulary and helps students write better.",
+          "why": "Join the topic and the controlling idea in one clear sentence.",
+          "help": {
+            "nudge": "Start with the topic, then add the controlling idea after it.",
+            "rule": "**Topic + controlling idea = thesis**.",
+            "worked": "“Reading” + “improves vocabulary” = “Reading improves vocabulary and helps students write better.”"
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "thesis",
+          "q": "Which thesis also **previews** its two body paragraphs?",
+          "options": [
+            "Cycling is good for people.",
+            "Cycling saves money and protects the environment.",
+            "I like cycling.",
+            "Cycling is an exercise many people enjoy."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "It names two ideas that can become two body paragraphs.",
+          "help": {
+            "nudge": "Which sentence names two separate ideas?",
+            "rule": "A thesis can **preview** the body: one idea for each body paragraph.",
+            "worked": "“saves money” could be body paragraph 1 and “protects the environment” could be body paragraph 2."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write a **thesis statement** for an essay about *the benefits of sport for students*.",
+        "minWords": 10,
+        "placeholder": "Sport helps students …",
+        "checks": [
+          {
+            "t": "My thesis names a topic and a controlling idea.",
+            "auto": null
+          },
+          {
+            "t": "It is arguable and specific.",
+            "auto": null
+          },
+          {
+            "t": "It is one sentence that starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make it more specific",
+          "Preview two body paragraphs",
+          "Cut extra words"
+        ],
+        "sample": "Playing sport helps students build teamwork skills and stay healthy."
+      }
+    },
+    "5.8": {
+      "format": "v2",
+      "skill": "bodyplan",
+      "goal": "Turn an outline point into a topic sentence and a body paragraph.",
+      "warmup": {
+        "skills": [
+          "topic",
+          "support"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see how an outline point grows into a paragraph.",
+        "sentences": [
+          {
+            "t": "Thesis: Volunteering helps students gain skills and help their community.",
+            "role": "topic",
+            "note": "Every body paragraph supports this sentence.",
+            "label": "The thesis"
+          },
+          {
+            "t": "Outline point: volunteers learn useful skills.",
+            "role": "support",
+            "note": "This is the idea for body paragraph 1.",
+            "label": "Outline point"
+          },
+          {
+            "t": "Volunteers learn useful skills that help them in school and at work.",
+            "role": "topic",
+            "note": "The outline point becomes a full topic sentence that links to the thesis.",
+            "label": "Topic sentence"
+          },
+          {
+            "t": "For example, a student who organises a charity event learns planning and teamwork.",
+            "role": "support",
+            "note": "Add an example, a fact or an explanation.",
+            "label": "Support"
+          },
+          {
+            "t": "These skills prepare volunteers for their future careers.",
+            "role": "concluding",
+            "note": "End by tying the point back to the thesis.",
+            "label": "Closing sentence"
+          }
+        ],
+        "takeaway": "Turn each **outline point** into a **topic sentence** that supports the thesis. Then add **support** and a **closing sentence**."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "bodyplan",
+          "q": "Thesis: *Cooking at home saves money and improves health.* Outline point: *saves money*. Which is the best **topic sentence**?",
+          "options": [
+            "Cooking at home saves families a lot of money each month.",
+            "Cooking at home improves health in many ways.",
+            "I like pasta.",
+            "Restaurants are open late."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It turns the outline point into a full sentence that supports the thesis.",
+          "help": {
+            "nudge": "Which sentence says how cooking at home saves money?",
+            "rule": "A body topic sentence **states the outline point** and **links to the thesis**.",
+            "worked": "“Cooking at home saves families a lot of money each month” is about saving money, which is the outline point.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "bodyplan",
+                "q": "Thesis: *Cycling saves money and protects the environment.* Outline point: *protects the environment*. Which is the best topic sentence?",
+                "options": [
+                  "Cycling protects the environment because bicycles produce no pollution.",
+                  "Cycling saves money on fuel and repairs.",
+                  "I have a red bicycle.",
+                  "Roads are very busy."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It states the outline point and explains it."
+              }
+            ]
+          }
+        },
+        {
+          "type": "porder",
+          "skill": "bodyplan",
+          "q": "Put the sentences in order to make a body paragraph.",
+          "sentences": [
+            "Cooking at home saves families a lot of money each month.",
+            "Ingredients usually cost less than ready-made meals.",
+            "For example, a pot of rice and vegetables can feed four people for very little money.",
+            "This saving makes home cooking a smart choice."
+          ],
+          "shuffled": [
+            2,
+            3,
+            0,
+            1
+          ],
+          "answers": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "why": "Topic sentence first, then the reason, then the example, then the closing sentence.",
+          "help": {
+            "nudge": "Which sentence states the main point? Which one closes it?",
+            "rule": "Order: **topic sentence → support → example → closing sentence**.",
+            "worked": "The first sentence gives the point. The example comes after the reason it illustrates. “This saving…” closes the paragraph."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "bodyplan",
+          "q": "Is each sentence a **topic sentence**, **support**, or a **closing sentence**?",
+          "cats": [
+            "Topic sentence",
+            "Support",
+            "Closing sentence"
+          ],
+          "items": [
+            {
+              "t": "Walking to school keeps students active.",
+              "c": 0
+            },
+            {
+              "t": "A twenty-minute walk every morning builds strength.",
+              "c": 1
+            },
+            {
+              "t": "Active students concentrate better in class.",
+              "c": 1
+            },
+            {
+              "t": "For these reasons, walking is a healthy habit.",
+              "c": 2
+            }
+          ],
+          "why": "The topic sentence gives the main point. Support explains or proves it. The closing sentence ends the paragraph.",
+          "help": {
+            "nudge": "Which sentence states the main point? Which one starts with “For these reasons”?",
+            "rule": "**Topic sentence** = main point. **Support** = reasons and examples. **Closing sentence** = wraps up.",
+            "worked": "“Walking to school keeps students active” is the main point. “For these reasons…” closes the paragraph."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "bodyplan",
+          "q": "Add a **supporting example** that starts with *For example,*.",
+          "show": "Topic sentence: Walking to school keeps students active.",
+          "accept": [],
+          "patterns": [
+            "^For example, [a-z][^.!?]{12,}[.]$"
+          ],
+          "example": "For example, a twenty-minute walk every morning builds strength.",
+          "why": "An example makes a point real and easy to picture.",
+          "help": {
+            "nudge": "Give one specific example of walking keeping a student active.",
+            "rule": "A supporting example starts with **For example,** and gives something specific.",
+            "worked": "“For example, a twenty-minute walk every morning builds strength.” gives one concrete example."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "bodyplan",
+          "q": "Thesis: *Online banking saves time and improves safety.* Body paragraph 1 is about **saving time**. Which sentence does **not** belong?",
+          "options": [
+            "Customers can pay bills in seconds from home.",
+            "There is no need to wait in a long line.",
+            "Strong passwords should use numbers and symbols.",
+            "Transfers arrive in a few seconds."
+          ],
+          "answers": [
+            2
+          ],
+          "why": "Passwords are about safety, not saving time.",
+          "help": {
+            "nudge": "Which sentence is about something other than saving time?",
+            "rule": "Every sentence in a body paragraph must support **that paragraph’s point**.",
+            "worked": "Paying bills quickly and skipping a queue save time. Passwords belong in the safety paragraph."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write a **topic sentence and one supporting sentence** for this outline point: *Regular exercise improves health.*",
+        "minWords": 16,
+        "placeholder": "Regular exercise …",
+        "checks": [
+          {
+            "t": "My topic sentence states the outline point.",
+            "auto": null
+          },
+          {
+            "t": "My supporting sentence gives an example.",
+            "auto": null
+          },
+          {
+            "t": "My sentences start with a capital letter and end with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make the topic sentence clearer",
+          "Add a stronger example",
+          "Add a closing sentence"
+        ],
+        "sample": "Regular exercise keeps the heart strong and the body healthy. For example, walking for thirty minutes a day lowers the risk of many illnesses."
+      }
+    },
+    "5.9": {
+      "format": "v2",
+      "review": true,
+      "from": [
+        "5.1",
+        "5.2",
+        "5.3",
+        "5.4",
+        "5.5",
+        "5.6",
+        "5.7",
+        "5.8"
+      ],
+      "count": 8,
+      "skill": "thesis",
+      "goal": "Plan an essay: write a thesis and a short outline.",
+      "write": {
+        "prompt": "Choose a topic you know well, such as a hobby, a skill or a habit. Write a **thesis** and a short **outline** with two body points and a conclusion.",
+        "minWords": 40,
+        "placeholder": "Thesis: …",
+        "checks": [
+          {
+            "t": "My thesis is arguable and specific.",
+            "auto": null
+          },
+          {
+            "t": "My two body points support the thesis.",
+            "auto": null
+          },
+          {
+            "t": "I wrote complete sentences with capital letters and punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make the thesis clearer",
+          "Check my body points",
+          "Add a conclusion"
+        ],
+        "sample": "Thesis: Learning to cook helps students save money and eat more healthily. Body 1: Cooking at home costs less than buying ready-made meals. Body 2: Home cooking lets students choose fresh and healthy ingredients. Conclusion: Restate the thesis and end with a final thought about independence."
+      }
+    }
+  },
+  "skills": {
+    "list": {
+      "label": "Brainstorming lists",
+      "good": "You can collect many ideas quickly without judging them.",
+      "improve": "Brainstorm first, judge later. Write many short ideas, then circle the best ones."
+    },
+    "mindmap": {
+      "label": "Mind maps",
+      "good": "You can group ideas around a centre.",
+      "improve": "Put the topic in the centre, main ideas on branches and details on smaller branches."
+    },
+    "freewrite": {
+      "label": "Freewriting",
+      "good": "You can write without stopping and find good ideas.",
+      "improve": "Keep writing for the whole time and do not fix mistakes. Underline the best ideas afterwards."
+    },
+    "outline": {
+      "label": "Outlines",
+      "good": "You can plan an essay in order.",
+      "improve": "An outline lists the thesis, the main point of each body paragraph, and the conclusion."
+    },
+    "argue": {
+      "label": "Arguable thesis",
+      "good": "You can tell a thesis from a fact or an announcement.",
+      "improve": "A thesis is a statement people could agree or disagree with. A fact cannot be argued, and an announcement only names the topic."
+    },
+    "control": {
+      "label": "Controlling idea",
+      "good": "You can find the exact point a thesis makes.",
+      "improve": "The controlling idea is your point about the topic. Make it clear and specific, not just good or bad."
+    },
+    "thesis": {
+      "label": "Writing a thesis",
+      "good": "You can write a clear thesis sentence.",
+      "improve": "Join your topic and your controlling idea in one clear, arguable sentence."
+    },
+    "bodyplan": {
+      "label": "Planning a body paragraph",
+      "good": "You can turn an outline point into a body paragraph.",
+      "improve": "Start with a topic sentence that supports the thesis, then add support and a closing sentence."
+    }
+  }
+}

@@ -160,7 +160,7 @@
       if (mode === "daily") { if (right < 1) throw 0; var dl = JSON.parse(localStorage.getItem("iep099-dailylog") || "[]"); dl.push(E.today()); localStorage.setItem("iep099-dailylog", JSON.stringify(dl.slice(-300))); }
       else if (fixed > 0) localStorage.setItem("iep099-fixed", String((parseInt(localStorage.getItem("iep099-fixed"), 10) || 0) + fixed));
     } catch (e) {}
-    if (right === total) E.confetti();
+
 
     var html;
     if (mode === "daily") {

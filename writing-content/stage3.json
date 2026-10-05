@@ -50,7 +50,8 @@
           "options": [
             "However",
             "In addition",
-            "Therefore"
+            "Therefore",
+            "For example"
           ],
           "answers": [
             1
@@ -68,7 +69,8 @@
                 "options": [
                   "Moreover",
                   "But",
-                  "Because"
+                  "Because",
+                  "Therefore"
                 ],
                 "answers": [
                   0
@@ -162,7 +164,8 @@
           "options": [
             "Besides study, he works part-time.",
             "Besides studying, he works part-time.",
-            "Besides he studies, he works part-time."
+            "Besides he studies, he works part-time.",
+            "Besides to study, he works part-time."
           ],
           "answers": [
             1
@@ -250,7 +253,8 @@
           "options": [
             "Moreover",
             "However",
-            "So"
+            "So",
+            "For example"
           ],
           "answers": [
             1
@@ -268,7 +272,8 @@
                 "options": [
                   "However",
                   "In addition",
-                  "Therefore"
+                  "Therefore",
+                  "For instance"
                 ],
                 "answers": [
                   0
@@ -371,7 +376,8 @@
           "options": [
             "The bus is cheap, however it is slow.",
             "The bus is cheap. However, it is slow.",
-            "The bus is cheap however, it is slow."
+            "The bus is cheap however, it is slow.",
+            "The bus is cheap, however, it is slow."
           ],
           "answers": [
             1
@@ -496,7 +502,8 @@
           "options": [
             "Because",
             "As a result",
-            "Although"
+            "Although",
+            "For example"
           ],
           "answers": [
             1
@@ -514,7 +521,8 @@
                 "options": [
                   "As a result",
                   "However",
-                  "For example"
+                  "For example",
+                  "Besides"
                 ],
                 "answers": [
                   0
@@ -531,7 +539,8 @@
           "options": [
             "We stayed home because of it was raining.",
             "We stayed home because of the rain.",
-            "We stayed home because the rain."
+            "We stayed home because the rain.",
+            "We stayed home because of raining."
           ],
           "answers": [
             1
@@ -669,7 +678,8 @@
           "options": [
             "Many fruits are healthy. For example oranges are rich in vitamin C.",
             "Many fruits are healthy. For example, oranges are rich in vitamin C.",
-            "Many fruits are healthy, for example. oranges are rich in vitamin C."
+            "Many fruits are healthy, for example. oranges are rich in vitamin C.",
+            "Many fruits are healthy. For example; oranges are rich in vitamin C."
           ],
           "answers": [
             1
@@ -687,7 +697,8 @@
                 "options": [
                   "Some hobbies are cheap. For instance, reading costs very little.",
                   "Some hobbies are cheap. For instance reading costs very little.",
-                  "Some hobbies are cheap, for instance. reading costs very little."
+                  "Some hobbies are cheap, for instance. reading costs very little.",
+                  "Some hobbies are cheap. For instance; reading costs very little."
                 ],
                 "answers": [
                   0
@@ -704,7 +715,8 @@
           "options": [
             "for example",
             "such as",
-            "however"
+            "however",
+            "as a result"
           ],
           "answers": [
             1
@@ -883,7 +895,8 @@
           "options": [
             "After that",
             "However",
-            "For example"
+            "For example",
+            "Because"
           ],
           "answers": [
             0
@@ -901,7 +914,8 @@
                 "options": [
                   "Next",
                   "However",
-                  "In addition"
+                  "In addition",
+                  "Because of that"
                 ],
                 "answers": [
                   0
@@ -935,7 +949,8 @@
           "options": [
             "First",
             "Next",
-            "Finally"
+            "Finally",
+            "Meanwhile"
           ],
           "answers": [
             2
@@ -1061,7 +1076,8 @@
           "options": [
             "At the beginning of a paragraph",
             "At the end, to close the writing",
-            "Between two examples"
+            "Between two examples",
+            "Before the first main point"
           ],
           "answers": [
             1
@@ -1080,7 +1096,8 @@
           "options": [
             "First",
             "For example",
-            "Overall"
+            "Overall",
+            "However"
           ],
           "answers": [
             2
@@ -1098,7 +1115,8 @@
                 "options": [
                   "Next",
                   "To sum up",
-                  "For instance"
+                  "For instance",
+                  "Meanwhile"
                 ],
                 "answers": [
                   1
@@ -1259,7 +1277,8 @@
           "options": [
             "I was tired, however, I finished the work.",
             "I was tired; however, I finished the work.",
-            "I was tired however I finished the work."
+            "I was tired however I finished the work.",
+            "I was tired; however I finished the work."
           ],
           "answers": [
             1
@@ -1277,7 +1296,8 @@
                 "options": [
                   "It was cold; therefore, we stayed home.",
                   "It was cold, therefore, we stayed home.",
-                  "It was cold therefore we stayed home."
+                  "It was cold therefore we stayed home.",
+                  "It was cold; therefore we stayed home."
                 ],
                 "answers": [
                   0
@@ -1345,7 +1365,8 @@
           "options": [
             "The park, however is closed on Mondays.",
             "The park, however, is closed on Mondays.",
-            "The park however, is closed on Mondays."
+            "The park however, is closed on Mondays.",
+            "The park, however is, closed on Mondays."
           ],
           "answers": [
             1
@@ -1486,7 +1507,8 @@
           "options": [
             "The bus was late, so we walked.",
             "The bus was late, therefore we walked.",
-            "The bus was late. Therefore, we walked."
+            "The bus was late. Therefore, we walked.",
+            "The bus was late; therefore, we walked."
           ],
           "answers": [
             1
@@ -1504,7 +1526,8 @@
                 "options": [
                   "I was tired, but I finished.",
                   "I was tired, however I finished.",
-                  "I was tired. However, I finished."
+                  "I was tired. However, I finished.",
+                  "I was tired; however, I finished."
                 ],
                 "answers": [
                   1
@@ -1557,7 +1580,8 @@
           "options": [
             "but = however",
             "because = therefore",
-            "so = although"
+            "so = although",
+            "and = however"
           ],
           "answers": [
             0
@@ -1639,7 +1663,8 @@
           "options": [
             "First, I woke up. Then, I ate. Next, I left. After that, I walked. Finally, I arrived.",
             "I woke up, ate breakfast and left. After that, I walked to school and arrived at eight.",
-            "I woke up. I ate. I left. I walked. I arrived."
+            "I woke up. I ate. I left. I walked. I arrived.",
+            "I woke up, then I ate, then I left, then I walked, then I arrived."
           ],
           "answers": [
             1
@@ -1657,7 +1682,8 @@
                 "options": [
                   "First, I cooked. Then, I ate. Next, I cleaned. After that, I rested. Finally, I slept.",
                   "I cooked and ate dinner. After that, I cleaned the kitchen and rested before I slept.",
-                  "I cooked. I ate. I cleaned. I rested. I slept."
+                  "I cooked. I ate. I cleaned. I rested. I slept.",
+                  "I cooked, then I ate, then I cleaned, then I rested, then I slept."
                 ],
                 "answers": [
                   1
@@ -1691,7 +1717,8 @@
           "options": [
             "It was raining. We stayed inside.",
             "It was raining. Moreover, we stayed inside.",
-            "It was raining. In contrast, we stayed inside."
+            "It was raining. In contrast, we stayed inside.",
+            "It was raining. For example, we stayed inside."
           ],
           "answers": [
             0
@@ -1710,7 +1737,8 @@
           "options": [
             "In every sentence",
             "Where they help the reader follow your ideas",
-            "Never"
+            "Only at the start of paragraphs",
+            "As rarely as possible"
           ],
           "answers": [
             1

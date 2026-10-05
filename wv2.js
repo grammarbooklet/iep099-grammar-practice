@@ -89,13 +89,6 @@
     var n = h("div", "wc-margin-note"); n.innerHTML = '<span class="wc-pen" aria-hidden="true">✎</span><span class="wc-note-t">' + Q.md(text) + "</span>";
     host.help.appendChild(n);
   }
-  // A small tilted stamp with a quiet burst of sparks. Three colour tones keep it from feeling repetitive.
-  function stamp(host, text, tone) {
-    var s = h("div", "wc-stamp t" + (tone || 0), '<i aria-hidden="true">✓</i>' + Q.esc(text)); s.setAttribute("aria-hidden", "true");
-    for (var k = 0; k < 6; k++) { var sp = h("span", "wc-spark"); sp.style.setProperty("--a", (k * 60 + 15) + "deg"); s.appendChild(sp); }
-    host.card.appendChild(s); setTimeout(function () { s.classList.add("gone"); }, 1500);
-  }
-
   // ---------- opening ----------
   function opening() {
     Q.clear();
@@ -154,10 +147,12 @@
   function simple(it, host) {
     return attempt(it, host).then(function (r) {
       WC.skillResult(it.skill, r.ok ? "first" : "miss");
-      if (r.ok) { var p = Q.praise("first"); stamp(host, p.stamp, p.tone); feedback(host, "ok", p.lead, it.why); } else { Q.praiseMiss(); feedback(host, "bad", "Not quite. ", it.why, r.res.answer); }
+      if (r.ok) { var p = Q.praise("first"); if (window.IEPSound) window.IEPSound.play("correct"); feedback(host, "ok", p.lead, it.why); starFor(host); } else { Q.praiseMiss(); feedback(host, "bad", "Not quite. ", it.why, r.res.answer); }
       return wait(host, "Next →");
     });
   }
+  // One star for each question passed: it lifts off the green feedback and flies to the badge button.
+  function starFor(host) { setTimeout(function () { if (window.IEPFx) window.IEPFx.flyStar(host.fb && !host.fb.hidden ? host.fb : host.card); }, 450); }
   function feedback(host, kind, lead, why, answer) {
     host.fb.className = "wc-fb " + kind;
     host.fb.innerHTML = "<b>" + Q.esc(lead) + "</b>" + (why ? Q.md(why) : "") + (answer ? '<span class="wc-ans">' + answer + "</span>" : "");
@@ -267,9 +262,8 @@
     return Q.shuffle(out);
   }
   function correct(host, it, kind) {
-    var p = Q.praise(kind === "first" ? "first" : "retry");
-    stamp(host, p.stamp, p.tone);
-    feedback(host, "ok", p.lead, it.why);
+    var p = Q.praise(kind === "first" ? "first" : "retry"); if (window.IEPSound) window.IEPSound.play("correct");
+    feedback(host, "ok", p.lead, it.why); starFor(host);
   }
   function wrong(host, it, r) { Q.praiseMiss(); feedback(host, "bad", "Not quite. ", it.why, r.res.answer); }
   function adaptive(it, host, last) {
@@ -419,7 +413,7 @@
     c.appendChild(h("p", "wc-lead", first + " of " + n + " right first time" + (helped ? " · " + helped + " after a hint" : "") + (res.gained > 0 ? " · +" + res.gained + " XP" : "")));
     // celebrations only when there is something to celebrate
     if (res.levelUp) c.appendChild(h("p", "wc-badge-new", "🎉 Level up! You are now a <b>" + Q.esc(res.level.name) + "</b>."));
-    (window.IEPBadges ? window.IEPBadges.check() : []).forEach(function (d) { var p = h("p", "wc-badge-new"); p.innerHTML = '<img class="wc-badge-img" src="' + window.IEPBadges.src(d) + '" alt=""> New badge: <b>' + Q.esc(d.name) + "</b>"; c.appendChild(p); });
+    (window.IEPBadges ? window.IEPBadges.check() : []).forEach(function (d, bi) { setTimeout(function () { window.IEPBadges.reveal(d); }, 900 + bi * 6000); var p = h("p", "wc-badge-new"); p.innerHTML = '<img class="wc-badge-img" src="' + window.IEPBadges.src(d) + '" alt=""> New badge: <b>' + Q.esc(d.name) + "</b>"; c.appendChild(p); });
 
     // one main button; everything else is a quiet link
     var act = h("div", "wc-actions"), next = nextAfter();
@@ -458,7 +452,9 @@
     more.appendChild(h("p", "wc-backup", 'Your progress is saved on this device only. <a href="my-writing.html#backup">Save a backup</a> so you can restore it on a new phone.'));
     c.appendChild(more);
     Q.root.appendChild(c);
-    if (res.stars === 3 && E) E.confetti();
+    // The whole session is done (warm-up to write): the lesson celebration, unless it earned only one star.
+    var celebrated = res.stars >= 2; if (celebrated && window.IEPFx) window.IEPFx.celebrate();
+    WC.stageCheck(c, S.id, celebrated);
     var f = c.querySelector(".wc-actions a, .wc-actions button"); if (f) f.focus();
   }
 

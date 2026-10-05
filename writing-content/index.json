@@ -291,40 +291,58 @@
       "lessons": [
         {
           "id": "5.1",
-          "title": "Brainstorming: lists"
+          "title": "Brainstorming: lists",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "5.2",
-          "title": "Mind maps"
+          "title": "Mind maps",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "5.3",
-          "title": "Freewriting"
+          "title": "Freewriting",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "5.4",
-          "title": "Outlining"
+          "title": "Outlining",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "5.5",
-          "title": "What makes a thesis arguable"
+          "title": "What makes a thesis arguable",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "5.6",
-          "title": "The controlling idea"
+          "title": "The controlling idea",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "5.7",
-          "title": "Writing your thesis"
+          "title": "Writing your thesis",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "5.8",
-          "title": "From a paragraph idea to a body paragraph"
+          "title": "From a paragraph idea to a body paragraph",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "5.9",
           "title": "Stage 5 review",
-          "review": true
+          "review": true,
+          "ready": true,
+          "min": 8
         }
       ]
     },
@@ -336,47 +354,70 @@
       "lessons": [
         {
           "id": "6.1",
-          "title": "Annotated model essay"
+          "title": "Annotated model essay",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "6.2",
-          "title": "Introduction: hook"
+          "title": "Introduction: hook",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "6.3",
-          "title": "Introduction: background and thesis"
+          "title": "Introduction: background and thesis",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "6.4",
-          "title": "Body paragraph 1"
+          "title": "Body paragraph 1",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "6.5",
-          "title": "Body paragraph 2, linked to the thesis"
+          "title": "Body paragraph 2, linked to the thesis",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "6.6",
-          "title": "Transitions between paragraphs"
+          "title": "Transitions between paragraphs",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "6.7",
-          "title": "Conclusion"
+          "title": "Conclusion",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "6.8",
-          "title": "Revision"
+          "title": "Revision",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "6.9",
-          "title": "Editing and common errors"
+          "title": "Editing and common errors",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "6.10",
-          "title": "Rubric and more models"
+          "title": "Rubric and more models",
+          "ready": true,
+          "min": 8
         },
         {
           "id": "6.11",
-          "title": "Final timed task"
+          "title": "Final timed task",
+          "review": true,
+          "ready": true,
+          "min": 25
         }
       ]
     }

@@ -1,0 +1,2252 @@
+{
+  "stage": 6,
+  "lessons": {
+    "6.1": {
+      "format": "v2",
+      "skill": "parts",
+      "goal": "Recognise the parts of an essay in a model: introduction, body paragraphs and conclusion.",
+      "warmup": {
+        "skills": [
+          "thesis",
+          "topic"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence of this model essay to see its job.",
+        "sentences": [
+          {
+            "t": "Can you make a healthy meal without any help?",
+            "role": "topic",
+            "note": "A question that makes the reader think about the topic.",
+            "label": "Hook"
+          },
+          {
+            "t": "Many students leave home to study and suddenly have to feed themselves.",
+            "role": "topic",
+            "note": "A little context so the reader understands the topic.",
+            "label": "Background"
+          },
+          {
+            "t": "Learning to cook helps students save money and eat more healthily.",
+            "role": "topic",
+            "note": "The introduction ends with the thesis: topic plus controlling idea.",
+            "label": "Thesis"
+          },
+          {
+            "t": "First, cooking at home saves students a lot of money.",
+            "role": "support",
+            "note": "It starts with a transition and states the first part of the thesis.",
+            "label": "Body 1: topic sentence"
+          },
+          {
+            "t": "Ingredients usually cost much less than ready-made meals.",
+            "role": "support",
+            "note": "A reason that explains the topic sentence.",
+            "label": "Body 1: support"
+          },
+          {
+            "t": "For example, a pot of rice and vegetables can feed four people for very little money.",
+            "role": "support",
+            "note": "A specific example that makes the point real.",
+            "label": "Body 1: example"
+          },
+          {
+            "t": "Second, cooking lets students eat more healthily.",
+            "role": "support",
+            "note": "The second part of the thesis, with a new transition.",
+            "label": "Body 2: topic sentence"
+          },
+          {
+            "t": "When you cook, you choose fresh ingredients and control the amount of oil and sugar.",
+            "role": "support",
+            "note": "A reason that explains the second point.",
+            "label": "Body 2: support"
+          },
+          {
+            "t": "For example, a home-made vegetable soup contains less salt than most packaged soups.",
+            "role": "support",
+            "note": "Another specific example.",
+            "label": "Body 2: example"
+          },
+          {
+            "t": "In conclusion, cooking skills help students spend less and eat better.",
+            "role": "concluding",
+            "note": "The thesis again, in new words.",
+            "label": "Conclusion: restate"
+          },
+          {
+            "t": "It is a small skill that improves daily life.",
+            "role": "concluding",
+            "note": "A final idea to finish the essay.",
+            "label": "Conclusion: closing thought"
+          }
+        ],
+        "takeaway": "An essay has **three parts**: an **introduction** that ends with the thesis, **body paragraphs** that prove it, and a **conclusion** that closes it."
+      },
+      "practice": [
+        {
+          "type": "label",
+          "skill": "parts",
+          "q": "Label each sentence from the model essay.",
+          "labels": [
+            "Hook",
+            "Thesis statement",
+            "Body topic sentence",
+            "Conclusion"
+          ],
+          "parts": [
+            {
+              "t": "Can you make a healthy meal without any help?",
+              "a": 0
+            },
+            {
+              "t": "Learning to cook helps students save money and eat more healthily.",
+              "a": 1
+            },
+            {
+              "t": "Second, cooking lets students eat more healthily.",
+              "a": 2
+            },
+            {
+              "t": "In conclusion, cooking skills help students spend less and eat better.",
+              "a": 3
+            }
+          ],
+          "why": "A hook opens the essay, the thesis states the main point, a body topic sentence opens a paragraph, and the conclusion closes the essay.",
+          "help": {
+            "nudge": "Which sentence opens the essay? Which one finishes it?",
+            "rule": "**Hook** opens. **Thesis** states the point. **Body topic sentences** open the body paragraphs. The **conclusion** closes.",
+            "worked": "A question at the start is a hook. “In conclusion…” signals the conclusion."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "parts",
+          "q": "Which part of the essay does each sentence belong to?",
+          "cats": [
+            "Introduction",
+            "Body",
+            "Conclusion"
+          ],
+          "items": [
+            {
+              "t": "Many students leave home to study and suddenly have to feed themselves.",
+              "c": 0
+            },
+            {
+              "t": "For example, a pot of rice and vegetables can feed four people for very little money.",
+              "c": 1
+            },
+            {
+              "t": "It is a small skill that improves daily life.",
+              "c": 2
+            },
+            {
+              "t": "Can you make a healthy meal without any help?",
+              "c": 0
+            },
+            {
+              "t": "When you cook, you choose fresh ingredients and control the amount of oil and sugar.",
+              "c": 1
+            },
+            {
+              "t": "In conclusion, cooking skills help students spend less and eat better.",
+              "c": 2
+            }
+          ],
+          "why": "Background and hooks are in the introduction, examples and reasons are in the body, and wrap-up sentences are in the conclusion.",
+          "help": {
+            "nudge": "Does the sentence open the topic, explain a point, or wrap up?",
+            "rule": "**Introduction** = hook, background, thesis. **Body** = reasons and examples. **Conclusion** = restate, sum up, close.",
+            "worked": "“For example…” gives support, so it belongs in the body. “In conclusion…” belongs in the conclusion."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "parts",
+          "q": "Where does the thesis usually appear?",
+          "options": [
+            "At the end of the introduction",
+            "At the start of the conclusion",
+            "In the middle of a body paragraph",
+            "At the start of the introduction"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "The introduction builds up to the thesis, so the thesis is its last sentence.",
+          "help": {
+            "nudge": "Think of the introduction as a funnel. Where is the narrowest point?",
+            "rule": "The introduction goes **general to specific**, and the **thesis** is the last sentence.",
+            "worked": "Hook, then background, then thesis. The thesis closes the introduction.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "parts",
+                "q": "Which sentence is the **last** sentence of an introduction?",
+                "options": [
+                  "The thesis",
+                  "The first example",
+                  "The closing thought",
+                  "The hook"
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "The thesis ends the introduction."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "parts",
+          "q": "How many body paragraphs does the model essay have?",
+          "options": [
+            "Two",
+            "One",
+            "Four",
+            "Three"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "One body paragraph for each part of the thesis: saving money, then eating healthily.",
+          "help": {
+            "nudge": "The thesis has two parts. How many body paragraphs do you need?",
+            "rule": "Usually **one body paragraph for each part** of the thesis.",
+            "worked": "The thesis says “save money and eat more healthily”: two parts, so two body paragraphs."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "parts",
+          "q": "Which sentence is the **thesis** of the model essay?",
+          "options": [
+            "Learning to cook helps students save money and eat more healthily.",
+            "Can you make a healthy meal without any help?",
+            "It is a small skill that improves daily life.",
+            "Many students leave home to study and suddenly have to feed themselves."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It states the topic and the controlling idea of the whole essay.",
+          "help": {
+            "nudge": "Which sentence states the main point of the whole essay?",
+            "rule": "The **thesis** names the topic and the controlling idea.",
+            "worked": "The question is a hook. The last sentence is a closing thought. The thesis is the point being proved."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **two sentences** that describe the three parts of an essay (introduction, body and conclusion) in your own words.",
+        "minWords": 20,
+        "placeholder": "An essay begins with …",
+        "checks": [
+          {
+            "t": "I explained what the introduction does.",
+            "auto": null
+          },
+          {
+            "t": "I explained what the body and the conclusion do.",
+            "auto": null
+          },
+          {
+            "t": "My sentences start with a capital letter and end with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Add the thesis",
+          "Add an example",
+          "Make it clearer"
+        ],
+        "sample": "An essay begins with an introduction that ends with a thesis. The body paragraphs prove the thesis with reasons and examples, and the conclusion restates it and closes the essay."
+      }
+    },
+    "6.2": {
+      "format": "v2",
+      "skill": "hook",
+      "goal": "Open an essay with a hook that makes the reader want to continue.",
+      "warmup": {
+        "skills": [
+          "thesis",
+          "control"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see what kind of opening it is.",
+        "sentences": [
+          {
+            "t": "Can you make a healthy meal without any help?",
+            "role": "topic",
+            "note": "A question makes readers think about their own answer.",
+            "label": "Question hook"
+          },
+          {
+            "t": "Cooking is the most useful skill that schools forget to teach.",
+            "role": "support",
+            "note": "A strong opinion makes readers curious to see how you will prove it.",
+            "label": "Bold statement hook"
+          },
+          {
+            "t": "Imagine opening the fridge and finding nothing but a lemon and a jar of pickles.",
+            "role": "support",
+            "note": "A short picture pulls the reader into the topic.",
+            "label": "Scene hook"
+          },
+          {
+            "t": "In this essay I will discuss cooking.",
+            "role": "concluding",
+            "note": "An announcement tells the reader nothing interesting. Avoid it.",
+            "label": "Not a hook"
+          }
+        ],
+        "takeaway": "A **hook** is the first sentence. It can be a **question**, a **bold statement** or a **short scene**. Do **not** begin with “In this essay I will…”."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "hook",
+          "q": "Which is the **best hook** for an essay about sleep?",
+          "options": [
+            "Have you ever tried to study after only four hours of sleep?",
+            "This essay is about sleep.",
+            "Sleep is important for everyone.",
+            "Students need sleep."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It is a question that makes the reader picture the problem.",
+          "help": {
+            "nudge": "Which opening would make you want to keep reading?",
+            "rule": "A hook creates **curiosity**: a question, a bold statement or a scene.",
+            "worked": "“This essay is about sleep” is an announcement, and “Sleep is sleep” says nothing.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "hook",
+                "q": "Which is the best hook for an essay about exercise?",
+                "options": [
+                  "Could ten minutes of movement change your whole day?",
+                  "I am going to write about exercise.",
+                  "Exercise is good for you.",
+                  "Many people exercise."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "A question makes the reader curious."
+              }
+            ]
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "hook",
+          "q": "What type of hook is each sentence?",
+          "cats": [
+            "Question",
+            "Bold statement",
+            "Scene"
+          ],
+          "items": [
+            {
+              "t": "Why do so many students feel tired in the morning?",
+              "c": 0
+            },
+            {
+              "t": "Sleep is the secret ingredient of every good grade.",
+              "c": 1
+            },
+            {
+              "t": "Picture a classroom where every student is asleep at the desk.",
+              "c": 2
+            },
+            {
+              "t": "Do you know how much sleep your body really needs?",
+              "c": 0
+            },
+            {
+              "t": "Late nights are the biggest enemy of learning.",
+              "c": 1
+            },
+            {
+              "t": "Imagine the alarm ringing at six on a cold, dark morning.",
+              "c": 2
+            }
+          ],
+          "why": "Questions end with a question mark, bold statements make a strong claim, and scenes ask you to picture something.",
+          "help": {
+            "nudge": "Does it ask something, claim something, or ask you to picture something?",
+            "rule": "**Question** asks. **Bold statement** claims. **Scene** paints a picture (often with *Imagine* or *Picture*).",
+            "worked": "“Why do so many students feel tired in the morning?” asks a question."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "hook",
+          "q": "Which opening is **not** a good hook?",
+          "options": [
+            "In this essay I will talk about exercise.",
+            "Could ten minutes of exercise change your whole day?",
+            "Exercise is the cheapest medicine there is.",
+            "Picture yourself running along a quiet beach at dawn."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It only announces the topic.",
+          "help": {
+            "nudge": "Which sentence tells the reader what you will do instead of interesting them?",
+            "rule": "Avoid **announcements** such as “In this essay I will…”.",
+            "worked": "The other two openings use a question and a bold statement.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "hook",
+                "q": "Which opening is not a good hook?",
+                "options": [
+                  "I am going to write about libraries.",
+                  "What would you do without a library?",
+                  "Libraries are quiet places where ideas begin.",
+                  "Imagine a building where every book is free."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It is an announcement, not a hook."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "hook",
+          "q": "Write a **question hook** for an essay about public libraries.",
+          "show": "Topic: public libraries",
+          "accept": [],
+          "patterns": [
+            "^(?=.*\\b[Ll]ibrar(y|ies)\\b)[A-Z][^.!?]{10,}[?]$"
+          ],
+          "example": "Did you know that your local library is completely free?",
+          "why": "A question hook ends with a question mark and makes the reader think about the topic.",
+          "help": {
+            "nudge": "Ask the reader something about libraries.",
+            "rule": "A **question hook** asks something the reader can answer in their head.",
+            "worked": "“Did you know that your local library is completely free?” asks a short question about libraries."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "hook",
+          "q": "Which hook fits an essay with the thesis *Walking to school benefits students*?",
+          "options": [
+            "Imagine arriving at school awake, calm and ready to learn.",
+            "Schools open early in the morning.",
+            "I will explain why walking is good.",
+            "Walking is an activity many people do."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It pictures the benefit the essay will explain.",
+          "help": {
+            "nudge": "Which opening is connected to the benefits of walking?",
+            "rule": "A hook should **lead towards the thesis**.",
+            "worked": "“Imagine arriving at school awake, calm and ready to learn” hints at the benefits."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **two different hooks** for an essay about *using phones in class*: one question and one bold statement.",
+        "minWords": 15,
+        "placeholder": "Question: …",
+        "checks": [
+          {
+            "t": "One hook is a question.",
+            "auto": null
+          },
+          {
+            "t": "The other hook is a bold statement.",
+            "auto": null
+          },
+          {
+            "t": "My sentences start with a capital letter and end with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make it more surprising",
+          "Make it shorter",
+          "Link it to the topic"
+        ],
+        "sample": "Have you ever checked your phone in the middle of a lesson without noticing? Phones in class are the biggest enemy of concentration."
+      }
+    },
+    "6.3": {
+      "format": "v2",
+      "skill": "intro",
+      "goal": "Build an introduction: hook, background and a thesis as the last sentence.",
+      "warmup": {
+        "skills": [
+          "hook",
+          "thesis"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see how the introduction narrows towards the thesis.",
+        "sentences": [
+          {
+            "t": "Can you make a healthy meal without any help?",
+            "role": "topic",
+            "note": "Catch the reader’s attention.",
+            "label": "Hook"
+          },
+          {
+            "t": "Many students leave home to study and suddenly have to feed themselves.",
+            "role": "support",
+            "note": "Give some context so the reader understands the topic.",
+            "label": "Background"
+          },
+          {
+            "t": "Eating out every day costs a lot, and fast food is rarely healthy.",
+            "role": "support",
+            "note": "Move from the general situation towards your point.",
+            "label": "Background"
+          },
+          {
+            "t": "Learning to cook helps students save money and eat more healthily.",
+            "role": "topic",
+            "note": "The introduction ends with your thesis.",
+            "label": "Thesis"
+          }
+        ],
+        "takeaway": "An introduction goes from **general to specific**: **hook → background → thesis**. The thesis is the **last sentence**."
+      },
+      "practice": [
+        {
+          "type": "porder",
+          "skill": "intro",
+          "q": "Put the sentences in order to make an introduction.",
+          "sentences": [
+            "Have you ever lost track of time while using your phone?",
+            "Phones are now part of almost every student’s day.",
+            "This habit can make it hard to focus on important work.",
+            "Students should limit their phone use to protect their attention and their sleep."
+          ],
+          "shuffled": [
+            3,
+            1,
+            0,
+            2
+          ],
+          "answers": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "why": "Hook first, then background, and the thesis last.",
+          "help": {
+            "nudge": "Which sentence is the question hook? Which one is the thesis?",
+            "rule": "Order: **hook → background → thesis**.",
+            "worked": "The question comes first. The thesis is the last sentence because everything leads up to it."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "intro",
+          "q": "Is each sentence a **hook**, **background** or **thesis**?",
+          "cats": [
+            "Hook",
+            "Background",
+            "Thesis"
+          ],
+          "items": [
+            {
+              "t": "Have you ever skipped breakfast and regretted it?",
+              "c": 0
+            },
+            {
+              "t": "Many students rush out of the house without eating in the morning.",
+              "c": 1
+            },
+            {
+              "t": "Eating breakfast helps students concentrate and feel more energetic.",
+              "c": 2
+            },
+            {
+              "t": "Imagine your stomach rumbling in the middle of an exam.",
+              "c": 0
+            },
+            {
+              "t": "Morning schedules are often very busy.",
+              "c": 1
+            },
+            {
+              "t": "Schools should give students time to eat breakfast.",
+              "c": 2
+            }
+          ],
+          "why": "A hook catches attention, background gives context, and the thesis states the main point.",
+          "help": {
+            "nudge": "Does it grab attention, explain the situation, or state the main point?",
+            "rule": "**Hook** = attention. **Background** = context. **Thesis** = main point.",
+            "worked": "“Many students rush out of the house without eating in the morning” explains the situation, so it is background."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "intro",
+          "q": "Where does the thesis go in the introduction?",
+          "options": [
+            "Last",
+            "First",
+            "Second, after the hook",
+            "Anywhere in the introduction"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Every sentence leads towards the thesis, so it comes last.",
+          "help": {
+            "nudge": "Think of a funnel that gets narrower. Where is the narrowest point?",
+            "rule": "The thesis is the **last sentence** of the introduction.",
+            "worked": "Hook, then background, then thesis."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "intro",
+          "q": "Which is the best **background** sentence for an essay about recycling?",
+          "options": [
+            "Rubbish is a growing problem in many communities.",
+            "Recycling is something that I do.",
+            "Recycling saves resources and reduces waste.",
+            "Bins are made of plastic."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It gives context for why the topic matters.",
+          "help": {
+            "nudge": "Which sentence explains the general situation behind the topic?",
+            "rule": "Background sentences give **general context**, not your personal opinion.",
+            "worked": "“Rubbish is a growing problem in many communities” sets the scene for recycling.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "intro",
+                "q": "Which is the best background sentence for an essay about public transport?",
+                "options": [
+                  "Many people travel to work or school every day.",
+                  "Public transport reduces traffic and pollution.",
+                  "Buses have wheels.",
+                  "I like trains."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It sets the scene for the topic."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "intro",
+          "q": "Write a **thesis** to finish this introduction.",
+          "show": "Hook: Have you ever wondered how much food gets thrown away? Background: Many families buy more food than they can eat.",
+          "accept": [],
+          "patterns": [
+            "^(?!.*\\b(Hook|Background)\\b)(?=.*\\b(food|waste|wasting|meals|buy|shopping)\\b)(?=.*\\b(should|can|helps?|saves?|reduces?|improves?|prevents?)\\b)[A-Z][^.!?]{15,}[.]$"
+          ],
+          "example": "Planning meals carefully helps families save money and reduce food waste.",
+          "why": "The thesis states the main point of the whole essay and is the last sentence of the introduction.",
+          "help": {
+            "nudge": "What could families do to solve the problem? Say it in one sentence.",
+            "rule": "The thesis names the topic and the **controlling idea**.",
+            "worked": "“Planning meals carefully” is the topic and “helps families save money and reduce food waste” is the controlling idea."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write a **three-sentence introduction** (hook, background, thesis) for an essay about *why students should sleep more*.",
+        "minWords": 30,
+        "placeholder": "Have you ever …",
+        "checks": [
+          {
+            "t": "My introduction has a hook, background and a thesis.",
+            "auto": null
+          },
+          {
+            "t": "My thesis is the last sentence.",
+            "auto": null
+          },
+          {
+            "t": "My sentences start with a capital letter and end with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make the hook stronger",
+          "Add background",
+          "Make the thesis clearer"
+        ],
+        "sample": "Have you ever fallen asleep during a lesson? Many students stay up late and then feel tired all day. Students should sleep more because it improves their memory and their mood."
+      }
+    },
+    "6.4": {
+      "format": "v2",
+      "skill": "bodypar",
+      "goal": "Write a body paragraph with a topic sentence, support, an example and a closing sentence.",
+      "warmup": {
+        "skills": [
+          "support",
+          "topic"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence of this body paragraph to see its job.",
+        "sentences": [
+          {
+            "t": "First, cooking at home saves students a lot of money.",
+            "role": "topic",
+            "note": "It names the point and links to the thesis.",
+            "label": "Topic sentence"
+          },
+          {
+            "t": "Ingredients usually cost much less than ready-made meals.",
+            "role": "support",
+            "note": "A reason that explains the topic sentence.",
+            "label": "Support"
+          },
+          {
+            "t": "For example, a pot of rice and vegetables can feed four people for very little money.",
+            "role": "support",
+            "note": "A specific example makes the reason real.",
+            "label": "Example"
+          },
+          {
+            "t": "This saving leaves more money for books and travel.",
+            "role": "concluding",
+            "note": "It ties the paragraph back to the point.",
+            "label": "Closing sentence"
+          }
+        ],
+        "takeaway": "A body paragraph has a **topic sentence** linked to the thesis, **support**, an **example**, and a **closing sentence**."
+      },
+      "practice": [
+        {
+          "type": "porder",
+          "skill": "bodypar",
+          "q": "Put the sentences in order to make a body paragraph.",
+          "sentences": [
+            "Sleep helps students remember what they study.",
+            "During sleep, the brain organises new information.",
+            "For example, a student who sleeps well after a lesson recalls more in the morning.",
+            "This is why good sleep supports good grades."
+          ],
+          "shuffled": [
+            2,
+            3,
+            0,
+            1
+          ],
+          "answers": [
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "why": "Topic sentence, support, example, then a closing sentence.",
+          "help": {
+            "nudge": "Which sentence states the point? Which one starts with “This is why”?",
+            "rule": "Order: **topic sentence → support → example → closing sentence**.",
+            "worked": "The first sentence gives the point, the reason explains it, the example proves it, and the last sentence closes it."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "bodypar",
+          "q": "Is each sentence a **topic sentence**, **support**, **example** or **closing sentence**?",
+          "cats": [
+            "Topic sentence",
+            "Support",
+            "Example",
+            "Closing sentence"
+          ],
+          "items": [
+            {
+              "t": "Cycling to school keeps students active.",
+              "c": 0
+            },
+            {
+              "t": "Regular exercise strengthens the heart and muscles.",
+              "c": 1
+            },
+            {
+              "t": "For example, a ten-minute ride each morning builds stamina.",
+              "c": 2
+            },
+            {
+              "t": "For this reason, cycling is a healthy way to travel.",
+              "c": 3
+            },
+            {
+              "t": "Public libraries help students study in peace.",
+              "c": 0
+            },
+            {
+              "t": "For instance, many libraries have quiet rooms with desks and lamps.",
+              "c": 2
+            }
+          ],
+          "why": "Topic sentence states the point, support explains it, an example proves it, and the closing sentence wraps up.",
+          "help": {
+            "nudge": "Which sentence says “for example”? Which one begins the paragraph?",
+            "rule": "**Topic sentence** = point. **Support** = reason. **Example** = specific case. **Closing** = wrap-up.",
+            "worked": "“For example, a ten-minute ride each morning builds stamina” is a specific case, so it is an example."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "bodypar",
+          "q": "Thesis: *Learning to cook helps students save money and eat more healthily.* Which is the best topic sentence for **body paragraph 1**?",
+          "options": [
+            "First, cooking at home saves students a lot of money.",
+            "Second, cooking lets students eat more healthily.",
+            "First, I like rice.",
+            "First, kitchens have knives."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It states the first part of the thesis.",
+          "help": {
+            "nudge": "Which topic sentence matches the first part of the thesis?",
+            "rule": "A body topic sentence **names one part of the thesis**.",
+            "worked": "The thesis says “save money”, so body 1 can start “cooking at home saves students a lot of money”.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "bodypar",
+                "q": "Thesis: *Sport helps students stay healthy and build teamwork.* Which is the best topic sentence for body paragraph 1?",
+                "options": [
+                  "First, sport keeps students healthy and strong.",
+                  "Second, sport teaches students to work together.",
+                  "First, football balls are round.",
+                  "First, I watch matches."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It states the first part of the thesis."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "bodypar",
+          "q": "Add a **closing sentence** that starts with *This is why*.",
+          "show": "Topic sentence: Sleep helps students remember what they study.",
+          "accept": [],
+          "patterns": [
+            "^This is why [a-z][^.!?]{10,}[.]$"
+          ],
+          "example": "This is why good sleep supports good grades.",
+          "why": "A closing sentence ties the paragraph back to its point.",
+          "help": {
+            "nudge": "What is the result of good sleep? Say it after “This is why”.",
+            "rule": "A closing sentence **sums up** the point of the paragraph.",
+            "worked": "“This is why good sleep supports good grades” closes the paragraph and echoes the point."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "bodypar",
+          "q": "Which sentence does **not** belong in a body paragraph about *saving money*?",
+          "options": [
+            "Ingredients cost less than ready-made meals.",
+            "Leftovers can become tomorrow’s lunch.",
+            "Fresh vegetables give the body important vitamins.",
+            "A cheap pot of rice can feed a whole family."
+          ],
+          "answers": [
+            2
+          ],
+          "why": "It is not about saving money.",
+          "help": {
+            "nudge": "Which sentence has nothing to do with money?",
+            "rule": "Every sentence in a body paragraph must support **the paragraph’s point**.",
+            "worked": "Cheap ingredients and leftovers save money. Chocolate cake being delicious does not."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **body paragraph 1** (4 or 5 sentences) for the thesis *Sport helps students stay healthy and build teamwork*. This paragraph is about health.",
+        "minWords": 40,
+        "placeholder": "First, sport keeps students healthy …",
+        "checks": [
+          {
+            "t": "My paragraph starts with a topic sentence that links to the thesis.",
+            "auto": null
+          },
+          {
+            "t": "I included support and a specific example.",
+            "auto": null
+          },
+          {
+            "t": "My sentences start with a capital letter and end with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Make the topic sentence clearer",
+          "Add an example",
+          "Add a closing sentence"
+        ],
+        "sample": "First, sport keeps students healthy and strong. Exercise strengthens the heart and muscles and gives the body more energy. For example, a student who plays football twice a week is rarely out of breath when climbing stairs. This is why regular sport is one of the best habits for good health."
+      }
+    },
+    "6.5": {
+      "format": "v2",
+      "skill": "body2",
+      "goal": "Write a second body paragraph that covers the second part of the thesis.",
+      "warmup": {
+        "skills": [
+          "bodypar",
+          "support"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see how the second body paragraph links to the thesis.",
+        "sentences": [
+          {
+            "t": "Second, cooking lets students eat more healthily.",
+            "role": "topic",
+            "note": "It begins with a transition and points to the second part of the thesis.",
+            "label": "Topic sentence"
+          },
+          {
+            "t": "When you cook, you choose fresh ingredients and control the amount of oil and sugar.",
+            "role": "support",
+            "note": "A reason that explains the second point.",
+            "label": "Support"
+          },
+          {
+            "t": "For example, a home-made vegetable soup contains less salt than most packaged soups.",
+            "role": "support",
+            "note": "A specific example, different from the one in paragraph 1.",
+            "label": "Example"
+          },
+          {
+            "t": "Healthy meals give students energy for study and sport.",
+            "role": "concluding",
+            "note": "It closes the point and links back to the thesis.",
+            "label": "Closing sentence"
+          }
+        ],
+        "takeaway": "The second body paragraph covers the **second part of the thesis**. Start with a **transition** such as *Second* or *Another reason*, and do **not repeat** paragraph 1."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "body2",
+          "q": "Thesis: *Public libraries help students study and save money.* Body 1 is about studying. What is body 2 about?",
+          "options": [
+            "Saving money",
+            "Studying again",
+            "Libraries in general",
+            "Buying books"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Body 2 covers the second part of the thesis.",
+          "help": {
+            "nudge": "The thesis has two parts. Body 1 used the first part. Which part is left?",
+            "rule": "Each body paragraph covers **a different part** of the thesis.",
+            "worked": "Studying is body 1. The second part, saving money, belongs to body 2.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "body2",
+                "q": "Thesis: *Cycling saves money and protects the environment.* Body 1 is about money. What is body 2 about?",
+                "options": [
+                  "Protecting the environment",
+                  "Saving money again",
+                  "Buying a bicycle",
+                  "Choosing a safe route"
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "Body 2 covers the second part of the thesis."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "body2",
+          "q": "Body 1 was about saving money. Which topic sentence is best for body 2 of an essay with the thesis *Cycling saves money and protects the environment*?",
+          "options": [
+            "Second, cycling protects the environment.",
+            "Cycling saves money.",
+            "First, cycling saves money on fuel.",
+            "I own a bicycle."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It starts with a transition and states the second part of the thesis.",
+          "help": {
+            "nudge": "Which sentence gives the second reason with a transition?",
+            "rule": "Body 2 begins with a **transition** and the **second part** of the thesis.",
+            "worked": "“Second, cycling protects the environment” points to the second part. “Cycling saves money” repeats body 1."
+          }
+        },
+        {
+          "type": "tap",
+          "skill": "body2",
+          "q": "Tap the **transition** at the start of this topic sentence.",
+          "text": "Another reason students should read is that reading builds vocabulary.",
+          "answers": [
+            [
+              0,
+              1
+            ],
+            [
+              0
+            ]
+          ],
+          "why": "“Another reason” signals a new point.",
+          "help": {
+            "nudge": "Which words tell you a new point is coming?",
+            "rule": "Transitions such as *Second*, *Another reason* and *In addition* start a new point.",
+            "worked": "“Another reason” tells the reader this is a second argument."
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "body2",
+          "q": "Does each sentence belong in **body 1 (saving money)** or **body 2 (staying healthy)**?",
+          "cats": [
+            "Body 1: saving money",
+            "Body 2: staying healthy"
+          ],
+          "items": [
+            {
+              "t": "Ingredients cost less than ready-made meals.",
+              "c": 0
+            },
+            {
+              "t": "Fresh vegetables give the body vitamins.",
+              "c": 1
+            },
+            {
+              "t": "A cheap pot of lentils feeds many people.",
+              "c": 0
+            },
+            {
+              "t": "Home-cooked food usually contains less salt and sugar.",
+              "c": 1
+            }
+          ],
+          "why": "Each sentence must support the point of its own paragraph.",
+          "help": {
+            "nudge": "Is the sentence about cost or about health?",
+            "rule": "Keep **each paragraph on one point**.",
+            "worked": "Cheap ingredients and lentils are about money. Vitamins and less salt are about health."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "body2",
+          "q": "Write a topic sentence for body paragraph 2 that starts with *Second,*.",
+          "show": "Thesis: Learning to cook helps students save money and eat more healthily. Body 1: saving money.",
+          "accept": [],
+          "patterns": [
+            "^Second, (?=.*\\b(health|healthy|healthily|healthier|eat|eating|food|meals)\\b)[a-z][^.!?]{12,}[.]$"
+          ],
+          "example": "Second, cooking helps students eat more healthily.",
+          "why": "Body 2 states the second part of the thesis and begins with a transition.",
+          "help": {
+            "nudge": "Body 1 covered money. What is the other part of the thesis?",
+            "rule": "Start with **Second,** and name the **second part of the thesis**.",
+            "worked": "The thesis says “eat more healthily”, so “Second, cooking helps students eat more healthily.”"
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **body paragraph 2** (4 or 5 sentences) for the thesis *Sport helps students stay healthy and build teamwork*. This paragraph is about teamwork.",
+        "minWords": 40,
+        "placeholder": "Second, sport teaches students to work together …",
+        "checks": [
+          {
+            "t": "My paragraph starts with a transition and a topic sentence about teamwork.",
+            "auto": null
+          },
+          {
+            "t": "I included support and a specific example.",
+            "auto": null
+          },
+          {
+            "t": "My sentences start with a capital letter and end with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Add a transition",
+          "Add an example",
+          "Link back to the thesis"
+        ],
+        "sample": "Second, sport teaches students to work together. In a team game, every player must listen to the others and share the ball. For example, a football team can only score when the defenders, midfielders and attackers cooperate. These skills help students in group projects at school and in future jobs."
+      }
+    },
+    "6.6": {
+      "format": "v2",
+      "skill": "etrans",
+      "goal": "Use transitions to move smoothly from one paragraph to the next.",
+      "warmup": {
+        "skills": [
+          "cohere",
+          "sequence"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see how a transition moves the reader forward.",
+        "sentences": [
+          {
+            "t": "First, cooking at home saves students a lot of money.",
+            "role": "topic",
+            "note": "First starts the first body paragraph.",
+            "label": "Opening the first point"
+          },
+          {
+            "t": "Second, cooking lets students eat more healthily.",
+            "role": "support",
+            "note": "Second tells the reader a new point is coming. Another reason works too.",
+            "label": "Moving to the next point"
+          },
+          {
+            "t": "In addition, cooking is a creative activity.",
+            "role": "support",
+            "note": "In addition and moreover add one more idea.",
+            "label": "Adding a point"
+          },
+          {
+            "t": "In conclusion, cooking skills help students spend less and eat better.",
+            "role": "concluding",
+            "note": "In conclusion, to sum up and overall start the conclusion.",
+            "label": "Signalling the end"
+          }
+        ],
+        "takeaway": "Use **transitions** at the start of paragraphs: **First, Second, Another reason, In addition** to move forward, and **In conclusion** to finish."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "etrans",
+          "q": "Which transition best opens the **last** paragraph of an essay?",
+          "options": [
+            "In conclusion,",
+            "First,",
+            "For example,",
+            "Moreover,"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "In conclusion signals the end of the essay.",
+          "help": {
+            "nudge": "Which transition tells the reader the essay is finishing?",
+            "rule": "**In conclusion**, **to sum up** and **overall** open the conclusion.",
+            "worked": "First starts an essay. For example gives an example.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "etrans",
+                "q": "Which transition best opens the last paragraph?",
+                "options": [
+                  "To sum up,",
+                  "Second,",
+                  "For instance,",
+                  "In addition,"
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "To sum up signals the end of the essay."
+              }
+            ]
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "etrans",
+          "q": "Does each transition **add a point** or **end the essay**?",
+          "cats": [
+            "Adds a point",
+            "Ends the essay"
+          ],
+          "items": [
+            {
+              "t": "In addition,",
+              "c": 0
+            },
+            {
+              "t": "Another reason is that",
+              "c": 0
+            },
+            {
+              "t": "In conclusion,",
+              "c": 1
+            },
+            {
+              "t": "To sum up,",
+              "c": 1
+            },
+            {
+              "t": "Moreover,",
+              "c": 0
+            },
+            {
+              "t": "Overall,",
+              "c": 1
+            }
+          ],
+          "why": "Some transitions add a new idea. Others close the essay.",
+          "help": {
+            "nudge": "Does the transition bring a new idea, or does it wrap the essay up?",
+            "rule": "**Adding**: In addition, Moreover, Another reason. **Ending**: In conclusion, To sum up, Overall.",
+            "worked": "“Moreover” adds one more idea, so it adds a point. “To sum up” closes the essay."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "etrans",
+          "q": "Body 1 began with *First*. Which transition is best for the start of body 2?",
+          "options": [
+            "Second,",
+            "In conclusion,",
+            "For instance,",
+            "First,"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Second moves from the first point to the next.",
+          "help": {
+            "nudge": "What comes after First?",
+            "rule": "A common order is **First, Second, In conclusion**.",
+            "worked": "After First, the next paragraph begins with Second."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "etrans",
+          "q": "Add a transition to the start of this sentence for body paragraph 2.",
+          "show": "Cooking helps students eat more healthily.",
+          "accept": [],
+          "patterns": [
+            "^(Second|Another reason|In addition|Moreover|Furthermore), .{10,}[.]$"
+          ],
+          "example": "Second, cooking helps students eat more healthily.",
+          "why": "A transition at the start of the paragraph signals a new point.",
+          "help": {
+            "nudge": "Which word shows this is the second point?",
+            "rule": "Add a transition and a **comma** before the sentence.",
+            "worked": "“Second, cooking helps students eat more healthily.” adds a transition and a comma."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "etrans",
+          "q": "Which sentence uses a transition **incorrectly**?",
+          "options": [
+            "In conclusion, I will start my essay.",
+            "First, we need to choose a topic.",
+            "Second, we write an outline.",
+            "Finally, we check our spelling."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "In conclusion belongs at the end, not the start.",
+          "help": {
+            "nudge": "Which transition is in the wrong place?",
+            "rule": "Use each transition for **its position** in the essay.",
+            "worked": "“In conclusion” means the essay is ending, so it cannot start the essay."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **three sentences** that begin three paragraphs of an essay about *reading for pleasure*: one with *First,*, one with *Second,*, and one with *In conclusion,*.",
+        "minWords": 20,
+        "placeholder": "First, reading …",
+        "checks": [
+          {
+            "t": "I used First, Second and In conclusion.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence is about reading for pleasure.",
+            "auto": null
+          },
+          {
+            "t": "My sentences start with a capital letter and end with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Add a stronger point",
+          "Vary the transitions",
+          "Add a comma after each transition"
+        ],
+        "sample": "First, reading for pleasure improves a student’s vocabulary. Second, reading helps students relax after a busy day. In conclusion, reading for pleasure helps students learn and rest at the same time."
+      }
+    },
+    "6.7": {
+      "format": "v2",
+      "skill": "econcl",
+      "goal": "Write a conclusion that restates the thesis, sums up your points and ends with a closing thought.",
+      "warmup": {
+        "skills": [
+          "pconcl",
+          "concl"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each sentence to see what a conclusion does.",
+        "sentences": [
+          {
+            "t": "In conclusion, cooking skills help students spend less and eat better.",
+            "role": "topic",
+            "note": "Say the thesis again in new words.",
+            "label": "Restate the thesis"
+          },
+          {
+            "t": "It saves money and lets students choose what goes on their plate.",
+            "role": "support",
+            "note": "Remind the reader briefly of your two main points.",
+            "label": "Sum up the points"
+          },
+          {
+            "t": "It is a small skill that improves daily life.",
+            "role": "concluding",
+            "note": "End with a final idea.",
+            "label": "Closing thought"
+          },
+          {
+            "t": "Cooking is also a good way to make new friends.",
+            "role": "support",
+            "note": "Do not add a new main idea in the conclusion.",
+            "label": "New idea (avoid)"
+          }
+        ],
+        "takeaway": "A conclusion **restates the thesis in new words**, **sums up the main points**, and ends with a **closing thought**. Do **not** add new main ideas."
+      },
+      "practice": [
+        {
+          "type": "sort",
+          "skill": "econcl",
+          "q": "What does each sentence do in a conclusion?",
+          "cats": [
+            "Restates the thesis",
+            "Sums up the points",
+            "Closing thought"
+          ],
+          "items": [
+            {
+              "t": "In conclusion, sport helps students stay healthy and work as a team.",
+              "c": 0
+            },
+            {
+              "t": "Exercise strengthens the body, and team games teach cooperation.",
+              "c": 1
+            },
+            {
+              "t": "A healthy, cooperative student is ready for any challenge.",
+              "c": 2
+            },
+            {
+              "t": "To sum up, sleep improves memory and mood.",
+              "c": 0
+            },
+            {
+              "t": "Good rest helps students remember more and feel calmer.",
+              "c": 1
+            },
+            {
+              "t": "Sleep is one of the simplest gifts we can give ourselves.",
+              "c": 2
+            }
+          ],
+          "why": "A conclusion restates, sums up and then closes with a final thought.",
+          "help": {
+            "nudge": "Does it say the thesis again, remind the reader of the points, or leave a final idea?",
+            "rule": "**Restate** the thesis, **sum up** the points, finish with a **closing thought**.",
+            "worked": "“In conclusion, sport helps students stay healthy and work as a team” repeats the thesis in new words."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "econcl",
+          "q": "Which sentence should **not** be in a conclusion?",
+          "options": [
+            "Another important reason is that exercise is cheap.",
+            "In conclusion, exercise improves health.",
+            "Exercise gives us energy for every day.",
+            "To sum up, exercise benefits everyone."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It adds a brand new main point.",
+          "help": {
+            "nudge": "Which sentence starts a new argument?",
+            "rule": "A conclusion **closes** the essay. New main points belong in the body.",
+            "worked": "“Another important reason…” introduces a new point. The other two close the essay.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "econcl",
+                "q": "Which sentence should not be in a conclusion?",
+                "options": [
+                  "Also, sport is very cheap compared with other hobbies.",
+                  "To sum up, sport benefits students.",
+                  "Sport helps us stay strong and happy.",
+                  "Overall, sport is good for the body and the mind."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "It adds a new main point."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "econcl",
+          "q": "Which is the best **restatement** of this thesis? *Learning to cook helps students save money and eat more healthily.*",
+          "options": [
+            "In conclusion, cooking skills help students spend less and eat better.",
+            "In conclusion, learning to cook helps students save money and eat more healthily.",
+            "In conclusion, cooking is difficult.",
+            "In conclusion, many students cook at home."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It says the same idea in new words. The second option copies the thesis exactly, and the third changes the meaning.",
+          "help": {
+            "nudge": "Which option keeps the same meaning but uses different words?",
+            "rule": "To **restate**, keep the meaning but change the words.",
+            "worked": "“spend less and eat better” means the same as “save money and eat more healthily”."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "econcl",
+          "q": "Write a **closing thought** that starts with *Overall,*.",
+          "show": "Thesis: Sport helps students stay healthy and build teamwork.",
+          "accept": [],
+          "patterns": [
+            "^Overall, [a-z][^.!?]{12,}[.]$"
+          ],
+          "example": "Overall, sport prepares students for life as well as for school.",
+          "why": "A closing thought leaves the reader with a final idea.",
+          "help": {
+            "nudge": "What bigger idea does your essay leave the reader with?",
+            "rule": "A closing thought is a **final, memorable idea** about the topic.",
+            "worked": "“Overall, sport prepares students for life as well as for school.” looks beyond the essay."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "econcl",
+          "q": "Which conclusion opening is the **weakest**?",
+          "options": [
+            "In conclusion, I have finished my essay.",
+            "In conclusion, learning to cook benefits students in two ways.",
+            "To sum up, cooking saves money and improves health.",
+            "Overall, cooking is a skill students should learn."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "It talks about the essay itself instead of restating the thesis.",
+          "help": {
+            "nudge": "Which sentence says nothing about the topic?",
+            "rule": "Restate the **thesis**, not the fact that the essay is over.",
+            "worked": "“I have finished my essay” says nothing about cooking. The other two restate the thesis."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write a **three-sentence conclusion** for an essay with the thesis *Sport helps students stay healthy and build teamwork*.",
+        "minWords": 30,
+        "placeholder": "In conclusion, …",
+        "checks": [
+          {
+            "t": "I restated the thesis in new words.",
+            "auto": null
+          },
+          {
+            "t": "I summed up the main points and ended with a closing thought.",
+            "auto": null
+          },
+          {
+            "t": "My sentences start with a capital letter and end with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Use new words",
+          "Add a closing thought",
+          "Remove new ideas"
+        ],
+        "sample": "In conclusion, regular sport keeps students fit and teaches them to cooperate. It strengthens the body and builds respect for teammates. Overall, sport prepares students for life as well as for school."
+      }
+    },
+    "6.8": {
+      "format": "v2",
+      "skill": "revise",
+      "goal": "Revise an essay for ideas and organisation before you edit for mistakes.",
+      "warmup": {
+        "skills": [
+          "unity",
+          "cohere"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each line to see the difference between revising and editing.",
+        "sentences": [
+          {
+            "t": "Revising changes ideas and order. Editing fixes grammar, spelling and punctuation.",
+            "role": "topic",
+            "note": "Revise first, edit second.",
+            "label": "Two steps"
+          },
+          {
+            "t": "Draft: Cooking is good. It is good for money.",
+            "role": "support",
+            "note": "Vague and repeated.",
+            "label": "Weak draft"
+          },
+          {
+            "t": "Revised: Cooking at home saves students money because ingredients cost less than ready-made meals.",
+            "role": "support",
+            "note": "Specific, with a reason.",
+            "label": "Revised"
+          },
+          {
+            "t": "Check: Is my thesis clear? Does every paragraph support it? Is anything repeated or off-topic?",
+            "role": "concluding",
+            "note": "Use these questions on every draft.",
+            "label": "Revision checklist"
+          }
+        ],
+        "takeaway": "**Revise** first for **ideas and organisation**: a clear thesis, supported paragraphs, nothing repeated or off-topic. **Edit** afterwards for grammar and spelling."
+      },
+      "practice": [
+        {
+          "type": "sort",
+          "skill": "revise",
+          "q": "Is each action **revising** or **editing**?",
+          "cats": [
+            "Revising",
+            "Editing"
+          ],
+          "items": [
+            {
+              "t": "Adding a stronger example.",
+              "c": 0
+            },
+            {
+              "t": "Fixing a spelling mistake.",
+              "c": 1
+            },
+            {
+              "t": "Deleting an off-topic sentence.",
+              "c": 0
+            },
+            {
+              "t": "Adding a missing full stop.",
+              "c": 1
+            },
+            {
+              "t": "Moving a sentence to a better place.",
+              "c": 0
+            },
+            {
+              "t": "Correcting a capital letter.",
+              "c": 1
+            }
+          ],
+          "why": "Revising changes ideas and order. Editing fixes small mistakes.",
+          "help": {
+            "nudge": "Does the action change what the essay says, or only fix small mistakes?",
+            "rule": "**Revising** = ideas and organisation. **Editing** = grammar, spelling, punctuation.",
+            "worked": "Adding an example changes the content, so it is revising. Fixing spelling is editing."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "revise",
+          "q": "What should you do **first**?",
+          "options": [
+            "Revise for ideas and organisation.",
+            "Edit the spelling.",
+            "Do both at the same time.",
+            "Check the punctuation first."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "There is no point in fixing the spelling of a sentence you may delete.",
+          "help": {
+            "nudge": "Why fix a spelling mistake in a sentence you might delete?",
+            "rule": "Big changes first, **small fixes last**.",
+            "worked": "If you edit first, you may waste time on sentences that you later remove."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "revise",
+          "q": "Which sentence is **off-topic** in a paragraph about *saving money by cooking at home*?",
+          "options": [
+            "Ingredients cost less than ready-made meals.",
+            "Many people enjoy eating in restaurants with friends.",
+            "A pot of lentils can feed a whole family.",
+            "Cooking at home avoids service charges."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "It has nothing to do with saving money.",
+          "help": {
+            "nudge": "Which sentence is about something else?",
+            "rule": "**Delete** sentences that do not support the paragraph’s point.",
+            "worked": "Cheap ingredients and lentils are about money. The bicycle is unrelated.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "revise",
+                "q": "Which sentence is off-topic in a paragraph about *how sport keeps us healthy*?",
+                "options": [
+                  "Many people like to watch sport on television.",
+                  "Exercise strengthens the heart.",
+                  "Running improves breathing.",
+                  "Swimming uses most of the muscles."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "The car is unrelated to health."
+              }
+            ]
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "revise",
+          "q": "Revise this vague sentence so it is specific.",
+          "show": "Cooking is good.",
+          "accept": [],
+          "patterns": [
+            "^(?!.*\\bgood\\b)(?=.*\\b([Cc]ook|[Cc]ooking|[Cc]ooks)\\b)(?=.*\\b(saves?|helps?|teaches|improves?|gives?|lets?|makes?)\\b)[A-Z][^.!?]{15,}[.]$"
+          ],
+          "example": "Cooking at home saves students money and teaches useful skills.",
+          "why": "A specific sentence says exactly how or why.",
+          "help": {
+            "nudge": "Say how or why cooking is good.",
+            "rule": "Replace vague words like **good** with a clear reason.",
+            "worked": "“Cooking at home saves students money and teaches useful skills” gives two clear benefits."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "revise",
+          "q": "A paragraph repeats the same idea in three sentences. What should you do?",
+          "options": [
+            "Keep one sentence and add new support instead.",
+            "Add three more sentences like it.",
+            "Only fix the spelling.",
+            "Move the sentences to the next paragraph."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Repetition does not add support. New reasons or examples do.",
+          "help": {
+            "nudge": "Does repeating an idea make it stronger?",
+            "rule": "Replace **repetition** with new support.",
+            "worked": "Keep the best sentence and add a reason or example in place of the other two."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Here is a weak paragraph: *Sport is good. Sport is very good. I like sport.* **Revise** it into three specific sentences about why sport is good for students.",
+        "minWords": 20,
+        "placeholder": "Sport helps students …",
+        "checks": [
+          {
+            "t": "My sentences are specific, not vague.",
+            "auto": null
+          },
+          {
+            "t": "I removed the repeated idea.",
+            "auto": null
+          },
+          {
+            "t": "My sentences start with a capital letter and end with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Add an example",
+          "Be more specific",
+          "Add a reason"
+        ],
+        "sample": "Sport keeps students healthy because it strengthens the heart and muscles. It also teaches teamwork when students play together. For example, a school football team learns to share the ball and support each other."
+      }
+    },
+    "6.9": {
+      "format": "v2",
+      "skill": "edit",
+      "goal": "Edit for common errors: fragments, run-ons, missing commas and capital letters.",
+      "warmup": {
+        "skills": [
+          "fragment",
+          "comma"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each pair to see an error and its fix.",
+        "sentences": [
+          {
+            "t": "Because the bus was late. → Because the bus was late, we missed the lesson.",
+            "role": "topic",
+            "note": "Add a main clause so the idea is complete.",
+            "label": "Fragment"
+          },
+          {
+            "t": "I like cooking it saves money. → I like cooking, and it saves money.",
+            "role": "support",
+            "note": "Join with a comma and a joining word, or split into two sentences.",
+            "label": "Run-on"
+          },
+          {
+            "t": "However students need sleep. → However, students need sleep.",
+            "role": "support",
+            "note": "Add a comma after an opening word or phrase.",
+            "label": "Missing comma"
+          },
+          {
+            "t": "my brother plays football. → My brother plays football.",
+            "role": "concluding",
+            "note": "Every sentence starts with a capital letter.",
+            "label": "Capital letter"
+          }
+        ],
+        "takeaway": "When you **edit**, look for **fragments**, **run-ons**, **missing commas** and **capital letters**. Read your essay slowly, one sentence at a time."
+      },
+      "practice": [
+        {
+          "type": "choose",
+          "skill": "edit",
+          "q": "Which sentence is correct?",
+          "options": [
+            "Although it was raining, we played outside.",
+            "Although it was raining. We played outside.",
+            "Although it was raining we played outside.",
+            "Although, it was raining we played outside."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "A comma separates the opening clause from the main clause, and the sentence is complete.",
+          "help": {
+            "nudge": "Is each sentence complete? Is there a comma after the opening clause?",
+            "rule": "An opening clause is followed by a **comma** and a **main clause**.",
+            "worked": "“Although it was raining. We played outside.” cuts the sentence in two and creates a fragment.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "edit",
+                "q": "Which sentence is correct?",
+                "options": [
+                  "When the lesson ended, we went home.",
+                  "When the lesson ended. We went home.",
+                  "When the lesson ended we went home.",
+                  "When the lesson ended; we went home."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "A comma follows the opening clause and the sentence is complete."
+              }
+            ]
+          }
+        },
+        {
+          "type": "sort",
+          "skill": "edit",
+          "q": "What error does each sentence have?",
+          "cats": [
+            "Fragment",
+            "Run-on",
+            "Missing comma",
+            "No error"
+          ],
+          "items": [
+            {
+              "t": "Because I was tired.",
+              "c": 0
+            },
+            {
+              "t": "I was tired I went to bed.",
+              "c": 1
+            },
+            {
+              "t": "However the lesson was short.",
+              "c": 2
+            },
+            {
+              "t": "We finished the lesson early.",
+              "c": 3
+            }
+          ],
+          "why": "A fragment is incomplete, a run-on joins two sentences with no punctuation, and an opening word needs a comma.",
+          "help": {
+            "nudge": "Is the sentence complete? Are two sentences joined without punctuation? Is a comma missing?",
+            "rule": "**Fragment** = incomplete. **Run-on** = joined with no punctuation. **Missing comma** = after an opening word.",
+            "worked": "“I was tired I went to bed” joins two sentences without punctuation."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "edit",
+          "q": "Fix this run-on sentence.",
+          "show": "I like cooking it saves money.",
+          "accept": [],
+          "patterns": [
+            "^I like cooking(, and|, so|;| because) .{3,}[.]$"
+          ],
+          "example": "I like cooking because it saves money.",
+          "why": "Join the two ideas with a comma and a joining word, a semicolon, or a word like because.",
+          "help": {
+            "nudge": "Two complete ideas are joined with nothing between them. How can you connect them?",
+            "rule": "Fix a run-on with **a comma and a joining word**, a **semicolon**, or **because**.",
+            "worked": "“I like cooking because it saves money.” joins the ideas with a joining word."
+          }
+        },
+        {
+          "type": "fix",
+          "skill": "edit",
+          "q": "Fix the missing comma.",
+          "show": "However students need more sleep.",
+          "accept": [],
+          "patterns": [
+            "^However, students need more sleep\\.$"
+          ],
+          "example": "However, students need more sleep.",
+          "why": "A comma follows an opening word such as However.",
+          "help": {
+            "nudge": "Where should the comma go?",
+            "rule": "After an **opening word** or phrase, add a comma.",
+            "worked": "“However,” is an opening word, so a comma comes right after it."
+          }
+        },
+        {
+          "type": "tap",
+          "skill": "edit",
+          "q": "Tap the word that needs a capital letter.",
+          "text": "my brother plays football every Saturday.",
+          "answers": [
+            [
+              0
+            ]
+          ],
+          "why": "The first word of a sentence starts with a capital letter.",
+          "help": {
+            "nudge": "Which word starts the sentence?",
+            "rule": "Every sentence begins with a **capital letter**.",
+            "worked": "“my” starts the sentence, so it should be “My”."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "**Edit** this paragraph. Rewrite it with every error fixed: *because the bus was late we missed the start of the lesson the teacher was kind she let us in however we felt embarrassed.*",
+        "minWords": 22,
+        "placeholder": "Because the bus was late, …",
+        "checks": [
+          {
+            "t": "I fixed the fragment and the run-ons.",
+            "auto": null
+          },
+          {
+            "t": "I added the missing commas.",
+            "auto": null
+          },
+          {
+            "t": "My sentences start with a capital letter and end with punctuation.",
+            "auto": "capsAndEnd"
+          }
+        ],
+        "focus": [
+          "Add missing commas",
+          "Split run-ons",
+          "Check capital letters"
+        ],
+        "sample": "Because the bus was late, we missed the start of the lesson. The teacher was kind, so she let us in. However, we felt embarrassed."
+      }
+    },
+    "6.10": {
+      "format": "v2",
+      "skill": "rubric",
+      "goal": "Understand what an essay is graded on and use a rubric to improve your writing.",
+      "warmup": {
+        "skills": [
+          "thesis",
+          "hook"
+        ],
+        "count": 2
+      },
+      "spot": {
+        "intro": "Tap each line to see a common rubric category.",
+        "sentences": [
+          {
+            "t": "Content: a clear thesis and well-explained ideas.",
+            "role": "topic",
+            "note": "Does the essay make a clear point and explain it?",
+            "label": "Content"
+          },
+          {
+            "t": "Organisation: introduction, two body paragraphs and a conclusion, with transitions.",
+            "role": "support",
+            "note": "Can the reader follow the order of ideas?",
+            "label": "Organisation"
+          },
+          {
+            "t": "Language: correct, varied sentences and well-chosen words.",
+            "role": "support",
+            "note": "Are the sentences clear and varied?",
+            "label": "Language"
+          },
+          {
+            "t": "Mechanics: spelling, punctuation and capital letters.",
+            "role": "concluding",
+            "note": "Is the essay clean and easy to read?",
+            "label": "Mechanics"
+          }
+        ],
+        "takeaway": "Most rubrics check **content**, **organisation**, **language** and **mechanics**. Use them as a **checklist** before you hand in your essay."
+      },
+      "practice": [
+        {
+          "type": "sort",
+          "skill": "rubric",
+          "q": "Which rubric category does each comment belong to?",
+          "cats": [
+            "Content",
+            "Organisation",
+            "Language",
+            "Mechanics"
+          ],
+          "items": [
+            {
+              "t": "The thesis is clear and arguable.",
+              "c": 0
+            },
+            {
+              "t": "Each paragraph begins with a transition.",
+              "c": 1
+            },
+            {
+              "t": "Sentences are varied and well chosen.",
+              "c": 2
+            },
+            {
+              "t": "There are no spelling mistakes.",
+              "c": 3
+            },
+            {
+              "t": "The examples explain the ideas well.",
+              "c": 0
+            },
+            {
+              "t": "Paragraphs are in a logical order.",
+              "c": 1
+            }
+          ],
+          "why": "Content is about ideas, organisation is about order, language is about sentences and words, and mechanics is about spelling and punctuation.",
+          "help": {
+            "nudge": "Is the comment about ideas, order, wording or small mistakes?",
+            "rule": "**Content** = ideas. **Organisation** = order. **Language** = wording. **Mechanics** = spelling and punctuation.",
+            "worked": "“There are no spelling mistakes” is about mechanics."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "rubric",
+          "q": "Your essay has a clear thesis but many spelling mistakes. Which category will lose marks?",
+          "options": [
+            "Mechanics",
+            "Content",
+            "Organisation",
+            "Language"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Spelling belongs to mechanics.",
+          "help": {
+            "nudge": "Is spelling about ideas, order or small mistakes?",
+            "rule": "Spelling, punctuation and capitals are **mechanics**.",
+            "worked": "A clear thesis keeps content strong, so spelling affects mechanics."
+          }
+        },
+        {
+          "type": "label",
+          "skill": "rubric",
+          "q": "Label each feedback comment with its rubric category.",
+          "labels": [
+            "Content",
+            "Organisation",
+            "Language",
+            "Mechanics"
+          ],
+          "parts": [
+            {
+              "t": "Add an example to support your second point.",
+              "a": 0
+            },
+            {
+              "t": "Start your conclusion with a transition.",
+              "a": 1
+            },
+            {
+              "t": "Use more varied sentence openings.",
+              "a": 2
+            },
+            {
+              "t": "Check your capital letters.",
+              "a": 3
+            }
+          ],
+          "why": "Examples belong to content, transitions to organisation, varied sentences to language, and capitals to mechanics.",
+          "help": {
+            "nudge": "Match each comment to ideas, order, wording or small mistakes.",
+            "rule": "Use the four categories: **content, organisation, language, mechanics**.",
+            "worked": "“Start your conclusion with a transition” is about order, so it is organisation."
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "rubric",
+          "q": "Which action helps with **organisation**?",
+          "options": [
+            "Adding transitions between paragraphs.",
+            "Fixing a comma.",
+            "Choosing a stronger word.",
+            "Correcting a spelling mistake."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Transitions help the reader follow the order of ideas.",
+          "help": {
+            "nudge": "Which action changes the order or flow of the essay?",
+            "rule": "**Organisation** = how the parts fit together.",
+            "worked": "Transitions link paragraphs, so they help organisation. A comma is mechanics, and a stronger word is language.",
+            "variants": [
+              {
+                "type": "choose",
+                "skill": "rubric",
+                "q": "Which action helps with **content**?",
+                "options": [
+                  "Adding a specific example.",
+                  "Fixing a spelling mistake.",
+                  "Adding a transition.",
+                  "Changing a word to a stronger one."
+                ],
+                "answers": [
+                  0
+                ],
+                "why": "An example strengthens the ideas."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choose",
+          "skill": "rubric",
+          "q": "When should you use the rubric?",
+          "options": [
+            "Before you hand in the essay, as a checklist.",
+            "Only after the teacher grades it.",
+            "Only when you are unsure of the topic.",
+            "Only for the first essay of the term."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "A rubric helps you improve your essay before it is graded.",
+          "help": {
+            "nudge": "Is a rubric only for the grader?",
+            "rule": "Use the rubric as a **checklist** while you revise and edit.",
+            "worked": "Checking your essay against the rubric lets you fix problems before you submit."
+          }
+        }
+      ],
+      "write": {
+        "prompt": "Write **three sentences** about which rubric category is hardest for you and one thing you will do to improve it.",
+        "minWords": 25,
+        "placeholder": "The category that is hardest for me is …",
+        "checks": [
+          {
+            "t": "I named a rubric category.",
+            "auto": null
+          },
+          {
+            "t": "I explained why it is hard for me.",
+            "auto": null
+          },
+          {
+            "t": "I wrote one thing I will do to improve.",
+            "auto": null
+          }
+        ],
+        "focus": [
+          "Add a reason",
+          "Add an action",
+          "Be more specific"
+        ],
+        "sample": "The category that is hardest for me is mechanics because I often forget commas. I usually notice them only after I hand in my work. Next time I will read my essay slowly, one sentence at a time, before I submit it."
+      }
+    },
+    "6.11": {
+      "format": "v2",
+      "review": true,
+      "from": [
+        "6.1",
+        "6.2",
+        "6.3",
+        "6.4",
+        "6.5",
+        "6.6",
+        "6.7",
+        "6.8",
+        "6.9",
+        "6.10"
+      ],
+      "count": 8,
+      "skill": "essay",
+      "goal": "Write a complete two-body-paragraph essay in about 25 minutes.",
+      "write": {
+        "prompt": "Write an essay of four or five paragraphs on this topic: **Should students learn to cook?** Include a hook, a thesis, two body paragraphs with transitions, and a conclusion.",
+        "minWords": 120,
+        "placeholder": "Can you …",
+        "checks": [
+          {
+            "t": "My introduction has a hook and ends with a thesis.",
+            "auto": null
+          },
+          {
+            "t": "My two body paragraphs each have a topic sentence, support and an example. I used transitions.",
+            "auto": "linkers"
+          },
+          {
+            "t": "My conclusion restates the thesis and ends with a closing thought.",
+            "auto": null
+          }
+        ],
+        "focus": [
+          "Strengthen the thesis",
+          "Add transitions",
+          "Edit for mistakes"
+        ],
+        "sample": "Can you make a healthy meal without any help? Many students leave home to study and suddenly have to feed themselves. Eating out every day costs a lot, and fast food is rarely healthy. Learning to cook helps students save money and eat more healthily.\n\nFirst, cooking at home saves students a lot of money. Ingredients usually cost much less than ready-made meals. For example, a pot of rice and vegetables can feed four people for very little money. This saving leaves more money for books and travel.\n\nSecond, cooking lets students eat more healthily. When you cook, you choose fresh ingredients and control the amount of oil and sugar. For example, a home-made vegetable soup contains less salt than most packaged soups.\n\nIn conclusion, cooking skills help students spend less and eat better. It is a small skill that improves daily life."
+      }
+    }
+  },
+  "skills": {
+    "parts": {
+      "label": "Parts of an essay",
+      "good": "You can name the parts of an essay and what each one does.",
+      "improve": "An essay has an introduction that ends with the thesis, body paragraphs that prove it, and a conclusion."
+    },
+    "hook": {
+      "label": "Hooks",
+      "good": "You can open an essay with a hook that makes readers curious.",
+      "improve": "Start with a question, a bold statement or a short scene. Never begin with “In this essay I will…”."
+    },
+    "intro": {
+      "label": "Introductions",
+      "good": "You can build an introduction from hook, background and thesis.",
+      "improve": "Go from general to specific: hook, background, then the thesis as the last sentence."
+    },
+    "bodypar": {
+      "label": "Body paragraphs",
+      "good": "You can build a body paragraph around one point.",
+      "improve": "Use a topic sentence linked to the thesis, then support, an example and a closing sentence."
+    },
+    "body2": {
+      "label": "The second body paragraph",
+      "good": "You can link a second body paragraph to the thesis.",
+      "improve": "Cover the second part of the thesis. Begin with a transition and do not repeat paragraph one."
+    },
+    "etrans": {
+      "label": "Transitions between paragraphs",
+      "good": "You can move smoothly from one paragraph to the next.",
+      "improve": "Open paragraphs with First, Second, Another reason, In addition, and In conclusion."
+    },
+    "econcl": {
+      "label": "Conclusions",
+      "good": "You can write a conclusion that restates, sums up and closes.",
+      "improve": "Restate the thesis in new words, sum up your points, and end with a closing thought. Add no new main ideas."
+    },
+    "revise": {
+      "label": "Revising",
+      "good": "You can improve ideas and organisation before editing.",
+      "improve": "Revise first for ideas and organisation, then edit for grammar and spelling."
+    },
+    "edit": {
+      "label": "Editing",
+      "good": "You can find and fix common errors.",
+      "improve": "Check for fragments, run-ons, missing commas and capital letters. Read slowly, one sentence at a time."
+    },
+    "rubric": {
+      "label": "Using a rubric",
+      "good": "You can use a rubric to check your essay.",
+      "improve": "Check content, organisation, language and mechanics before you hand in your essay."
+    },
+    "essay": {
+      "label": "Writing a full essay",
+      "good": "You can plan and write a complete essay.",
+      "improve": "Plan first, then write a hook, a thesis, two body paragraphs and a conclusion. Revise and edit."
+    }
+  }
+}

@@ -104,6 +104,7 @@
 
   // ---------- rewards ----------
   function confetti() {
+    if (window.IEPSound) window.IEPSound.play("fanfare");
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     var c = document.createElement("canvas");
     c.className = "confetti"; c.width = window.innerWidth; c.height = window.innerHeight;
@@ -125,24 +126,71 @@
     requestAnimationFrame(frame);
   }
 
+  // Encouraging words after an activity is checked: many different phrases, never the same one twice running, and a
+  // gentler set when the score is lower. Perfect scores in a row get a little extra.
+  var PRAISE = {
+    perfect: ["Nailed it!", "Spot on!", "Perfect score!", "Flawless!", "Exactly right!", "Brilliant work!", "Top marks!", "You got every one!", "Sharp thinking!", "Superb!", "Right on target!", "Clean sweep!", "Excellent!", "Well done!", "That was impressive!", "Not a single slip!", "Outstanding!", "You make it look easy!"],
+    high: ["So close!", "Great work!", "Almost perfect!", "Strong result!", "Really good!", "Nearly there!", "Well done!", "Just one or two to polish."],
+    mid: ["Good effort!", "You’re getting there.", "Solid start.", "Keep going!", "Nice try. Check the ones you missed.", "Progress counts!", "Worth another look."],
+    low: ["Every try teaches something.", "Don’t give up!", "Read the rule, then try again.", "You can do this.", "Mistakes help you learn.", "Take your time and try once more."]
+  };
+  var PRAISE_SUB = { perfect: "Every answer correct.", high: "Look at the ones you missed.", mid: "Review the rule and try again.", low: "Look at the rule and give it another go." };
+  function pickPraise(tier) {
+    var list = PRAISE[tier], last = -1;
+    try { last = parseInt(sessionStorage.getItem("iep099-praise-last-" + tier), 10); } catch (e) {}
+    var i; do { i = Math.floor(Math.random() * list.length); } while (list.length > 1 && i === last);
+    try { sessionStorage.setItem("iep099-praise-last-" + tier, String(i)); } catch (e) {}
+    return list[i];
+  }
+  function perfectRun(perfect) {
+    var n = 0; try { n = perfect ? (parseInt(sessionStorage.getItem("iep099-perfect-run"), 10) || 0) + 1 : 0; sessionStorage.setItem("iep099-perfect-run", String(n)); } catch (e) {}
+    return n;
+  }
+
+  // When every activity in a unit is done, work out how many stars the whole set earned (1 to 3).
+  // Score = 65% overall accuracy + 35% share of activities finished with every answer right.
+  // 90 and above = 3 stars, 75 and above = 2 stars, otherwise 1. Only stars above the unit's best so far are new.
+  var UNITSTARS = "iep099-unitstars";
+  function unitReward(st, D) {
+    var res = results(), perfect = 0;
+    st.unit.acts.forEach(function (aid) { var r = res[aid]; if (r && r.correct >= D.act[aid].n) perfect++; });
+    var share = st.acts ? perfect / st.acts : 0, score = 0.65 * st.pct + 0.35 * share;
+    var stars = score >= 0.9 ? 3 : score >= 0.75 ? 2 : 1;
+    var best = {}; try { best = JSON.parse(localStorage.getItem(UNITSTARS) || "{}") || {}; } catch (x) {}
+    var before = best[st.unit.key] || 0, gain = Math.max(0, stars - before);
+    if (gain) { best[st.unit.key] = stars; try { localStorage.setItem(UNITSTARS, JSON.stringify(best)); } catch (x) {} }
+    return { stars: stars, gain: gain, pct: st.pct, perfect: perfect, acts: st.acts };
+  }
+
   // Called by practice.js right after a real activity page is checked and its result saved.
   function afterCheck(container, id, right, total) {
     if (window.IEPBadges) window.IEPBadges.announce();
     recordDay();
     renderStreak();
     var old = container.querySelector(".after-check"); if (old) old.remove();
-    if (total > 0 && right === total) confetti();
     var D = data(); if (!D || !D.act[id]) return;
     var st = unitStats(D.act[id].u); if (!st) return;
     var left = st.acts - st.done, u = st.unit, nextId = u.acts[u.acts.indexOf(id) + 1];
+    // The celebration is saved for the end of the set: the whole unit done. Its stars come from the unit-wide score.
+    var ur = left === 0 ? unitReward(st, D) : null;
+    if (ur && ur.stars >= 2) confetti();
 
     var wrap = document.createElement("div"); wrap.className = "after-check";
+    var frac = total > 0 ? right / total : 0, tier = right === total && total > 0 ? "perfect" : frac >= 0.8 ? "high" : frac >= 0.5 ? "mid" : "low";
+    var run = perfectRun(tier === "perfect");
+    // Supportive words, a sound and a star flying to the badge button: only when every answer is right.
+    var lead = tier === "perfect" ? (run >= 3 ? (run === 3 ? "Three in a row!" : run + " in a row!") : pickPraise(tier)) + " " : "";
     var msg = document.createElement("p"); msg.className = "after-msg";
-    var lead = right === total && total > 0 ? "Perfect score! " : "";
-    msg.textContent = lead + (left > 0
+    var rest = (left > 0
       ? left + (left === 1 ? " activity" : " activities") + " left to finish Unit " + u.num + "."
-      : "You've done every activity in Unit " + u.num + "!");
+      : "Unit " + u.num + " complete! " + new Array(ur.stars + 1).join("★") + " " + Math.round(ur.pct * 100) + "% correct, " + ur.perfect + " of " + ur.acts + " activities perfect.");
+    if (lead) { var ls = document.createElement("span"); ls.className = "after-lead"; ls.textContent = lead; msg.appendChild(ls); }
+    msg.appendChild(document.createTextNode(rest));
     wrap.appendChild(msg);
+    if (tier === "perfect") {
+      setTimeout(function () { if (window.IEPFx) window.IEPFx.flyStar(msg); }, 500);
+    }
+    if (ur && ur.gain) for (var gi = 0; gi < ur.gain; gi++) (function (k) { setTimeout(function () { if (window.IEPFx) window.IEPFx.flyStar(msg); }, 1600 + k * 380); })(gi);
     var link = document.createElement("a"); link.className = "next-btn";
     if (nextId) { link.href = D.act[nextId].h; link.textContent = "Next activity →"; }
     else { link.href = u.href; link.textContent = "Back to Unit " + u.num + " →"; }

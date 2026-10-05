@@ -6,305 +6,1403 @@
         "intro": "Most sentences tell us **who or what** (the subject) and **what happens** (the verb). Many also say **who or what receives the action** (the object).",
         "legend": "==Subject== · **Verb** · ++Object++",
         "examples": [
-          { "t": "==My brother== **drives** ++a red car++.", "note": "Subject, verb and object." },
-          { "t": "==The students== **are waiting**.", "note": "Some sentences have no object." },
-          { "t": "==Our teacher== **opened** ++the window++.", "note": "Ask “who?” for the subject, then “what did they do?” for the verb." }
+          {
+            "t": "==My brother== **drives** ++a red car++.",
+            "note": "Subject, verb and object."
+          },
+          {
+            "t": "==The students== **are waiting**.",
+            "note": "Some sentences have no object."
+          },
+          {
+            "t": "==Our teacher== **opened** ++the window++.",
+            "note": "Ask “who?” for the subject, then “what did they do?” for the verb."
+          }
         ]
       },
       "try": [
-        { "type": "tap", "skill": "subject", "q": "Tap the subject.", "text": "Our neighbor bakes bread every morning.", "answers": [[0,1],[1]], "why": "The subject is who bakes: “Our neighbor” (or just “neighbor”)." },
-        { "type": "tap", "skill": "verb", "q": "Tap the verb.", "text": "The children play football after school.", "answers": [[2]], "why": "The verb is the action: “play”." },
-        { "type": "tap", "skill": "object", "q": "Tap the object.", "text": "Sara bought a new phone yesterday.", "answers": [[2,3,4],[4]], "why": "The object is what Sara bought: “a new phone”. “Yesterday” tells us when." },
-        { "type": "choose", "skill": "verb", "q": "Which word is the verb? “My cousin lives in a small town.”", "options": ["My cousin", "lives", "in a small town"], "answers": [1], "why": "“Lives” is the verb. “My cousin” is the subject." },
-        { "type": "sort", "skill": "object", "q": "Does each sentence have an object?", "cats": ["Has an object", "No object"], "items": [
-          { "t": "Hamad reads the newspaper.", "c": 0 },
-          { "t": "The bus arrived.", "c": 1 },
-          { "t": "We cooked dinner.", "c": 0 },
-          { "t": "The baby is sleeping.", "c": 1 }
-        ], "why": "An object answers “what?” after the verb: the newspaper, dinner. “Arrived” and “is sleeping” need nothing after them." },
-        { "type": "label", "skill": "subject", "q": "Label each part of the sentence.", "labels": ["Subject", "Verb", "Object"], "parts": [
-          { "t": "Fatima", "a": 0 }, { "t": "ate", "a": 1 }, { "t": "lunch.", "a": 2 }
-        ], "why": "Fatima (who) · ate (action) · lunch (what she ate)." },
-        { "type": "order", "skill": "order", "q": "Put the words in order to make a sentence.", "pieces": ["The", "teacher", "collected", "the", "homework."], "answers": ["The teacher collected the homework."], "why": "Subject, then verb, then object." },
-        { "type": "choose", "skill": "complete", "q": "Which group of words is a complete sentence by itself?", "options": ["Because it was late.", "The shop opens at nine.", "In the kitchen."], "answers": [1], "why": "“The shop opens at nine.” has a subject, a verb and a finished idea. “Because it was late.” has a subject (it) and a verb (was), but the idea is unfinished. You’ll practise that in lessons 1.2 and 1.3." }
+        {
+          "type": "tap",
+          "skill": "subject",
+          "q": "Tap the subject.",
+          "text": "Our neighbor bakes bread every morning.",
+          "answers": [
+            [
+              0,
+              1
+            ],
+            [
+              1
+            ]
+          ],
+          "why": "The subject is who bakes: “Our neighbor” (or just “neighbor”)."
+        },
+        {
+          "type": "tap",
+          "skill": "verb",
+          "q": "Tap the verb.",
+          "text": "The children play football after school.",
+          "answers": [
+            [
+              2
+            ]
+          ],
+          "why": "The verb is the action: “play”."
+        },
+        {
+          "type": "tap",
+          "skill": "object",
+          "q": "Tap the object.",
+          "text": "Sara bought a new phone yesterday.",
+          "answers": [
+            [
+              2,
+              3,
+              4
+            ],
+            [
+              4
+            ]
+          ],
+          "why": "The object is what Sara bought: “a new phone”. “Yesterday” tells us when."
+        },
+        {
+          "type": "choose",
+          "skill": "verb",
+          "q": "Which word is the verb? “My cousin lives in a small town.”",
+          "options": [
+            "My cousin",
+            "lives",
+            "in a small town",
+            "small"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "“Lives” is the verb. “My cousin” is the subject."
+        },
+        {
+          "type": "sort",
+          "skill": "object",
+          "q": "Does each sentence have an object?",
+          "cats": [
+            "Has an object",
+            "No object"
+          ],
+          "items": [
+            {
+              "t": "Hamad reads the newspaper.",
+              "c": 0
+            },
+            {
+              "t": "The bus arrived.",
+              "c": 1
+            },
+            {
+              "t": "We cooked dinner.",
+              "c": 0
+            },
+            {
+              "t": "The baby is sleeping.",
+              "c": 1
+            }
+          ],
+          "why": "An object answers “what?” after the verb: the newspaper, dinner. “Arrived” and “is sleeping” need nothing after them."
+        },
+        {
+          "type": "label",
+          "skill": "subject",
+          "q": "Label each part of the sentence.",
+          "labels": [
+            "Subject",
+            "Verb",
+            "Object"
+          ],
+          "parts": [
+            {
+              "t": "Fatima",
+              "a": 0
+            },
+            {
+              "t": "ate",
+              "a": 1
+            },
+            {
+              "t": "lunch.",
+              "a": 2
+            }
+          ],
+          "why": "Fatima (who) · ate (action) · lunch (what she ate)."
+        },
+        {
+          "type": "order",
+          "skill": "order",
+          "q": "Put the words in order to make a sentence.",
+          "pieces": [
+            "The",
+            "teacher",
+            "collected",
+            "the",
+            "homework."
+          ],
+          "answers": [
+            "The teacher collected the homework."
+          ],
+          "why": "Subject, then verb, then object."
+        },
+        {
+          "type": "choose",
+          "skill": "complete",
+          "q": "Which group of words is a complete sentence by itself?",
+          "options": [
+            "Because it was late.",
+            "The shop opens at nine.",
+            "In the kitchen.",
+            "Opening at nine."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "“The shop opens at nine.” has a subject, a verb and a finished idea. “Because it was late.” has a subject (it) and a verb (was), but the idea is unfinished. You’ll practise that in lessons 1.2 and 1.3."
+        }
       ],
       "build": {
         "prompt": "Write **2 sentences** about what you do after class. Use a subject and a verb in each one.",
         "minWords": 6,
         "placeholder": "After class, I ...",
         "checks": [
-          { "t": "Each sentence has a subject (who or what).", "auto": null },
-          { "t": "Each sentence has a verb (what happens).", "auto": null },
-          { "t": "At least one sentence has an object.", "auto": null },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "Each sentence has a subject (who or what).",
+            "auto": null
+          },
+          {
+            "t": "Each sentence has a verb (what happens).",
+            "auto": null
+          },
+          {
+            "t": "At least one sentence has an object.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
         "sample": "I meet my friends at the café. We drink coffee and talk."
       }
     },
-
     "1.2": {
       "spot": {
         "intro": "A **complete sentence** passes three checks: it says **who or what**, it has a **verb**, and it **finishes the idea**.",
         "legend": "==Subject== · **Verb**",
         "examples": [
-          { "t": "==The library== **closes** at ten.", "note": "Complete: all three checks passed." },
-          { "t": "Closes at ten.", "note": "Not complete: who or what closes?" },
-          { "t": "The library at ten.", "note": "Not complete: there is no verb." }
+          {
+            "t": "==The library== **closes** at ten.",
+            "note": "Complete: all three checks passed."
+          },
+          {
+            "t": "Closes at ten.",
+            "note": "Not complete: who or what closes?"
+          },
+          {
+            "t": "The library at ten.",
+            "note": "Not complete: there is no verb."
+          }
         ]
       },
       "try": [
-        { "type": "sort", "skill": "complete", "q": "Is each group of words a complete sentence?", "cats": ["Complete", "Not complete"], "items": [
-          { "t": "The train leaves at six.", "c": 0 },
-          { "t": "Leaves at six.", "c": 1 },
-          { "t": "My sister and I.", "c": 1 },
-          { "t": "We walked to the market.", "c": 0 }
-        ], "why": "Check for a subject, a verb and a finished idea." },
-        { "type": "choose", "skill": "complete", "q": "Which is a complete sentence?", "options": ["Waiting for the bus.", "The bus is late.", "When the bus arrives."], "answers": [1], "why": "“The bus is late.” has a subject (the bus), a verb (is) and a finished idea." },
-        { "type": "choose", "skill": "complete", "q": "What is missing? “Drinks coffee every morning.”", "options": ["a subject", "a verb", "a full stop"], "answers": [0], "why": "We don’t know who drinks coffee. Add a subject: “My father drinks coffee every morning.”" },
-        { "type": "choose", "skill": "complete", "q": "What is missing? “My parents at home.”", "options": ["a subject", "a verb", "a capital letter"], "answers": [1], "why": "There is no verb. “My parents are at home.”" },
-        { "type": "choose", "skill": "verb", "q": "Choose the word that completes the sentence: “The students ___ in the library.”", "options": ["study", "studying", "to study"], "answers": [0], "why": "“The students study in the library.” uses a complete verb." },
-        { "type": "choose", "skill": "subject", "q": "Which word completes the sentence? “___ plays football every weekend.”", "options": ["Ahmed", "Playing", "In the park"], "answers": [0], "why": "A subject names who plays: Ahmed." },
-        { "type": "order", "skill": "order", "q": "Put the words in order.", "pieces": ["starts", "Our", "at", "class", "nine."], "answers": ["Our class starts at nine."], "why": "Subject (Our class) + verb (starts) + the rest." },
-        { "type": "choose", "skill": "complete", "q": "A complete sentence must…", "options": ["start with “and”", "express a complete idea", "be longer than six words"], "answers": [1], "why": "Length doesn’t matter. A complete idea does." }
+        {
+          "type": "sort",
+          "skill": "complete",
+          "q": "Is each group of words a complete sentence?",
+          "cats": [
+            "Complete",
+            "Not complete"
+          ],
+          "items": [
+            {
+              "t": "The train leaves at six.",
+              "c": 0
+            },
+            {
+              "t": "Leaves at six.",
+              "c": 1
+            },
+            {
+              "t": "My sister and I.",
+              "c": 1
+            },
+            {
+              "t": "We walked to the market.",
+              "c": 0
+            }
+          ],
+          "why": "Check for a subject, a verb and a finished idea."
+        },
+        {
+          "type": "choose",
+          "skill": "complete",
+          "q": "Which is a complete sentence?",
+          "options": [
+            "Waiting for the bus.",
+            "The bus is late.",
+            "When the bus arrives.",
+            "The bus arriving late."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "“The bus is late.” has a subject (the bus), a verb (is) and a finished idea."
+        },
+        {
+          "type": "choose",
+          "skill": "complete",
+          "q": "What is missing? “Drinks coffee every morning.”",
+          "options": [
+            "a subject",
+            "a verb",
+            "a full stop",
+            "a capital letter"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "We don’t know who drinks coffee. Add a subject: “My father drinks coffee every morning.”"
+        },
+        {
+          "type": "choose",
+          "skill": "complete",
+          "q": "What is missing? “My parents at home.”",
+          "options": [
+            "a subject",
+            "a verb",
+            "a capital letter",
+            "a full stop"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "There is no verb. “My parents are at home.”"
+        },
+        {
+          "type": "choose",
+          "skill": "verb",
+          "q": "Choose the word that completes the sentence: “The students ___ in the library.”",
+          "options": [
+            "study",
+            "studying",
+            "to study",
+            "studies"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "“The students study in the library.” uses a complete verb."
+        },
+        {
+          "type": "choose",
+          "skill": "subject",
+          "q": "Which word completes the sentence? “___ plays football every weekend.”",
+          "options": [
+            "Ahmed",
+            "Playing",
+            "In the park",
+            "My brothers"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "A subject names who plays: Ahmed."
+        },
+        {
+          "type": "order",
+          "skill": "order",
+          "q": "Put the words in order.",
+          "pieces": [
+            "starts",
+            "Our",
+            "at",
+            "class",
+            "nine."
+          ],
+          "answers": [
+            "Our class starts at nine."
+          ],
+          "why": "Subject (Our class) + verb (starts) + the rest."
+        },
+        {
+          "type": "choose",
+          "skill": "complete",
+          "q": "A complete sentence must…",
+          "options": [
+            "start with “and”",
+            "express a complete idea",
+            "be longer than six words",
+            "contain a comma"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "Length doesn’t matter. A complete idea does."
+        }
       ],
       "build": {
         "prompt": "Write **3 complete sentences** about your favourite place to eat.",
         "minWords": 9,
         "placeholder": "My favourite place to eat is ...",
         "checks": [
-          { "t": "Each sentence says who or what.", "auto": null },
-          { "t": "Each sentence has a verb.", "auto": null },
-          { "t": "Each sentence makes sense on its own.", "auto": null },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "Each sentence says who or what.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence has a verb.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence makes sense on its own.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
         "sample": "My favourite restaurant is near my house. The chicken is delicious. I go there every Friday."
       }
     },
-
     "1.3": {
       "spot": {
         "intro": "A **fragment** looks like a sentence but is missing a **subject**, a **verb**, or the **rest of the idea**. Add what’s missing to fix it.",
         "legend": "",
         "examples": [
-          { "t": "Went to the market.", "note": "Missing a subject → “We went to the market.”" },
-          { "t": "My new phone.", "note": "Missing a verb → “My new phone is very fast.”" },
-          { "t": "Because it was raining.", "note": "Unfinished idea → “We stayed home because it was raining.”" }
+          {
+            "t": "Went to the market.",
+            "note": "Missing a subject → “We went to the market.”"
+          },
+          {
+            "t": "My new phone.",
+            "note": "Missing a verb → “My new phone is very fast.”"
+          },
+          {
+            "t": "Because it was raining.",
+            "note": "Unfinished idea → “We stayed home because it was raining.”"
+          }
         ]
       },
       "try": [
-        { "type": "sort", "skill": "fragment", "q": "Sentence or fragment?", "cats": ["Sentence", "Fragment"], "items": [
-          { "t": "Walked to the gym.", "c": 1 },
-          { "t": "The gym opens at six.", "c": 0 },
-          { "t": "After the lesson ended.", "c": 1 },
-          { "t": "My cousin works downtown.", "c": 0 }
-        ], "why": "“Walked to the gym” has no subject. “After the lesson ended” leaves the idea unfinished." },
-        { "type": "choose", "skill": "fragment", "q": "What is missing? “Studies English every night.”", "options": ["a subject", "a verb", "an ending"], "answers": [0], "why": "Who studies? Add a subject: “Rana studies English every night.”" },
-        { "type": "choose", "skill": "fragment", "q": "What is missing? “The big red bus.”", "options": ["a subject", "a verb", "a capital letter"], "answers": [1], "why": "What did the bus do? “The big red bus stopped.”" },
-        { "type": "choose", "skill": "fragment", "q": "Which choice fixes the fragment “Because the road was closed.”?", "options": ["Because the road was closed, we took another route.", "Because the road was closed and.", "Closed the road."], "answers": [0], "why": "The first choice finishes the idea with a main part." },
-        { "type": "fix", "skill": "fragment", "q": "Fix the fragment by adding a subject.", "show": "Went to the dentist.", "accept": [], "patterns": ["^(I|We|You|He|She|They|My \\w+|Our \\w+|The \\w+|His \\w+|Her \\w+|Their \\w+|[A-Z][a-z]+) went to the dentist\\.$"], "why": "Many answers work: any subject + “went to the dentist.”, for example “My sister went to the dentist.”" },
-        { "type": "fix", "skill": "fragment", "q": "Fix the fragment by adding a verb.", "show": "My new laptop.", "accept": [], "patterns": ["^My new laptop (is|was|has|had|works|worked|runs|ran|looks|looked|costs|cost|feels|felt|stopped|broke|arrived|crashed|helps|helped)\\b.*\\.$"], "why": "Any verb that makes sense works: “My new laptop is very fast.”" },
-        { "type": "order", "skill": "fragment", "q": "Put the words in order to make a complete sentence.", "pieces": ["Because", "it", "was", "late,", "we", "took", "a", "taxi."], "answers": ["Because it was late, we took a taxi."], "why": "The “because” part needs a main part after the comma." },
-        { "type": "choose", "skill": "fragment", "q": "Which one is NOT a fragment?", "options": ["After class.", "We met after class.", "Meeting my friends."], "answers": [1], "why": "“We met after class.” has a subject and a verb and finishes the idea." }
+        {
+          "type": "sort",
+          "skill": "fragment",
+          "q": "Sentence or fragment?",
+          "cats": [
+            "Sentence",
+            "Fragment"
+          ],
+          "items": [
+            {
+              "t": "Walked to the gym.",
+              "c": 1
+            },
+            {
+              "t": "The gym opens at six.",
+              "c": 0
+            },
+            {
+              "t": "After the lesson ended.",
+              "c": 1
+            },
+            {
+              "t": "My cousin works downtown.",
+              "c": 0
+            }
+          ],
+          "why": "“Walked to the gym” has no subject. “After the lesson ended” leaves the idea unfinished."
+        },
+        {
+          "type": "choose",
+          "skill": "fragment",
+          "q": "What is missing? “Studies English every night.”",
+          "options": [
+            "a subject",
+            "a verb",
+            "an ending",
+            "a capital letter"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Who studies? Add a subject: “Rana studies English every night.”"
+        },
+        {
+          "type": "choose",
+          "skill": "fragment",
+          "q": "What is missing? “The big red bus.”",
+          "options": [
+            "a subject",
+            "a verb",
+            "a capital letter",
+            "an adjective"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "What did the bus do? “The big red bus stopped.”"
+        },
+        {
+          "type": "choose",
+          "skill": "fragment",
+          "q": "Which choice fixes the fragment “Because the road was closed.”?",
+          "options": [
+            "Because the road was closed, we took another route.",
+            "Because the road was closed and.",
+            "Closed the road.",
+            "Because of the closed road."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "The first choice finishes the idea with a main part."
+        },
+        {
+          "type": "fix",
+          "skill": "fragment",
+          "q": "Fix the fragment by adding a subject.",
+          "show": "Went to the dentist.",
+          "accept": [],
+          "patterns": [
+            "^(I|We|You|He|She|They|My \\w+|Our \\w+|The \\w+|His \\w+|Her \\w+|Their \\w+|[A-Z][a-z]+) went to the dentist\\.$"
+          ],
+          "why": "Many answers work: any subject + “went to the dentist.”, for example “My sister went to the dentist.”"
+        },
+        {
+          "type": "fix",
+          "skill": "fragment",
+          "q": "Fix the fragment by adding a verb.",
+          "show": "My new laptop.",
+          "accept": [],
+          "patterns": [
+            "^My new laptop (is|was|has|had|works|worked|runs|ran|looks|looked|costs|cost|feels|felt|stopped|broke|arrived|crashed|helps|helped)\\b.*\\.$"
+          ],
+          "why": "Any verb that makes sense works: “My new laptop is very fast.”"
+        },
+        {
+          "type": "order",
+          "skill": "fragment",
+          "q": "Put the words in order to make a complete sentence.",
+          "pieces": [
+            "Because",
+            "it",
+            "was",
+            "late,",
+            "we",
+            "took",
+            "a",
+            "taxi."
+          ],
+          "answers": [
+            "Because it was late, we took a taxi."
+          ],
+          "why": "The “because” part needs a main part after the comma."
+        },
+        {
+          "type": "choose",
+          "skill": "fragment",
+          "q": "Which one is NOT a fragment?",
+          "options": [
+            "After class.",
+            "We met after class.",
+            "Meeting my friends.",
+            "After we met."
+          ],
+          "answers": [
+            1
+          ],
+          "why": "“We met after class.” has a subject and a verb and finishes the idea."
+        }
       ],
       "build": {
         "prompt": "Write **3 complete sentences** about last weekend. Try to start one with **After** or **Because** and finish the idea.",
         "minWords": 12,
         "placeholder": "Last weekend, I ...",
         "checks": [
-          { "t": "Every sentence has a subject and a verb.", "auto": null },
-          { "t": "My “After…” or “Because…” sentence has a comma and a main part.", "auto": null },
-          { "t": "I have no fragments.", "auto": null },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "Every sentence has a subject and a verb.",
+            "auto": null
+          },
+          {
+            "t": "My “After…” or “Because…” sentence has a comma and a main part.",
+            "auto": null
+          },
+          {
+            "t": "I have no fragments.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
         "sample": "On Friday, I visited my grandmother. After we had lunch, we watched a film. I was tired because I slept late."
       }
     },
-
     "1.4": {
       "spot": {
         "intro": "A **run-on** joins two sentences with **no punctuation**. A **comma splice** joins them with **only a comma**. Fix them with a **full stop**, or a **comma + and / but / so**.",
         "legend": "",
         "examples": [
-          { "t": "The bus was late we walked.", "note": "Run-on → “The bus was late, so we walked.”" },
-          { "t": "It was cold, we wore coats.", "note": "Comma splice → “It was cold, so we wore coats.”" },
-          { "t": "I was hungry. I bought a sandwich.", "note": "Two separate sentences. Also correct." }
+          {
+            "t": "The bus was late we walked.",
+            "note": "Run-on → “The bus was late, so we walked.”"
+          },
+          {
+            "t": "It was cold, we wore coats.",
+            "note": "Comma splice → “It was cold, so we wore coats.”"
+          },
+          {
+            "t": "I was hungry. I bought a sandwich.",
+            "note": "Two separate sentences. Also correct."
+          }
         ]
       },
       "try": [
-        { "type": "sort", "skill": "runon", "q": "What is wrong with each one?", "cats": ["Correct", "Run-on", "Comma splice"], "items": [
-          { "t": "My brother works in a bank he starts at eight.", "c": 1 },
-          { "t": "The test was hard, I studied a lot.", "c": 2 },
-          { "t": "The test was hard, but I passed.", "c": 0 },
-          { "t": "We cooked dinner, and then we watched TV.", "c": 0 }
-        ], "why": "Two full sentences need a full stop, or a comma plus a joining word." },
-        { "type": "choose", "skill": "runon", "q": "What is wrong? “It rained all day we stayed inside.”", "options": ["run-on (no punctuation)", "comma splice", "fragment"], "answers": [0], "why": "Two sentences are stuck together without any punctuation." },
-        { "type": "choose", "skill": "splice", "q": "What is wrong? “It rained all day, we stayed inside.”", "options": ["run-on (no punctuation)", "comma splice", "fragment"], "answers": [1], "why": "A comma alone can’t join two sentences." },
-        { "type": "choose", "skill": "splice", "q": "Which is the best fix for “I missed the bus, I was late for class.”?", "options": ["I missed the bus, so I was late for class.", "I missed the bus, I was late for class.", "I missed the bus I was late for class."], "answers": [0], "why": "Comma + so joins the two ideas correctly. A full stop would also work." },
-        { "type": "fix", "skill": "runon", "q": "Fix this run-on using a full stop or a joining word.", "show": "Maria likes tea her husband likes coffee.", "accept": ["Maria likes tea. Her husband likes coffee.", "Maria likes tea; her husband likes coffee."], "patterns": ["^(While|Although|Whereas) Maria likes tea, her husband likes coffee\\.$", "^Maria likes tea, (but|and|while|whereas) her husband likes coffee\\.$"], "why": "Several fixes work: a full stop (“Maria likes tea. Her husband likes coffee.”), a comma + but / and, or a word like “While”. What matters is that the two ideas are no longer stuck together." },
-        { "type": "fix", "skill": "splice", "q": "Fix this comma splice with a comma and and, but or so.", "show": "The café was full, we left.", "accept": [], "patterns": ["^The caf[eé] was full, (so|and|but) we left\\.$"], "why": "“…, so we left.” shows the result. “and” and “but” are also correct joining words here." },
-        { "type": "order", "skill": "runon", "q": "Put the words in order.", "pieces": ["I", "was", "tired,", "so", "I", "went", "to", "bed", "early."], "answers": ["I was tired, so I went to bed early."], "why": "Comma + so joins two complete ideas." },
-        { "type": "tap", "skill": "runon", "q": "Tap the LAST word of the first sentence.", "text": "The shop closes at nine we need to hurry.", "answers": [[4]], "why": "“The shop closes at nine” is the first sentence. Put a full stop after “nine”." }
+        {
+          "type": "sort",
+          "skill": "runon",
+          "q": "What is wrong with each one?",
+          "cats": [
+            "Correct",
+            "Run-on",
+            "Comma splice"
+          ],
+          "items": [
+            {
+              "t": "My brother works in a bank he starts at eight.",
+              "c": 1
+            },
+            {
+              "t": "The test was hard, I studied a lot.",
+              "c": 2
+            },
+            {
+              "t": "The test was hard, but I passed.",
+              "c": 0
+            },
+            {
+              "t": "We cooked dinner, and then we watched TV.",
+              "c": 0
+            }
+          ],
+          "why": "Two full sentences need a full stop, or a comma plus a joining word."
+        },
+        {
+          "type": "choose",
+          "skill": "runon",
+          "q": "What is wrong? “It rained all day we stayed inside.”",
+          "options": [
+            "run-on (no punctuation)",
+            "comma splice",
+            "fragment",
+            "missing capital letter"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Two sentences are stuck together without any punctuation."
+        },
+        {
+          "type": "choose",
+          "skill": "splice",
+          "q": "What is wrong? “It rained all day, we stayed inside.”",
+          "options": [
+            "run-on (no punctuation)",
+            "comma splice",
+            "fragment",
+            "missing comma"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "A comma alone can’t join two sentences."
+        },
+        {
+          "type": "choose",
+          "skill": "splice",
+          "q": "Which is the best fix for “I missed the bus, I was late for class.”?",
+          "options": [
+            "I missed the bus, so I was late for class.",
+            "I missed the bus, I was late for class.",
+            "I missed the bus I was late for class.",
+            "I missed the bus, and, I was late for class."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Comma + so joins the two ideas correctly. A full stop would also work."
+        },
+        {
+          "type": "fix",
+          "skill": "runon",
+          "q": "Fix this run-on using a full stop or a joining word.",
+          "show": "Maria likes tea her husband likes coffee.",
+          "accept": [
+            "Maria likes tea. Her husband likes coffee.",
+            "Maria likes tea; her husband likes coffee."
+          ],
+          "patterns": [
+            "^(While|Although|Whereas) Maria likes tea, her husband likes coffee\\.$",
+            "^Maria likes tea, (but|and|while|whereas) her husband likes coffee\\.$"
+          ],
+          "why": "Several fixes work: a full stop (“Maria likes tea. Her husband likes coffee.”), a comma + but / and, or a word like “While”. What matters is that the two ideas are no longer stuck together."
+        },
+        {
+          "type": "fix",
+          "skill": "splice",
+          "q": "Fix this comma splice with a comma and and, but or so.",
+          "show": "The café was full, we left.",
+          "accept": [],
+          "patterns": [
+            "^The caf[eé] was full, (so|and|but) we left\\.$"
+          ],
+          "why": "“…, so we left.” shows the result. “and” and “but” are also correct joining words here."
+        },
+        {
+          "type": "order",
+          "skill": "runon",
+          "q": "Put the words in order.",
+          "pieces": [
+            "I",
+            "was",
+            "tired,",
+            "so",
+            "I",
+            "went",
+            "to",
+            "bed",
+            "early."
+          ],
+          "answers": [
+            "I was tired, so I went to bed early."
+          ],
+          "why": "Comma + so joins two complete ideas."
+        },
+        {
+          "type": "tap",
+          "skill": "runon",
+          "q": "Tap the LAST word of the first sentence.",
+          "text": "The shop closes at nine we need to hurry.",
+          "answers": [
+            [
+              4
+            ]
+          ],
+          "why": "“The shop closes at nine” is the first sentence. Put a full stop after “nine”."
+        }
       ],
       "build": {
         "prompt": "Write **3 sentences** about a day when something went wrong. Join at least one pair of ideas with a **comma and and / but / so**.",
         "minWords": 15,
         "placeholder": "Yesterday, ...",
         "checks": [
-          { "t": "Each sentence can stand on its own.", "auto": null },
-          { "t": "I joined two ideas with a comma and and / but / so.", "auto": "commaJoin" },
-          { "t": "I have no run-ons or comma splices.", "auto": null },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "Each sentence can stand on its own.",
+            "auto": null
+          },
+          {
+            "t": "I joined two ideas with a comma and and / but / so.",
+            "auto": "commaJoin"
+          },
+          {
+            "t": "I have no run-ons or comma splices.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
         "sample": "I woke up late, so I missed the bus. I ran to the station. The next bus came ten minutes later, but I was still late for class."
       }
     },
-
     "1.5": {
       "spot": {
         "intro": "Use a **capital letter** for the first word, for **I**, and for **names** (people, places, days, months, languages). End with **.** (statement), **?** (question) or **!** (strong feeling).",
         "legend": "",
         "examples": [
-          { "t": "On Monday, Ali and I visit Maple Park.", "note": "Capitals: On, Monday, Ali, I, Maple Park." },
-          { "t": "Do you speak Arabic?", "note": "A question ends with ?" },
-          { "t": "What a great match!", "note": "Use ! for strong feeling, but not too often." }
+          {
+            "t": "On Monday, Ali and I visit Maple Park.",
+            "note": "Capitals: On, Monday, Ali, I, Maple Park."
+          },
+          {
+            "t": "Do you speak Arabic?",
+            "note": "A question ends with ?"
+          },
+          {
+            "t": "What a great match!",
+            "note": "Use ! for strong feeling, but not too often."
+          }
         ]
       },
       "try": [
-        { "type": "tap", "skill": "caps", "q": "Tap every word that needs a capital letter.", "text": "on friday, fatima and i visited maple park.", "answers": [[0,1,2,4,6,7]], "why": "Capitals: On, Friday, Fatima, I, Maple Park." },
-        { "type": "choose", "skill": "caps", "q": "Which sentence is correct?", "options": ["We speak English and French.", "We speak english and french.", "we Speak English and French."], "answers": [0], "why": "Languages and the first word start with capitals." },
-        { "type": "choose", "skill": "punct", "q": "Choose the end punctuation: “Where is the library ___”", "options": [".", "?", "!"], "answers": [1], "why": "It is a question, so it ends with ?" },
-        { "type": "choose", "skill": "punct", "q": "Choose the end punctuation: “What a beautiful day ___”", "options": [".", "?", "!"], "answers": [2, 0], "why": "! shows strong feeling. A full stop is also acceptable here." },
-        { "type": "fix", "skill": "caps", "q": "Fix the capitals and punctuation.", "show": "my sister studies in maple town", "accept": ["My sister studies in Maple Town."], "patterns": [], "why": "Capital for the first word and for Maple Town, plus a full stop." },
-        { "type": "fix", "skill": "punct", "q": "Fix the capital and punctuation.", "show": "do you like pizza", "accept": ["Do you like pizza?"], "patterns": [], "why": "Start with a capital letter and end the question with ?" },
-        { "type": "choose", "skill": "caps", "q": "Which words need capitals? “we met on saturday at noon”", "options": ["“we” and “saturday”", "“noon”", "“met”"], "answers": [0], "why": "The first word and the day of the week." },
-        { "type": "order", "skill": "punct", "q": "Put the words in order.", "pieces": ["Does", "your", "brother", "live", "in", "Maple", "Town?"], "answers": ["Does your brother live in Maple Town?"], "why": "A question ends with ? and place names have capitals." }
+        {
+          "type": "tap",
+          "skill": "caps",
+          "q": "Tap every word that needs a capital letter.",
+          "text": "on friday, fatima and i visited maple park.",
+          "answers": [
+            [
+              0,
+              1,
+              2,
+              4,
+              6,
+              7
+            ]
+          ],
+          "why": "Capitals: On, Friday, Fatima, I, Maple Park."
+        },
+        {
+          "type": "choose",
+          "skill": "caps",
+          "q": "Which sentence is correct?",
+          "options": [
+            "We speak English and French.",
+            "We speak english and french.",
+            "we Speak English and French.",
+            "We speak English and french."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Languages and the first word start with capitals."
+        },
+        {
+          "type": "choose",
+          "skill": "punct",
+          "q": "Choose the end punctuation: “Where is the library ___”",
+          "options": [
+            ".",
+            "?",
+            "!",
+            ","
+          ],
+          "answers": [
+            1
+          ],
+          "why": "It is a question, so it ends with ?"
+        },
+        {
+          "type": "choose",
+          "skill": "punct",
+          "q": "Choose the end punctuation: “What a beautiful day ___”",
+          "options": [
+            ".",
+            "?",
+            "!",
+            ","
+          ],
+          "answers": [
+            0,
+            2
+          ],
+          "why": "! shows strong feeling. A full stop is also acceptable here."
+        },
+        {
+          "type": "fix",
+          "skill": "caps",
+          "q": "Fix the capitals and punctuation.",
+          "show": "my sister studies in maple town",
+          "accept": [
+            "My sister studies in Maple Town."
+          ],
+          "patterns": [],
+          "why": "Capital for the first word and for Maple Town, plus a full stop."
+        },
+        {
+          "type": "fix",
+          "skill": "punct",
+          "q": "Fix the capital and punctuation.",
+          "show": "do you like pizza",
+          "accept": [
+            "Do you like pizza?"
+          ],
+          "patterns": [],
+          "why": "Start with a capital letter and end the question with ?"
+        },
+        {
+          "type": "choose",
+          "skill": "caps",
+          "q": "Which words need capitals? “we met on saturday at noon”",
+          "options": [
+            "“we” and “saturday”",
+            "“noon”",
+            "“met”",
+            "“on” and “at”"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "The first word and the day of the week."
+        },
+        {
+          "type": "order",
+          "skill": "punct",
+          "q": "Put the words in order.",
+          "pieces": [
+            "Does",
+            "your",
+            "brother",
+            "live",
+            "in",
+            "Maple",
+            "Town?"
+          ],
+          "answers": [
+            "Does your brother live in Maple Town?"
+          ],
+          "why": "A question ends with ? and place names have capitals."
+        }
       ],
       "build": {
         "prompt": "Write **3 sentences** about yourself: your name, where you live, and one language you speak.",
         "minWords": 9,
         "placeholder": "My name is ...",
         "checks": [
-          { "t": "My name and the place I live start with capital letters.", "auto": null },
-          { "t": "The language I wrote has a capital letter.", "auto": null },
-          { "t": "Every sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "My name and the place I live start with capital letters.",
+            "auto": null
+          },
+          {
+            "t": "The language I wrote has a capital letter.",
+            "auto": null
+          },
+          {
+            "t": "Every sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
         "sample": "My name is Noor. I live in Maple Town. I speak Arabic and English."
       }
     },
-
     "1.6": {
       "spot": {
         "intro": "Use a **comma** between items in a **list**, and after an **introductory word or phrase** at the start of a sentence.",
         "legend": "",
         "examples": [
-          { "t": "I bought rice, eggs, and milk.", "note": "Commas separate the items in a list." },
-          { "t": "After lunch, we went to the gym.", "note": "A comma follows the introductory phrase." },
-          { "t": "We went to the gym after lunch.", "note": "No comma when the phrase comes at the end." }
+          {
+            "t": "I bought rice, eggs, and milk.",
+            "note": "Commas separate the items in a list."
+          },
+          {
+            "t": "After lunch, we went to the gym.",
+            "note": "A comma follows the introductory phrase."
+          },
+          {
+            "t": "We went to the gym after lunch.",
+            "note": "No comma when the phrase comes at the end."
+          }
         ]
       },
       "try": [
-        { "type": "choose", "skill": "comma", "q": "Which is punctuated correctly? “We ordered tea coffee and juice.”", "options": ["We ordered tea, coffee, and juice.", "We ordered tea, coffee and juice.", "We ordered, tea coffee and juice."], "answers": [0, 1], "why": "Both of the first two are fine. The comma before “and” is optional: just stay consistent." },
-        { "type": "tap", "skill": "comma", "q": "Tap the word that needs a comma after it.", "text": "After class we played volleyball.", "answers": [[1]], "why": "“After class” is an introductory phrase, so “After class, we played volleyball.”" },
-        { "type": "fix", "skill": "comma", "q": "Add the missing comma.", "show": "Yesterday I visited my aunt.", "accept": ["Yesterday, I visited my aunt."], "patterns": [], "why": "A comma follows the introductory word “Yesterday”." },
-        { "type": "fix", "skill": "comma", "q": "Add the missing commas.", "show": "I packed shoes socks and a towel.", "accept": ["I packed shoes, socks, and a towel.", "I packed shoes, socks and a towel."], "patterns": [], "why": "Both versions work. Use commas between the items." },
-        { "type": "choose", "skill": "comma", "q": "Which sentence is correct?", "options": ["Before work, I drink coffee.", "Before, work I drink coffee.", "Before work I, drink coffee."], "answers": [0], "why": "The comma goes after the whole introductory phrase “Before work”." },
-        { "type": "sort", "skill": "comma", "q": "Does the sentence need a comma?", "cats": ["Comma needed", "No comma needed"], "items": [
-          { "t": "Every morning I walk to school.", "c": 0 },
-          { "t": "I walk to school every morning.", "c": 1 },
-          { "t": "In the evening we study.", "c": 0 },
-          { "t": "We study in the evening.", "c": 1 }
-        ], "why": "A comma is needed only when the time phrase comes first." },
-        { "type": "choose", "skill": "comma", "q": "Why is there a comma in “Finally, we arrived.”?", "options": ["“Finally” is an introductory word.", "“We” is a name.", "It is a question."], "answers": [0], "why": "A comma follows an introductory word." },
-        { "type": "order", "skill": "comma", "q": "Put the words in order.", "pieces": ["After", "dinner,", "we", "drank", "tea."], "answers": ["After dinner, we drank tea."], "why": "Introductory phrase, comma, then the main sentence." }
+        {
+          "type": "choose",
+          "skill": "comma",
+          "q": "Which is punctuated correctly? “We ordered tea coffee and juice.”",
+          "options": [
+            "We ordered tea, coffee, and juice.",
+            "We ordered tea, coffee and juice.",
+            "We ordered, tea coffee and juice.",
+            "We ordered tea coffee, and juice."
+          ],
+          "answers": [
+            0,
+            1
+          ],
+          "why": "Both of the first two are fine. The comma before “and” is optional: just stay consistent."
+        },
+        {
+          "type": "tap",
+          "skill": "comma",
+          "q": "Tap the word that needs a comma after it.",
+          "text": "After class we played volleyball.",
+          "answers": [
+            [
+              1
+            ]
+          ],
+          "why": "“After class” is an introductory phrase, so “After class, we played volleyball.”"
+        },
+        {
+          "type": "fix",
+          "skill": "comma",
+          "q": "Add the missing comma.",
+          "show": "Yesterday I visited my aunt.",
+          "accept": [
+            "Yesterday, I visited my aunt."
+          ],
+          "patterns": [],
+          "why": "A comma follows the introductory word “Yesterday”."
+        },
+        {
+          "type": "fix",
+          "skill": "comma",
+          "q": "Add the missing commas.",
+          "show": "I packed shoes socks and a towel.",
+          "accept": [
+            "I packed shoes, socks, and a towel.",
+            "I packed shoes, socks and a towel."
+          ],
+          "patterns": [],
+          "why": "Both versions work. Use commas between the items."
+        },
+        {
+          "type": "choose",
+          "skill": "comma",
+          "q": "Which sentence is correct?",
+          "options": [
+            "Before work, I drink coffee.",
+            "Before, work I drink coffee.",
+            "Before work I, drink coffee.",
+            "Before work I drink, coffee."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "The comma goes after the whole introductory phrase “Before work”."
+        },
+        {
+          "type": "sort",
+          "skill": "comma",
+          "q": "Does the sentence need a comma?",
+          "cats": [
+            "Comma needed",
+            "No comma needed"
+          ],
+          "items": [
+            {
+              "t": "Every morning I walk to school.",
+              "c": 0
+            },
+            {
+              "t": "I walk to school every morning.",
+              "c": 1
+            },
+            {
+              "t": "In the evening we study.",
+              "c": 0
+            },
+            {
+              "t": "We study in the evening.",
+              "c": 1
+            }
+          ],
+          "why": "A comma is needed only when the time phrase comes first."
+        },
+        {
+          "type": "choose",
+          "skill": "comma",
+          "q": "Why is there a comma in “Finally, we arrived.”?",
+          "options": [
+            "“Finally” is an introductory word.",
+            "“We” is a name.",
+            "It is a question.",
+            "It shows a list."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "A comma follows an introductory word."
+        },
+        {
+          "type": "order",
+          "skill": "comma",
+          "q": "Put the words in order.",
+          "pieces": [
+            "After",
+            "dinner,",
+            "we",
+            "drank",
+            "tea."
+          ],
+          "answers": [
+            "After dinner, we drank tea."
+          ],
+          "why": "Introductory phrase, comma, then the main sentence."
+        }
       ],
       "build": {
         "prompt": "Write **3 sentences** about your morning. Use **one list** of three things and **one sentence** that starts with a time phrase such as “After breakfast” or “Every morning”.",
         "minWords": 15,
         "placeholder": "Every morning, I ...",
         "checks": [
-          { "t": "My list has commas between the items.", "auto": "listComma" },
-          { "t": "My time phrase at the start is followed by a comma.", "auto": null },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "My list has commas between the items.",
+            "auto": "listComma"
+          },
+          {
+            "t": "My time phrase at the start is followed by a comma.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
         "sample": "Every morning, I wake up at six. I eat eggs, bread, and cheese. Then I walk to the bus stop."
       }
     },
-
     "1.7": {
       "spot": {
         "intro": "English word order is usually **Subject → Verb → Object**. Words like **always, usually, often, sometimes, never** go **before** the main verb, but **after** am / is / are. **Place** usually comes before **time** at the end.",
         "legend": "",
         "examples": [
-          { "t": "Khaled reads the news every day.", "note": "Subject, verb, object, then time." },
-          { "t": "I always drink tea.  ·  She is often late.", "note": "Before the main verb, but after “is”." },
-          { "t": "We met at the café on Friday.", "note": "Place first, then time." }
+          {
+            "t": "Khaled reads the news every day.",
+            "note": "Subject, verb, object, then time."
+          },
+          {
+            "t": "I always drink tea.  ·  She is often late.",
+            "note": "Before the main verb, but after “is”."
+          },
+          {
+            "t": "We met at the café on Friday.",
+            "note": "Place first, then time."
+          }
         ]
       },
       "try": [
-        { "type": "order", "skill": "order", "q": "Put the words in order.", "pieces": ["reads", "Khaled", "the", "news", "every", "day."], "answers": ["Khaled reads the news every day."], "why": "Subject, verb, object, then the time." },
-        { "type": "choose", "skill": "order", "q": "Which sentence is in the correct order?", "options": ["My sister plays tennis on Saturdays.", "Plays my sister tennis on Saturdays.", "My sister tennis plays on Saturdays."], "answers": [0], "why": "Subject (My sister) + verb (plays) + object (tennis)." },
-        { "type": "order", "skill": "order", "q": "Put the words in order.", "pieces": ["always", "I", "drink", "tea", "in", "the", "morning."], "answers": ["I always drink tea in the morning."], "why": "“Always” goes before the main verb." },
-        { "type": "choose", "skill": "order", "q": "Which sentence is correct?", "options": ["She is never late.", "She never is late.", "Never she is late."], "answers": [0], "why": "After “is”, the frequency word follows: “is never”." },
-        { "type": "order", "skill": "order", "q": "Put the words in order.", "pieces": ["We", "met", "at", "the", "café", "on", "Friday."], "answers": ["We met at the café on Friday."], "why": "Place (at the café) comes before time (on Friday)." },
-        { "type": "fix", "skill": "order", "q": "Put the words in the correct order.", "show": "drives a taxi my uncle", "accept": ["My uncle drives a taxi."], "patterns": [], "why": "Subject (My uncle) + verb (drives) + object (a taxi)." },
-        { "type": "choose", "skill": "order", "q": "Which sentences are in correct order? (more than one can be right)", "options": ["They often visit their grandparents.", "They visit often their grandparents.", "They visit their grandparents often."], "answers": [0, 2], "why": "“Often” can go before the verb or at the end, but not between the verb and its object." },
-        { "type": "order", "skill": "order", "q": "Put the words in order.", "pieces": ["My", "friends", "are", "usually", "late."], "answers": ["My friends are usually late."], "why": "After “are”, the frequency word comes next." }
+        {
+          "type": "order",
+          "skill": "order",
+          "q": "Put the words in order.",
+          "pieces": [
+            "reads",
+            "Khaled",
+            "the",
+            "news",
+            "every",
+            "day."
+          ],
+          "answers": [
+            "Khaled reads the news every day."
+          ],
+          "why": "Subject, verb, object, then the time."
+        },
+        {
+          "type": "choose",
+          "skill": "order",
+          "q": "Which sentence is in the correct order?",
+          "options": [
+            "My sister plays tennis on Saturdays.",
+            "Plays my sister tennis on Saturdays.",
+            "My sister tennis plays on Saturdays.",
+            "My sister plays on Saturdays tennis."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Subject (My sister) + verb (plays) + object (tennis)."
+        },
+        {
+          "type": "order",
+          "skill": "order",
+          "q": "Put the words in order.",
+          "pieces": [
+            "always",
+            "I",
+            "drink",
+            "tea",
+            "in",
+            "the",
+            "morning."
+          ],
+          "answers": [
+            "I always drink tea in the morning."
+          ],
+          "why": "“Always” goes before the main verb."
+        },
+        {
+          "type": "choose",
+          "skill": "order",
+          "q": "Which sentence is correct?",
+          "options": [
+            "She is never late.",
+            "She never is late.",
+            "Never she is late.",
+            "She is late never."
+          ],
+          "answers": [
+            0
+          ],
+          "why": "After “is”, the frequency word follows: “is never”."
+        },
+        {
+          "type": "order",
+          "skill": "order",
+          "q": "Put the words in order.",
+          "pieces": [
+            "We",
+            "met",
+            "at",
+            "the",
+            "café",
+            "on",
+            "Friday."
+          ],
+          "answers": [
+            "We met at the café on Friday."
+          ],
+          "why": "Place (at the café) comes before time (on Friday)."
+        },
+        {
+          "type": "fix",
+          "skill": "order",
+          "q": "Put the words in the correct order.",
+          "show": "drives a taxi my uncle",
+          "accept": [
+            "My uncle drives a taxi."
+          ],
+          "patterns": [],
+          "why": "Subject (My uncle) + verb (drives) + object (a taxi)."
+        },
+        {
+          "type": "choose",
+          "skill": "order",
+          "q": "Which sentences are in correct order? (more than one can be right)",
+          "options": [
+            "They often visit their grandparents.",
+            "They visit often their grandparents.",
+            "They visit their grandparents often.",
+            "Often they their grandparents visit."
+          ],
+          "answers": [
+            0,
+            2
+          ],
+          "why": "“Often” can go before the verb or at the end, but not between the verb and its object."
+        },
+        {
+          "type": "order",
+          "skill": "order",
+          "q": "Put the words in order.",
+          "pieces": [
+            "My",
+            "friends",
+            "are",
+            "usually",
+            "late."
+          ],
+          "answers": [
+            "My friends are usually late."
+          ],
+          "why": "After “are”, the frequency word comes next."
+        }
       ],
       "build": {
         "prompt": "Write **3 sentences** about your week. Use **one frequency word** (always, usually, often, sometimes, never) and put a **place or time at the end** of one sentence.",
         "minWords": 15,
         "placeholder": "I usually ...",
         "checks": [
-          { "t": "My frequency word is before the main verb (or after am / is / are).", "auto": "freqWord" },
-          { "t": "One sentence ends with a place or a time.", "auto": null },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "My frequency word is before the main verb (or after am / is / are).",
+            "auto": "freqWord"
+          },
+          {
+            "t": "One sentence ends with a place or a time.",
+            "auto": null
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
         "sample": "I usually study in the library. My brother often plays football after school. We never eat dinner late."
       }
     },
-
     "1.8": {
       "spot": {
         "intro": "A **statement** gives information. A **yes/no question** starts with **Do / Does / Is / Are**. A **Wh- question** starts with **Where / What / When / Why / How**, then **do / does / is / are**, then the subject. After **does**, the verb has **no -s**.",
         "legend": "",
         "examples": [
-          { "t": "You live in Maple Town.  →  Do you live in Maple Town?", "note": "Add do at the start." },
-          { "t": "Where do you study?", "note": "Question word + do + subject + verb." },
-          { "t": "What does he study?", "note": "After “does”, the verb stays simple: study." }
+          {
+            "t": "You live in Maple Town.  →  Do you live in Maple Town?",
+            "note": "Add do at the start."
+          },
+          {
+            "t": "Where do you study?",
+            "note": "Question word + do + subject + verb."
+          },
+          {
+            "t": "What does he study?",
+            "note": "After “does”, the verb stays simple: study."
+          }
         ]
       },
       "try": [
-        { "type": "choose", "skill": "question", "q": "Which is a correct question?", "options": ["Does your sister work here?", "Your sister does work here?", "Does your sister works here?"], "answers": [0], "why": "Does + subject + base verb (work)." },
-        { "type": "order", "skill": "question", "q": "Put the words in order to make a question.", "pieces": ["Where", "do", "you", "study?"], "answers": ["Where do you study?"], "why": "Question word + do + subject + verb." },
-        { "type": "fix", "skill": "question", "q": "Turn the statement into a question.", "show": "She is a nurse.", "accept": ["Is she a nurse?"], "patterns": [], "why": "With “is”, swap the subject and the verb: “Is she a nurse?”" },
-        { "type": "fix", "skill": "question", "q": "Turn the statement into a question.", "show": "You like coffee.", "accept": ["Do you like coffee?"], "patterns": [], "why": "Start with “Do” and keep the verb simple." },
-        { "type": "choose", "skill": "question", "q": "Choose the word: “___ he play football on Fridays?”", "options": ["Do", "Does", "Is"], "answers": [1], "why": "He → does." },
-        { "type": "choose", "skill": "question", "q": "Choose the word: “What ___ your brother study?”", "options": ["do", "does", "is"], "answers": [1], "why": "Your brother (he) → does." },
-        { "type": "order", "skill": "question", "q": "Put the words in order.", "pieces": ["Is", "the", "library", "open", "today?"], "answers": ["Is the library open today?"], "why": "Is + subject + the rest." },
-        { "type": "sort", "skill": "question", "q": "Statement or question?", "cats": ["Statement", "Question"], "items": [
-          { "t": "Your teacher is friendly.", "c": 0 },
-          { "t": "Is your teacher friendly?", "c": 1 },
-          { "t": "How do you get to campus?", "c": 1 },
-          { "t": "We have class on Sundays.", "c": 0 }
-        ], "why": "Questions start with do / does / is / are or a question word." }
+        {
+          "type": "choose",
+          "skill": "question",
+          "q": "Which is a correct question?",
+          "options": [
+            "Does your sister work here?",
+            "Your sister does work here?",
+            "Does your sister works here?",
+            "Do your sister work here?"
+          ],
+          "answers": [
+            0
+          ],
+          "why": "Does + subject + base verb (work)."
+        },
+        {
+          "type": "order",
+          "skill": "question",
+          "q": "Put the words in order to make a question.",
+          "pieces": [
+            "Where",
+            "do",
+            "you",
+            "study?"
+          ],
+          "answers": [
+            "Where do you study?"
+          ],
+          "why": "Question word + do + subject + verb."
+        },
+        {
+          "type": "fix",
+          "skill": "question",
+          "q": "Turn the statement into a question.",
+          "show": "She is a nurse.",
+          "accept": [
+            "Is she a nurse?"
+          ],
+          "patterns": [],
+          "why": "With “is”, swap the subject and the verb: “Is she a nurse?”"
+        },
+        {
+          "type": "fix",
+          "skill": "question",
+          "q": "Turn the statement into a question.",
+          "show": "You like coffee.",
+          "accept": [
+            "Do you like coffee?"
+          ],
+          "patterns": [],
+          "why": "Start with “Do” and keep the verb simple."
+        },
+        {
+          "type": "choose",
+          "skill": "question",
+          "q": "Choose the word: “___ he play football on Fridays?”",
+          "options": [
+            "Do",
+            "Does",
+            "Is",
+            "Are"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "He → does."
+        },
+        {
+          "type": "choose",
+          "skill": "question",
+          "q": "Choose the word: “What ___ your brother study?”",
+          "options": [
+            "do",
+            "does",
+            "is",
+            "are"
+          ],
+          "answers": [
+            1
+          ],
+          "why": "Your brother (he) → does."
+        },
+        {
+          "type": "order",
+          "skill": "question",
+          "q": "Put the words in order.",
+          "pieces": [
+            "Is",
+            "the",
+            "library",
+            "open",
+            "today?"
+          ],
+          "answers": [
+            "Is the library open today?"
+          ],
+          "why": "Is + subject + the rest."
+        },
+        {
+          "type": "sort",
+          "skill": "question",
+          "q": "Statement or question?",
+          "cats": [
+            "Statement",
+            "Question"
+          ],
+          "items": [
+            {
+              "t": "Your teacher is friendly.",
+              "c": 0
+            },
+            {
+              "t": "Is your teacher friendly?",
+              "c": 1
+            },
+            {
+              "t": "How do you get to campus?",
+              "c": 1
+            },
+            {
+              "t": "We have class on Sundays.",
+              "c": 0
+            }
+          ],
+          "why": "Questions start with do / does / is / are or a question word."
+        }
       ],
       "build": {
         "prompt": "Write **2 questions** you would ask a new classmate and **1 statement** about yourself.",
         "minWords": 12,
         "placeholder": "Where do you ...?",
         "checks": [
-          { "t": "I wrote one yes/no question (Do / Does / Is / Are).", "auto": null },
-          { "t": "I wrote one question with a question word.", "auto": null },
-          { "t": "My questions end with a question mark.", "auto": "twoQuestions" },
-          { "t": "Each sentence starts with a capital letter and ends with punctuation.", "auto": "capsAndEnd" }
+          {
+            "t": "I wrote one yes/no question (Do / Does / Is / Are).",
+            "auto": null
+          },
+          {
+            "t": "I wrote one question with a question word.",
+            "auto": null
+          },
+          {
+            "t": "My questions end with a question mark.",
+            "auto": "twoQuestions"
+          },
+          {
+            "t": "Each sentence starts with a capital letter and ends with punctuation.",
+            "auto": "capsAndEnd"
+          }
         ],
         "sample": "Where do you live? Do you like football? I live near the university."
       }
     },
-
     "1.9": {
       "review": true,
-      "from": ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8"],
+      "from": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.4",
+        "1.5",
+        "1.6",
+        "1.7",
+        "1.8"
+      ],
       "count": 10,
       "spot": {
         "intro": "This is the **Stage 1 review**: ten mixed questions from every lesson. Pass with **8 out of 10** to mark any lessons you skipped as done.",
@@ -316,27 +1414,87 @@
         "minWords": 20,
         "placeholder": "My favourite place is ...",
         "checks": [
-          { "t": "Every sentence is complete (subject, verb, finished idea).", "auto": null },
-          { "t": "I have no run-ons or comma splices.", "auto": null },
-          { "t": "My list and my time phrase have the right commas.", "auto": null },
-          { "t": "Capital letters and end punctuation are correct.", "auto": "capsAndEnd" }
+          {
+            "t": "Every sentence is complete (subject, verb, finished idea).",
+            "auto": null
+          },
+          {
+            "t": "I have no run-ons or comma splices.",
+            "auto": null
+          },
+          {
+            "t": "My list and my time phrase have the right commas.",
+            "auto": null
+          },
+          {
+            "t": "Capital letters and end punctuation are correct.",
+            "auto": "capsAndEnd"
+          }
         ],
         "sample": "My favourite place is the beach near my house. In the evening, the air is cool. I bring a towel, a book, and a snack. Do you like the beach too?"
       }
     }
   },
   "skills": {
-    "subject": { "label": "Finding the subject", "good": "You can find the subject, the who or what.", "improve": "Ask “who or what does the action?” to find the subject." },
-    "verb": { "label": "Finding the verb", "good": "You recognize verbs well.", "improve": "The verb is the action (or is / are). Find it first." },
-    "object": { "label": "Objects", "good": "You can tell when a sentence has an object.", "improve": "Ask “who or what?” after the verb to find an object. Some sentences don’t have one." },
-    "complete": { "label": "Complete sentences", "good": "You spot complete sentences.", "improve": "Check for a subject, a verb and a finished idea." },
-    "fragment": { "label": "Fixing fragments", "good": "You find and fix fragments.", "improve": "A fragment is missing a subject, a verb, or part of the idea. Add the missing piece." },
-    "runon": { "label": "Run-ons", "good": "You separate run-ons correctly.", "improve": "Two sentences need a full stop, or a comma + and / but / so." },
-    "splice": { "label": "Comma splices", "good": "You fix comma splices.", "improve": "A comma alone can’t join two sentences. Add and / but / so, or use a full stop." },
-    "caps": { "label": "Capital letters", "good": "Your capital letters are strong.", "improve": "Capitalize the first word, I, names, days, months and languages." },
-    "punct": { "label": "End punctuation", "good": "You choose the right end punctuation.", "improve": "Use . for statements and ? for questions." },
-    "comma": { "label": "Basic commas", "good": "Your basic commas are correct.", "improve": "Use commas in lists and after an introductory word or phrase." },
-    "order": { "label": "Word order", "good": "Your word order is natural.", "improve": "Use Subject + Verb + Object. Put place before time." },
-    "question": { "label": "Questions", "good": "You build questions correctly.", "improve": "Use do / does / is / are first, and keep the verb simple after does." }
+    "subject": {
+      "label": "Finding the subject",
+      "good": "You can find the subject, the who or what.",
+      "improve": "Ask “who or what does the action?” to find the subject."
+    },
+    "verb": {
+      "label": "Finding the verb",
+      "good": "You recognize verbs well.",
+      "improve": "The verb is the action (or is / are). Find it first."
+    },
+    "object": {
+      "label": "Objects",
+      "good": "You can tell when a sentence has an object.",
+      "improve": "Ask “who or what?” after the verb to find an object. Some sentences don’t have one."
+    },
+    "complete": {
+      "label": "Complete sentences",
+      "good": "You spot complete sentences.",
+      "improve": "Check for a subject, a verb and a finished idea."
+    },
+    "fragment": {
+      "label": "Fixing fragments",
+      "good": "You find and fix fragments.",
+      "improve": "A fragment is missing a subject, a verb, or part of the idea. Add the missing piece."
+    },
+    "runon": {
+      "label": "Run-ons",
+      "good": "You separate run-ons correctly.",
+      "improve": "Two sentences need a full stop, or a comma + and / but / so."
+    },
+    "splice": {
+      "label": "Comma splices",
+      "good": "You fix comma splices.",
+      "improve": "A comma alone can’t join two sentences. Add and / but / so, or use a full stop."
+    },
+    "caps": {
+      "label": "Capital letters",
+      "good": "Your capital letters are strong.",
+      "improve": "Capitalize the first word, I, names, days, months and languages."
+    },
+    "punct": {
+      "label": "End punctuation",
+      "good": "You choose the right end punctuation.",
+      "improve": "Use . for statements and ? for questions."
+    },
+    "comma": {
+      "label": "Basic commas",
+      "good": "Your basic commas are correct.",
+      "improve": "Use commas in lists and after an introductory word or phrase."
+    },
+    "order": {
+      "label": "Word order",
+      "good": "Your word order is natural.",
+      "improve": "Use Subject + Verb + Object. Put place before time."
+    },
+    "question": {
+      "label": "Questions",
+      "good": "You build questions correctly.",
+      "improve": "Use do / does / is / are first, and keep the verb simple after does."
+    }
   }
 }

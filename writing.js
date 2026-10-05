@@ -141,6 +141,24 @@
   }
   function instructorLock() { try { sessionStorage.removeItem(IKEY); } catch (e) {} }
 
+  // The big celebration (confetti and fanfare) is kept for the end of a whole stage. It plays once per stage.
+  function stageCheck(card, lessonId, alreadyCelebrated) {
+    index().then(function (idx) {
+      var r = read(), stage = null;
+      idx.stages.forEach(function (s) { if (s.lessons.some(function (l) { return l.id === lessonId; })) stage = s; });
+      if (!stage || !stage.lessons.every(function (l) { return done(r, l.id); })) return;
+      var seen = {}; try { seen = JSON.parse(localStorage.getItem("iep099-stages-done") || "{}") || {}; } catch (e) {}
+      if (seen[stage.n]) return;
+      seen[stage.n] = 1; try { localStorage.setItem("iep099-stages-done", JSON.stringify(seen)); } catch (e) {}
+      var all = idx.stages.every(function (s) { return s.lessons.every(function (l) { return done(r, l.id); }); });
+      var p = document.createElement("div"); p.className = "wc-journey";
+      p.innerHTML = all ? "<b>🎉 You finished the whole Writing Center journey!</b><br>Every stage is complete. Well done."
+        : "<b>🎉 Stage " + stage.n + " complete!</b><br>You finished every lesson in " + String(stage.title).replace(/</g, "&lt;") + ".";
+      card.insertBefore(p, card.firstChild);
+      if (!alreadyCelebrated && window.IEPFx) window.IEPFx.celebrate();
+    });
+  }
+
   var indexPromise = null;
   function index() {
     if (!indexPromise) indexPromise = Promise.all([
@@ -312,7 +330,7 @@
 
   window.WC = {
     LEVELS: LEVELS, XP: XP, BADGES: BADGES, STEPS: STEPS, read: read, write: write, level: level, starsFor: starsFor,
-    complete: complete, markSkipped: markSkipped, index: index, nextLesson: nextLesson, stageProgress: stageProgress, stageState: stageState, instructorUnlock: instructorUnlock, instructorLock: instructorLock,
+    complete: complete, markSkipped: markSkipped, index: index, nextLesson: nextLesson, stageProgress: stageProgress, stageState: stageState, stageCheck: stageCheck, instructorUnlock: instructorUnlock, instructorLock: instructorLock,
     setProgress: setProgress, skillResult: skillResult, dueSkills: dueSkills, today: today, addDays: addDays, daysBetween: daysBetween,
     savePiece: savePiece, toggleFav: toggleFav, exportCode: exportCode, importCode: importCode
   };

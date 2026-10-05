@@ -153,6 +153,8 @@
     // Badges: remember each submitted set that had at least one correct answer, and where it came from.
     try {
       var tt = computeTotals();
+      // A whole set finished: this is when the celebration happens (only when at least half of it is right).
+      if (tt.total > 0 && tt.correct / tt.total >= 0.5 && window.IEPFx) window.IEPFx.celebrate();
       if (tt.correct > 0) { var so = JSON.parse(localStorage.getItem("iep099-sets") || "{}"); if (selfPractice) so.self = (so.self || 0) + 1; else so.assigned = (so.assigned || 0) + 1; localStorage.setItem("iep099-sets", JSON.stringify(so)); }
     } catch (e) {}
     document.getElementById("setDownloadSection").hidden = false;

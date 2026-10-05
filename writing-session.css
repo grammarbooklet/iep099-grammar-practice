@@ -308,3 +308,11 @@
 .wc-stage.locked .wc-node{opacity:.5;cursor:not-allowed}
 .wc-node.locked .wc-dot{font-size:13px}
 .wc-lockline{margin:6px 0 0;font:600 13.5px/1.4 var(--sans);color:var(--wc-pencil)}
+
+/* Instructor access */
+.wc-inst{margin:26px 0 8px;font:400 14px var(--sans);color:var(--ink-2)}
+.wc-inst summary{cursor:pointer;display:inline-block;padding:6px 2px;color:var(--mute)}
+.wc-inst form{display:grid;gap:10px;max-width:340px;margin-top:8px}
+.wc-inst input{width:100%;box-sizing:border-box;padding:11px;border:1.5px solid var(--rule);border-radius:10px;background:var(--tint);color:var(--ink);font:16px var(--sans)}
+.wc-instbar{margin:14px 0;padding:10px 14px;border:1.5px solid var(--wc-pencil);border-radius:12px;background:var(--surface);font:400 14.5px var(--sans);color:var(--ink)}
+.wc-instbar button{margin-left:6px;border:0;background:none;color:var(--wc-pencil);text-decoration:underline;font:inherit;cursor:pointer}

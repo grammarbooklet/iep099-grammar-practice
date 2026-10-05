@@ -114,15 +114,43 @@
     write(r);
   }
 
+  // Instructor view: every stage open. The passphrase is never stored on the site, only a slow salted check value
+  // (instructor.json). A tab that has unlocked keeps the derived key in sessionStorage and re-checks it on each page.
+  var IKEY = "iep099-inst";
+  function hexOf(buf) { return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ("0" + b.toString(16)).slice(-2); }).join(""); }
+  function bytesOf(hex) { var u = new Uint8Array(hex.length / 2); for (var i = 0; i < u.length; i++) u[i] = parseInt(hex.substr(i * 2, 2), 16); return u; }
+  function instructorCheck(d) {
+    var cfg = d.instructorCfg, k = null;
+    try { k = sessionStorage.getItem(IKEY); } catch (e) {}
+    if (!cfg || !k || !/^[0-9a-f]{64}$/.test(k) || !window.crypto || !crypto.subtle) return Promise.resolve(false);
+    return crypto.subtle.digest("SHA-256", bytesOf(k)).then(function (h) { return hexOf(h) === cfg.v; }, function () { return false; });
+  }
+  function instructorUnlock(phrase) {
+    return index().then(function (d) {
+      var cfg = d.instructorCfg; if (!cfg || !phrase) return false;
+      return crypto.subtle.importKey("raw", new TextEncoder().encode(phrase), "PBKDF2", false, ["deriveBits"]).then(function (base) {
+        return crypto.subtle.deriveBits({ name: "PBKDF2", salt: bytesOf(cfg.salt), iterations: cfg.iter, hash: "SHA-256" }, base, 256);
+      }).then(function (K) {
+        return crypto.subtle.digest("SHA-256", K).then(function (h) {
+          if (hexOf(h) !== cfg.v) return false;
+          try { sessionStorage.setItem(IKEY, hexOf(K)); } catch (e) { return false; }
+          return true;
+        });
+      });
+    }).catch(function () { return false; });
+  }
+  function instructorLock() { try { sessionStorage.removeItem(IKEY); } catch (e) {} }
+
   var indexPromise = null;
   function index() {
     if (!indexPromise) indexPromise = Promise.all([
       fetch("writing-content/index.json").then(function (x) { return x.json(); }),
-      fetch("writing-content/schedule.json").then(function (x) { return x.json(); }).catch(function () { return {}; })
+      fetch("writing-content/schedule.json").then(function (x) { return x.json(); }).catch(function () { return {}; }),
+      fetch("instructor.json", { cache: "no-store" }).then(function (x) { return x.json(); }).catch(function () { return null; })
     ]).then(function (a) {
-      var d = a[0]; d.schedule = a[1] || {};
+      var d = a[0]; d.schedule = a[1] || {}; d.instructorCfg = a[2]; d.instructor = false;
       window.__WC_IDX = d;
-      return d;
+      return instructorCheck(d).then(function (ok) { d.instructor = ok; return d; });
     });
     return indexPromise;
   }
@@ -133,6 +161,7 @@
     return ready.length > 0 && ready.every(function (l) { return done(r, l.id); });
   }
   function stageState(idx, stage, r) {
+    if (idx.instructor) return { open: true, opens: null, label: "", week: null, prev: null, instructor: true };
     var sch = idx.schedule || {}, wk = sch.weeks && sch.weeks[stage.n], opens = (sch.start && wk) ? addDays(sch.start, (wk - 1) * 7) : null;
     var i = idx.stages.indexOf(stage), prev = i > 0 ? idx.stages[i - 1] : null;
     var byDate = opens ? today() >= opens : true, byPrev = !!prev && stageDone(prev, r);
@@ -283,7 +312,7 @@
 
   window.WC = {
     LEVELS: LEVELS, XP: XP, BADGES: BADGES, STEPS: STEPS, read: read, write: write, level: level, starsFor: starsFor,
-    complete: complete, markSkipped: markSkipped, index: index, nextLesson: nextLesson, stageProgress: stageProgress, stageState: stageState,
+    complete: complete, markSkipped: markSkipped, index: index, nextLesson: nextLesson, stageProgress: stageProgress, stageState: stageState, instructorUnlock: instructorUnlock, instructorLock: instructorLock,
     setProgress: setProgress, skillResult: skillResult, dueSkills: dueSkills, today: today, addDays: addDays, daysBetween: daysBetween,
     savePiece: savePiece, toggleFav: toggleFav, exportCode: exportCode, importCode: importCode
   };

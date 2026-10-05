@@ -21,7 +21,26 @@
       (full ? '<path class="tick" d="M11.5 18.5l4.5 4.5 8.5-9.5"/>' : "") + "</svg>" + (full ? "" : "<b>" + done + "</b>") + "</span>";
   }
 
+  // Instructor access: a quiet link under the path. Unlocking opens every stage for this browser tab only.
+  function instructorBox(idx) {
+    var host = $("wcInst"); if (!host || !idx.instructorCfg) return;
+    if (idx.instructor) {
+      host.innerHTML = '<div class="wc-instbar"><b>Instructor view</b> · every stage is open in this tab. <button type="button" id="instOff">Exit</button></div>';
+      $("instOff").addEventListener("click", function () { WC.instructorLock(); location.reload(); });
+      return;
+    }
+    host.innerHTML = '<details class="wc-inst"><summary>Instructor access</summary><form id="instForm"><label>Passphrase<input type="password" id="instPass" autocomplete="off"></label><button type="submit" class="wc-btn">Open all stages</button><p class="wc-note" id="instMsg" aria-live="polite"></p></form></details>';
+    $("instForm").addEventListener("submit", function (e) {
+      e.preventDefault(); var msg = $("instMsg"), v = $("instPass").value; if (!v) return; msg.textContent = "Checking…";
+      WC.instructorUnlock(v).then(function (ok) {
+        if (ok) location.reload();
+        else setTimeout(function () { msg.textContent = "That passphrase isn’t right."; }, 1200);
+      });
+    });
+  }
+
   WC.index().then(function (idx) {
+    instructorBox(idx);
     var r = WC.read(), lv = WC.level(r.xp, r), nx = WC.nextLesson(idx, r);
 
     $("wcMe").innerHTML = '<div class="wc-lv"><b>Level ' + lv.n + "</b> · " + esc(lv.name) + '</div>' +
